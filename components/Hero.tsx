@@ -181,17 +181,19 @@ export default function Hero() {
   return (
     <section className="w-full bg-ivory">
       {/* ===== hero visual ===== */}
-      <div className="relative overflow-hidden">
+      <div className="relative min-h-[470px] overflow-hidden">
         {/* portrait (right, bleeds to edge) */}
         <div
-          className="absolute right-0 top-0 h-[400px] w-[50%] bg-cover bg-top"
+          className="absolute right-0 top-0 h-[435px] w-[53%] bg-cover bg-top"
           style={{
             backgroundImage: portraitExists ? `url(${PORTRAIT})` : undefined,
-            backgroundColor: "#ece4d2",
+            backgroundColor: portraitExists ? undefined : "#ece4d2",
             maskImage:
-              "linear-gradient(to left, #000 88%, transparent 100%)",
+              "linear-gradient(to left, #000 82%, transparent 100%), linear-gradient(to bottom, #000 82%, transparent 100%)",
             WebkitMaskImage:
-              "linear-gradient(to left, #000 88%, transparent 100%)",
+              "linear-gradient(to left, #000 82%, transparent 100%), linear-gradient(to bottom, #000 82%, transparent 100%)",
+            maskComposite: "intersect",
+            WebkitMaskComposite: "source-in",
           }}
           role="img"
           aria-label="セレンシア代表 太田"
@@ -208,7 +210,7 @@ export default function Hero() {
         </div>
 
         {/* name plate */}
-        <div className="absolute right-0 top-[318px] z-10 rounded-l-md bg-forest-900 px-6 py-2 text-center text-white shadow-md">
+        <div className="absolute right-0 top-[352px] z-10 rounded-l-md bg-forest-900 px-6 py-2 text-center text-white shadow-md">
           <p className="text-[10.5px] font-medium leading-none">セレンシア代表</p>
           <p className="mt-1.5 font-display text-[19px] font-bold leading-none tracking-[0.2em]">
             太田
