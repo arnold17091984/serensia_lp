@@ -1,4 +1,6 @@
+import SiteHeader from "@/components/SiteHeader";
 import Hero from "@/components/Hero";
+import Onayami from "@/components/Onayami";
 import Kaiketsu from "@/components/Kaiketsu";
 import Ooya from "@/components/Ooya";
 import Support from "@/components/Support";
@@ -21,7 +23,9 @@ export default function Home() {
   return (
     <>
       <main className="relative mx-auto w-full max-w-[520px] bg-white shadow-xl">
+        <SiteHeader />
         <Hero />
+        <Onayami />
         <Kaiketsu />
         {/* CV最適化: 専門家パネルの提言に基づき「価格・証拠」を前段へ配置
             （悩み→解決→料金事例→CTA→信頼形成→FAQ→流れ→最終CTA） */}
