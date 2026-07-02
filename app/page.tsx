@@ -1,6 +1,5 @@
 import SiteHeader from "@/components/SiteHeader";
 import Hero from "@/components/Hero";
-import Kuchikomi from "@/components/Kuchikomi";
 import Onayami from "@/components/Onayami";
 import Kaiketsu from "@/components/Kaiketsu";
 import Ooya from "@/components/Ooya";
@@ -26,7 +25,8 @@ export default function Home() {
       <main className="relative mx-auto w-full max-w-[520px] bg-white shadow-xl">
         <SiteHeader />
         <Hero />
-        <Kuchikomi />
+        {/* Kuchikomi(Google高評価)は新FVデザインのバー内に統合されたため非表示。
+            旧セクションが必要になれば <Kuchikomi /> を戻す */}
         <Onayami />
         <Kaiketsu />
         <Ooya />

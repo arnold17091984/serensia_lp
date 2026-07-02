@@ -1,48 +1,34 @@
-type Segment = {
-  text: string;
-  em?: boolean;
-};
+import fs from "node:fs";
+import path from "node:path";
 
-const CONCERNS: Segment[][] = [
-  [
-    { text: "単身の父が孤独死…。発見直後で気が動転して" },
-    { text: "何からすればいいか分からない。", em: true },
-  ],
-  [{ text: "腐敗臭や体液汚染", em: true }, { text: "で困っている。" }],
-  [{ text: "近隣に" }, { text: "知られたくない。", em: true }],
-  [{ text: "特殊清掃と遺品整理を" }, { text: "まとめて頼みたい。", em: true }],
-  [
-    { text: "ゴミ屋敷・孤独死で虫が湧いていて、" },
-    { text: "自分では中に入れない状態。", em: true },
-  ],
-  [
-    { text: "ゴミ屋敷を片付ける決心がついたが、恥ずかしくて" },
-    { text: "誰にも相談できない。", em: true },
-  ],
+/**
+ * お悩みセクション — pixel reproduction of the provided mockup.
+ * Ivory ground, gold flourish heading, green check circles, and a calm
+ * living-room photo blended into the bottom-right corner.
+ *
+ * Photo asset expected at public/img/onayami_room.jpg (provided by client).
+ */
+
+const ROOM = "/img/onayami_room.jpg";
+
+const CONCERNS = [
+  "孤独死や事故で、部屋の臭いや汚れがひどく、どうすればいいか分からない",
+  "大家・管理会社から、原状回復を急いでほしいと言われている",
+  "遠方に住んでいて、立ち会いや片付けができない",
+  "費用が心配。追加料金が発生しないか不安",
+  "近隣に知られたくない。静かに対応してほしい",
+  "どこに相談すればよいか分からず、困っている",
 ];
 
-function CheckIcon() {
+function CheckCircle() {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      className="mt-1 h-5 w-5 shrink-0 -rotate-3"
-      aria-hidden="true"
-    >
-      <rect
-        x="2"
-        y="4"
-        width="17"
-        height="17"
-        rx="2"
-        fill="none"
-        stroke="#d8e455"
-        strokeWidth="2.5"
-      />
+    <svg viewBox="0 0 24 24" className="mt-[1px] h-5 w-5 shrink-0" aria-hidden="true">
+      <circle cx="12" cy="12" r="11" fill="#1d5138" />
       <path
-        d="M6 12 L11 17 L22 3"
+        d="m7.4 12.2 3 3 6-6.4"
         fill="none"
-        stroke="#d8e455"
-        strokeWidth="3"
+        stroke="#fff"
+        strokeWidth="2.3"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -50,81 +36,76 @@ function CheckIcon() {
   );
 }
 
-export default function Onayami() {
+function GoldFlourish({ flip = false }: Readonly<{ flip?: boolean }>) {
   return (
-    <section
-      className="w-full px-4 pb-14 pt-10"
-      style={{
-        background:
-          "radial-gradient(circle at 15% 20%, rgba(122,146,128,0.55) 0%, transparent 45%), radial-gradient(circle at 85% 10%, rgba(70,70,68,0.6) 0%, transparent 35%), radial-gradient(circle at 80% 70%, rgba(126,150,132,0.4) 0%, transparent 45%), linear-gradient(165deg, #5c7365 0%, #47604f 45%, #33493d 100%)",
-      }}
+    <svg
+      viewBox="0 0 56 12"
+      className={`h-3 w-14 shrink-0 ${flip ? "rotate-180" : ""}`}
+      aria-hidden="true"
     >
-      {/* green band */}
-      <p className="mx-auto max-w-[440px] bg-brand-700 px-4 py-3 text-center text-[19px] font-bold leading-snug text-white">
-        ご自身やご家族のため
-        <br />
-        近隣の方や入居者様のために
-      </p>
+      <path d="M0 6h40" stroke="#c09a4a" strokeWidth="1.2" />
+      <path d="M46 1.5 50.5 6 46 10.5 41.5 6z" fill="none" stroke="#c09a4a" strokeWidth="1.2" />
+      <circle cx="54" cy="6" r="1.4" fill="#c09a4a" />
+    </svg>
+  );
+}
 
-      {/* headline */}
-      <div className="mt-7 px-1 font-serif text-white">
-        <p className="text-[30px] font-bold leading-tight">
-          個人・法人の皆様は
-        </p>
-        <p className="mt-1 flex items-end justify-center gap-1">
-          <span className="pb-2 text-[24px] font-bold">このように</span>
-          <span className="relative -rotate-2 text-[46px] font-bold italic leading-none text-[#f2ea4d]">
-            お悩み
-            {/* underline swoosh */}
-            <svg
-              className="absolute -bottom-2 left-[-25%] w-[150%]"
-              viewBox="0 0 200 14"
-              aria-hidden="true"
-            >
-              <path
-                d="M6 12 C 60 2, 150 0, 196 6"
-                fill="none"
-                stroke="#9aa89e"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-            </svg>
-          </span>
-        </p>
-        <p className="mt-4 text-right text-[26px] font-bold">
-          ではありませんか？
-        </p>
+export default function Onayami() {
+  const roomExists = fs.existsSync(
+    path.join(process.cwd(), "public", "img", "onayami_room.jpg"),
+  );
+
+  return (
+    <section className="relative w-full overflow-hidden bg-ivory pb-10 pt-9">
+      {/* heading with gold flourishes */}
+      <h2 className="flex items-center justify-center gap-2 px-2">
+        <GoldFlourish />
+        <span className="whitespace-nowrap font-display text-[19px] font-bold tracking-[0.02em] text-forest-950">
+          このようなお悩みはありませんか？
+        </span>
+        <GoldFlourish flip />
+      </h2>
+
+      {/* living-room photo blended into bottom-right */}
+      <div
+        className="absolute -right-4 bottom-0 h-[240px] w-[58%] bg-cover bg-center"
+        style={{
+          backgroundImage: roomExists ? `url(${ROOM})` : undefined,
+          maskImage:
+            "linear-gradient(to left, #000 55%, transparent 96%), linear-gradient(to bottom, transparent 0%, #000 40%)",
+          WebkitMaskImage:
+            "linear-gradient(to left, #000 55%, transparent 96%), linear-gradient(to bottom, transparent 0%, #000 40%)",
+          maskComposite: "intersect",
+          WebkitMaskComposite: "source-in",
+        }}
+        aria-hidden="true"
+      >
+        {!roomExists && (
+          <p className="pl-24 pt-40 text-right text-[9px] leading-relaxed text-[#8b8270] opacity-70">
+            部屋写真: public/img/onayami_room.jpg
+            <br />
+            を配置してください
+          </p>
+        )}
       </div>
 
-      {/* dark box with checklist, bottom arrow shape */}
-      <div className="mt-8">
-        <ul className="space-y-5 rounded-t-md bg-[#4b4b49]/95 px-5 pb-4 pt-8">
-          {CONCERNS.map((segments) => (
-            <li
-              key={segments.map((s) => s.text).join("")}
-              className="flex items-start gap-3"
+      {/* checklist */}
+      <ul className="relative z-10 mt-6 flex flex-col gap-[15px] px-4">
+        {CONCERNS.map((text) => (
+          <li key={text} className="flex items-start gap-2.5">
+            <CheckCircle />
+            <p
+              className="text-[12.5px] font-bold leading-[1.75] text-ink"
+              style={{
+                textShadow:
+                  "0 0 6px #f6f1e6, 0 0 4px #f6f1e6, 0 0 2px #f6f1e6",
+              }}
             >
-              <CheckIcon />
-              <p className="font-serif text-[16px] font-medium leading-relaxed text-white">
-                {segments.map((seg) =>
-                  seg.em ? (
-                    <span key={seg.text} className="text-[#f2ea4d]">
-                      {seg.text}
-                    </span>
-                  ) : (
-                    <span key={seg.text}>{seg.text}</span>
-                  ),
-                )}
-              </p>
-            </li>
-          ))}
-        </ul>
-        {/* downward arrow bottom edge */}
-        <div
-          className="h-12 bg-[#4b4b49]/95"
-          style={{ clipPath: "polygon(0 0, 100% 0, 50% 100%)" }}
-        />
-      </div>
+              {text}
+            </p>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }

@@ -1,329 +1,389 @@
-// TODO: メールフォームURLが決まったら設定（空の間はメールCTAを非表示）
-const MAIL_FORM_URL: string = "";
+import fs from "node:fs";
+import path from "node:path";
 
-const OUTLINE_GREEN =
-  "2px 2px 0 #145c45, -2px 2px 0 #145c45, 2px -2px 0 #145c45, -2px -2px 0 #145c45, 2px 0 0 #145c45, -2px 0 0 #145c45, 0 2px 0 #145c45, 0 -2px 0 #145c45";
+/**
+ * Hero — pixel reproduction of the provided mockup.
+ * Ivory ground / dark-green serif headline with dotted rules / large portrait
+ * with name plate / benefit bar / Google + track-record bar / phone & LINE
+ * CTAs / 4-feature bar.
+ *
+ * Photo assets expected at public/img/hero_portrait.jpg (provided by client).
+ * Until the file exists, a placeholder with instructions is rendered.
+ */
 
-const BADGES = ["孤独死", "腐敗臭", "体液汚染"];
+const PORTRAIT = "/img/hero_portrait.jpg";
 
-const CIRCLES: { top: string[]; bottom: string }[] = [
-  { top: ["建材撤去から", "原状回復まで"], bottom: "一貫対応" },
-  { top: ["重度現場も"], bottom: "実績多数" },
-  { top: ["大家様", "管理会社様へ"], bottom: "賃貸対応" },
+function hasPublicFile(rel: string): boolean {
+  try {
+    return fs.existsSync(path.join(process.cwd(), "public", rel));
+  } catch {
+    return false;
+  }
+}
+
+/* ---------- thin-line icons (gold/green, stroke-based) ---------- */
+
+function IconHandsYen() {
+  return (
+    <svg viewBox="0 0 32 32" className="h-7 w-7 shrink-0" aria-hidden="true">
+      <circle cx="16" cy="11" r="6.2" fill="none" stroke="#c09a4a" strokeWidth="1.5" />
+      <path
+        d="M13.4 8.2 16 11.8m0 0 2.6-3.6M16 11.8v3.4m-2.2-2h4.4m-4.4 1.9h4.4"
+        fill="none"
+        stroke="#c09a4a"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+      />
+      <path
+        d="M4.5 24.5c3.6-3 7.4-3.6 11-1.8M4.5 24.5c2.6 2.8 7.6 3.8 11.6 2.2 3.6-1.4 7-2 11.4-1.6"
+        fill="none"
+        stroke="#1d5138"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function IconCalc({ color = "#1d5138" }: Readonly<{ color?: string }>) {
+  return (
+    <svg viewBox="0 0 32 32" className="h-7 w-7 shrink-0" aria-hidden="true">
+      <rect x="8" y="4.5" width="16" height="23" rx="2.4" fill="none" stroke={color} strokeWidth="1.5" />
+      <rect x="11.2" y="8" width="9.6" height="4.4" rx="1" fill="none" stroke={color} strokeWidth="1.3" />
+      <g fill={color}>
+        <circle cx="12.4" cy="16.6" r="1.15" />
+        <circle cx="16" cy="16.6" r="1.15" />
+        <circle cx="19.6" cy="16.6" r="1.15" />
+        <circle cx="12.4" cy="20.6" r="1.15" />
+        <circle cx="16" cy="20.6" r="1.15" />
+        <circle cx="19.6" cy="20.6" r="1.15" />
+        <circle cx="12.4" cy="24.4" r="1.15" />
+        <circle cx="16" cy="24.4" r="1.15" />
+        <circle cx="19.6" cy="24.4" r="1.15" />
+      </g>
+    </svg>
+  );
+}
+
+function IconPeople() {
+  return (
+    <svg viewBox="0 0 32 32" className="h-7 w-7 shrink-0" aria-hidden="true">
+      <circle cx="11.5" cy="11" r="3.6" fill="none" stroke="#1d5138" strokeWidth="1.5" />
+      <path d="M4.8 25c.7-4.4 3.4-6.8 6.7-6.8s6 2.4 6.7 6.8" fill="none" stroke="#1d5138" strokeWidth="1.5" strokeLinecap="round" />
+      <circle cx="21.5" cy="11.6" r="3" fill="none" stroke="#c09a4a" strokeWidth="1.4" />
+      <path d="M19.4 17.6c3.4-.5 6.7 1.6 7.6 6" fill="none" stroke="#c09a4a" strokeWidth="1.4" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function IconLock() {
+  return (
+    <svg viewBox="0 0 32 32" className="h-7 w-7 shrink-0" aria-hidden="true">
+      <rect x="8.5" y="13.5" width="15" height="12.5" rx="2.2" fill="none" stroke="#1d5138" strokeWidth="1.5" />
+      <path d="M11.5 13.5V10a4.5 4.5 0 0 1 9 0v3.5" fill="none" stroke="#c09a4a" strokeWidth="1.5" strokeLinecap="round" />
+      <circle cx="16" cy="19" r="1.6" fill="#1d5138" />
+      <path d="M16 20.4v2.6" stroke="#1d5138" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function IconDocCheck() {
+  return (
+    <svg viewBox="0 0 32 32" className="h-6 w-6 shrink-0" aria-hidden="true">
+      <path d="M9 4.5h10.5L24 9v18.5H9z" fill="none" stroke="#1d5138" strokeWidth="1.5" strokeLinejoin="round" />
+      <path d="M12 12h6m-6 4h8" stroke="#1d5138" strokeWidth="1.3" strokeLinecap="round" />
+      <circle cx="21.5" cy="22.5" r="4.6" fill="none" stroke="#c09a4a" strokeWidth="1.4" />
+      <path d="m19.6 22.6 1.4 1.4 2.4-2.8" fill="none" stroke="#c09a4a" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function IconHeartHand() {
+  return (
+    <svg viewBox="0 0 32 32" className="h-6 w-6 shrink-0" aria-hidden="true">
+      <path
+        d="M16 10.5c-1.8-2.4-5.4-2-6.3.5-.7 2 1 4.2 6.3 7.8 5.3-3.6 7-5.8 6.3-7.8-.9-2.5-4.5-2.9-6.3-.5z"
+        fill="none"
+        stroke="#1d5138"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+      <path d="M6 25.5c3.4-2.6 6.8-3.2 10-1.6m-10 1.6c2.4 2.4 7 3.2 10.6 1.8 3.2-1.2 6.2-1.8 9.4-1.4" fill="none" stroke="#c09a4a" strokeWidth="1.4" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function IconHouse() {
+  return (
+    <svg viewBox="0 0 32 32" className="h-6 w-6 shrink-0" aria-hidden="true">
+      <path d="m5.5 15.5 10.5-9 10.5 9" fill="none" stroke="#c09a4a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M8.5 14v12h15V14" fill="none" stroke="#1d5138" strokeWidth="1.5" strokeLinejoin="round" />
+      <path d="M13.5 26v-6.5h5V26" fill="none" stroke="#1d5138" strokeWidth="1.4" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function IconLaurel() {
+  return (
+    <svg viewBox="0 0 40 40" className="h-10 w-10 shrink-0" aria-hidden="true">
+      <g fill="none" stroke="#c09a4a" strokeWidth="1.3" strokeLinecap="round">
+        <path d="M13 33c-4.5-2.4-7-7-6.4-12" />
+        <path d="M27 33c4.5-2.4 7-7 6.4-12" />
+        {/* left leaves */}
+        <path d="M7.2 24.5c1.8-.3 3.3.4 4 1.9-1.8.4-3.3-.3-4-1.9zM7.8 19.5c1.7.2 2.9 1.3 3.2 2.9-1.7-.1-3-1.2-3.2-2.9zM9.6 14.8c1.5.6 2.4 1.9 2.3 3.5-1.6-.5-2.5-1.8-2.3-3.5zM12.6 10.9c1.2 1 1.7 2.5 1.2 4-1.4-.9-1.9-2.4-1.2-4z" />
+        {/* right leaves */}
+        <path d="M32.8 24.5c-1.8-.3-3.3.4-4 1.9 1.8.4 3.3-.3 4-1.9zM32.2 19.5c-1.7.2-2.9 1.3-3.2 2.9 1.7-.1 3-1.2 3.2-2.9zM30.4 14.8c-1.5.6-2.4 1.9-2.3 3.5 1.6-.5 2.5-1.8 2.3-3.5zM27.4 10.9c-1.2 1-1.7 2.5-1.2 4 1.4-.9 1.9-2.4 1.2-4z" />
+      </g>
+    </svg>
+  );
+}
+
+function IconGoogleG() {
+  return (
+    <svg viewBox="0 0 48 48" className="h-9 w-9 shrink-0" aria-hidden="true">
+      <path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.9 6.6-9.6 6.6-16.2z" />
+      <path fill="#34A853" d="M24 46c6 0 11-2 14.6-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.5 2.1-5.8 0-10.7-3.9-12.4-9.2H4.2v5.7C7.9 41.1 15.4 46 24 46z" />
+      <path fill="#FBBC05" d="M11.6 28.1c-.4-1.3-.7-2.7-.7-4.1s.3-2.8.7-4.1v-5.7H4.2C2.8 17 2 20.4 2 24s.8 7 2.2 9.8l7.4-5.7z" />
+      <path fill="#EA4335" d="M24 10.8c3.3 0 6.2 1.1 8.5 3.3l6.3-6.3C35 4.2 30 2 24 2 15.4 2 7.9 6.9 4.2 14.2l7.4 5.7c1.7-5.3 6.6-9.1 12.4-9.1z" />
+    </svg>
+  );
+}
+
+function ChevronCircle({ color }: Readonly<{ color: string }>) {
+  return (
+    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white">
+      <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
+        <path d="m9 5.5 7 6.5-7 6.5" fill="none" stroke={color} strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </span>
+  );
+}
+
+/* ---------- bars ---------- */
+
+const BENEFITS = [
+  { icon: <IconHandsYen />, top: "相談・見積り", bottom: "無料" },
+  { icon: <IconCalc color="#1d5138" />, top: "追加料金", bottom: "なし" },
+  { icon: <IconPeople />, top: "立ち会い", bottom: "不要" },
+  { icon: <IconLock />, top: "近隣配慮・", bottom: "秘密厳守" },
+];
+
+const FEATURES = [
+  { icon: <IconDocCheck />, title: "完全無料", sub: "相談・見積り無料" },
+  { icon: <IconCalc color="#1d5138" />, title: "明朗会計", sub: "追加料金なし" },
+  { icon: <IconHeartHand />, title: "丁寧な対応", sub: "心に寄り添う対応" },
+  { icon: <IconHouse />, title: "近隣へ配慮", sub: "静かに・丁寧に対応" },
 ];
 
 export default function Hero() {
+  const portraitExists = hasPublicFile("img/hero_portrait.jpg");
+
   return (
-    <section className="w-full">
-      {/* (1) Green leaf background + representative photo */}
-      <div className="relative overflow-hidden bg-gradient-to-br from-[#d9edc2] via-[#a9d48a] to-[#65a94a]">
+    <section className="w-full bg-ivory">
+      {/* ===== hero visual ===== */}
+      <div className="relative overflow-hidden">
+        {/* portrait (right, bleeds to edge) */}
         <div
-          aria-hidden="true"
-          className="absolute inset-0"
+          className="absolute right-0 top-0 h-[400px] w-[50%] bg-cover bg-top"
           style={{
-            background:
-              "radial-gradient(circle at 18% 12%, rgba(255,255,255,.8), transparent 42%), radial-gradient(circle at 72% 70%, rgba(20,92,69,.35), transparent 48%), radial-gradient(circle at 35% 90%, rgba(14,77,58,.3), transparent 42%)",
-          }}
-        />
-        {/* decorative leaves */}
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-          className="absolute -left-4 top-10 h-28 w-28 rotate-[30deg] opacity-25"
-          fill="#145c45"
-        >
-          <path d="M12 2C6.5 6.5 3.5 12 5 17.5c5.5 1.5 11-1.5 13.5-7C20 7.5 18 3.5 12 2z" />
-        </svg>
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-          className="absolute bottom-6 left-1/3 h-20 w-20 -rotate-45 opacity-20"
-          fill="#0e4d3a"
-        >
-          <path d="M12 2C6.5 6.5 3.5 12 5 17.5c5.5 1.5 11-1.5 13.5-7C20 7.5 18 3.5 12 2z" />
-        </svg>
-
-        {/* 代表写真: マスクを弱め・拡大し、下のテキスト開始位置を顔の下まで下げて
-            元LPと同じ「顔がはっきり見える」構図にする */}
-        <img
-          src="/img/hero_daihyo.jpg"
-          alt="特殊清掃・遺品整理 セレンシア 代表 太田"
-          width={260}
-          height={265}
-          loading="eager"
-          fetchPriority="high"
-          className="absolute right-0 top-2 h-auto w-[58%]"
-          style={{
+            backgroundImage: portraitExists ? `url(${PORTRAIT})` : undefined,
+            backgroundColor: "#ece4d2",
             maskImage:
-              "linear-gradient(to right, transparent 0, #000 9%), linear-gradient(to top, transparent 0, #000 12%)",
+              "linear-gradient(to left, #000 88%, transparent 100%)",
             WebkitMaskImage:
-              "linear-gradient(to right, transparent 0, #000 9%), linear-gradient(to top, transparent 0, #000 12%)",
-            maskComposite: "intersect",
-            WebkitMaskComposite: "source-in",
+              "linear-gradient(to left, #000 88%, transparent 100%)",
           }}
-        />
+          role="img"
+          aria-label="セレンシア代表 太田"
+        >
+          {!portraitExists && (
+            <p className="px-3 pt-28 text-center text-[9px] leading-relaxed text-[#8b8270] opacity-80">
+              代表写真
+              <br />
+              public/img/hero_portrait.jpg
+              <br />
+              を配置してください
+            </p>
+          )}
+        </div>
 
-        <div className="relative z-10 px-4 pb-6 pt-5">
-          {/* (2) White rounded badges */}
-          <div className="flex items-start gap-2">
-            {BADGES.map((label) => (
-              <div key={label} className="flex flex-col">
-                <span className="rounded-lg bg-white px-2.5 py-1 font-serif text-[clamp(17px,5.4vw,26px)] font-bold leading-tight text-brand-950 shadow-md">
-                  {label}
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="mt-1 h-1 w-full -rotate-1 rounded-full bg-accent"
-                />
-              </div>
-            ))}
-          </div>
+        {/* name plate */}
+        <div className="absolute right-0 top-[318px] z-10 rounded-l-md bg-forest-900 px-6 py-2 text-center text-white shadow-md">
+          <p className="text-[10.5px] font-medium leading-none">セレンシア代表</p>
+          <p className="mt-1.5 font-display text-[19px] font-bold leading-none tracking-[0.2em]">
+            太田
+          </p>
+        </div>
 
-          {/* (3) Area / same-day line — 顔にかからない位置まで下げる */}
-          <p
-            className="mt-32 whitespace-nowrap font-serif text-[clamp(20px,6.3vw,31px)] font-black tracking-tight text-white"
-            style={{ textShadow: OUTLINE_GREEN }}
-          >
-            東京・神奈川本日対応可能！
+        {/* left copy */}
+        <div className="relative z-[5] px-4 pb-5 pt-5">
+          {/* location pill */}
+          <p className="inline-flex items-center gap-1.5 rounded-full bg-forest-900 py-[7px] pl-3 pr-4 text-[12px] font-bold leading-none text-white">
+            <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="currentColor" aria-hidden="true">
+              <path d="M12 2a7.4 7.4 0 0 0-7.4 7.4c0 5.5 7.4 12.6 7.4 12.6s7.4-7.1 7.4-12.6A7.4 7.4 0 0 0 12 2zm0 10a2.6 2.6 0 1 1 0-5.2 2.6 2.6 0 0 1 0 5.2z" />
+            </svg>
+            東京・神奈川を中心に対応
           </p>
 
-          {/* (4) Giant title */}
-          <h1
-            className="mt-1 whitespace-nowrap bg-gradient-to-b from-[#6fd39a] via-brand-500 to-brand-800 bg-clip-text font-serif text-[clamp(62px,20.4vw,104px)] font-black leading-[1.08] tracking-[0.01em] text-transparent"
+          {/* headline */}
+          <h1 className="mt-5 font-display font-bold leading-[1.55] text-forest-950">
+            <span className="inline border-b-[3px] border-dotted border-forest-700/50 pb-1 text-[25px] tracking-[0.02em]">
+              孤独死・事故現場の
+            </span>
+            <br />
+            <span className="inline border-b-[3px] border-dotted border-forest-700/50 pb-1 text-[25px] tracking-[0.02em]">
+              臭い・体液汚染を
+            </span>
+            <span className="mt-3 block text-[48px] font-extrabold leading-[1.28] tracking-[0.03em]">
+              最短即日で
+              <br />
+              現地確認
+            </span>
+          </h1>
+
+          {/* body */}
+          <p
+            className="mt-4 max-w-[62%] text-[12.5px] font-medium leading-[2] text-ink"
             style={{
-              filter:
-                "drop-shadow(0 0 2px #fff) drop-shadow(0 0 1px #fff) drop-shadow(0 4px 6px rgba(10,63,47,.4))",
+              textShadow:
+                "0 0 6px #f6f1e6, 0 0 4px #f6f1e6, 0 0 2px #f6f1e6",
             }}
           >
-            特殊清掃
-          </h1>
-          <p
-            className="-mt-1 pr-2 text-right font-serif text-[clamp(16px,5vw,24px)] font-bold text-white"
-            style={{ textShadow: "0 1px 5px rgba(0,0,0,.6)" }}
-          >
-            代表　太田
+            原状回復から臭気除去まで一貫対応。
+            <br />
+            <span className="whitespace-nowrap">
+              ご遺族・大家様・管理会社様を丁寧にサポートします。
+            </span>
           </p>
         </div>
       </div>
 
-      {/* (5)(6) Gold band: catch copy + three circle badges */}
-      <div className="relative overflow-hidden bg-gradient-to-b from-[#fdf2cd] via-[#f8cd68] to-[#efa038] px-3 pb-5 pt-4 text-center">
-        <span
-          aria-hidden="true"
-          className="absolute right-4 top-3 text-2xl text-white"
-        >
-          ✦
-        </span>
-        <span
-          aria-hidden="true"
-          className="absolute right-10 top-12 text-base text-white/80"
-        >
-          ✦
-        </span>
-        <p className="font-serif text-[clamp(25px,7.6vw,39px)] font-black leading-tight text-accent">
-          臭いの原因から徹底除去
-        </p>
-        <p className="mt-1 font-serif text-[clamp(15px,4.8vw,25px)] font-bold leading-snug text-ink">
-          個人・法人問わず最短即日で現地確認
-        </p>
-
-        <div className="mt-4 flex items-stretch justify-center gap-2">
-          {CIRCLES.map((circle) => (
-            <div
-              key={circle.bottom}
-              className="flex aspect-square w-[31.5%] flex-col items-center justify-center rounded-full border-[3px] border-gold-500 bg-white text-center shadow-[inset_0_0_0_2px_#f4ead3,0_3px_6px_rgba(138,100,35,.35)]"
-            >
-              <p className="font-serif text-[clamp(10px,3.1vw,16px)] font-bold leading-[1.35] text-ink">
-                {circle.top.map((line) => (
-                  <span key={line} className="block">
-                    {line}
-                  </span>
-                ))}
-              </p>
-              <p className="font-serif text-[clamp(15px,4.7vw,24px)] font-black leading-tight text-accent">
-                {circle.bottom}
+      {/* ===== benefit bar ===== */}
+      <div className="mx-3 mt-2 flex items-stretch rounded-xl bg-white px-1 py-3 shadow-[0_1px_6px_rgba(0,0,0,0.05)]">
+        {BENEFITS.map((b, i) => (
+          <div
+            key={b.bottom}
+            className={`flex flex-1 items-center justify-center gap-1 ${
+              i > 0 ? "border-l border-gold-400/60" : ""
+            }`}
+          >
+            {b.icon}
+            <div className="leading-tight">
+              <p className="text-[9px] font-bold text-ink">{b.top}</p>
+              <p className="text-[14px] font-bold tracking-wide text-ink">
+                {b.bottom}
               </p>
             </div>
-          ))}
-        </div>
-      </div>
-
-      {/* (7) Work site photos */}
-      <div className="flex w-full">
-        <img
-          src="/img/hero_photo1.jpg"
-          alt="清掃前の汚損したトイレと洗面台"
-          width={300}
-          height={160}
-          loading="lazy"
-          decoding="async"
-          className="h-[88px] w-[30%] object-cover"
-        />
-        <img
-          src="/img/hero_photo2.jpg"
-          alt="防護服を着用した作業員による特殊清掃の様子"
-          width={420}
-          height={160}
-          loading="lazy"
-          decoding="async"
-          className="h-[88px] w-[42%] object-cover"
-        />
-        <img
-          src="/img/hero_photo3.jpg"
-          alt="汚染が残る清掃前の床"
-          width={280}
-          height={160}
-          loading="lazy"
-          decoding="async"
-          className="h-[88px] w-[28%] object-cover"
-        />
-      </div>
-
-      {/* (8) Teal band */}
-      <div className="bg-teal-500 px-2 py-3 text-center">
-        <p className="whitespace-nowrap text-[clamp(15px,4.6vw,23px)] font-extrabold tracking-tight text-white">
-          相談と見積無料！料金をすぐにご提示します
-        </p>
-        <div className="mt-2 flex items-stretch justify-center gap-1.5">
-          <p className="bg-white px-2 py-1 text-[clamp(13px,4vw,20px)] font-extrabold leading-snug text-[#1b3e6e]">
-            近隣への配慮徹底・秘密厳守
-          </p>
-          <p className="bg-white px-2 py-1 text-[clamp(13px,4vw,20px)] font-extrabold leading-snug text-[#1b3e6e]">
-            徹底消臭
-          </p>
-        </div>
-      </div>
-
-      {/* (9) CTA block */}
-      <div className="bg-white px-3 py-4">
-        <div className="grid grid-cols-[10fr_19fr] gap-2">
-          {/* LINE / Mail buttons */}
-          <div className="flex flex-col gap-2">
-            <a
-              href="https://page.line.me/782qjphg"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-1 items-center gap-1.5 rounded-xl border-b-4 border-[#049a43] bg-gradient-to-b from-[#37d270] to-line px-2 py-2 shadow-md"
-            >
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white">
-                <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true">
-                  <path
-                    fill="#06c755"
-                    d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.2 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.8c-.1.3-.2 1 .9.6 1.1-.5 6-3.5 8.2-6C21.4 14 22 12.6 22 11c0-4.4-4.5-8-10-8z"
-                  />
-                  <text
-                    x="12"
-                    y="13.3"
-                    textAnchor="middle"
-                    fontSize="5"
-                    fontWeight="bold"
-                    fill="#fff"
-                    fontFamily="Arial, Helvetica, sans-serif"
-                  >
-                    LINE
-                  </text>
-                </svg>
-              </span>
-              <span className="leading-tight text-white">
-                <span className="block text-[10px] font-bold">
-                  友だち追加で
-                </span>
-                <span className="block text-[15px] font-extrabold">
-                  今すぐ相談
-                </span>
-              </span>
-            </a>
-            {MAIL_FORM_URL !== "" && (
-            <a
-              href={MAIL_FORM_URL}
-              className="flex flex-1 items-center gap-1.5 rounded-xl border-b-4 border-[#174a94] bg-gradient-to-b from-[#3b7de0] to-[#1e5bb8] px-2 py-2 shadow-md"
-            >
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white">
-                <svg
-                  viewBox="0 0 24 24"
-                  className="h-5 w-5"
-                  fill="none"
-                  stroke="#2563b0"
-                  strokeWidth="2"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="5" width="18" height="14" rx="2" />
-                  <path d="m3 7 9 6 9-6" />
-                </svg>
-              </span>
-              <span className="leading-tight text-white">
-                <span className="block text-[10px] font-bold">
-                  メールフォームで
-                </span>
-                <span className="block text-[15px] font-extrabold">
-                  今すぐ相談
-                </span>
-              </span>
-            </a>
-            )}
           </div>
+        ))}
+      </div>
 
-          {/* Phone button + number + hours */}
-          <div className="flex flex-col items-center">
-            <a
-              href="tel:0344002098"
-              className="relative flex w-full flex-col items-center justify-center rounded-2xl border-2 border-b-[6px] border-[#e8380d] bg-gradient-to-b from-[#ff9d3f] via-cta to-cta-deep px-3 py-3 shadow-md"
-            >
-              <span
-                className="text-center font-serif text-[clamp(17px,5.4vw,27px)] font-black leading-[1.3] text-white"
-                style={{ textShadow: "0 2px 3px rgba(0,0,0,.3)" }}
-              >
-                お電話1本！
-                <br />
-                タップで発信
-              </span>
-              <svg
-                viewBox="0 0 24 24"
-                className="absolute -bottom-2 -right-1 h-9 w-9"
-                aria-hidden="true"
-              >
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="11"
-                  fill="#fff"
-                  stroke="#e8380d"
-                  strokeWidth="1"
-                />
-                <path
-                  d="M10 5.5a1.6 1.6 0 0 1 3.2 0v5.6l2.9.8a2.2 2.2 0 0 1 1.5 2.7l-.9 2.9a2.6 2.6 0 0 1-2.5 1.9h-2.6c-.8 0-1.5-.3-2-.9l-2.8-3a1.4 1.4 0 0 1 2-1.9l1.2 1.1V5.5z"
-                  fill="#54bdea"
-                />
-                <path
-                  d="M8.3 4.6a4.2 4.2 0 0 1 6.6.2"
-                  fill="none"
-                  stroke="#54bdea"
-                  strokeWidth="1.4"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </a>
-            <a
-              href="tel:0344002098"
-              className="mt-2 flex items-center justify-center gap-1 text-ink"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                className="h-6 w-6 shrink-0"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z" />
-              </svg>
-              <span className="whitespace-nowrap text-[clamp(22px,7vw,32px)] font-black tracking-tight">
-                03-4400-2098
-              </span>
-            </a>
-            <p className="mt-1 text-center text-[11px] font-bold leading-snug text-ink">
-              お電話受付 9:00〜21:00（不定休）／LINE・メールは24時間受付・緊急時は折り返し対応
+      {/* ===== Google / track-record bar ===== */}
+      <div className="mx-3 mt-2.5 flex items-center rounded-xl bg-white px-2 py-3 shadow-[0_1px_6px_rgba(0,0,0,0.05)]">
+        <div className="flex flex-1 items-center justify-center gap-2">
+          <IconGoogleG />
+          <div className="leading-tight">
+            <p className="text-[10.5px] font-bold text-ink">Googleクチコミ</p>
+            <p className="font-display text-[17px] font-bold leading-tight text-forest-950">
+              高評価
+            </p>
+            <p className="text-[11px] leading-none tracking-[0.1em] text-[#e7a93a]">
+              ★★★★★
             </p>
           </div>
         </div>
+        <div className="flex flex-[1.4] items-center justify-center gap-1.5 border-l border-gold-400/60 pl-1">
+          <IconLaurel />
+          <div className="leading-tight">
+            <p className="font-display text-[16.5px] font-bold text-forest-950">
+              相談実績 <span className="text-[19px]">多数</span>
+            </p>
+            <p className="mt-1 text-[8px] font-medium leading-[1.5] text-[#4b5450]">
+              ご遺族・大家様・管理会社様
+              <br />
+              から多くのご相談をいただいています
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* ===== phone CTA ===== */}
+      <a
+        href="tel:0344002098"
+        className="mx-3 mt-4 flex items-center gap-2 rounded-[18px] bg-gradient-to-b from-crimson to-crimson-deep px-4 py-4 text-white shadow-[0_3px_10px_rgba(157,21,30,0.35)]"
+      >
+        <svg viewBox="0 0 24 24" className="h-10 w-10 shrink-0" fill="currentColor" aria-hidden="true">
+          <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+        </svg>
+        <span className="flex min-w-0 flex-1 flex-col items-center">
+          <span className="text-[13px] font-bold leading-none">
+            お電話で今すぐ相談する
+          </span>
+          <span className="mt-1.5 whitespace-nowrap text-[35px] font-black leading-none tracking-tight">
+            03-4400-2098
+          </span>
+          <span className="mt-2 rounded-full border border-white/85 px-4 py-[5px] text-[10.5px] font-bold leading-none">
+            9:00〜21:00 年中無休｜タップで電話
+          </span>
+        </span>
+        <ChevronCircle color="#c0202a" />
+      </a>
+
+      {/* ===== LINE CTA ===== */}
+      <a
+        href="https://page.line.me/782qjphg"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mx-3 mt-3 flex items-center gap-2.5 rounded-[18px] bg-gradient-to-b from-[#0bd160] to-[#05b64c] px-4 py-4 text-white shadow-[0_3px_10px_rgba(5,166,72,0.35)]"
+      >
+        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/18">
+          <svg viewBox="0 0 24 24" className="h-8 w-8" aria-hidden="true">
+            <path
+              fill="#fff"
+              d="M12 3.5C6.8 3.5 2.5 6.9 2.5 11c0 3.7 3.3 6.8 7.7 7.4.3.1.7.2.8.5.1.2.1.6 0 .9l-.1.7c0 .2-.2.9.8.5s5.6-3.3 7.7-5.6c1.4-1.6 2.1-3 2.1-4.4 0-4.1-4.3-7.5-9.5-7.5z"
+            />
+            <text
+              x="12"
+              y="12.9"
+              textAnchor="middle"
+              fontSize="4.6"
+              fontWeight="bold"
+              fill="#06c755"
+              fontFamily="Arial, Helvetica, sans-serif"
+            >
+              LINE
+            </text>
+          </svg>
+        </span>
+        <span className="flex min-w-0 flex-1 flex-col items-center">
+          <span className="whitespace-nowrap text-[21px] font-bold leading-none">
+            LINEで無料相談する
+          </span>
+          <span className="mt-2 whitespace-nowrap rounded-full border border-white/85 px-3.5 py-[5px] text-[10.5px] font-bold leading-none">
+            写真を送るだけで簡単見積り｜24時間受付中
+          </span>
+        </span>
+        <ChevronCircle color="#06b14e" />
+      </a>
+
+      {/* ===== features bar ===== */}
+      <div className="mx-3 mb-6 mt-4 flex items-stretch rounded-xl bg-white px-1 py-3 shadow-[0_1px_6px_rgba(0,0,0,0.05)]">
+        {FEATURES.map((f, i) => (
+          <div
+            key={f.title}
+            className={`flex flex-1 flex-col items-center justify-start gap-1 px-0.5 text-center ${
+              i > 0 ? "border-l border-[#e2ded2]" : ""
+            }`}
+          >
+            {f.icon}
+            <p className="text-[11.5px] font-bold leading-tight text-ink">
+              {f.title}
+            </p>
+            <p className="text-[8px] font-medium leading-tight text-[#4b5450]">
+              {f.sub}
+            </p>
+          </div>
+        ))}
       </div>
     </section>
   );

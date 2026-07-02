@@ -6,6 +6,15 @@
     sans-serif;
   --font-serif: var(--font-noto-serif), "Hiragino Mincho ProN", "Yu Mincho",
     serif;
+  --font-display: var(--font-shippori), "Hiragino Mincho ProN", serif;
+
+  /* new FV design (mockup reproduction) */
+  --color-ivory: #f6f1e6;
+  --color-forest-950: #113126;
+  --color-forest-900: #17422f;
+  --color-forest-700: #1d5138;
+  --color-crimson: #c0202a;
+  --color-crimson-deep: #9d151e;
 
   /* brand green (FV / onayami / nagare) */
   --color-brand-950: #0a3f2f;
