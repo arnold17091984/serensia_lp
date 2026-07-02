@@ -106,21 +106,15 @@ export default function SiteFooter() {
       </p>
 
       {/* legal links */}
-      <nav className="mt-10 flex flex-wrap items-center justify-center gap-y-2 text-[clamp(10.5px,2.9vw,12px)] text-white/85">
-        {FOOTER_LINKS.map((link, i) => (
-          <span key={link.href} className="flex items-center">
-            {i > 0 && (
-              <span aria-hidden="true" className="mx-2.5 text-white/25">
-                ｜
-              </span>
-            )}
-            <a
-              href={link.href}
-              className="underline decoration-[#c09a4a] decoration-1 underline-offset-4"
-            >
-              {link.label}
-            </a>
-          </span>
+      <nav className="mt-10 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 px-4 text-[clamp(10.5px,2.9vw,12px)] text-white/85">
+        {FOOTER_LINKS.map((link) => (
+          <a
+            key={link.href}
+            href={link.href}
+            className="inline-block px-1.5 py-2 underline decoration-[#c09a4a] decoration-1 underline-offset-4"
+          >
+            {link.label}
+          </a>
         ))}
       </nav>
 

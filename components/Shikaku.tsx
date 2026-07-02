@@ -59,7 +59,7 @@ export default function Shikaku() {
       </p>
 
       {/* white card: numbered qualification list + staff photo */}
-      <div className="mt-6 rounded-xl bg-white px-4 pb-4 pt-1.5 shadow-[0_2px_10px_rgba(60,50,30,0.06)]">
+      <div className="mt-6 rounded-xl border border-[#e5decf] bg-white px-4 pb-4 pt-1.5 shadow-[0_2px_10px_rgba(60,50,30,0.06)]">
         <ul>
           {QUALIFICATIONS.map((item, i) => (
             <li

@@ -11,6 +11,7 @@ interface Step {
   title: string;
   description: string;
   icon: ReactNode;
+  tel?: string;
 }
 
 /* ---------- thin-line icons (gold/green, stroke-based, Hero style) ---------- */
@@ -139,8 +140,9 @@ function IconHouseCheck() {
 const STEPS: Step[] = [
   {
     title: "お問い合わせ",
-    description: "お電話・LINE・メールでご連絡ください。",
+    description: "お電話・LINEでご連絡ください（タップで発信）。",
     icon: <IconChat />,
+    tel: "tel:0344002098",
   },
   {
     title: "現地調査・お見積り",
@@ -239,18 +241,35 @@ export default function Nagare() {
                 {index + 1}
               </span>
             </span>
-            {/* white card */}
-            <div className="flex min-h-11 flex-1 items-center gap-2.5 rounded-xl bg-white px-4 py-3 shadow-[0_2px_10px_rgba(60,50,30,0.06)]">
-              <div className="min-w-0 flex-1">
-                <h3 className="text-[clamp(13px,3.5vw,15px)] font-bold leading-[1.5] tracking-[0.02em] text-ink">
-                  {step.title}
-                </h3>
-                <p className="mt-1 text-[clamp(10.5px,2.8vw,12.5px)] leading-[1.8] text-[#4b5450]">
-                  {step.description}
-                </p>
+            {/* white card (STEP1 is tap-to-call) */}
+            {step.tel ? (
+              <a
+                href={step.tel}
+                className="flex min-h-11 flex-1 items-center gap-2.5 rounded-xl bg-white px-4 py-3 shadow-[0_2px_10px_rgba(60,50,30,0.06)] ring-1 ring-[#d9c8a3]"
+              >
+                <div className="min-w-0 flex-1">
+                  <h3 className="text-[clamp(13px,3.5vw,15px)] font-bold leading-[1.5] tracking-[0.02em] text-ink">
+                    {step.title}
+                  </h3>
+                  <p className="mt-1 text-[clamp(10.5px,2.8vw,12.5px)] leading-[1.8] text-[#4b5450]">
+                    {step.description}
+                  </p>
+                </div>
+                {step.icon}
+              </a>
+            ) : (
+              <div className="flex min-h-11 flex-1 items-center gap-2.5 rounded-xl bg-white px-4 py-3 shadow-[0_2px_10px_rgba(60,50,30,0.06)]">
+                <div className="min-w-0 flex-1">
+                  <h3 className="text-[clamp(13px,3.5vw,15px)] font-bold leading-[1.5] tracking-[0.02em] text-ink">
+                    {step.title}
+                  </h3>
+                  <p className="mt-1 text-[clamp(10.5px,2.8vw,12.5px)] leading-[1.8] text-[#4b5450]">
+                    {step.description}
+                  </p>
+                </div>
+                {step.icon}
               </div>
-              {step.icon}
-            </div>
+            )}
           </li>
         ))}
       </ol>
