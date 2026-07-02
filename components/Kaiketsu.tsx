@@ -1,8 +1,20 @@
 /**
- * Kaiketsu section: "solution" hero (04_1) + strengths detail cards (04_2-04_4).
+ * Kaiketsu — bridge section right after Onayami ("solution" pitch +
+ * strengths + six-step process + restoration goal).
+ * Rebuilt in the FV design language: ivory ground, gold flourish heading,
+ * white cards with gold hairline dividers, forest/gold two-tone accents.
  * Swipe-navigation wording from the original design is intentionally removed
  * because this rebuild is a single vertical column.
  */
+
+/** Round-dot underline (FV mockup style) as an inline background. */
+const DOT_RULE = {
+  backgroundImage:
+    "radial-gradient(circle, rgba(29,81,56,0.52) 1.7px, transparent 1.9px)",
+  backgroundSize: "9px 4px",
+  backgroundRepeat: "repeat-x",
+  backgroundPosition: "0 100%",
+} as const;
 
 const CASE_CHECKS = [
   "体液が染みた床材の撤去",
@@ -50,18 +62,43 @@ const PROCESS_STEPS = [
   },
 ] as const;
 
-function CheckIcon() {
+/* ---------- ornaments & icons (inline SVG, FV style) ---------- */
+
+function GoldFlourish({ flip = false }: Readonly<{ flip?: boolean }>) {
   return (
     <svg
-      viewBox="0 0 24 24"
-      className="mt-0.5 h-5 w-5 shrink-0"
+      viewBox="0 0 56 12"
+      className={`h-3 w-[clamp(28px,10vw,56px)] shrink-0 ${flip ? "rotate-180" : ""}`}
+      aria-hidden="true"
+    >
+      <path d="M0 6h40" stroke="#c09a4a" strokeWidth="1.2" />
+      <path d="M46 1.5 50.5 6 46 10.5 41.5 6z" fill="none" stroke="#c09a4a" strokeWidth="1.2" />
+      <circle cx="54" cy="6" r="1.4" fill="#c09a4a" />
+    </svg>
+  );
+}
+
+/** Gold + forest double chevron: quiet visual bridge from the concerns list. */
+function DoubleChevronDown() {
+  return (
+    <svg
+      viewBox="0 0 34 26"
+      className="mx-auto h-[clamp(18px,5vw,24px)] w-[clamp(24px,6.5vw,31px)]"
       aria-hidden="true"
     >
       <path
-        d="M3 13.5 9 20 21 4"
+        d="m5 3.5 12 8.5 12-8.5"
         fill="none"
-        stroke="#b81c22"
-        strokeWidth="4.5"
+        stroke="#c09a4a"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="m5 13.5 12 8.5 12-8.5"
+        fill="none"
+        stroke="#1d5138"
+        strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -69,201 +106,205 @@ function CheckIcon() {
   );
 }
 
+function CheckCircle() {
+  return (
+    <svg viewBox="0 0 24 24" className="mt-[2px] h-5 w-5 shrink-0" aria-hidden="true">
+      <circle cx="12" cy="12" r="11" fill="#1d5138" />
+      <path
+        d="m7.4 12.2 3 3 6-6.4"
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2.3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+/** Gold-rimmed white circle with a serif numeral (①-⑥ mood). */
+function StepNumber({ n }: Readonly<{ n: number }>) {
+  return (
+    <span
+      aria-hidden="true"
+      className="flex h-[clamp(32px,8.5vw,38px)] w-[clamp(32px,8.5vw,38px)] shrink-0 items-center justify-center rounded-full border-[1.5px] border-[#c09a4a] bg-white font-display text-[clamp(15px,4vw,18px)] font-bold leading-none text-[#a67c2e]"
+    >
+      {n}
+    </span>
+  );
+}
+
 export default function Kaiketsu() {
   return (
-    <section id="kaiketsu" className="w-full">
-      {/* ===== 04_1: aqua bubble hero ===== */}
-      <div className="relative overflow-hidden bg-gradient-to-b from-[#d9f4f2] via-[#9fdfd8] to-[#3aa896] px-5 pb-8 pt-5 text-center">
-        {/* bubble decorations */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -left-6 top-40 h-24 w-24 rounded-full border-2 border-white/60 bg-white/10"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute right-3 top-6 h-14 w-14 rounded-full border-2 border-white/50 bg-white/10"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-8 bottom-40 h-28 w-28 rounded-full border-2 border-white/40 bg-white/10"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute left-8 bottom-24 h-10 w-10 rounded-full border-2 border-white/50 bg-white/10"
-        />
+    <section id="kaiketsu" className="w-full bg-ivory px-3.5 pb-10 pt-8">
+      <DoubleChevronDown />
 
-        {/* double down chevron */}
-        <svg
-          viewBox="0 0 48 44"
-          className="mx-auto h-10 w-11"
-          aria-hidden="true"
-        >
-          <path
-            d="M4 2l20 14L44 2v10L24 26 4 12zM4 20l20 14 20-14v10L24 44 4 30z"
-            fill="#0f9b8e"
-          />
-        </svg>
-
-        <h2 className="relative mt-3 font-serif font-bold">
-          <span className="block text-[22px] leading-snug text-white [text-shadow:0_1px_6px_rgba(10,90,80,.45)]">
+      {/* ===== lead heading: そのお悩みは → 対応力&技術力で解決 ===== */}
+      <h2 className="mt-4 text-center">
+        <span className="flex items-center justify-center gap-2 px-1">
+          <GoldFlourish />
+          <span className="whitespace-nowrap font-display text-[clamp(16px,4.4vw,21px)] font-bold tracking-[0.04em] text-forest-950">
             そのお悩みはセレンシアが
           </span>
-          <span className="mt-1 block [filter:drop-shadow(0_2px_1px_rgba(255,255,255,.85))]">
-            <span className="bg-gradient-to-b from-[#43c9a4] to-[#0d7a56] bg-clip-text text-[40px] leading-none tracking-tight text-transparent">
-              対応力
-            </span>
-            <span className="bg-gradient-to-b from-[#d8bd85] to-[#c09a4a] bg-clip-text align-middle text-[30px] text-transparent">
-              &amp;
-            </span>
-            <span className="bg-gradient-to-b from-[#43c9a4] to-[#0d7a56] bg-clip-text text-[40px] leading-none tracking-tight text-transparent">
-              技術力
-            </span>
+          <GoldFlourish flip />
+        </span>
+        <span className="mt-[14px] block font-display font-extrabold leading-none">
+          <span className="text-[clamp(33px,9vw,42px)] tracking-[0.02em] text-forest-700">
+            対応力
           </span>
-          <span className="mt-2 block">
-            <span className="text-[22px] text-white [text-shadow:0_1px_6px_rgba(10,90,80,.45)]">
-              で
-            </span>
-            <span className="ml-2 bg-gradient-to-b from-[#ffd24d] via-cta to-accent bg-clip-text text-[36px] leading-none text-transparent [filter:drop-shadow(0_1px_0_rgba(255,255,255,.9))]">
-              解決！
-            </span>
+          <span className="mx-[3px] align-middle text-[clamp(22px,6vw,28px)] font-bold text-[#c09a4a]">
+            &amp;
           </span>
-        </h2>
+          <span className="text-[clamp(33px,9vw,42px)] tracking-[0.02em] text-forest-700">
+            技術力
+          </span>
+        </span>
+        <span className="mt-3 block font-display font-bold text-forest-950">
+          <span className="align-baseline text-[clamp(16px,4.4vw,21px)]">で</span>
+          <span
+            className="ml-1 inline-block pb-[8px] text-[clamp(25px,6.8vw,31px)] leading-[1.3] tracking-[0.04em]"
+            style={DOT_RULE}
+          >
+            解決！
+          </span>
+        </span>
+      </h2>
 
-        <img
-          src="/img/kaiketsu_photo.jpg"
-          alt="防護服を着たスタッフによる特殊清掃の作業風景"
-          width={948}
-          height={188}
-          loading="lazy"
-          decoding="async"
-          className="mt-5 h-auto w-full rounded-xl border-2 border-gold-400 object-cover shadow-lg"
-        />
+      <img
+        src="/img/kaiketsu_photo.jpg"
+        alt="防護服を着たスタッフによる特殊清掃の作業風景"
+        width={948}
+        height={188}
+        loading="lazy"
+        decoding="async"
+        className="mt-5 h-auto w-full rounded-xl border border-[#e5decf] object-cover"
+      />
 
-        <div className="mt-5 rounded-xl border border-gold-400 bg-gradient-to-b from-brand-700 to-brand-500 px-4 py-4 shadow-md">
-          <p className="font-serif text-[15px] font-bold text-white">
-            セレンシアだからできる
-          </p>
-          <p className="mt-1 font-serif text-[19px] font-bold leading-snug text-white">
+      {/* ===== bridge line into the strengths cards ===== */}
+      <div className="mt-7 text-center">
+        <p className="text-[clamp(12px,3.2vw,14px)] font-bold tracking-[0.05em] text-forest-700">
+          セレンシアだからできる
+        </p>
+        <p className="mt-2 font-display text-[clamp(16.5px,4.6vw,22px)] font-bold tracking-[0.04em] text-forest-950">
+          <span className="inline-block pb-[8px]" style={DOT_RULE}>
             特殊清掃の強みをチェック！
-          </p>
-        </div>
+          </span>
+        </p>
       </div>
 
-      {/* ===== strengths cards (04_2 / 04_3 / 04_4) ===== */}
-      <div className="space-y-6 bg-cream px-4 py-8">
-        {/* --- 04_2: case coverage --- */}
-        <div className="overflow-hidden rounded-xl bg-white shadow-md">
+      {/* ===== strength card: case coverage ===== */}
+      <div className="mt-5 rounded-xl bg-white px-4 pb-5 pt-4 shadow-[0_2px_10px_rgba(60,50,30,0.06)]">
+        <img
+          src="/img/kaiketsu_s2.jpg"
+          alt="特殊清掃の現場写真（浴室・玄関・床の汚染箇所）"
+          width={1000}
+          height={175}
+          loading="lazy"
+          decoding="async"
+          className="h-auto w-full rounded-xl border border-[#e5decf] object-cover"
+        />
+        <div className="pt-4 text-center">
+          <p className="text-[clamp(11px,2.9vw,13px)] font-bold tracking-[0.06em] text-[#4b5450]">
+            豊富な現場と対応実績あり
+          </p>
+          <h3 className="mt-1.5 font-display text-[clamp(17.5px,4.8vw,23px)] font-bold leading-[1.6] text-forest-950">
+            <span className="text-forest-700">孤独死・事故死現場</span>など
+            <br />
+            どんなケースにも対応
+          </h3>
+        </div>
+        <ul className="mt-3">
+          {CASE_CHECKS.map((item, i) => (
+            <li
+              key={item}
+              className={`flex items-start gap-2.5 py-[11px] ${
+                i > 0 ? "border-t border-[#d9c8a3]" : ""
+              }`}
+            >
+              <CheckCircle />
+              <span className="text-[clamp(12.5px,3.4vw,15px)] font-bold leading-[1.8] text-ink">
+                {item}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* ===== strength card: six-step process ===== */}
+      <div className="mt-5 rounded-xl bg-white px-4 pb-4 pt-5 shadow-[0_2px_10px_rgba(60,50,30,0.06)]">
+        <h3 className="border-b border-[#d9c8a3] pb-3.5 text-center font-display font-bold text-forest-950">
+          <span className="text-[clamp(17px,4.6vw,22px)] tracking-[0.05em]">特殊清掃</span>
+          <span className="text-[clamp(13px,3.5vw,16px)]">の基本</span>
+          <span className="mx-[3px] align-[-2px] text-[clamp(26px,7vw,34px)] font-black leading-none text-[#c09a4a]">
+            6
+          </span>
+          <span className="text-[clamp(16px,4.4vw,20px)]">工程</span>
+        </h3>
+        <ol>
+          {PROCESS_STEPS.map((step, i) => (
+            <li
+              key={step.em + step.post}
+              className={`flex items-center gap-3 py-[13px] ${
+                i > 0 ? "border-t border-[#d9c8a3]" : ""
+              }`}
+            >
+              <StepNumber n={i + 1} />
+              <div className="min-w-0">
+                <p className="font-display text-[clamp(14px,3.8vw,17.5px)] font-bold leading-[1.5] text-forest-950">
+                  {step.pre}
+                  <span className="text-forest-700">{step.em}</span>
+                  {step.post}
+                </p>
+                <p className="mt-[3px] text-[clamp(10.5px,2.8vw,13px)] font-medium leading-[1.7] text-[#4b5450]">
+                  {step.desc}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ol>
+        <p className="border-t border-[#d9c8a3] pt-3 text-[clamp(9px,2.4vw,10.5px)] leading-[1.7] text-[#4b5450]">
+          ※現場の状況により一部工程を実施しない場合がございます。
+        </p>
+      </div>
+
+      {/* ===== strength card: restoration goal ===== */}
+      <div className="mt-5 rounded-xl bg-white px-4 pb-4 pt-6 shadow-[0_2px_10px_rgba(60,50,30,0.06)]">
+        <p className="text-center text-[clamp(11px,2.9vw,13px)] font-bold tracking-[0.05em] text-[#4b5450]">
+          悲惨な状況の影も見えなくなるような
+        </p>
+        <h3 className="mt-2.5 text-center font-display font-bold text-forest-950">
+          <span className="block text-[clamp(16px,4.4vw,21px)] leading-[1.7]">
+            誰が見ても<span className="text-[clamp(19px,5.2vw,25px)]">納得</span>の
+          </span>
+          <span
+            className="mt-[5px] inline-block pb-[9px] text-[clamp(26px,7.2vw,34px)] leading-[1.35] tracking-[0.03em]"
+            style={DOT_RULE}
+          >
+            原状回復<span className="text-[clamp(16px,4.4vw,21px)]">がゴールです</span>
+          </span>
+        </h3>
+        <p className="mt-4 text-[clamp(12px,3.2vw,13.5px)] leading-[1.95] text-ink">
+          清掃だけでなく、汚染箇所の建材撤去も行い、再利用できる素材を適切に処理します。作業後には、建材の補修や清掃を行い、元の状態に戻します。さらに、防臭・特殊コーティングで臭いの再発を長期的に防止します。原状回復まで一括で作業をすることで、皆様に安心いただける、徹底した特殊清掃ができることがセレンシアの強みです。
+        </p>
+        <div className="mt-4 flex items-stretch gap-3">
           <img
-            src="/img/kaiketsu_s2.jpg"
-            alt="特殊清掃の現場写真（浴室・玄関・床の汚染箇所）"
-            width={1000}
-            height={175}
+            src="/img/kaiketsu_s4.jpg"
+            alt="専用コーティング剤を噴霧するスタッフ"
+            width={370}
+            height={500}
             loading="lazy"
             decoding="async"
-            className="h-auto w-full object-cover"
+            className="w-[38%] rounded-xl border border-[#e5decf] object-cover"
           />
-          <div className="px-5 pb-6 pt-4 text-center">
-            <p className="text-[14px] font-bold tracking-wide text-ink">
-              豊富な現場と対応実績あり
+          <div className="flex flex-1 flex-col items-center justify-center rounded-xl bg-forest-900 px-3 py-6 text-center text-white shadow-[0_2px_10px_rgba(17,49,38,0.22)]">
+            <p className="font-display text-[clamp(14px,3.8vw,18px)] font-bold leading-none">
+              さらに<span className="ml-1 align-[-2px] text-[clamp(21px,5.8vw,27px)] font-black">+α</span>
             </p>
-            <h3 className="mt-1 font-serif text-[22px] font-bold leading-snug">
-              <span className="text-brand-700">孤独死・事故死現場</span>
-              <span className="text-ink">など</span>
+            <p className="mt-3.5 font-display text-[clamp(11.5px,3.2vw,15px)] font-bold leading-[1.9]">
+              専用コーティング剤で
               <br />
-              <span className="text-ink">どんなケースにも対応</span>
-            </h3>
-            <ul className="mt-4 space-y-2.5 text-left">
-              {CASE_CHECKS.map((item) => (
-                <li key={item} className="flex items-start gap-2">
-                  <CheckIcon />
-                  <span className="bg-[linear-gradient(transparent_55%,#f9f06b_55%)] px-0.5 text-[15px] font-bold text-ink">
-                    {item}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* --- 04_3: six-step process --- */}
-        <div className="overflow-hidden rounded-xl bg-white shadow-md">
-          <div className="bg-gradient-to-r from-brand-700 to-brand-500 px-5 py-4">
-            <h3 className="font-serif text-[21px] font-bold text-white">
-              特殊清掃<span className="text-[16px]">の基本</span>
-              <span className="ml-1.5 bg-gradient-to-b from-[#ffe9a8] via-gold-400 to-gold-600 bg-clip-text text-[30px] leading-none text-transparent">
-                6
-              </span>
-              <span className="text-[20px]">工程</span>
-            </h3>
-          </div>
-          <ol className="divide-y divide-dotted divide-gray-300 px-5 py-2">
-            {PROCESS_STEPS.map((step, i) => (
-              <li key={step.em + step.post} className="flex items-center gap-4 py-4">
-                <span
-                  aria-hidden="true"
-                  className="flex h-11 w-11 shrink-0 items-center justify-center bg-gradient-to-b from-[#e9e9e9] via-[#b9b9b9] to-[#8f8f8f] font-serif text-[20px] font-bold text-ink [clip-path:polygon(25%_0,75%_0,100%_50%,75%_100%,25%_100%,0_50%)]"
-                >
-                  {i + 1}
-                </span>
-                <div>
-                  <p className="font-serif text-[18px] font-bold leading-snug">
-                    {step.pre && <span className="text-ink">{step.pre}</span>}
-                    <span className="text-accent">{step.em}</span>
-                    {step.post && <span className="text-ink">{step.post}</span>}
-                  </p>
-                  <p className="mt-0.5 text-[13px] leading-relaxed text-ink">
-                    {step.desc}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ol>
-          <p className="px-5 pb-5 text-[11px] leading-relaxed text-gray-600">
-            ※現場の状況により一部工程を実施しない場合がございます。
-          </p>
-        </div>
-
-        {/* --- 04_4: restoration goal --- */}
-        <div className="overflow-hidden rounded-xl bg-white shadow-md">
-          <div className="bg-gradient-to-b from-[#eef7fb] to-white px-5 pt-6 text-center">
-            <p className="text-[14px] font-bold tracking-wide text-gray-600">
-              悲惨な状況の影も見えなくなるような
+              封じ込め&ldquo;密閉&rdquo;
             </p>
-            <h3 className="mt-2 font-serif font-bold leading-snug">
-              <span className="block bg-gradient-to-b from-[#5db9e8] to-[#1c5fae] bg-clip-text text-[22px] text-transparent">
-                誰が見ても<span className="text-[26px]">納得</span>の
-              </span>
-              <span className="block bg-gradient-to-b from-[#5db9e8] to-[#1c5fae] bg-clip-text text-[34px] leading-tight text-transparent">
-                原状回復<span className="text-[22px]">が</span>
-              </span>
-              <span className="block bg-gradient-to-b from-[#5db9e8] to-[#1c5fae] bg-clip-text text-[24px] text-transparent">
-                ゴール<span className="text-[18px]">です</span>
-              </span>
-            </h3>
-          </div>
-          <p className="px-5 pt-4 text-[14px] leading-relaxed text-ink">
-            清掃だけでなく、汚染箇所の建材撤去も行い、再利用できる素材を適切に処理します。作業後には、建材の補修や清掃を行い、元の状態に戻します。さらに、防臭・特殊コーティングで臭いの再発を長期的に防止します。原状回復まで一括で作業をすることで、皆様に安心いただける、徹底した特殊清掃ができることがセレンシアの強みです。
-          </p>
-          <div className="mt-4 flex items-stretch">
-            <img
-              src="/img/kaiketsu_s4.jpg"
-              alt="専用コーティング剤を噴霧するスタッフ"
-              width={370}
-              height={500}
-              loading="lazy"
-              decoding="async"
-              className="w-2/5 object-cover"
-            />
-            <div className="flex w-3/5 flex-col items-center justify-center bg-gradient-to-br from-[#2f7fc2] via-[#1c5fae] to-[#0d3f86] px-4 py-6 text-center text-white">
-              <p className="font-serif text-[20px] font-bold">
-                さらに<span className="ml-1 text-[26px]">+α</span>
-              </p>
-              <p className="mt-2 font-serif text-[15px] font-bold leading-relaxed">
-                専用コーティング剤で
-                <br />
-                封じ込め&ldquo;密閉&rdquo;
-              </p>
-            </div>
           </div>
         </div>
       </div>

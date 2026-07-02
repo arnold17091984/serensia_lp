@@ -29,12 +29,14 @@ export default function Home() {
             旧セクションが必要になれば <Kuchikomi /> を戻す */}
         <Onayami />
         <Kaiketsu />
+        {/* CV最適化: 専門家パネルの提言に基づき「価格・証拠」を前段へ配置
+            （悩み→解決→料金事例→CTA→信頼形成→FAQ→流れ→最終CTA） */}
+        <Jisseki />
+        <CtaSection />
         <Ooya />
         <Support />
         <Shikaku />
         <Ihin />
-        <CtaSection />
-        <Jisseki />
         <Faq />
         <Nagare />
         <CtaSection />

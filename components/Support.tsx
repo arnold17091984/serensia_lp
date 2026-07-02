@@ -1,19 +1,31 @@
 /**
- * Section: 柔軟なサポート体制（design-refs/06_support.jpg）
- * Pale-green leaf background + 4 numbered white cards + red band
- * + yellow phone box + green LINE button.
+ * Section: 柔軟なサポート体制 — FV-aligned redesign.
+ * Ivory ground, gold flourish heading, 2x2 white cards with gold
+ * numbered circles, and a closing call card (gold hairline frame,
+ * FV-style crimson phone CTA + green LINE CTA).
  */
 
-function Leaf({ className }: { className?: string }) {
+function GoldFlourish({ flip = false }: Readonly<{ flip?: boolean }>) {
   return (
     <svg
-      viewBox="0 0 24 24"
-      className={className}
+      viewBox="0 0 56 12"
+      className={`h-3 w-[clamp(28px,10vw,56px)] shrink-0 ${flip ? "rotate-180" : ""}`}
       aria-hidden="true"
-      fill="currentColor"
     >
-      <path d="M0 24C0 10.7 10.7 0 24 0c0 13.3-10.7 24-24 24Z" />
+      <path d="M0 6h40" stroke="#c09a4a" strokeWidth="1.2" />
+      <path d="M46 1.5 50.5 6 46 10.5 41.5 6z" fill="none" stroke="#c09a4a" strokeWidth="1.2" />
+      <circle cx="54" cy="6" r="1.4" fill="#c09a4a" />
     </svg>
+  );
+}
+
+function ChevronCircle({ color }: Readonly<{ color: string }>) {
+  return (
+    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white shadow-sm">
+      <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
+        <path d="m9 5.5 7 6.5-7 6.5" fill="none" stroke={color} strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </span>
   );
 }
 
@@ -23,7 +35,7 @@ const SUPPORT_ITEMS = [
     body: (
       <>
         <span className="text-ink">立会い</span>
-        <span className="text-accent">不要</span>
+        <span className="text-forest-700">不要</span>
       </>
     ),
   },
@@ -31,7 +43,7 @@ const SUPPORT_ITEMS = [
     no: "02",
     body: (
       <>
-        <span className="text-accent">鍵のお預り</span>
+        <span className="text-forest-700">鍵のお預り</span>
         <span className="text-ink">可能</span>
       </>
     ),
@@ -40,12 +52,10 @@ const SUPPORT_ITEMS = [
     no: "03",
     body: (
       <>
-        <span className="mr-1 inline-block align-middle text-[13px] font-bold leading-[1.4] text-ink">
-          代表または
-          <br />
-          副社長が
+        <span className="block text-[clamp(10px,2.7vw,12px)] font-bold leading-[1.5] text-ink">
+          代表または副社長が
         </span>
-        <span className="align-middle text-accent">現地立ち合い</span>
+        <span className="text-forest-700">現地立ち合い</span>
       </>
     ),
   },
@@ -53,7 +63,7 @@ const SUPPORT_ITEMS = [
     no: "04",
     body: (
       <>
-        <span className="text-accent">近隣への配慮</span>
+        <span className="text-forest-700">近隣への配慮</span>
         <span className="text-ink">を徹底</span>
       </>
     ),
@@ -62,108 +72,100 @@ const SUPPORT_ITEMS = [
 
 export default function Support() {
   return (
-    <section className="relative w-full overflow-hidden bg-gradient-to-b from-white via-brand-100/70 to-brand-100">
-      {/* Decorative leaves */}
-      <Leaf className="absolute -left-6 top-16 h-24 w-24 rotate-[160deg] text-brand-500/25" />
-      <Leaf className="absolute -right-5 top-8 h-20 w-20 rotate-[-20deg] text-brand-500/20" />
-      <Leaf className="absolute -right-8 top-[45%] h-28 w-28 rotate-[210deg] text-brand-600/20" />
-      <Leaf className="absolute -left-8 bottom-40 h-24 w-24 rotate-[40deg] text-brand-500/15" />
+    <section className="w-full bg-ivory px-4 pb-10 pt-9">
+      {/* lead + heading with gold flourishes */}
+      <p className="text-center text-[clamp(11px,3vw,13.5px)] font-bold leading-[1.8] tracking-[0.03em] text-[#4b5450]">
+        特殊清掃の不安やお悩みを和らげる
+      </p>
+      <h2 className="mt-1.5 flex items-center justify-center gap-2 px-2">
+        <GoldFlourish />
+        <span className="whitespace-nowrap font-display text-[clamp(16px,4.4vw,21px)] font-bold tracking-[0.04em] text-forest-950">
+          柔軟なサポート体制
+        </span>
+        <GoldFlourish flip />
+      </h2>
 
-      {/* Heading */}
-      <div className="relative px-4 pt-10 text-center">
-        <p className="text-[18px] font-bold tracking-wide text-ink">
-          特殊清掃の不安やお悩みを和らげる
-        </p>
-        <h2 className="mt-1 font-serif font-bold">
-          <span className="block bg-gradient-to-b from-brand-800 to-brand-500 bg-clip-text text-[32px] leading-[1.3] text-transparent">
-            柔軟な
-          </span>
-          <span className="block bg-gradient-to-b from-brand-800 to-brand-500 bg-clip-text text-[41px] leading-[1.25] tracking-[0.06em] text-transparent">
-            サポート体制
-          </span>
-        </h2>
+      {/* 2x2 numbered cards */}
+      <ul className="mt-6 grid grid-cols-2 gap-3">
+        {SUPPORT_ITEMS.map((item) => (
+          <li
+            key={item.no}
+            className="flex flex-col items-center justify-center gap-2.5 rounded-xl bg-white px-3 py-5 text-center shadow-[0_2px_10px_rgba(60,50,30,0.06)]"
+          >
+            <span className="flex h-[clamp(30px,8vw,36px)] w-[clamp(30px,8vw,36px)] items-center justify-center rounded-full bg-[#c09a4a] font-serif text-[clamp(13px,3.4vw,15.5px)] font-bold leading-none text-white">
+              {item.no}
+            </span>
+            <p className="text-[clamp(13.5px,3.7vw,17px)] font-bold leading-[1.5] tracking-[0.02em]">
+              {item.body}
+            </p>
+          </li>
+        ))}
+      </ul>
 
-        {/* Numbered cards */}
-        <ul className="mt-7 space-y-4">
-          {SUPPORT_ITEMS.map((item) => (
-            <li
-              key={item.no}
-              className="flex items-center gap-4 rounded-xl bg-white px-5 py-5 text-left shadow-[0_4px_16px_rgba(20,92,69,0.12)]"
-            >
-              <span className="font-serif text-[30px] font-bold italic leading-none text-brand-500">
-                {item.no}
-              </span>
-              <p className="text-[23px] font-bold leading-tight">{item.body}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Red band */}
-      <div className="relative mt-9 bg-gradient-to-r from-[#8e1116] via-accent to-[#8e1116] py-3 text-center">
-        <p className="font-serif text-[25px] font-bold tracking-wide text-white">
+      {/* closing call card */}
+      <div className="mt-7 rounded-xl border border-[#d9c8a3] bg-white px-3.5 pb-5 pt-6 shadow-[0_2px_10px_rgba(60,50,30,0.06)]">
+        <p className="text-center font-display text-[clamp(15px,4.2vw,19px)] font-bold tracking-[0.04em] text-forest-950">
           まずは相談事をお聞かせください
         </p>
-      </div>
 
-      {/* Yellow phone box */}
-      <a href="tel:0344002098" className="relative block bg-[#ffe600] py-4 pl-3 pr-2">
-        <div className="flex items-center gap-2">
-          <p className="shrink-0 text-center text-[17px] font-bold leading-[1.35] text-ink">
-            緊急時も
-            <br />
-            対応
-          </p>
-          <span
-            className="h-0 w-0 shrink-0 border-y-[22px] border-l-[14px] border-y-transparent border-l-accent"
-            aria-hidden="true"
-          />
-          <div className="min-w-0 flex-1 text-center">
-            <p className="text-[13px] font-bold text-accent">▼タップで発信</p>
-            <p className="text-[34px] font-bold leading-none tracking-tight text-accent">
+        {/* phone CTA (FV style, reduced) */}
+        <a
+          href="tel:0344002098"
+          className="mt-4 flex items-center gap-2 rounded-[16px] bg-gradient-to-b from-[#c8252c] to-[#a5151d] px-3.5 pb-[14px] pt-[13px] text-white shadow-[0_4px_14px_rgba(157,21,30,0.32)]"
+        >
+          <svg viewBox="0 0 24 24" className="h-9 w-9 shrink-0" fill="currentColor" aria-hidden="true">
+            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+          </svg>
+          <span className="flex min-w-0 flex-1 flex-col items-center">
+            <span className="whitespace-nowrap text-[clamp(11px,3vw,13.5px)] font-bold leading-none tracking-[0.04em]">
+              緊急時も対応｜タップで発信
+            </span>
+            <span className="mt-2 whitespace-nowrap text-[clamp(24px,7vw,32px)] font-black leading-none tracking-[-0.01em]">
               03-4400-2098
-            </p>
-            <p className="mt-1.5 text-[10px] font-bold leading-[1.5] text-ink">
-              お電話受付 9:00〜21:00（不定休）／LINE・メールは24時間受付・緊急時は折り返し対応
-            </p>
-          </div>
-        </div>
-      </a>
+            </span>
+            <span className="mt-[9px] whitespace-nowrap rounded-full border-[1.5px] border-white/90 px-4 py-[5px] text-[clamp(9px,2.4vw,11px)] font-bold leading-none tracking-[0.02em]">
+              9:00〜21:00 年中無休
+            </span>
+          </span>
+          <ChevronCircle color="#b01218" />
+        </a>
 
-      {/* LINE button */}
-      <div className="relative px-4 pb-10 pt-6">
+        {/* LINE CTA (FV style, reduced) */}
         <a
           href="https://page.line.me/782qjphg"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-3 rounded-full bg-gradient-to-b from-brand-500 to-brand-700 px-4 py-3 shadow-[0_5px_14px_rgba(14,77,58,0.35)]"
+          className="mt-3 flex items-center gap-2.5 rounded-[16px] bg-gradient-to-b from-[#0bd160] to-[#05b04a] px-3.5 pb-[14px] pt-[13px] text-white shadow-[0_4px_14px_rgba(5,166,72,0.32)]"
         >
-          <span className="flex h-[54px] w-[54px] shrink-0 flex-col items-center justify-center rounded-full bg-accent text-center text-[14px] font-bold leading-[1.25] text-white">
-            <span>見積</span>
-            <span>無料</span>
-          </span>
-          <span className="text-center text-white">
-            <span className="block text-[14px] font-bold tracking-wide">
-              まずは現地調査から
+          <svg viewBox="0 0 24 24" className="h-[clamp(34px,9vw,42px)] w-[clamp(34px,9vw,42px)] shrink-0" aria-hidden="true">
+            <path
+              fill="#fff"
+              d="M12 3.2C6.6 3.2 2.2 6.7 2.2 11c0 3.8 3.4 7 8 7.7.3.1.7.2.8.5.1.2.1.6.1.9l-.2.8c0 .2-.2.9.8.5 1.1-.4 5.8-3.4 7.9-5.8 1.5-1.6 2.2-3.2 2.2-4.6 0-4.3-4.4-7.8-9.8-7.8z"
+            />
+            <text
+              x="12"
+              y="12.9"
+              textAnchor="middle"
+              fontSize="4.8"
+              fontWeight="bold"
+              fill="#06b14e"
+              fontFamily="Arial, Helvetica, sans-serif"
+            >
+              LINE
+            </text>
+          </svg>
+          <span className="flex min-w-0 flex-1 flex-col items-center">
+            <span className="whitespace-nowrap text-[clamp(10.5px,2.9vw,13px)] font-bold leading-none tracking-[0.03em]">
+              見積無料｜まずは現地調査から
             </span>
-            <span className="block font-serif text-[22px] font-bold leading-tight">
+            <span className="mt-2 whitespace-nowrap text-[clamp(17px,4.7vw,21px)] font-bold leading-none tracking-[0.02em]">
               今すぐLINEで依頼する
             </span>
+            <span className="mt-[9px] whitespace-nowrap rounded-full border-[1.5px] border-white/90 px-4 py-[5px] text-[clamp(9px,2.4vw,11px)] font-bold leading-none tracking-[0.02em]">
+              24時間受付
+            </span>
           </span>
-          <span
-            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white"
-            aria-hidden="true"
-          >
-            <svg viewBox="0 0 24 24" className="h-4 w-4 text-brand-700" fill="none">
-              <path
-                d="M9 5l7 7-7 7"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </span>
+          <ChevronCircle color="#06b14e" />
         </a>
       </div>
     </section>

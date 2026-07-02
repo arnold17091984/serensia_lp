@@ -385,7 +385,7 @@ export default function Hero() {
       </a>
 
       {/* ===== features bar ===== */}
-      <div className="mx-3.5 mb-7 mt-[18px] flex items-stretch rounded-xl bg-white px-1 py-4 shadow-[0_2px_10px_rgba(60,50,30,0.06)]">
+      <div className="mx-3.5 mb-5 mt-[18px] flex items-stretch rounded-xl bg-white px-1 py-4 shadow-[0_2px_10px_rgba(60,50,30,0.06)]">
         {FEATURES.map((f, i) => (
           <div
             key={f.title}
@@ -402,6 +402,26 @@ export default function Hero() {
             </p>
           </div>
         ))}
+      </div>
+
+      {/* ===== 料金セクションへの導線 ===== */}
+      <div className="pb-7 text-center">
+        <a
+          href="#ryokin"
+          className="inline-flex items-center gap-1.5 font-display text-[clamp(12.5px,3.4vw,14.5px)] font-bold tracking-[0.05em] text-forest-700 underline decoration-[#c09a4a] decoration-[1.5px] underline-offset-[6px]"
+        >
+          参考料金・施工事例を見る
+          <svg viewBox="0 0 24 24" className="h-[15px] w-[15px]" aria-hidden="true">
+            <path
+              d="m6 9 6 6 6-6"
+              fill="none"
+              stroke="#c09a4a"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </a>
       </div>
     </section>
   );

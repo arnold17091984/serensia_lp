@@ -1,37 +1,48 @@
-import type { ReactNode } from "react";
+/**
+ * CtaSection — the closing conversion block (used mid-page and at the end).
+ * The only dark section of the LP: a forest-950 ground with a thin gold rule
+ * on top, white serif area copy, an oversized "0円", and a white card that
+ * holds the FV-identical phone / LINE buttons.
+ */
 
-/* Orange gradient text with a thick white outline (layered spans) */
-function GradText({
-  children,
-  className = "",
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
+/** Round-dot underline (FV mockup style) as an inline background. */
+const DOT_RULE = {
+  backgroundImage:
+    "radial-gradient(circle, rgba(29,81,56,0.52) 1.7px, transparent 1.9px)",
+  backgroundSize: "9px 4px",
+  backgroundRepeat: "repeat-x",
+  backgroundPosition: "0 100%",
+} as const;
+
+/* ---------- ornaments & icons (inline SVG, FV style) ---------- */
+
+function GoldFlourish({ flip = false }: Readonly<{ flip?: boolean }>) {
   return (
-    <span className={`relative inline-block ${className}`}>
-      <span
-        aria-hidden="true"
-        className="absolute inset-0 text-white [-webkit-text-stroke:0.18em_white]"
-      >
-        {children}
-      </span>
-      <span className="relative bg-gradient-to-b from-[#ffd23f] via-[#f59b0b] to-[#e2590e] bg-clip-text text-transparent">
-        {children}
-      </span>
-    </span>
+    <svg
+      viewBox="0 0 56 12"
+      className={`h-3 w-[clamp(28px,10vw,56px)] shrink-0 ${flip ? "rotate-180" : ""}`}
+      aria-hidden="true"
+    >
+      <path d="M0 6h40" stroke="#c09a4a" strokeWidth="1.2" />
+      <path d="M46 1.5 50.5 6 46 10.5 41.5 6z" fill="none" stroke="#c09a4a" strokeWidth="1.2" />
+      <circle cx="54" cy="6" r="1.4" fill="#c09a4a" />
+    </svg>
   );
 }
 
-function CheckIcon() {
+function GoldCheck() {
   return (
-    <svg viewBox="0 0 28 28" className="h-7 w-7 shrink-0" aria-hidden="true">
-      <rect width="28" height="28" rx="5" className="fill-teal-500" />
+    <svg
+      viewBox="0 0 24 24"
+      className="mt-[2px] h-[clamp(18px,5vw,22px)] w-[clamp(18px,5vw,22px)] shrink-0"
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="11" fill="#c09a4a" />
       <path
-        d="M7 14.5l5 5 9-11"
+        d="m7.4 12.2 3 3 6-6.4"
         fill="none"
         stroke="#fff"
-        strokeWidth="3.5"
+        strokeWidth="2.3"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -39,174 +50,148 @@ function CheckIcon() {
   );
 }
 
+function ChevronCircle({ color }: Readonly<{ color: string }>) {
+  return (
+    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white shadow-sm">
+      <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" aria-hidden="true">
+        <path d="m9 5.5 7 6.5-7 6.5" fill="none" stroke={color} strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </span>
+  );
+}
+
 export default function CtaSection() {
   return (
-    <section className="w-full bg-[#f2f1ee]">
-      {/* ===== green gradient area ===== */}
-      <div className="relative overflow-hidden bg-gradient-to-b from-brand-950 via-brand-800 to-brand-500 pb-24 pt-8">
-        {/* decorative Kanto-area silhouette */}
-        <svg
-          aria-hidden="true"
-          viewBox="0 0 100 120"
-          className="absolute right-2 top-1 h-64 w-auto opacity-25"
-        >
-          <path
-            d="M38 6 L64 2 L86 14 L96 34 L88 52 L96 66 L86 88 L70 84 L66 100 L54 96 L50 112 L38 104 L42 88 L28 80 L10 84 L2 64 L10 44 L6 26 L22 18 Z"
-            fill="#8fdcbb"
-            stroke="#ffffff"
-            strokeWidth="1"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M38 6 L44 40 L28 80 M44 40 L88 52 M44 40 L66 100"
-            fill="none"
-            stroke="#ffffff"
-            strokeWidth="0.7"
-            opacity="0.6"
-          />
-        </svg>
+    <section className="w-full bg-forest-950">
+      {/* thin gold rule on top */}
+      <div
+        aria-hidden="true"
+        className="h-[2px] w-full bg-gradient-to-r from-[#8a6423] via-[#d4b46a] to-[#8a6423]"
+      />
 
-        {/* headline */}
-        <div className="relative z-10 px-5">
-          <p className="-rotate-3 font-serif text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.45)]">
-            <span className="text-[32px] font-black tracking-wide">
-              東京・神奈川
-            </span>
-            <span className="ml-1 text-[20px] font-bold">を中心に</span>
-          </p>
-          <p className="-mt-1 ml-1 -rotate-3">
-            <span className="relative inline-block px-3 py-1 font-serif text-[42px] font-black tracking-wider text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.45)]">
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 240 74"
-                preserveAspectRatio="none"
-                className="absolute -inset-x-3 inset-y-0 h-full w-[calc(100%+24px)]"
-              >
-                <ellipse
-                  cx="120"
-                  cy="37"
-                  rx="112"
-                  ry="30"
-                  fill="none"
-                  stroke="#d0342c"
-                  strokeWidth="5"
-                />
-              </svg>
-              関東一円
-            </span>
-          </p>
-        </div>
+      <div className="px-3.5 pb-9 pt-8">
+        {/* ===== area heading (white serif on deep green) ===== */}
+        <h2 className="flex items-center justify-center gap-2 px-2">
+          <GoldFlourish />
+          <span className="whitespace-nowrap font-display text-[clamp(14px,3.8vw,18px)] font-bold tracking-[0.06em] text-white">
+            東京・神奈川を中心に
+          </span>
+          <GoldFlourish flip />
+        </h2>
+        <p className="mt-1.5 text-center font-display text-[clamp(27px,7.4vw,34px)] font-bold leading-tight tracking-[0.16em] text-white">
+          関東一円
+        </p>
 
-        {/* 出張費用・お見積り 0円 */}
-        <div className="relative z-10 mt-3 flex items-end justify-center gap-2 px-4 drop-shadow-[0_3px_3px_rgba(0,0,0,0.35)]">
-          <div className="flex flex-col gap-2 pb-5 font-serif font-black leading-none">
-            <GradText className="text-[42px] tracking-wide">出張費用</GradText>
-            <GradText className="text-[42px] tracking-wide">お見積り</GradText>
+        {/* ===== 出張費用・お見積り 0円 ===== */}
+        <div className="mt-2.5 flex items-end justify-center gap-2.5">
+          <div className="flex flex-col gap-2.5 pb-[15px] font-display font-bold leading-none text-white">
+            <span className="text-[clamp(19px,5.2vw,24px)] tracking-[0.12em]">
+              出張費用
+            </span>
+            <span className="text-[clamp(19px,5.2vw,24px)] tracking-[0.12em]">
+              お見積り
+            </span>
           </div>
-          <div className="flex items-end font-serif font-black leading-none">
-            <GradText className="text-[128px] tracking-[-0.05em]">0</GradText>
-            <GradText className="pb-2 text-[46px]">円</GradText>
-          </div>
-        </div>
-
-        {/* white diagonal cut */}
-        <div
-          aria-hidden="true"
-          className="absolute bottom-0 left-0 h-16 w-full bg-[#f2f1ee] [clip-path:polygon(0_100%,100%_0,100%_100%)]"
-        />
-      </div>
-
-      {/* ===== red-bordered yellow box ===== */}
-      <div className="relative z-10 mx-4 -mt-14 overflow-hidden rounded-md border-4 border-accent bg-[#fdf584] shadow-[0_4px_14px_rgba(0,0,0,0.25)]">
-        <div className="bg-accent px-3 py-2.5 text-center">
-          <p className="font-serif text-[22px] font-bold leading-tight text-white">
-            お電話1本！まずはご相談を
+          <p className="flex items-end leading-none">
+            <span className="text-[clamp(64px,17vw,84px)] font-black tracking-[-0.02em] text-white">
+              0
+            </span>
+            <span className="pb-[7px] font-display text-[clamp(24px,6.4vw,30px)] font-bold text-[#c09a4a]">
+              円
+            </span>
           </p>
         </div>
 
-        <ul className="px-5 pt-4">
-          <li className="flex items-center gap-3 border-b border-dotted border-ink/40 pb-3">
-            <CheckIcon />
-            <span className="text-[17px] font-bold">
-              最短即日対応！緊急時もご相談ください
+        {/* ===== white card ===== */}
+        <div className="mt-[22px] rounded-xl bg-white pb-[10px] pt-5 shadow-[0_2px_10px_rgba(60,50,30,0.06)]">
+          <h3 className="px-4 text-center">
+            <span
+              className="inline pb-[8px] font-display text-[clamp(16px,4.4vw,21px)] font-bold tracking-[0.03em] text-ink"
+              style={DOT_RULE}
+            >
+              お電話1本！まずはご相談を
             </span>
-          </li>
-          <li className="flex items-center gap-3 border-b border-dotted border-ink/40 py-3">
-            <CheckIcon />
-            <span className="text-[17px] font-bold">
-              追加費用一切なし！{/* TODO: 景表法対応: 例外条件の明記を検討 */}
-            </span>
-          </li>
-          <li className="flex items-center gap-3 border-b border-dotted border-ink/40 py-3">
-            <CheckIcon />
-            <span className="text-[17px] font-bold">
-              クレジットカードご利用可能
-            </span>
-          </li>
-        </ul>
+          </h3>
 
-        <div className="px-3 pb-5 pt-3 text-center">
-          <p className="text-[15px] font-bold text-accent">▼タップで発信</p>
+          {/* checklist */}
+          <ul className="mt-4 px-5">
+            <li className="flex items-start gap-2.5 border-b border-[#d9c8a3] py-[11px]">
+              <GoldCheck />
+              <span className="text-[clamp(11.5px,3.1vw,13.5px)] font-bold leading-[1.9] text-ink">
+                最短即日対応！緊急時もご相談ください
+              </span>
+            </li>
+            <li className="flex items-start gap-2.5 border-b border-[#d9c8a3] py-[11px]">
+              <GoldCheck />
+              <span className="text-[clamp(11.5px,3.1vw,13.5px)] font-bold leading-[1.9] text-ink">
+                追加費用一切なし！{/* TODO: 景表法対応: 例外条件の明記を検討 */}
+              </span>
+            </li>
+            <li className="flex items-start gap-2.5 py-[11px]">
+              <GoldCheck />
+              <span className="text-[clamp(11.5px,3.1vw,13.5px)] font-bold leading-[1.9] text-ink">
+                クレジットカードご利用可能
+              </span>
+            </li>
+          </ul>
+
+          {/* ===== phone CTA (FV-identical) ===== */}
           <a
             href="tel:0344002098"
-            className="mt-1 flex items-center justify-center gap-2 text-accent"
+            className="mx-2 mt-2 flex items-center gap-2 rounded-[18px] bg-gradient-to-b from-[#c8252c] to-[#a5151d] px-4 pb-[17px] pt-[15px] text-white shadow-[0_4px_14px_rgba(157,21,30,0.32)]"
           >
-            <svg
-              viewBox="0 0 24 24"
-              className="h-9 w-9 shrink-0 fill-current"
-              aria-hidden="true"
-            >
+            <svg viewBox="0 0 24 24" className="h-11 w-11 shrink-0" fill="currentColor" aria-hidden="true">
               <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
             </svg>
-            <span className="text-[44px] font-black leading-none tracking-tight">
-              03-4400-2098
+            <span className="flex min-w-0 flex-1 flex-col items-center">
+              <span className="text-[clamp(12.5px,3.6vw,15px)] font-bold leading-none tracking-[0.04em]">
+                お電話で今すぐ相談する
+              </span>
+              <span className="mt-2 whitespace-nowrap text-[clamp(29px,8vw,38px)] font-black leading-none tracking-[-0.01em]">
+                03-4400-2098
+              </span>
+              <span className="mt-[10px] whitespace-nowrap rounded-full border-[1.5px] border-white/90 px-[18px] py-[6px] text-[clamp(9.5px,2.5vw,11.5px)] font-bold leading-none tracking-[0.02em]">
+                9:00〜21:00 年中無休｜タップで電話
+              </span>
             </span>
+            <ChevronCircle color="#b01218" />
           </a>
-          <p className="mt-2 text-[12px] font-bold leading-relaxed">
-            お電話受付 9:00〜21:00（不定休）
-            <br />
-            ／LINE・メールは24時間受付・緊急時は折り返し対応
-          </p>
-        </div>
-      </div>
 
-      {/* ===== LINE button ===== */}
-      <div className="px-5 pb-12 pt-8">
-        <a
-          href="https://page.line.me/782qjphg"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block rounded-full bg-gradient-to-b from-[#52bb66] to-[#178c3c] p-[3px] shadow-[0_5px_12px_rgba(0,0,0,0.3)]"
-        >
-          <span className="flex items-center gap-2.5 rounded-full border-2 border-white/90 py-2.5 pl-2.5 pr-4">
-            <span className="flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-full bg-accent text-[13px] font-bold leading-tight text-white">
-              <span>見積</span>
-              <span>無料</span>
-            </span>
-            <span className="flex-1 text-center text-white">
-              <span className="block text-[13px] font-bold leading-tight">
-                まずは現地調査から
-              </span>
-              <span className="block font-serif text-[23px] font-bold leading-tight drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]">
-                今すぐLINEで依頼する
-              </span>
-            </span>
-            <svg
-              viewBox="0 0 24 24"
-              className="h-7 w-7 shrink-0 rounded-full border border-white"
-              aria-hidden="true"
-            >
+          {/* ===== LINE CTA (FV-identical) ===== */}
+          <a
+            href="https://page.line.me/782qjphg"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mx-2 mb-2 mt-3 flex items-center gap-2.5 rounded-[18px] bg-gradient-to-b from-[#0bd160] to-[#05b04a] px-4 pb-[17px] pt-[15px] text-white shadow-[0_4px_14px_rgba(5,166,72,0.32)]"
+          >
+            <svg viewBox="0 0 24 24" className="h-[clamp(38px,10vw,48px)] w-[clamp(38px,10vw,48px)] shrink-0" aria-hidden="true">
               <path
-                d="M10 7l5 5-5 5"
-                fill="none"
-                stroke="#fff"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+                fill="#fff"
+                d="M12 3.2C6.6 3.2 2.2 6.7 2.2 11c0 3.8 3.4 7 8 7.7.3.1.7.2.8.5.1.2.1.6.1.9l-.2.8c0 .2-.2.9.8.5 1.1-.4 5.8-3.4 7.9-5.8 1.5-1.6 2.2-3.2 2.2-4.6 0-4.3-4.4-7.8-9.8-7.8z"
               />
+              <text
+                x="12"
+                y="12.9"
+                textAnchor="middle"
+                fontSize="4.8"
+                fontWeight="bold"
+                fill="#06b14e"
+                fontFamily="Arial, Helvetica, sans-serif"
+              >
+                LINE
+              </text>
             </svg>
-          </span>
-        </a>
+            <span className="flex min-w-0 flex-1 flex-col items-center">
+              <span className="whitespace-nowrap text-[clamp(19px,5vw,23px)] font-bold leading-none tracking-[0.02em]">
+                LINE<span className="text-[clamp(16px,4.2vw,19px)]">で</span>無料相談する
+              </span>
+              <span className="mt-[10px] whitespace-nowrap rounded-full border-[1.5px] border-white/90 px-4 py-[6px] text-[clamp(9.5px,2.5vw,11.5px)] font-bold leading-none tracking-[0.01em]">
+                写真を送るだけで簡単見積り｜24時間受付中
+              </span>
+            </span>
+            <ChevronCircle color="#06b14e" />
+          </a>
+        </div>
       </div>
     </section>
   );
