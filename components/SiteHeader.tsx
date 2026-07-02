@@ -19,10 +19,11 @@ export default function SiteHeader() {
         </a>
 
         {/* 無料 laurel badge */}
-        <div className="flex shrink-0 items-center gap-[1px] leading-none">
-          <span className="font-serif text-[clamp(13px,3.4vw,24px)] text-kv-gold [transform:scaleX(0.7)]">
-            〈
-          </span>
+        <div className="flex shrink-0 items-center gap-[clamp(1px,0.4vw,3px)] leading-none">
+          <svg viewBox="0 0 30 60" className="h-[clamp(28px,7vw,44px)] w-auto" fill="#d8a52e" aria-hidden="true">
+            <path d="M22 58C11 51 7 39 10 27 7 39 12 51 22 58Z" />
+            <path d="M10 43c3.6-.9 6.4.6 7.8 3.7-3.6.9-6.5-.4-7.8-3.7ZM9.6 34.5c3.4-.5 6.1 1.4 7 4.6-3.4.2-6.1-1.5-7-4.6ZM10.6 26c3 0 5.5 2 6.1 5.1-3-.2-5.4-2-6.1-5.1ZM12.5 18.5c2.7.7 4.5 2.8 4.5 5.8-2.7-.8-4.3-2.9-4.5-5.8ZM15.8 12c2.2 1.2 3.2 3.4 2.7 6.3-2.2-1.4-3-3.6-2.7-6.3Z" />
+          </svg>
           <p className="text-center leading-none">
             <span className="block text-[clamp(6px,1.5vw,9px)] font-bold text-ink">
               相談・見積り
@@ -34,9 +35,10 @@ export default function SiteHeader() {
               24時間受付・年中無休
             </span>
           </p>
-          <span className="font-serif text-[clamp(13px,3.4vw,24px)] text-kv-gold [transform:scaleX(0.7)]">
-            〉
-          </span>
+          <svg viewBox="0 0 30 60" className="h-[clamp(28px,7vw,44px)] w-auto -scale-x-100" fill="#d8a52e" aria-hidden="true">
+            <path d="M22 58C11 51 7 39 10 27 7 39 12 51 22 58Z" />
+            <path d="M10 43c3.6-.9 6.4.6 7.8 3.7-3.6.9-6.5-.4-7.8-3.7ZM9.6 34.5c3.4-.5 6.1 1.4 7 4.6-3.4.2-6.1-1.5-7-4.6ZM10.6 26c3 0 5.5 2 6.1 5.1-3-.2-5.4-2-6.1-5.1ZM12.5 18.5c2.7.7 4.5 2.8 4.5 5.8-2.7-.8-4.3-2.9-4.5-5.8ZM15.8 12c2.2 1.2 3.2 3.4 2.7 6.3-2.2-1.4-3-3.6-2.7-6.3Z" />
+          </svg>
         </div>
 
         {/* Phone */}

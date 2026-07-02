@@ -28,7 +28,7 @@ function Check() {
 
 export default function Onayami() {
   return (
-    <section className="w-full bg-kv-bg px-3 pb-8 pt-2">
+    <section className="w-full bg-[#f7fbf4] px-3 pb-8 pt-1">
       <div className="overflow-hidden rounded-[12px] border border-kv-gold/60 bg-kv-cream shadow-[0_2px_10px_rgba(0,0,0,0.18)]">
         {/* dark ribbon heading */}
         <div className="bg-gradient-to-r from-kv-green-deep to-[#0b6d3a] py-[clamp(7px,2.2vw,12px)] pl-[clamp(12px,4vw,22px)] pr-[clamp(18px,6vw,40px)] [clip-path:polygon(0_0,100%_0,94%_100%,0_100%)]">

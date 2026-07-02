@@ -1,55 +1,67 @@
 /**
- * Hero — faithful reproduction of the client KV design, built responsively
- * (normal-flow text + one decorative absolutely-positioned portrait), NOT a
- * fixed absolute-positioned artboard, so it never collides or shrinks illegibly.
- *
- * Zones: dark-green hero visual (ribbon + headline + lead + portrait + name
- * plate) → 4 benefit cards → dual CTA → Google/record proof panel.
+ * Hero — faithful reproduction of the client KV (kv_reference.png).
+ * LIGHT / bright key visual: green-foliage background, black+green outlined
+ * headline, red accents, teal phone CTA, gold laurel proof — NOT a dark theme.
+ * Built responsively (normal-flow text + one decorative portrait cutout).
  */
 
 const PHONE = "tel:0344002098";
 const LINE = "https://page.line.me/782qjphg";
 
-/* ---- benefit icons (dark-green line, matches KV) ---- */
+/* white outline used on the big headline over the bright foliage */
+const OUTLINE_WHITE =
+  "2px 2px 0 #fff, -2px 2px 0 #fff, 2px -2px 0 #fff, -2px -2px 0 #fff, 0 2px 0 #fff, 2px 0 0 #fff, 0 -2px 0 #fff, -2px 0 0 #fff, 0 4px 7px rgba(0,0,0,0.16)";
+const OUTLINE_SM =
+  "1.5px 1.5px 0 #fff, -1.5px 1.5px 0 #fff, 1.5px -1.5px 0 #fff, -1.5px -1.5px 0 #fff, 0 2px 4px rgba(0,0,0,0.12)";
+
+/* ---- benefit icons (dark-green line) ---- */
 function IcoDoc() {
   return (
-    <svg viewBox="0 0 64 64" className="h-full w-full" fill="#063f25" aria-hidden="true">
-      <path d="M12 4h30l10 10v46H12V4Zm28 4v8h8l-8-8ZM20 26h24v5H20v-5Zm0 11h24v5H20v-5Zm0 11h15v5H20v-5Z" />
+    <svg viewBox="0 0 64 64" className="h-full w-full" fill="none" stroke="#0a7a30" strokeWidth="3.2" aria-hidden="true">
+      <path d="M14 6h26l10 10v42H14z" strokeLinejoin="round" />
+      <path d="M40 6v10h10M22 28h20M22 37h20M22 46h13" strokeLinecap="round" />
     </svg>
   );
 }
 function IcoYen() {
   return (
-    <svg viewBox="0 0 64 64" className="h-full w-full" fill="none" stroke="#063f25" strokeWidth="3.4" aria-hidden="true">
-      <circle cx="32" cy="32" r="26" />
-      <path d="M22 20l10 15 10-15M22 38h20M22 46h20M32 35v17" strokeLinecap="round" strokeLinejoin="round" />
+    <svg viewBox="0 0 64 64" className="h-full w-full" fill="none" stroke="#0a7a30" strokeWidth="3.2" aria-hidden="true">
+      <circle cx="32" cy="32" r="25" />
+      <path d="M22 20l10 15 10-15M22 39h20M22 46h20M32 35v17" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 function IcoPerson() {
   return (
-    <svg viewBox="0 0 64 64" className="h-full w-full" fill="#063f25" aria-hidden="true">
-      <circle cx="32" cy="20" r="12" />
-      <path d="M10 58c1-14 10-22 22-22s21 8 22 22H10Z" />
+    <svg viewBox="0 0 64 64" className="h-full w-full" fill="#0a7a30" aria-hidden="true">
+      <circle cx="32" cy="21" r="12" />
+      <path d="M11 57c1-13 10-21 21-21s20 8 21 21H11Z" />
     </svg>
   );
 }
 function IcoLock() {
   return (
-    <svg viewBox="0 0 64 64" className="h-full w-full" fill="none" stroke="#063f25" strokeWidth="3.4" aria-hidden="true">
-      <rect x="14" y="28" width="36" height="30" rx="5" />
-      <path d="M22 28v-7a10 10 0 0 1 20 0v7" strokeLinecap="round" />
-      <circle cx="32" cy="42" r="3.4" fill="#063f25" stroke="none" />
+    <svg viewBox="0 0 64 64" className="h-full w-full" fill="none" stroke="#0a7a30" strokeWidth="3.2" aria-hidden="true">
+      <rect x="15" y="28" width="34" height="29" rx="5" />
+      <path d="M23 28v-7a9 9 0 0 1 18 0v7" strokeLinecap="round" />
+      <circle cx="32" cy="42" r="3.2" fill="#0a7a30" stroke="none" />
       <path d="M32 45v6" strokeLinecap="round" />
     </svg>
   );
 }
 
-function Laurel({ flip = false }: Readonly<{ flip?: boolean }>) {
+/* gold laurel branch */
+function LaurelBranch({ flip = false }: Readonly<{ flip?: boolean }>) {
   return (
-    <svg viewBox="0 0 40 60" className={`h-full w-auto ${flip ? "-scale-x-100" : ""}`} fill="none" stroke="#d8a52e" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">
-      <path d="M26 56C13 51 7 39 9 26" />
-      <path d="M9 41c3.4-.5 6 .9 7.4 3.8-3.4.8-6-.6-7.4-3.8ZM9.4 32c3.2.3 5.6 2.4 6.2 5.6-3.2-.2-5.6-2.3-6.2-5.6ZM11 23c3 1.2 4.8 3.7 4.5 7-3-1-4.9-3.6-4.5-7ZM14.4 15c2.6 2 3.6 5 2.6 8-2.6-1.8-3.7-4.8-2.6-8ZM19.4 9c2 2.4 2.3 5.6.8 8.4-2-2.2-2.5-5.4-.8-8.4Z" fill="#d8a52e" stroke="none" />
+    <svg viewBox="0 0 34 64" className={`h-full w-auto ${flip ? "-scale-x-100" : ""}`} fill="#d8a52e" aria-hidden="true">
+      <path d="M24 62C13 55 8 43 11 30 8 42 13 54 24 62Z" />
+      <g>
+        <path d="M11 46c4-1 7 .6 8.6 4-4 1-7.2-.4-8.6-4Z" />
+        <path d="M10.5 37c3.8-.5 6.8 1.5 7.8 5-3.8.2-6.8-1.6-7.8-5Z" />
+        <path d="M11.5 28c3.4 0 6.2 2.2 6.8 5.7-3.4-.2-6-2.3-6.8-5.7Z" />
+        <path d="M13.5 20c3 .7 5 3 5 6.4-3-.9-4.8-3.2-5-6.4Z" />
+        <path d="M17 13c2.4 1.3 3.6 3.8 3 7-2.4-1.6-3.4-4-3-7Z" />
+      </g>
     </svg>
   );
 }
@@ -63,13 +75,13 @@ const BENEFITS = [
 
 export default function Hero() {
   return (
-    <section className="w-full">
+    <section className="w-full bg-[#f7fbf4]">
       {/* ======================= HERO VISUAL ======================= */}
-      <div className="relative overflow-hidden bg-kv-bg">
-        {/* stained-room bg image, upper half, darkened */}
+      <div className="relative overflow-hidden">
+        {/* bright green-foliage background */}
         <div
           aria-hidden="true"
-          className="absolute inset-x-0 top-0 h-[62%] bg-cover bg-top opacity-[0.5]"
+          className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url(/img/kv_hero_bg.jpg)" }}
         />
         <div
@@ -77,7 +89,7 @@ export default function Hero() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(12,59,35,0.55) 0%, rgba(12,59,35,0.72) 46%, #0c3b23 82%)",
+              "linear-gradient(180deg, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.45) 60%, #f7fbf4 100%)",
           }}
         />
 
@@ -89,56 +101,71 @@ export default function Hero() {
           height={421}
           loading="eager"
           fetchPriority="high"
-          className="absolute bottom-0 right-0 z-[2] h-auto w-[46%] max-w-[260px] drop-shadow-[0_2px_10px_rgba(0,0,0,0.35)]"
+          className="absolute bottom-0 right-0 z-[2] h-auto w-[48%] max-w-[270px] drop-shadow-[0_2px_10px_rgba(0,0,0,0.18)]"
         />
 
-        {/* area ribbon */}
-        <div className="relative z-[3] inline-flex items-center bg-kv-maroon py-[clamp(5px,1.6vw,9px)] pl-[clamp(12px,4vw,22px)] pr-[clamp(16px,6vw,34px)] text-white shadow-[0_2px_5px_rgba(0,0,0,0.25)] [clip-path:polygon(0_0,100%_0,88%_100%,0_100%)]">
+        {/* area ribbon (dark green) */}
+        <div className="relative z-[3] mt-[clamp(8px,2.6vw,14px)] inline-flex items-center bg-gradient-to-r from-kv-green-deep to-[#0a7a30] py-[clamp(5px,1.6vw,9px)] pl-[clamp(12px,4vw,22px)] pr-[clamp(18px,6vw,36px)] text-white shadow-[0_2px_5px_rgba(0,0,0,0.2)] [clip-path:polygon(0_0,100%_0,90%_100%,0_100%)]">
           <span className="text-[clamp(13px,3.7vw,18px)] font-black tracking-[0.02em]">
             東京・神奈川 全域対応
           </span>
         </div>
 
-        {/* headline + lead (left, padded so it clears the portrait) */}
-        <div className="relative z-[3] px-4 pb-[clamp(16px,5vw,26px)] pt-[clamp(10px,3vw,16px)]">
-          <p className="text-[clamp(17px,5vw,26px)] font-black leading-none text-white [text-shadow:1px_1px_0_rgba(0,0,0,0.3)]">
+        {/* headline + lead (dark text on light) */}
+        <div className="relative z-[3] px-4 pb-[clamp(14px,4vw,22px)] pt-[clamp(8px,2.6vw,14px)]">
+          <p
+            className="text-[clamp(17px,5vw,26px)] font-black leading-none text-[#111]"
+            style={{ textShadow: OUTLINE_SM }}
+          >
             孤独死・事故現場の
           </p>
 
           <h1 className="mt-[clamp(4px,1.4vw,8px)] flex items-center gap-[clamp(4px,1.4vw,9px)]">
-            <span className="font-display text-[clamp(46px,13.5vw,74px)] font-black leading-[0.9] tracking-[-0.02em] text-white [text-shadow:2px_2px_0_#063f25,-1px_-1px_0_#063f25,0_3px_6px_rgba(0,0,0,0.3)]">
+            <span
+              className="text-[clamp(48px,14vw,78px)] font-black leading-[0.9] tracking-[-0.03em] text-[#0a8a35]"
+              style={{ textShadow: OUTLINE_WHITE }}
+            >
               特殊清掃
             </span>
-            <span className="mt-[6px] grid h-[clamp(28px,8vw,44px)] shrink-0 place-items-center bg-kv-green-deep px-[clamp(4px,1.4vw,8px)] text-[clamp(15px,4.4vw,25px)] font-black leading-none text-white shadow-[2px_2px_0_rgba(0,0,0,0.25)]">
+            <span className="mt-[6px] grid h-[clamp(28px,8vw,44px)] shrink-0 place-items-center rounded-[3px] bg-kv-green-deep px-[clamp(4px,1.4vw,8px)] text-[clamp(15px,4.4vw,25px)] font-black leading-none text-white shadow-[1px_2px_3px_rgba(0,0,0,0.2)]">
               専門
             </span>
           </h1>
 
-          <p className="mt-[clamp(8px,2.6vw,15px)] text-[clamp(30px,9vw,50px)] font-black leading-[0.95] tracking-[-0.03em] [text-shadow:1px_1px_0_rgba(0,0,0,0.3)]">
-            <span className="text-kv-orange">臭い・体液汚染</span>
-            <span className="text-[0.72em] text-white">を</span>
+          <p
+            className="mt-[clamp(6px,2.2vw,13px)] text-[clamp(31px,9.2vw,52px)] font-black leading-[0.95] tracking-[-0.04em]"
+            style={{ textShadow: OUTLINE_SM }}
+          >
+            <span className="text-kv-red">臭い・体液汚染</span>
+            <span className="text-[0.7em] text-[#111]">を</span>
           </p>
 
-          <p className="mt-[clamp(6px,2vw,12px)] text-[clamp(27px,8vw,44px)] font-black leading-[0.98] tracking-[-0.03em] text-white [text-shadow:1px_1px_0_rgba(0,0,0,0.3)]">
+          <p
+            className="mt-[clamp(5px,1.8vw,11px)] text-[clamp(28px,8.3vw,46px)] font-black leading-[0.98] tracking-[-0.04em] text-[#111]"
+            style={{ textShadow: OUTLINE_SM }}
+          >
             最短
-            <span className="mx-[0.05em] text-[1.28em] text-kv-orange">即日</span>
+            <span className="mx-[0.04em] text-[1.26em] text-kv-orange">即日</span>
             で現地確認
           </p>
 
-          <p className="mt-[clamp(10px,3vw,16px)] max-w-[64%] text-[clamp(11px,3.1vw,15px)] font-bold leading-[1.5] text-white [text-shadow:1px_1px_0_rgba(0,0,0,0.3)]">
+          <p
+            className="mt-[clamp(9px,2.8vw,15px)] max-w-[62%] text-[clamp(11px,3.1vw,15px)] font-black leading-[1.5] text-[#1a1a1a]"
+            style={{ textShadow: OUTLINE_SM }}
+          >
             強い腐敗臭・体液汚染・害虫の発生まで
             <br />
-            原因を特定し、<span className="text-kv-yellow">根本から解決します。</span>
+            原因を特定し、<span className="text-kv-green-deep">根本から解決します。</span>
           </p>
         </div>
 
         {/* name plate */}
-        <div className="absolute bottom-[clamp(8px,2.5vw,16px)] right-[clamp(8px,2.5vw,14px)] z-[4] rounded-[7px] bg-gradient-to-br from-[#0bb452] to-[#067833] px-[clamp(8px,2.6vw,14px)] py-[clamp(5px,1.6vw,9px)] text-white shadow-[0_3px_8px_rgba(0,0,0,0.3)]">
+        <div className="absolute bottom-[clamp(6px,2vw,12px)] right-[clamp(6px,2vw,12px)] z-[4] rounded-[7px] bg-gradient-to-br from-[#0bb452] to-[#067833] px-[clamp(8px,2.6vw,14px)] py-[clamp(5px,1.6vw,9px)] text-white shadow-[0_3px_8px_rgba(0,0,0,0.25)]">
           <p className="text-[clamp(11px,3.2vw,16px)] font-black leading-tight">
             代表 太田
           </p>
           <p className="mt-[2px] text-[clamp(7px,1.9vw,9.5px)] font-bold leading-[1.35] text-white/95">
-            遺品整理士認定協会 認定優良事業所
+            遺品整理士・認定協会 認定優良事業所
             <br />
             事件現場特殊清掃士
           </p>
@@ -146,12 +173,12 @@ export default function Hero() {
       </div>
 
       {/* ======================= BENEFIT CARDS ======================= */}
-      <div className="bg-kv-bg px-3 pb-[clamp(10px,3vw,16px)] pt-1">
+      <div className="px-3 pb-[clamp(8px,2.5vw,14px)] pt-[clamp(6px,2vw,12px)]">
         <div className="grid grid-cols-4 gap-[clamp(5px,1.6vw,10px)]">
           {BENEFITS.map((b) => (
             <div
               key={b.val}
-              className="flex flex-col items-center rounded-[9px] border border-kv-gold/70 bg-kv-cream px-1 py-[clamp(6px,2vw,11px)] text-center shadow-[0_2px_6px_rgba(0,0,0,0.2)]"
+              className="flex flex-col items-center rounded-[9px] border border-kv-gold/45 bg-kv-cream px-1 py-[clamp(6px,2vw,11px)] text-center shadow-[0_1px_4px_rgba(0,0,0,0.08)]"
             >
               <span className="h-[clamp(20px,6vw,30px)] w-[clamp(20px,6vw,30px)]">
                 {b.icon}
@@ -168,14 +195,14 @@ export default function Hero() {
       </div>
 
       {/* ======================= DUAL CTA ======================= */}
-      <div className="grid grid-cols-2 gap-[clamp(6px,2vw,11px)] bg-kv-bg px-3 pb-[clamp(8px,2.5vw,14px)]">
-        {/* phone */}
+      <div className="grid grid-cols-2 gap-[clamp(6px,2vw,11px)] px-3 pb-[clamp(8px,2.5vw,14px)]">
+        {/* phone (teal) */}
         <a
           href={PHONE}
-          className="flex items-center gap-[clamp(4px,1.5vw,9px)] rounded-[11px] border-2 border-white/60 bg-gradient-to-br from-kv-red to-kv-red-deep px-[clamp(8px,2.4vw,14px)] py-[clamp(8px,2.6vw,14px)] text-white shadow-[0_3px_9px_rgba(150,15,20,0.4)]"
+          className="flex items-center gap-[clamp(4px,1.5vw,9px)] rounded-[11px] bg-gradient-to-br from-[#19bed0] to-[#057681] px-[clamp(8px,2.4vw,14px)] py-[clamp(8px,2.6vw,14px)] text-white shadow-[0_3px_9px_rgba(6,110,120,0.35)]"
         >
           <span className="grid h-[clamp(28px,8vw,44px)] w-[clamp(28px,8vw,44px)] shrink-0 place-items-center rounded-full bg-white">
-            <svg viewBox="0 0 24 24" className="h-[60%] w-[60%]" fill="#cf1f1f" aria-hidden="true">
+            <svg viewBox="0 0 24 24" className="h-[60%] w-[60%]" fill="#057681" aria-hidden="true">
               <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
             </svg>
           </span>
@@ -197,7 +224,7 @@ export default function Hero() {
           href={LINE}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-[clamp(4px,1.5vw,9px)] rounded-[11px] border-2 border-white/60 bg-gradient-to-br from-[#1ecb3a] to-[#029b21] px-[clamp(8px,2.4vw,14px)] py-[clamp(8px,2.6vw,14px)] text-white shadow-[0_3px_9px_rgba(6,160,72,0.4)]"
+          className="flex items-center gap-[clamp(4px,1.5vw,9px)] rounded-[11px] bg-gradient-to-br from-[#1ecb3a] to-[#029b21] px-[clamp(8px,2.4vw,14px)] py-[clamp(8px,2.6vw,14px)] text-white shadow-[0_3px_9px_rgba(6,160,72,0.35)]"
         >
           <span className="grid h-[clamp(28px,8vw,44px)] w-[clamp(28px,8vw,44px)] shrink-0 place-items-center rounded-full bg-white text-[clamp(7px,2vw,10px)] font-black text-kv-line">
             LINE
@@ -210,15 +237,15 @@ export default function Hero() {
               写真相談・概算見積り
             </span>
             <span className="mt-[3px] block text-[clamp(6.5px,1.9vw,9px)] font-bold">
-              簡単・安心・すぐにご回答します
+              簡単・安心・すぐに回答します
             </span>
           </span>
         </a>
       </div>
 
       {/* ======================= PROOF PANEL ======================= */}
-      <div className="bg-kv-bg px-3 pb-[clamp(12px,4vw,20px)]">
-        <div className="grid grid-cols-2 overflow-hidden rounded-[11px] border border-kv-gold/70 bg-kv-cream shadow-[0_2px_8px_rgba(0,0,0,0.18)]">
+      <div className="px-3 pb-[clamp(12px,4vw,20px)]">
+        <div className="grid grid-cols-2 overflow-hidden rounded-[11px] border border-kv-gold/45 bg-kv-cream shadow-[0_1px_5px_rgba(0,0,0,0.09)]">
           {/* google */}
           <div className="px-[clamp(6px,2vw,12px)] py-[clamp(8px,2.6vw,14px)] text-center">
             <p className="text-[clamp(11px,3.2vw,16px)] font-bold leading-none">
@@ -233,7 +260,7 @@ export default function Hero() {
               <span className="ml-1 text-ink">クチコミ高評価</span>
             </p>
             <p className="mt-1 flex items-center justify-center gap-1 leading-none">
-              <span className="text-[clamp(14px,4.3vw,22px)] tracking-[0.05em] text-[#e9a900]">
+              <span className="text-[clamp(14px,4.3vw,22px)] tracking-[0.05em] text-[#f2b01e]">
                 ★★★★★
               </span>
               <span className="text-[clamp(18px,5.4vw,28px)] font-black text-kv-red">
@@ -252,12 +279,12 @@ export default function Hero() {
           </div>
 
           {/* record */}
-          <div className="relative border-l border-kv-gold/50 px-[clamp(6px,2vw,12px)] py-[clamp(8px,2.6vw,14px)] text-center">
-            <span className="pointer-events-none absolute left-1 top-[22%] h-[52%]">
-              <Laurel />
+          <div className="relative border-l border-kv-gold/40 px-[clamp(6px,2vw,12px)] py-[clamp(8px,2.6vw,14px)] text-center">
+            <span className="pointer-events-none absolute left-[3px] top-[20%] h-[58%]">
+              <LaurelBranch />
             </span>
-            <span className="pointer-events-none absolute right-1 top-[22%] h-[52%]">
-              <Laurel flip />
+            <span className="pointer-events-none absolute right-[3px] top-[20%] h-[58%]">
+              <LaurelBranch flip />
             </span>
             <p className="text-[clamp(11px,3.2vw,16px)] font-black leading-none text-ink">
               ご相談実績
