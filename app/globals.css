@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  /* fonts (loaded via next/font in layout.tsx) */
+  --font-sans: var(--font-noto-sans), "Hiragino Kaku Gothic ProN", "Yu Gothic",
+    sans-serif;
+  --font-serif: var(--font-noto-serif), "Hiragino Mincho ProN", "Yu Mincho",
+    serif;
+
+  /* brand green (FV / onayami / nagare) */
+  --color-brand-950: #0a3f2f;
+  --color-brand-900: #0e4d3a;
+  --color-brand-800: #145c45;
+  --color-brand-700: #1a6b50;
+  --color-brand-600: #218a66;
+  --color-brand-500: #2aa77c;
+  --color-brand-100: #e3f2ec;
+
+  /* gold (kuchikomi / shikaku / accents) */
+  --color-gold-700: #8a6423;
+  --color-gold-600: #a67c2e;
+  --color-gold-500: #c09a4a;
+  --color-gold-400: #d4b46a;
+  --color-gold-100: #f4ead3;
+
+  /* accent red (bands / price) */
+  --color-accent: #b81c22;
+
+  /* CTA orange */
+  --color-cta: #ef7a1a;
+  --color-cta-deep: #e25c0e;
+
+  /* LINE green */
+  --color-line: #06c755;
+
+  /* teal (jisseki sections) */
+  --color-teal-600: #0f9b8e;
+  --color-teal-500: #17b3a6;
+  --color-teal-100: #e0f5f3;
+
+  /* neutrals */
+  --color-cream: #f6f3ec;
+  --color-ink: #23241f;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #e9e7e2;
+  color: var(--color-ink);
+}
