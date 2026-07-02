@@ -40,7 +40,7 @@ function GoldFlourish({ flip = false }: Readonly<{ flip?: boolean }>) {
   return (
     <svg
       viewBox="0 0 56 12"
-      className={`h-3 w-14 shrink-0 ${flip ? "rotate-180" : ""}`}
+      className={`h-3 w-[clamp(28px,10vw,56px)] shrink-0 ${flip ? "rotate-180" : ""}`}
       aria-hidden="true"
     >
       <path d="M0 6h40" stroke="#c09a4a" strokeWidth="1.2" />
@@ -60,7 +60,7 @@ export default function Onayami() {
       {/* heading with gold flourishes */}
       <h2 className="flex items-center justify-center gap-2 px-2">
         <GoldFlourish />
-        <span className="whitespace-nowrap font-display text-[19px] font-bold tracking-[0.02em] text-forest-950">
+        <span className="whitespace-nowrap font-display text-[clamp(14.5px,4vw,21px)] font-bold tracking-[0.04em] text-forest-950">
           このようなお悩みはありませんか？
         </span>
         <GoldFlourish flip />
@@ -68,7 +68,7 @@ export default function Onayami() {
 
       {/* living-room photo blended into bottom-right */}
       <div
-        className="absolute -right-4 bottom-0 h-[240px] w-[58%] bg-cover bg-center"
+        className="absolute -right-4 bottom-0 h-[300px] w-[63%] bg-cover bg-center"
         style={{
           backgroundImage: roomExists ? `url(${ROOM})` : undefined,
           maskImage:
@@ -95,7 +95,7 @@ export default function Onayami() {
           <li key={text} className="flex items-start gap-2.5">
             <CheckCircle />
             <p
-              className="text-[12.5px] font-bold leading-[1.75] text-ink"
+              className="text-[clamp(11px,2.95vw,13.5px)] font-bold leading-[1.8] text-ink [word-break:auto-phrase]"
               style={{
                 textShadow:
                   "0 0 6px #f6f1e6, 0 0 4px #f6f1e6, 0 0 2px #f6f1e6",

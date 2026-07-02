@@ -112,7 +112,7 @@ export default function Kaiketsu() {
             <span className="bg-gradient-to-b from-[#43c9a4] to-[#0d7a56] bg-clip-text text-[40px] leading-none tracking-tight text-transparent">
               対応力
             </span>
-            <span className="bg-gradient-to-b from-[#bfe6e2] to-[#8fc6c0] bg-clip-text align-middle text-[30px] text-transparent">
+            <span className="bg-gradient-to-b from-[#d8bd85] to-[#c09a4a] bg-clip-text align-middle text-[30px] text-transparent">
               &amp;
             </span>
             <span className="bg-gradient-to-b from-[#43c9a4] to-[#0d7a56] bg-clip-text text-[40px] leading-none tracking-tight text-transparent">
