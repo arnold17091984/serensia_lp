@@ -43,6 +43,8 @@ export default function Hero() {
           <path d="M12 2C6.5 6.5 3.5 12 5 17.5c5.5 1.5 11-1.5 13.5-7C20 7.5 18 3.5 12 2z" />
         </svg>
 
+        {/* 代表写真: マスクを弱め・拡大し、下のテキスト開始位置を顔の下まで下げて
+            元LPと同じ「顔がはっきり見える」構図にする */}
         <img
           src="/img/hero_daihyo.jpg"
           alt="特殊清掃・遺品整理 セレンシア 代表 太田"
@@ -50,11 +52,14 @@ export default function Hero() {
           height={265}
           loading="eager"
           fetchPriority="high"
-          className="absolute right-0 top-8 h-auto w-[54%]"
+          className="absolute right-0 top-2 h-auto w-[58%]"
           style={{
-            maskImage: "linear-gradient(to right, transparent 0, #000 16%)",
+            maskImage:
+              "linear-gradient(to right, transparent 0, #000 9%), linear-gradient(to top, transparent 0, #000 12%)",
             WebkitMaskImage:
-              "linear-gradient(to right, transparent 0, #000 16%)",
+              "linear-gradient(to right, transparent 0, #000 9%), linear-gradient(to top, transparent 0, #000 12%)",
+            maskComposite: "intersect",
+            WebkitMaskComposite: "source-in",
           }}
         />
 
@@ -74,9 +79,9 @@ export default function Hero() {
             ))}
           </div>
 
-          {/* (3) Area / same-day line */}
+          {/* (3) Area / same-day line — 顔にかからない位置まで下げる */}
           <p
-            className="mt-4 whitespace-nowrap font-serif text-[clamp(20px,6.3vw,31px)] font-black tracking-tight text-white"
+            className="mt-32 whitespace-nowrap font-serif text-[clamp(20px,6.3vw,31px)] font-black tracking-tight text-white"
             style={{ textShadow: OUTLINE_GREEN }}
           >
             東京・神奈川本日対応可能！
