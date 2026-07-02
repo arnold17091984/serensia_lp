@@ -1,15 +1,29 @@
 /**
- * Section: 柔軟なサポート体制 — Clinical Trust redesign.
- * White ground, mono overline, 2x2 numbered support cards,
- * signal-framed call card, and LINE-green CTA button.
+ * Section: 柔軟なサポート体制（design-refs/06_support.jpg）
+ * Pale-green leaf background + 4 numbered white cards + red band
+ * + yellow phone box + green LINE button.
  */
+
+function Leaf({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      aria-hidden="true"
+      fill="currentColor"
+    >
+      <path d="M0 24C0 10.7 10.7 0 24 0c0 13.3-10.7 24-24 24Z" />
+    </svg>
+  );
+}
 
 const SUPPORT_ITEMS = [
   {
     no: "01",
     body: (
       <>
-        立会い<span className="text-teal-700">不要</span>
+        <span className="text-ink">立会い</span>
+        <span className="text-accent">不要</span>
       </>
     ),
   },
@@ -17,7 +31,8 @@ const SUPPORT_ITEMS = [
     no: "02",
     body: (
       <>
-        <span className="text-teal-700">鍵のお預り</span>可能
+        <span className="text-accent">鍵のお預り</span>
+        <span className="text-ink">可能</span>
       </>
     ),
   },
@@ -25,7 +40,12 @@ const SUPPORT_ITEMS = [
     no: "03",
     body: (
       <>
-        代表または副社長が<span className="text-teal-700">現地立ち合い</span>
+        <span className="mr-1 inline-block align-middle text-[13px] font-bold leading-[1.4] text-ink">
+          代表または
+          <br />
+          副社長が
+        </span>
+        <span className="align-middle text-accent">現地立ち合い</span>
       </>
     ),
   },
@@ -33,126 +53,119 @@ const SUPPORT_ITEMS = [
     no: "04",
     body: (
       <>
-        <span className="text-teal-700">近隣への配慮</span>を徹底
+        <span className="text-accent">近隣への配慮</span>
+        <span className="text-ink">を徹底</span>
       </>
     ),
   },
 ];
 
-function PhoneIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className="h-4 w-4 shrink-0 text-signal-deep"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function ArrowIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className="h-4 w-4 shrink-0 text-white"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M9 5l7 7-7 7"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 export default function Support() {
   return (
-    <section className="w-full bg-white px-5 py-14">
-      <div className="reveal">
-        <p className="font-mono text-[11px] tracking-[0.22em] text-teal-600">
-          05 — SUPPORT
+    <section className="relative w-full overflow-hidden bg-gradient-to-b from-white via-brand-100/70 to-brand-100">
+      {/* Decorative leaves */}
+      <Leaf className="absolute -left-6 top-16 h-24 w-24 rotate-[160deg] text-brand-500/25" />
+      <Leaf className="absolute -right-5 top-8 h-20 w-20 rotate-[-20deg] text-brand-500/20" />
+      <Leaf className="absolute -right-8 top-[45%] h-28 w-28 rotate-[210deg] text-brand-600/20" />
+      <Leaf className="absolute -left-8 bottom-40 h-24 w-24 rotate-[40deg] text-brand-500/15" />
+
+      {/* Heading */}
+      <div className="relative px-4 pt-10 text-center">
+        <p className="text-[18px] font-bold tracking-wide text-ink">
+          特殊清掃の不安やお悩みを和らげる
         </p>
-        <h2 className="mt-4 font-bold tracking-tight text-ink">
-          <span className="block text-[15px] font-bold leading-[1.7] text-muted">
-            特殊清掃の不安やお悩みを和らげる
+        <h2 className="mt-1 font-serif font-bold">
+          <span className="block bg-gradient-to-b from-brand-800 to-brand-500 bg-clip-text text-[32px] leading-[1.3] text-transparent">
+            柔軟な
           </span>
-          <span className="block text-[26px] leading-[1.4]">
-            柔軟なサポート体制
+          <span className="block bg-gradient-to-b from-brand-800 to-brand-500 bg-clip-text text-[41px] leading-[1.25] tracking-[0.06em] text-transparent">
+            サポート体制
           </span>
         </h2>
+
+        {/* Numbered cards */}
+        <ul className="mt-7 space-y-4">
+          {SUPPORT_ITEMS.map((item) => (
+            <li
+              key={item.no}
+              className="flex items-center gap-4 rounded-xl bg-white px-5 py-5 text-left shadow-[0_4px_16px_rgba(20,92,69,0.12)]"
+            >
+              <span className="font-serif text-[30px] font-bold italic leading-none text-brand-500">
+                {item.no}
+              </span>
+              <p className="text-[23px] font-bold leading-tight">{item.body}</p>
+            </li>
+          ))}
+        </ul>
       </div>
 
-      {/* 2x2 support cards */}
-      <ul className="reveal mt-7 grid grid-cols-2 gap-2.5">
-        {SUPPORT_ITEMS.map((item) => (
-          <li
-            key={item.no}
-            className="rounded-xl border border-hairline bg-white p-4 shadow-[0_1px_2px_rgba(19,34,38,0.06)]"
-          >
-            <p className="font-mono text-[11px] tracking-[0.18em] text-teal-600">
-              {item.no}
-            </p>
-            <p className="mt-2 text-[16px] font-bold leading-[1.6] text-ink">
-              {item.body}
-            </p>
-          </li>
-        ))}
-      </ul>
-
-      {/* Call card (signal-framed, replaces red band + yellow box) */}
-      <div className="reveal mt-8 rounded-xl border-2 border-signal bg-white p-5 text-center shadow-[0_1px_2px_rgba(19,34,38,0.06)]">
-        <p className="text-[17px] font-bold tracking-tight text-ink">
+      {/* Red band */}
+      <div className="relative mt-9 bg-gradient-to-r from-[#8e1116] via-accent to-[#8e1116] py-3 text-center">
+        <p className="font-serif text-[25px] font-bold tracking-wide text-white">
           まずは相談事をお聞かせください
         </p>
-        <p className="mt-2.5 inline-flex items-center rounded-full border border-hairline bg-mist px-3 py-1 text-[11px] font-bold text-teal-800">
-          緊急時も対応
-        </p>
-        <a href="tel:0344002098" className="mt-3 block">
-          <span className="flex items-center justify-center gap-1.5 text-[12px] font-bold text-signal-deep">
-            <PhoneIcon />
-            タップで発信
-          </span>
-          <span className="mt-1 block font-mono text-[32px] font-bold leading-none tracking-tight text-signal-deep">
-            03-4400-2098
-          </span>
-        </a>
-        <p className="mt-3 text-[10.5px] font-medium leading-[1.7] text-muted">
-          お電話受付 9:00〜21:00（不定休）／LINE・メールは24時間受付・緊急時は折り返し対応
-        </p>
       </div>
 
-      {/* LINE button */}
-      <a
-        href="https://page.line.me/782qjphg"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="reveal mt-4 flex items-center justify-center gap-3 rounded-xl bg-line px-5 py-4 shadow-[0_1px_2px_rgba(19,34,38,0.06)]"
-      >
-        <span className="shrink-0 rounded-full border border-white/60 px-2.5 py-1 text-[11px] font-bold leading-none text-white">
-          見積無料
-        </span>
-        <span className="text-left text-white">
-          <span className="block text-[11px] font-bold leading-[1.5] opacity-90">
-            まずは現地調査から
-          </span>
-          <span className="block text-[17px] font-bold leading-tight">
-            今すぐLINEで依頼する
-          </span>
-        </span>
-        <ArrowIcon />
+      {/* Yellow phone box */}
+      <a href="tel:0344002098" className="relative block bg-[#ffe600] py-4 pl-3 pr-2">
+        <div className="flex items-center gap-2">
+          <p className="shrink-0 text-center text-[17px] font-bold leading-[1.35] text-ink">
+            緊急時も
+            <br />
+            対応
+          </p>
+          <span
+            className="h-0 w-0 shrink-0 border-y-[22px] border-l-[14px] border-y-transparent border-l-accent"
+            aria-hidden="true"
+          />
+          <div className="min-w-0 flex-1 text-center">
+            <p className="text-[13px] font-bold text-accent">▼タップで発信</p>
+            <p className="text-[34px] font-bold leading-none tracking-tight text-accent">
+              03-4400-2098
+            </p>
+            <p className="mt-1.5 text-[10px] font-bold leading-[1.5] text-ink">
+              お電話受付 9:00〜21:00（不定休）／LINE・メールは24時間受付・緊急時は折り返し対応
+            </p>
+          </div>
+        </div>
       </a>
+
+      {/* LINE button */}
+      <div className="relative px-4 pb-10 pt-6">
+        <a
+          href="https://page.line.me/782qjphg"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-3 rounded-full bg-gradient-to-b from-brand-500 to-brand-700 px-4 py-3 shadow-[0_5px_14px_rgba(14,77,58,0.35)]"
+        >
+          <span className="flex h-[54px] w-[54px] shrink-0 flex-col items-center justify-center rounded-full bg-accent text-center text-[14px] font-bold leading-[1.25] text-white">
+            <span>見積</span>
+            <span>無料</span>
+          </span>
+          <span className="text-center text-white">
+            <span className="block text-[14px] font-bold tracking-wide">
+              まずは現地調査から
+            </span>
+            <span className="block font-serif text-[22px] font-bold leading-tight">
+              今すぐLINEで依頼する
+            </span>
+          </span>
+          <span
+            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white"
+            aria-hidden="true"
+          >
+            <svg viewBox="0 0 24 24" className="h-4 w-4 text-brand-700" fill="none">
+              <path
+                d="M9 5l7 7-7 7"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+        </a>
+      </div>
     </section>
   );
 }

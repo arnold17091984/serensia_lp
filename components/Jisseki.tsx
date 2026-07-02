@@ -1,8 +1,7 @@
 /**
- * 実績・参考料金セクション — Clinical Trust redesign.
- * 6 case studies rendered as clinical-report-style cards on a mist background:
- * mono CASE labels, hairline-ruled titles, BEFORE/AFTER photo pairs,
- * dash-marked work lists, and large mono reference prices.
+ * 実績・参考料金セクション。
+ * design-refs/09_1_jisseki.jpg / 09_2_jisseki.jpg / 09_3_jisseki.jpg の
+ * 実績6ケース（横スワイプ3枚構成）を縦1カラムに統合。
  */
 
 type WorkItem = {
@@ -25,6 +24,8 @@ type CaseItem = {
   price: string;
   priceNotes: string[];
 };
+
+const NAVY = "#074f89";
 
 const CASES: CaseItem[] = [
   {
@@ -147,144 +148,105 @@ function BeforeAfterPhoto({
   src,
   alt,
   label,
-}: Readonly<{
+}: {
   src: string;
   alt: string;
   label: "BEFORE" | "AFTER";
-}>) {
+}) {
   return (
-    <figure>
-      <figcaption
-        className={`mb-1.5 font-mono text-[10px] leading-none tracking-[0.2em] ${
-          label === "AFTER" ? "text-teal-600" : "text-muted"
-        }`}
-      >
-        {label}
-      </figcaption>
+    <figure className="relative">
       <img
         src={src}
         alt={alt}
-        width={300}
-        height={400}
         loading="lazy"
         decoding="async"
-        className="aspect-[3/4] w-full rounded-lg border border-hairline object-cover"
+        className="aspect-[3/4] w-full rounded-[2px] object-cover"
       />
+      <figcaption className="absolute bottom-0 left-1 translate-y-1/3 bg-accent px-2 py-[3px] text-[9px] font-bold leading-none tracking-[0.18em] text-white">
+        {label}
+      </figcaption>
     </figure>
   );
 }
 
-function WorkList({ work }: Readonly<{ work: WorkItem[] }>) {
+function CaseCard({ item }: { item: CaseItem }) {
   return (
-    <div className="mt-2 flex flex-col gap-2.5">
-      {work.map((workItem) => (
-        <div key={workItem.text}>
-          {workItem.label && (
-            <p className="mb-1 text-[12px] font-bold text-ink">
-              {workItem.label}
-            </p>
-          )}
-          <ul className="flex flex-col gap-1">
-            {workItem.text.split("／").map((task) => (
-              <li
-                key={task}
-                className="flex items-start gap-2 text-[12px] leading-[1.7] text-muted"
-              >
-                <span
-                  aria-hidden="true"
-                  className="mt-[8px] h-px w-2.5 shrink-0 bg-teal-600"
-                />
-                <span>{task}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function CaseCard({
-  item,
-  index,
-}: Readonly<{ item: CaseItem; index: number }>) {
-  const caseNumber = String(index + 1).padStart(2, "0");
-
-  return (
-    <article className="reveal rounded-xl border border-hairline bg-white p-5 shadow-[0_1px_2px_rgba(19,34,38,0.06)]">
-      {/* case label + title */}
-      <p className="font-mono text-[11px] leading-none tracking-[0.22em] text-teal-600">
-        CASE {caseNumber}
-      </p>
-      <h3 className="mt-2 border-b border-hairline pb-3 text-[16px] font-bold leading-snug tracking-tight text-ink">
+    <article
+      className="relative rounded-md border-[3px] bg-white px-3.5 pb-5 pt-7"
+      style={{ borderColor: NAVY }}
+    >
+      <h3
+        className="absolute left-1/2 top-0 w-max max-w-[calc(100%-0.75rem)] -translate-x-1/2 -translate-y-1/2 px-4 py-1.5 text-center font-serif text-[15px] font-bold leading-snug tracking-wide text-white"
+        style={{ backgroundColor: NAVY }}
+      >
         {item.title}
       </h3>
 
-      {/* before / after photos */}
-      <div className="mt-4 grid grid-cols-2 gap-2.5">
-        <BeforeAfterPhoto
-          src={item.beforeImg}
-          alt={item.beforeAlt}
-          label="BEFORE"
-        />
-        <BeforeAfterPhoto
-          src={item.afterImg}
-          alt={item.afterAlt}
-          label="AFTER"
-        />
-      </div>
-
-      {/* description / price-range reasons */}
-      {item.desc && (
-        <p className="mt-4 text-[13px] leading-[1.9] text-ink">{item.desc}</p>
-      )}
-      {item.reasons && (
-        <div className="mt-4">
-          <p className="text-[13px] font-bold leading-[1.9] text-ink">
-            ▼価格に幅が出る場合の主な理由
-          </p>
-          <ul className="mt-1">
-            {item.reasons.map((reason) => (
-              <li
-                key={reason}
-                className="flex text-[13px] leading-[1.9] text-ink"
-              >
-                <span className="shrink-0">・</span>
-                <span>{reason}</span>
-              </li>
-            ))}
-          </ul>
+      {/* photos + description */}
+      <div className="mt-2 flex items-start gap-3">
+        <div className="grid w-[55%] shrink-0 grid-cols-2 gap-1.5">
+          <BeforeAfterPhoto
+            src={item.beforeImg}
+            alt={item.beforeAlt}
+            label="BEFORE"
+          />
+          <BeforeAfterPhoto
+            src={item.afterImg}
+            alt={item.afterAlt}
+            label="AFTER"
+          />
         </div>
-      )}
-
-      {/* work content */}
-      <div className="mt-4">
-        <h4 className="text-[12px] font-bold tracking-wide text-ink">
-          作業内容
-        </h4>
-        <WorkList work={item.work} />
+        <div className="min-w-0 text-[12px] leading-[1.75] text-ink">
+          {item.desc && <p>{item.desc}</p>}
+          {item.reasons && (
+            <>
+              <p className="font-bold">▼価格に幅が出る場合の主な理由</p>
+              <ul className="mt-1">
+                {item.reasons.map((reason) => (
+                  <li key={reason} className="flex">
+                    <span className="shrink-0">・</span>
+                    <span>{reason}</span>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+        </div>
       </div>
 
-      {/* reference price */}
-      <div className="mt-5 border-t border-hairline pt-4">
-        <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
-          <h4 className="text-[12px] font-bold tracking-wide text-ink">
+      {/* work content + reference price */}
+      <div className="mt-5 flex items-start gap-3">
+        <div className="w-[55%] shrink-0">
+          <h4 className="border-b border-neutral-300 pb-1 font-serif text-[15px] font-bold text-ink">
+            作業内容
+          </h4>
+          <div className="mt-1.5 text-[11.5px] leading-[1.8] text-ink">
+            {item.work.map((workItem) => (
+              <p key={workItem.text}>
+                {workItem.label && (
+                  <span className="font-bold">{workItem.label}：</span>
+                )}
+                {workItem.text}
+              </p>
+            ))}
+          </div>
+        </div>
+        <div className="min-w-0">
+          <h4 className="font-serif text-[15px] font-bold text-accent">
             参考価格
           </h4>
-          <p className="leading-none">
-            <span className="font-mono text-[28px] font-bold tracking-tight text-alert">
-              {item.price}
-            </span>
-            <span className="ml-1 text-[14px] font-bold text-ink">円</span>
+          <p className="mt-1 text-[26px] font-black leading-none tracking-tight text-accent">
+            {item.price}
+            <span className="text-[18px] font-bold">円</span>
           </p>
+          {item.priceNotes.length > 0 && (
+            <ul className="mt-1.5 text-[10.5px] font-medium leading-[1.7] text-ink">
+              {item.priceNotes.map((note) => (
+                <li key={note}>{note}</li>
+              ))}
+            </ul>
+          )}
         </div>
-        {item.priceNotes.length > 0 && (
-          <ul className="mt-2 text-[11px] leading-[1.7] text-muted">
-            {item.priceNotes.map((note) => (
-              <li key={note}>{note}</li>
-            ))}
-          </ul>
-        )}
       </div>
     </article>
   );
@@ -292,24 +254,16 @@ function CaseCard({
 
 export default function Jisseki() {
   return (
-    <section id="jisseki" className="w-full bg-mist px-4 py-14">
-      <p className="font-mono text-[11px] leading-none tracking-[0.22em] text-teal-600">
-        08 — CASES &amp; PRICING
-      </p>
-      <h2 className="mt-2 text-[26px] font-bold tracking-tight text-ink">
+    <section id="jisseki" className="w-full bg-teal-500 px-4 py-10">
+      <h2 className="text-center font-serif text-[26px] font-bold tracking-[0.06em] text-white">
         実績・参考料金
       </h2>
-
-      {/* pricing disclaimer note */}
-      <div className="mt-5 rounded-lg border border-hairline bg-white px-4 py-3">
-        <p className="text-[11.5px] leading-[1.8] text-muted">
-          ※汚染範囲、臭気の強さ、残置物量、体液付着状況、建物構造により金額は変動します。正式な金額は必ず現地確認後にお見積りします。
-        </p>
-      </div>
-
-      <div className="mt-8 flex flex-col gap-6">
-        {CASES.map((caseItem, index) => (
-          <CaseCard key={caseItem.title} item={caseItem} index={index} />
+      <p className="mt-3 text-[11.5px] font-medium leading-[1.8] text-white">
+        ※汚染範囲、臭気の強さ、残置物量、体液付着状況、建物構造により金額は変動します。正式な金額は必ず現地確認後にお見積りします。
+      </p>
+      <div className="mt-9 flex flex-col gap-9">
+        {CASES.map((caseItem) => (
+          <CaseCard key={caseItem.title} item={caseItem} />
         ))}
       </div>
     </section>

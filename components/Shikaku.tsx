@@ -9,54 +9,58 @@ const QUALIFICATIONS = [
 
 export default function Shikaku() {
   return (
-    <section className="bg-blueprint-dark relative w-full overflow-hidden bg-teal-950 px-5 py-14">
-      {/* measurement-style corner marks */}
-      <span
+    <section className="relative w-full overflow-hidden bg-[#3a2415] px-4 pb-10 pt-8">
+      {/* sparkle decoration (top-left) */}
+      <svg
         aria-hidden="true"
-        className="pointer-events-none absolute left-3 top-3 font-mono text-[13px] leading-none text-teal-100/25"
+        className="pointer-events-none absolute left-1 top-24 h-16 w-16 opacity-80"
+        viewBox="0 0 64 64"
+        fill="none"
       >
-        +
-      </span>
-      <span
+        <path
+          d="M32 0 L36 28 L64 32 L36 36 L32 64 L28 36 L0 32 L28 28 Z"
+          fill="#fff8e7"
+        />
+      </svg>
+      <svg
         aria-hidden="true"
-        className="pointer-events-none absolute right-3 top-3 font-mono text-[13px] leading-none text-teal-100/25"
+        className="pointer-events-none absolute left-14 top-40 h-6 w-6 opacity-60"
+        viewBox="0 0 64 64"
+        fill="none"
       >
-        +
-      </span>
+        <path
+          d="M32 0 L36 28 L64 32 L36 36 L32 64 L28 36 L0 32 L28 28 Z"
+          fill="#f4ead3"
+        />
+      </svg>
 
-      <div className="reveal">
-        <p className="font-mono text-[11px] tracking-[0.22em] text-teal-100/70">
-          06 — LICENSE
-        </p>
-        <h2 className="mt-3 text-[26px] font-bold tracking-tight text-white">
-          保有許可・資格
-        </h2>
-        <p className="mt-2 text-[15px] font-medium tracking-wide text-teal-100">
+      {/* gold gradient title band */}
+      <h2 className="bg-gradient-to-r from-[#6d4c20] via-gold-600 to-gold-400 py-3 text-center font-serif text-[30px] font-bold tracking-[0.1em] text-white">
+        保有許可・資格
+      </h2>
+
+      {/* gold italic catch copy */}
+      <p className="mt-5 text-center font-serif text-[22px] font-bold italic tracking-wide">
+        <span className="bg-gradient-to-r from-gold-500 via-gold-100 to-gold-500 bg-clip-text text-transparent">
           技術を磨き、住まいを磨く。
-        </p>
-        <p className="mt-5 text-[14px] leading-[1.9] text-teal-50/90">
-          セレンシアでは、安心してお任せいただけるよう、多くの資格を持ったプロフェッショナルが特殊清掃や遺品整理に対応します。
-        </p>
-      </div>
+        </span>
+      </p>
 
-      {/* qualification list card (definition-list style) */}
-      <div className="reveal mt-8 overflow-hidden rounded-xl border border-hairline bg-white shadow-[0_1px_2px_rgba(19,34,38,0.06)]">
-        <ul className="divide-y divide-hairline">
-          {QUALIFICATIONS.map((item, index) => (
-            <li key={item} className="flex items-baseline gap-3 px-5 py-3.5">
-              <span className="shrink-0 font-mono text-[12px] tracking-wide text-teal-600">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <span className="text-[14px] font-bold leading-relaxed text-ink">
-                {item}
-              </span>
+      {/* lead text */}
+      <p className="mt-4 text-[15px] leading-[1.9] text-white">
+        セレンシアでは、安心してお任せいただけるよう、多くの資格を持ったプロフェッショナルが特殊清掃や遺品整理に対応します。
+      </p>
+
+      {/* white card: qualification list + photo */}
+      <div className="mt-6 bg-white px-5 pb-5 pt-6">
+        <ul className="space-y-1.5 text-[15px] leading-relaxed text-ink">
+          {QUALIFICATIONS.map((item) => (
+            <li key={item} className="flex">
+              <span className="shrink-0">・</span>
+              <span>{item}</span>
             </li>
           ))}
         </ul>
-      </div>
-
-      {/* framed staff photo */}
-      <figure className="reveal mt-5 rounded-xl border border-hairline bg-white p-2 shadow-[0_1px_2px_rgba(19,34,38,0.06)]">
         <img
           src="/img/shikaku_photo.jpg"
           alt="遺品整理を行うセレンシアのスタッフ"
@@ -64,9 +68,9 @@ export default function Shikaku() {
           height={312}
           loading="lazy"
           decoding="async"
-          className="h-auto w-full rounded-lg"
+          className="mt-4 h-auto w-full"
         />
-      </figure>
+      </div>
     </section>
   );
 }
