@@ -25,8 +25,6 @@ export default function Home() {
       <main className="relative mx-auto w-full max-w-[520px] bg-white shadow-xl">
         <SiteHeader />
         <Hero />
-        {/* Kuchikomi(Google高評価)は新FVデザインのバー内に統合されたため非表示。
-            旧セクションが必要になれば <Kuchikomi /> を戻す */}
         <Onayami />
         <Kaiketsu />
         {/* CV最適化: 専門家パネルの提言に基づき「価格・証拠」を前段へ配置

@@ -1,100 +1,83 @@
 /**
- * Site header — pixel reproduction of the provided mockup (precision v2).
- * Fluid clamp() sizing keeps the three blocks on one row from 390px up.
+ * Site header — faithful reproduction of the client KV design.
+ * White bar: logo | 無料 laurel badge | red phone button | green LINE button.
+ * Fluid clamp() sizing keeps all four blocks on one row from 360px up.
  */
 export default function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 w-full bg-white shadow-[0_1px_5px_rgba(0,0,0,0.07)]">
-      <div className="flex items-center justify-between gap-[6px] px-2.5 py-[9px]">
-        {/* Logo block */}
-        <div className="flex min-w-0 items-center gap-[6px]">
-          <svg
-            viewBox="0 0 40 40"
-            className="h-[clamp(28px,7.6vw,38px)] w-[clamp(28px,7.6vw,38px)] shrink-0"
-            aria-hidden="true"
-          >
-            <path
-              d="M20 9.5c-2.3-3.1-7-2.7-8.1.7-.9 2.7 1.3 5.5 8.1 10.1 6.8-4.6 9-7.4 8.1-10.1-1.1-3.4-5.8-3.8-8.1-.7z"
-              fill="none"
-              stroke="#1d5138"
-              strokeWidth="1.7"
-              strokeLinecap="round"
-            />
-            <path
-              d="M7.5 27c4.1-3.5 9.3-4.3 12.9-2.3M7.5 27c2.9 3.3 8.9 4.5 13.4 2.7 4.1-1.6 7.8-2.5 11.3-2.1"
-              fill="none"
-              stroke="#c09a4a"
-              strokeWidth="1.6"
-              strokeLinecap="round"
-            />
-          </svg>
-          <div className="min-w-0 leading-none">
-            <p className="whitespace-nowrap text-[clamp(8px,2.05vw,8.8px)] font-medium tracking-[0.14em] text-[#4b5450]">
-              特殊清掃・遺品整理
-            </p>
-            <p className="mt-[5px] whitespace-nowrap font-display text-[clamp(13px,3.6vw,17px)] font-bold tracking-[0.08em] text-ink">
-              セレンシア
-            </p>
-          </div>
+    <header className="sticky top-0 z-40 w-full bg-white shadow-[0_1px_5px_rgba(0,0,0,0.08)]">
+      <div className="flex items-center justify-between gap-[clamp(3px,1vw,7px)] px-[clamp(5px,1.4vw,9px)] py-[6px]">
+        {/* Logo */}
+        <a href="/" aria-label="セレンシア" className="shrink-0">
+          <img
+            src="/img/kv_logo.png"
+            alt="特殊清掃・遺品整理 セレンシア"
+            width={345}
+            height={125}
+            className="h-[clamp(27px,7vw,42px)] w-auto"
+          />
+        </a>
+
+        {/* 無料 laurel badge */}
+        <div className="flex shrink-0 items-center gap-[1px] leading-none">
+          <span className="font-serif text-[clamp(13px,3.4vw,24px)] text-kv-gold [transform:scaleX(0.7)]">
+            〈
+          </span>
+          <p className="text-center leading-none">
+            <span className="block text-[clamp(6px,1.5vw,9px)] font-bold text-ink">
+              相談・見積り
+            </span>
+            <span className="my-[1px] block text-[clamp(12px,3.2vw,23px)] font-black leading-none text-kv-orange">
+              無料
+            </span>
+            <span className="block text-[clamp(5px,1.25vw,8px)] font-bold text-ink">
+              24時間受付・年中無休
+            </span>
+          </p>
+          <span className="font-serif text-[clamp(13px,3.4vw,24px)] text-kv-gold [transform:scaleX(0.7)]">
+            〉
+          </span>
         </div>
 
-        {/* Phone button */}
+        {/* Phone */}
         <a
           href="tel:0344002098"
-          className="flex min-h-[44px] shrink-0 flex-col items-center justify-center rounded-[10px] bg-gradient-to-b from-[#c8252c] to-[#a5151d] px-[clamp(8px,2.4vw,13px)] py-[7px] text-white shadow-sm"
+          className="flex min-h-[42px] shrink-0 items-center gap-[clamp(2px,0.8vw,6px)] rounded-[8px] bg-gradient-to-b from-kv-red to-kv-red-deep px-[clamp(5px,1.5vw,12px)] py-[5px] text-white shadow-[0_2px_5px_rgba(150,15,20,0.3)]"
         >
-          <span className="flex items-center gap-1 leading-none">
-            <svg
-              viewBox="0 0 24 24"
-              className="h-[clamp(11px,3vw,14px)] w-[clamp(11px,3vw,14px)] shrink-0"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-            </svg>
-            <span className="whitespace-nowrap text-[clamp(11.5px,3.2vw,15px)] font-bold tracking-[-0.01em]">
+          <svg
+            viewBox="0 0 24 24"
+            className="h-[clamp(10px,2.6vw,16px)] w-[clamp(10px,2.6vw,16px)] shrink-0"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+          </svg>
+          <span className="leading-none">
+            <span className="block whitespace-nowrap text-[clamp(11px,2.9vw,18px)] font-black tracking-[-0.02em]">
               03-4400-2098
             </span>
-          </span>
-          <span className="mt-[4px] whitespace-nowrap text-[clamp(7.5px,1.9vw,8.5px)] font-medium leading-none tracking-[0.02em]">
-            9:00〜21:00 年中無休
+            <span className="mt-[3px] block whitespace-nowrap text-[clamp(5.5px,1.4vw,8.5px)] font-bold">
+              受付 9:00〜21:00 / 年中無休
+            </span>
           </span>
         </a>
 
-        {/* LINE button */}
+        {/* LINE */}
         <a
           href="https://page.line.me/782qjphg"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex min-h-[44px] shrink-0 items-center gap-[6px] rounded-[10px] bg-gradient-to-b from-[#0bd160] to-[#05b04a] px-[clamp(7px,2vw,11px)] py-[7px] text-white shadow-sm"
+          className="flex min-h-[42px] shrink-0 items-center gap-[clamp(2px,0.9vw,6px)] rounded-[8px] bg-gradient-to-b from-[#1ecb3a] to-kv-line px-[clamp(4px,1.2vw,10px)] py-[5px] text-white shadow-[0_2px_5px_rgba(6,160,72,0.3)]"
         >
-          <svg
-            viewBox="0 0 24 24"
-            className="h-[clamp(22px,6vw,29px)] w-[clamp(22px,6vw,29px)] shrink-0"
-            aria-hidden="true"
-          >
-            <path
-              fill="#fff"
-              d="M12 3.2C6.6 3.2 2.2 6.7 2.2 11c0 3.8 3.4 7 8 7.7.3.1.7.2.8.5.1.2.1.6.1.9l-.2.8c0 .2-.2.9.8.5 1.1-.4 5.8-3.4 7.9-5.8 1.5-1.6 2.2-3.2 2.2-4.6 0-4.3-4.4-7.8-9.8-7.8z"
-            />
-            <text
-              x="12"
-              y="12.9"
-              textAnchor="middle"
-              fontSize="4.8"
-              fontWeight="bold"
-              fill="#06b14e"
-              fontFamily="Arial, Helvetica, sans-serif"
-            >
-              LINE
-            </text>
-          </svg>
-          <span className="leading-none">
-            <span className="block whitespace-nowrap text-[clamp(10px,2.8vw,13px)] font-bold">
-              LINEで無料相談
+          <span className="flex h-[clamp(15px,3.9vw,24px)] w-[clamp(15px,3.9vw,24px)] shrink-0 items-center justify-center rounded-full bg-white text-[clamp(4.5px,1.25vw,7px)] font-black text-kv-line">
+            LINE
+          </span>
+          <span className="leading-tight">
+            <span className="block whitespace-nowrap text-[clamp(7px,1.8vw,11px)] font-bold">
+              LINEで
             </span>
-            <span className="mt-[4px] hidden whitespace-nowrap text-[clamp(7.5px,1.9vw,8px)] min-[430px]:block font-medium tracking-[0.01em]">
-              写真を送るだけで簡単見積り
+            <span className="block whitespace-nowrap text-[clamp(9px,2.4vw,15px)] font-black">
+              写真相談する
             </span>
           </span>
         </a>

@@ -16,6 +16,21 @@
   --color-crimson: #c0202a;
   --color-crimson-deep: #9d151e;
 
+  /* KV (key-visual reproduction) palette */
+  --color-kv-bg: #0c3b23;
+  --color-kv-bg2: #0a2f1c;
+  --color-kv-green: #08983a;
+  --color-kv-green-deep: #063f25;
+  --color-kv-line: #06c755;
+  --color-kv-red: #cf1f1f;
+  --color-kv-red-deep: #a80f14;
+  --color-kv-maroon: #7a151a;
+  --color-kv-orange: #ef3c14;
+  --color-kv-gold: #d8a52e;
+  --color-kv-gold-soft: #eBD9a6;
+  --color-kv-cream: #fff8e7;
+  --color-kv-yellow: #ffdc25;
+
   /* brand green (FV / onayami / nagare) */
   --color-brand-950: #0a3f2f;
   --color-brand-900: #0e4d3a;

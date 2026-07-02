@@ -12,7 +12,7 @@ export default function StickyCta() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 400);
+      setScrolled(window.scrollY > 1100);
     };
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });

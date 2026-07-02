@@ -1,111 +1,82 @@
-import fs from "node:fs";
-import path from "node:path";
-
 /**
- * お悩みセクション — pixel reproduction of the provided mockup.
- * Ivory ground, gold flourish heading, green check circles, and a calm
- * living-room photo blended into the bottom-right corner.
- *
- * Photo asset expected at public/img/onayami_room.jpg (provided by client).
+ * お悩み section — faithful reproduction of the client KV worries block.
+ * Cream card, dark ribbon heading (お悩み in yellow), 6 green-check items,
+ * room photo, and a clipped yellow reassurance note.
  */
 
-const ROOM = "/img/onayami_room.jpg";
+type Seg = { text: string; em?: boolean };
 
-const CONCERNS = [
-  "孤独死や事故で、部屋の臭いや汚れがひどく、どうすればいいか分からない",
-  "大家・管理会社から、原状回復を急いでほしいと言われている",
-  "遠方に住んでいて、立ち会いや片付けができない",
-  "費用が心配。追加料金が発生しないか不安",
-  "近隣に知られたくない。静かに対応してほしい",
-  "どこに相談すればよいか分からず、困っている",
+const CONCERNS: Seg[][] = [
+  [{ text: "部屋に入れない", em: true }, { text: "ほど臭いが強い" }],
+  [{ text: "孤独死・事故現場", em: true }, { text: "で何から始めればいいか分からない" }],
+  [{ text: "遠方", em: true }, { text: "で立ち会えない" }],
+  [{ text: "近隣に知られず" }, { text: "静かに対応", em: true }, { text: "してほしい" }],
+  [{ text: "大家・管理会社から" }, { text: "急ぎ", em: true }, { text: "で対応を求められている" }],
+  [{ text: "費用がどれくらいか不安" }],
 ];
 
-function CheckCircle() {
+function Check() {
   return (
-    <svg viewBox="0 0 24 24" className="mt-[1px] h-5 w-5 shrink-0" aria-hidden="true">
-      <circle cx="12" cy="12" r="11" fill="#1d5138" />
-      <path
-        d="m7.4 12.2 3 3 6-6.4"
-        fill="none"
-        stroke="#fff"
-        strokeWidth="2.3"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function GoldFlourish({ flip = false }: Readonly<{ flip?: boolean }>) {
-  return (
-    <svg
-      viewBox="0 0 56 12"
-      className={`h-3 w-[clamp(28px,10vw,56px)] shrink-0 ${flip ? "rotate-180" : ""}`}
+    <span
       aria-hidden="true"
+      className="mt-[2px] grid h-[clamp(15px,4.2vw,20px)] w-[clamp(15px,4.2vw,20px)] shrink-0 place-items-center rounded-full bg-kv-green text-[clamp(9px,2.6vw,12px)] font-black text-white"
     >
-      <path d="M0 6h40" stroke="#c09a4a" strokeWidth="1.2" />
-      <path d="M46 1.5 50.5 6 46 10.5 41.5 6z" fill="none" stroke="#c09a4a" strokeWidth="1.2" />
-      <circle cx="54" cy="6" r="1.4" fill="#c09a4a" />
-    </svg>
+      ✓
+    </span>
   );
 }
 
 export default function Onayami() {
-  const roomExists = fs.existsSync(
-    path.join(process.cwd(), "public", "img", "onayami_room.jpg"),
-  );
-
   return (
-    <section className="relative w-full overflow-hidden bg-ivory pb-10 pt-9">
-      {/* heading with gold flourishes */}
-      <h2 className="flex items-center justify-center gap-2 px-2">
-        <GoldFlourish />
-        <span className="whitespace-nowrap font-display text-[clamp(14.5px,4vw,21px)] font-bold tracking-[0.04em] text-forest-950">
-          このようなお悩みはありませんか？
-        </span>
-        <GoldFlourish flip />
-      </h2>
+    <section className="w-full bg-kv-bg px-3 pb-8 pt-2">
+      <div className="overflow-hidden rounded-[12px] border border-kv-gold/60 bg-kv-cream shadow-[0_2px_10px_rgba(0,0,0,0.18)]">
+        {/* dark ribbon heading */}
+        <div className="bg-gradient-to-r from-kv-green-deep to-[#0b6d3a] py-[clamp(7px,2.2vw,12px)] pl-[clamp(12px,4vw,22px)] pr-[clamp(18px,6vw,40px)] [clip-path:polygon(0_0,100%_0,94%_100%,0_100%)]">
+          <h2 className="text-[clamp(15px,4.4vw,23px)] font-black tracking-[0.02em] text-white">
+            こんな<span className="text-kv-yellow">お悩み</span>をすべて解決します！
+          </h2>
+        </div>
 
-      {/* living-room photo blended into bottom-right */}
-      <div
-        className="absolute -right-4 bottom-0 h-[300px] w-[63%] bg-cover bg-center"
-        style={{
-          backgroundImage: roomExists ? `url(${ROOM})` : undefined,
-          maskImage:
-            "linear-gradient(to left, #000 55%, transparent 96%), linear-gradient(to bottom, transparent 0%, #000 40%)",
-          WebkitMaskImage:
-            "linear-gradient(to left, #000 55%, transparent 96%), linear-gradient(to bottom, transparent 0%, #000 40%)",
-          maskComposite: "intersect",
-          WebkitMaskComposite: "source-in",
-        }}
-        aria-hidden="true"
-      >
-        {!roomExists && (
-          <p className="pl-24 pt-40 text-right text-[9px] leading-relaxed text-[#8b8270] opacity-70">
-            部屋写真: public/img/onayami_room.jpg
+        <div className="relative px-[clamp(10px,3.2vw,18px)] pb-[clamp(10px,3vw,16px)] pt-[clamp(10px,3vw,16px)]">
+          {/* checklist */}
+          <ul className="flex w-[62%] flex-col gap-[clamp(6px,2vw,11px)]">
+            {CONCERNS.map((segs) => (
+              <li key={segs.map((s) => s.text).join("")} className="flex items-start gap-2">
+                <Check />
+                <p className="text-[clamp(10.5px,3vw,14px)] font-bold leading-[1.3] text-ink [word-break:auto-phrase]">
+                  {segs.map((s) =>
+                    s.em ? (
+                      <span key={s.text} className="text-kv-red">
+                        {s.text}
+                      </span>
+                    ) : (
+                      <span key={s.text}>{s.text}</span>
+                    ),
+                  )}
+                </p>
+              </li>
+            ))}
+          </ul>
+
+          {/* room photo */}
+          <img
+            src="/img/kv_room.jpg"
+            alt="清潔で明るい室内イメージ"
+            width={329}
+            height={244}
+            loading="lazy"
+            decoding="async"
+            className="absolute right-0 top-0 h-auto w-[38%] rounded-bl-[10px] object-cover"
+          />
+
+          {/* yellow reassurance note */}
+          <p className="mt-[clamp(8px,2.5vw,14px)] ml-auto w-[70%] bg-gradient-to-br from-[#fff2a8] to-[#e9c45d] px-[clamp(8px,2.6vw,14px)] py-[clamp(7px,2.2vw,11px)] text-center text-[clamp(10px,2.9vw,13.5px)] font-black leading-[1.4] text-ink [clip-path:polygon(8%_0,100%_0,100%_100%,0_100%)]">
+            どんな状況でも、まずはご相談ください。
             <br />
-            を配置してください
+            専門スタッフが丁寧に対応します。
           </p>
-        )}
+        </div>
       </div>
-
-      {/* checklist */}
-      <ul className="relative z-10 mt-6 flex flex-col gap-[15px] px-4">
-        {CONCERNS.map((text) => (
-          <li key={text} className="flex items-start gap-2.5">
-            <CheckCircle />
-            <p
-              className="text-[clamp(11px,2.95vw,13.5px)] font-bold leading-[1.8] text-ink [word-break:auto-phrase]"
-              style={{
-                textShadow:
-                  "0 0 6px #f6f1e6, 0 0 4px #f6f1e6, 0 0 2px #f6f1e6",
-              }}
-            >
-              {text}
-            </p>
-          </li>
-        ))}
-      </ul>
     </section>
   );
 }
