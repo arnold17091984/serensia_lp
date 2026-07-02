@@ -36,71 +36,38 @@ const FAQ_ITEMS: FaqItem[] = [
   },
 ];
 
-function LeafSprig({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 120 90"
-      fill="none"
-      aria-hidden="true"
-      className={className}
-    >
-      <path
-        d="M8 82C30 66 52 42 112 12"
-        stroke="#8fae72"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        opacity="0.7"
-      />
-      <ellipse cx="34" cy="58" rx="14" ry="6" transform="rotate(-38 34 58)" fill="#a9c98b" opacity="0.75" />
-      <ellipse cx="58" cy="42" rx="14" ry="6" transform="rotate(-32 58 42)" fill="#7fae6e" opacity="0.7" />
-      <ellipse cx="82" cy="28" rx="13" ry="5.5" transform="rotate(-28 82 28)" fill="#b9d6a0" opacity="0.8" />
-      <ellipse cx="48" cy="66" rx="12" ry="5" transform="rotate(-52 48 66)" fill="#94bd7d" opacity="0.6" />
-      <ellipse cx="102" cy="16" rx="11" ry="4.5" transform="rotate(-24 102 16)" fill="#e0a54a" opacity="0.75" />
-    </svg>
-  );
-}
-
 export default function Faq() {
   return (
-    <section
-      id="faq"
-      className="relative w-full overflow-hidden bg-gradient-to-b from-[#edf4e6] via-[#f8faf3] to-[#e9f1e6]"
-    >
-      {/* leaf decorations */}
-      <LeafSprig className="absolute -left-4 -top-2 w-28 -scale-x-100" />
-      <LeafSprig className="absolute -right-4 -top-2 w-28" />
+    <section id="faq" className="w-full bg-white">
+      <div className="px-5 py-14">
+        <p className="font-mono text-[11px] tracking-[0.22em] text-teal-600">
+          09 — FAQ
+        </p>
+        <h2 className="mt-2 text-[24px] font-bold tracking-tight text-ink">
+          よくある質問
+        </h2>
 
-      <div className="relative px-4 py-10">
-        <div className="rounded-md bg-white/95 px-5 pb-8 pt-9 shadow-[0_2px_12px_rgba(60,90,70,0.10)]">
-          <h2 className="text-center font-serif text-[29px] font-bold leading-none tracking-[0.1em] text-[#2c2729]">
-            よくある質問
-          </h2>
-
-          <div className="mt-8 space-y-7">
-            {FAQ_ITEMS.map((item) => (
-              <div key={item.question}>
-                {/* Question */}
-                <div className="flex items-start gap-3">
-                  <span className="shrink-0 font-serif text-[26px] font-bold italic leading-none text-[#0b5245]">
-                    Q
-                  </span>
-                  <p className="pt-[3px] font-serif text-[16px] font-bold leading-snug text-[#0b3f37]">
-                    {item.question}
-                  </p>
-                </div>
-                <div className="mt-2 border-b-2 border-dotted border-[#2c6b62]/50" />
-                {/* Answer */}
-                <div className="mt-3 flex items-start gap-3">
-                  <span className="shrink-0 font-serif text-[26px] font-bold italic leading-none text-[#2d8685]">
-                    A
-                  </span>
-                  <p className="pt-[4px] text-[13.5px] leading-[1.8] text-[#3b3839]">
-                    {item.answer}
-                  </p>
-                </div>
+        <div className="mt-8 border-y border-hairline">
+          {FAQ_ITEMS.map((item, index) => (
+            <div
+              key={item.question}
+              className={`reveal py-6${
+                index > 0 ? " border-t border-hairline" : ""
+              }`}
+            >
+              <div className="flex items-start gap-3">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-teal-100 bg-teal-50 font-mono text-[13px] font-semibold leading-none text-teal-600">
+                  Q
+                </span>
+                <h3 className="pt-1 text-[15px] font-bold leading-snug tracking-tight text-ink">
+                  {item.question}
+                </h3>
               </div>
-            ))}
-          </div>
+              <p className="mt-3 pl-10 text-[13.5px] leading-[1.9] text-muted">
+                {item.answer}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

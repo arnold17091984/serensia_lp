@@ -1,46 +1,37 @@
 @import "tailwindcss";
 
+/**
+ * Clinical Trust design system.
+ * White × ice gray × deep teal + one warm signal color for phone CTA.
+ * Numbers and labels are set in mono for a precision-instrument feel.
+ */
 @theme {
   /* fonts (loaded via next/font in layout.tsx) */
-  --font-sans: var(--font-noto-sans), "Hiragino Kaku Gothic ProN", "Yu Gothic",
+  --font-sans: var(--font-plex-sans), "Hiragino Kaku Gothic ProN", "Yu Gothic",
     sans-serif;
-  --font-serif: var(--font-noto-serif), "Hiragino Mincho ProN", "Yu Mincho",
-    serif;
+  --font-mono: var(--font-plex-mono), "SF Mono", ui-monospace, monospace;
 
-  /* brand green (FV / onayami / nagare) */
-  --color-brand-950: #0a3f2f;
-  --color-brand-900: #0e4d3a;
-  --color-brand-800: #145c45;
-  --color-brand-700: #1a6b50;
-  --color-brand-600: #218a66;
-  --color-brand-500: #2aa77c;
-  --color-brand-100: #e3f2ec;
-
-  /* gold (kuchikomi / shikaku / accents) */
-  --color-gold-700: #8a6423;
-  --color-gold-600: #a67c2e;
-  --color-gold-500: #c09a4a;
-  --color-gold-400: #d4b46a;
-  --color-gold-100: #f4ead3;
-
-  /* accent red (bands / price) */
-  --color-accent: #b81c22;
-
-  /* CTA orange */
-  --color-cta: #ef7a1a;
-  --color-cta-deep: #e25c0e;
-
-  /* LINE green */
-  --color-line: #06c755;
-
-  /* teal (jisseki sections) */
-  --color-teal-600: #0f9b8e;
-  --color-teal-500: #17b3a6;
-  --color-teal-100: #e0f5f3;
+  /* primary teal scale */
+  --color-teal-950: #082f34;
+  --color-teal-900: #0a3c42;
+  --color-teal-800: #0c4c54;
+  --color-teal-700: #0e5c66;
+  --color-teal-600: #0f7280;
+  --color-teal-500: #12889a;
+  --color-teal-100: #dcecef;
+  --color-teal-50: #eef5f6;
 
   /* neutrals */
-  --color-cream: #f6f3ec;
-  --color-ink: #23241f;
+  --color-ink: #132226;
+  --color-muted: #55696f;
+  --color-mist: #f3f7f8;
+  --color-hairline: #d8e2e5;
+
+  /* signals */
+  --color-signal: #e8792e; /* phone CTA (warm, urgent but not vulgar) */
+  --color-signal-deep: #d4621a;
+  --color-alert: #c92f2f; /* prices / warnings, sparingly */
+  --color-line: #06c755; /* LINE brand green */
 }
 
 html {
@@ -48,6 +39,52 @@ html {
 }
 
 body {
-  background: #e9e7e2;
+  background: #e7ecee;
   color: var(--color-ink);
+  font-feature-settings: "palt";
+}
+
+/* Blueprint grid texture — apply via .bg-blueprint on light sections */
+.bg-blueprint {
+  background-image:
+    linear-gradient(to right, rgba(15, 114, 128, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 114, 128, 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Dark variant for teal-950 sections */
+.bg-blueprint-dark {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.045) 1px,
+      transparent 1px
+    );
+  background-size: 28px 28px;
+}
+
+/* Quiet scroll reveal — progressive enhancement only (no-op where unsupported) */
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: reveal-up both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 36%;
+  }
+  @keyframes reveal-up {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    animation: none;
+  }
 }

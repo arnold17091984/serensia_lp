@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
+import { IBM_Plex_Mono, IBM_Plex_Sans_JP } from "next/font/google";
 import "./globals.css";
 
-const notoSans = Noto_Sans_JP({
+const plexSans = IBM_Plex_Sans_JP({
   subsets: ["latin"],
-  weight: ["400", "500", "700", "900"],
-  variable: "--font-noto-sans",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-plex-sans",
   display: "swap",
 });
 
-const notoSerif = Noto_Serif_JP({
+const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
-  weight: ["500", "700", "900"],
-  variable: "--font-noto-serif",
+  weight: ["400", "500", "600"],
+  variable: "--font-plex-mono",
   display: "swap",
 });
 
@@ -42,7 +42,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="ja" className={`${notoSans.variable} ${notoSerif.variable}`}>
+    <html lang="ja" className={`${plexSans.variable} ${plexMono.variable}`}>
       <body className="font-sans antialiased">
         <Script id="gtm" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');`}

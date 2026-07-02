@@ -1,88 +1,62 @@
-function CrownIcon({ className }: { className?: string }) {
+const STATS = ["遺品整理士が在籍", "不用品の買取可能"];
+
+function CheckIcon({ className }: { className?: string }) {
   return (
     <svg
       aria-hidden="true"
       className={className}
-      viewBox="0 0 40 26"
+      viewBox="0 0 20 20"
       fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
-      <path
-        d="M4 23 L2 7 L12 13 L20 2 L28 13 L38 7 L36 23 Z"
-        fill="#c09a4a"
-        stroke="#8a6423"
-        strokeWidth="1"
-        strokeLinejoin="round"
-      />
-      <circle cx="2" cy="6" r="2" fill="#d4b46a" />
-      <circle cx="20" cy="2.5" r="2" fill="#d4b46a" />
-      <circle cx="38" cy="6" r="2" fill="#d4b46a" />
+      <path d="M4 10.5l4.2 4L16 5.5" />
     </svg>
-  );
-}
-
-function GoldBadge({
-  lines,
-  className,
-}: {
-  lines: string[];
-  className?: string;
-}) {
-  return (
-    <div className={`relative ${className ?? ""}`}>
-      <CrownIcon className="absolute -top-5 left-1/2 h-7 w-11 -translate-x-1/2" />
-      <div className="flex h-36 w-36 items-center justify-center rounded-full bg-[radial-gradient(circle_at_32%_26%,#f5e7bd_0%,#d4b46a_45%,#b08a3c_80%,#c09a4a_100%)] shadow-[0_4px_10px_rgba(0,0,0,0.25)]">
-        <p className="text-center font-serif text-[19px] font-bold leading-snug text-[#5d3f16]">
-          {lines.map((line) => (
-            <span key={line} className="block">
-              {line}
-            </span>
-          ))}
-        </p>
-      </div>
-    </div>
   );
 }
 
 export default function Ihin() {
   return (
-    <section className="relative w-full overflow-hidden bg-[linear-gradient(180deg,#fdfcfa_0%,#f8f3ea_34%,#8a5a30_58%,#4c2d16_74%,#c3a075_90%,#f2ebe0_100%)] px-4 pb-14 pt-8">
-      {/* gold confetti decorations */}
-      <svg
-        aria-hidden="true"
-        className="pointer-events-none absolute left-2 top-[30%] h-10 w-8 rotate-12 opacity-90"
-        viewBox="0 0 24 32"
-        fill="none"
-      >
-        <path d="M2 2 C14 6 20 4 22 0 L22 28 C12 24 6 26 2 32 Z" fill="#c09a4a" />
-      </svg>
-      <svg
-        aria-hidden="true"
-        className="pointer-events-none absolute right-2 top-[52%] h-9 w-7 -rotate-45 opacity-90"
-        viewBox="0 0 24 32"
-        fill="none"
-      >
-        <path d="M2 2 C14 6 20 4 22 0 L22 28 C12 24 6 26 2 32 Z" fill="#d4b46a" />
-      </svg>
+    <section className="relative w-full overflow-hidden bg-white px-5 py-14">
+      <div className="reveal">
+        <p className="font-mono text-[11px] tracking-[0.22em] text-teal-600">
+          07 — IHIN SEIRI
+        </p>
 
-      {/* red band */}
-      <p className="bg-accent py-3 text-center font-serif text-[24px] font-bold tracking-wide text-white">
-        Google口コミ高評価獲得！
-      </p>
+        {/* review chip */}
+        <p className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-hairline bg-mist px-3 py-1 text-[12px] font-medium text-teal-800">
+          <CheckIcon className="h-3.5 w-3.5 shrink-0 text-teal-600" />
+          Google口コミ高評価獲得！
+        </p>
 
-      {/* headings */}
-      <p className="mt-5 text-center font-serif text-[21px] font-bold tracking-[0.05em] text-[#6b4423]">
-        経験豊富なスタッフが対応する
-      </p>
-      <h2 className="mt-1 text-center font-serif text-[58px] font-bold tracking-[0.08em] text-[#8a5527]">
-        遺品整理
-      </h2>
+        {/* heading */}
+        <h2 className="mt-4">
+          <span className="block text-[15px] font-bold text-muted">
+            経験豊富なスタッフが対応する
+          </span>
+          <span className="mt-1 block text-[30px] font-bold tracking-tight text-ink">
+            遺品整理
+          </span>
+        </h2>
+      </div>
 
       {/* TODO: 優良事業所 再認定確認後に認定証セクションを復活 */}
 
-      {/* gold circle badges */}
-      <div className="mt-10 flex items-start justify-center gap-1 pb-4">
-        <GoldBadge lines={["遺品", "整理士", "が在籍"]} />
-        <GoldBadge lines={["不用品の", "買取可能"]} className="mt-7 -ml-3" />
+      {/* stat cards */}
+      <div className="reveal mt-8 grid grid-cols-2 gap-3">
+        {STATS.map((label) => (
+          <div
+            key={label}
+            className="rounded-xl border border-hairline bg-white p-4 shadow-[0_1px_2px_rgba(19,34,38,0.06)]"
+          >
+            <CheckIcon className="h-5 w-5 text-teal-600" />
+            <p className="mt-2 text-[14px] font-bold leading-snug text-ink">
+              {label}
+            </p>
+          </div>
+        ))}
       </div>
     </section>
   );

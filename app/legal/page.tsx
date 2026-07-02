@@ -20,10 +20,13 @@ const LEGAL_ROWS: { label: string; value: React.ReactNode }[] = [
     label: "連絡先",
     value: (
       <>
-        <a href="tel:0344002098" className="underline underline-offset-2">
+        <a
+          href="tel:0344002098"
+          className="font-mono text-[15px] font-medium tracking-tight text-teal-700 underline decoration-hairline underline-offset-4"
+        >
           03-4400-2098
         </a>
-        <span className="mt-1 block text-[12px] leading-relaxed text-neutral-500">
+        <span className="mt-1.5 block text-[12px] leading-relaxed text-muted">
           お電話受付 9:00〜21:00（不定休）／LINE・メールは24時間受付・緊急時は折り返し対応
         </span>
       </>
@@ -54,22 +57,30 @@ const LEGAL_ROWS: { label: string; value: React.ReactNode }[] = [
 
 export default function LegalPage() {
   return (
-    <main className="mx-auto min-h-screen w-full max-w-[520px] bg-white px-5 pb-16 pt-10">
-      <h1 className="border-l-4 border-brand-800 pl-3 font-serif text-[22px] font-bold text-ink">
+    <main className="bg-blueprint mx-auto min-h-screen w-full max-w-[520px] bg-white px-5 pb-16 pt-12">
+      <p className="font-mono text-[11px] tracking-[0.22em] text-teal-600">
+        LEGAL NOTICE
+      </p>
+      <h1 className="mt-3 text-[24px] font-bold tracking-tight text-ink">
         特定商取引法に基づく表記
       </h1>
 
-      <dl className="mt-8 divide-y divide-neutral-200 border-y border-neutral-200 text-[14px] leading-relaxed text-ink">
+      <dl className="mt-8 divide-y divide-hairline border-y border-hairline text-[14px] leading-relaxed text-ink">
         {LEGAL_ROWS.map((row) => (
-          <div key={row.label} className="py-3.5">
-            <dt className="font-bold text-neutral-600">{row.label}</dt>
-            <dd className="mt-1">{row.value}</dd>
+          <div key={row.label} className="py-4">
+            <dt className="text-[13px] font-bold leading-relaxed text-muted">
+              {row.label}
+            </dt>
+            <dd className="mt-1.5">{row.value}</dd>
           </div>
         ))}
       </dl>
 
-      <p className="mt-10 text-center text-[13px]">
-        <a href="/" className="text-brand-800 underline underline-offset-2">
+      <p className="mt-12 text-center text-[13px]">
+        <a
+          href="/"
+          className="text-teal-700 underline decoration-hairline underline-offset-4"
+        >
           ← トップページへ戻る
         </a>
       </p>

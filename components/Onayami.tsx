@@ -24,25 +24,15 @@ const CONCERNS: Segment[][] = [
 function CheckIcon() {
   return (
     <svg
-      viewBox="0 0 24 24"
-      className="mt-1 h-5 w-5 shrink-0 -rotate-3"
+      viewBox="0 0 20 20"
+      className="mt-[3px] h-[18px] w-[18px] shrink-0 text-teal-500"
       aria-hidden="true"
     >
-      <rect
-        x="2"
-        y="4"
-        width="17"
-        height="17"
-        rx="2"
-        fill="none"
-        stroke="#d8e455"
-        strokeWidth="2.5"
-      />
       <path
-        d="M6 12 L11 17 L22 3"
+        d="M3.5 10.5 L8 15 L16.5 5.5"
         fill="none"
-        stroke="#d8e455"
-        strokeWidth="3"
+        stroke="currentColor"
+        strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -52,79 +42,52 @@ function CheckIcon() {
 
 export default function Onayami() {
   return (
-    <section
-      className="w-full px-4 pb-14 pt-10"
-      style={{
-        background:
-          "radial-gradient(circle at 15% 20%, rgba(122,146,128,0.55) 0%, transparent 45%), radial-gradient(circle at 85% 10%, rgba(70,70,68,0.6) 0%, transparent 35%), radial-gradient(circle at 80% 70%, rgba(126,150,132,0.4) 0%, transparent 45%), linear-gradient(165deg, #5c7365 0%, #47604f 45%, #33493d 100%)",
-      }}
-    >
-      {/* green band */}
-      <p className="mx-auto max-w-[440px] bg-brand-700 px-4 py-3 text-center text-[19px] font-bold leading-snug text-white">
-        ご自身やご家族のため
-        <br />
-        近隣の方や入居者様のために
-      </p>
+    <section className="bg-blueprint-dark w-full bg-teal-950 px-5 py-14">
+      <div className="reveal">
+        <p className="font-mono text-[11px] tracking-[0.22em] text-teal-100/70">
+          03 — ONAYAMI
+        </p>
 
-      {/* headline */}
-      <div className="mt-7 px-1 font-serif text-white">
-        <p className="text-[30px] font-bold leading-tight">
+        {/* lead-in */}
+        <p className="mt-4 text-[13px] font-medium leading-relaxed text-teal-100/85">
+          ご自身やご家族のため
+          <br />
+          近隣の方や入居者様のために
+        </p>
+
+        <h2 className="mt-3 text-[25px] font-bold leading-snug tracking-tight text-white">
           個人・法人の皆様は
-        </p>
-        <p className="mt-1 flex items-end justify-center gap-1">
-          <span className="pb-2 text-[24px] font-bold">このように</span>
-          <span className="relative -rotate-2 text-[46px] font-bold italic leading-none text-[#f2ea4d]">
+          <br />
+          このように
+          <span className="border-b-2 border-teal-500/70 pb-0.5 text-teal-100">
             お悩み
-            {/* underline swoosh */}
-            <svg
-              className="absolute -bottom-2 left-[-25%] w-[150%]"
-              viewBox="0 0 200 14"
-              aria-hidden="true"
-            >
-              <path
-                d="M6 12 C 60 2, 150 0, 196 6"
-                fill="none"
-                stroke="#9aa89e"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-            </svg>
           </span>
-        </p>
-        <p className="mt-4 text-right text-[26px] font-bold">
-          ではありませんか？
-        </p>
+          {"ではありませんか？"}
+        </h2>
       </div>
 
-      {/* dark box with checklist, bottom arrow shape */}
-      <div className="mt-8">
-        <ul className="space-y-5 rounded-t-md bg-[#4b4b49]/95 px-5 pb-4 pt-8">
-          {CONCERNS.map((segments) => (
-            <li
-              key={segments.map((s) => s.text).join("")}
-              className="flex items-start gap-3"
-            >
-              <CheckIcon />
-              <p className="font-serif text-[16px] font-medium leading-relaxed text-white">
-                {segments.map((seg) =>
-                  seg.em ? (
-                    <span key={seg.text} className="text-[#f2ea4d]">
-                      {seg.text}
-                    </span>
-                  ) : (
-                    <span key={seg.text}>{seg.text}</span>
-                  ),
-                )}
-              </p>
-            </li>
-          ))}
-        </ul>
-        {/* downward arrow bottom edge */}
-        <div
-          className="h-12 bg-[#4b4b49]/95"
-          style={{ clipPath: "polygon(0 0, 100% 0, 50% 100%)" }}
-        />
-      </div>
+      {/* concerns checklist */}
+      <ul className="reveal mt-8 space-y-2.5">
+        {CONCERNS.map((segments) => (
+          <li
+            key={segments.map((s) => s.text).join("")}
+            className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3.5"
+          >
+            <CheckIcon />
+            <p className="text-[14px] leading-relaxed text-white/80">
+              {segments.map((seg) =>
+                seg.em ? (
+                  <span key={seg.text} className="font-bold text-white">
+                    {seg.text}
+                  </span>
+                ) : (
+                  <span key={seg.text}>{seg.text}</span>
+                ),
+              )}
+            </p>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }
