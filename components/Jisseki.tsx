@@ -508,7 +508,7 @@ export default function Jisseki() {
             className="text-[clamp(10px,2.7vw,12px)] font-medium leading-[1.9]"
             style={{ color: SUB_TEXT }}
           >
-            現場の状況により変動します
+            ※50,000円は空間除菌・消毒のみの場合。体液除去を伴う特殊清掃は150,000円〜が目安です
           </p>
           <p className="mt-0.5 flex items-start justify-center gap-1.5 text-[clamp(10.5px,2.8vw,12.5px)] font-bold leading-[1.9] text-ink">
             <GoldCheck />
@@ -545,6 +545,12 @@ export default function Jisseki() {
             </span>
           </span>
           <ChevronCircle color="#06b14e" />
+        </a>
+        <a
+          href="tel:0344002098"
+          className="mt-3 block text-center text-[clamp(12px,3.3vw,14px)] font-bold text-forest-700 underline decoration-[#c09a4a] decoration-[1.5px] underline-offset-[5px]"
+        >
+          お急ぎの方はお電話で 03-4400-2098（9:00〜21:00）
         </a>
       </div>
     </section>

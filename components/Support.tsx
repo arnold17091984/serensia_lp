@@ -21,8 +21,8 @@ function GoldFlourish({ flip = false }: Readonly<{ flip?: boolean }>) {
 
 function ChevronCircle({ color }: Readonly<{ color: string }>) {
   return (
-    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white shadow-sm">
-      <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
+    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white shadow-sm">
+      <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" aria-hidden="true">
         <path d="m9 5.5 7 6.5-7 6.5" fill="none" stroke={color} strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     </span>
@@ -111,7 +111,7 @@ export default function Support() {
         {/* phone CTA (FV style, reduced) */}
         <a
           href="tel:0344002098"
-          className="mt-4 flex items-center gap-2 rounded-[16px] bg-gradient-to-b from-[#c8252c] to-[#a5151d] px-3.5 pb-[14px] pt-[13px] text-white shadow-[0_4px_14px_rgba(157,21,30,0.32)]"
+          className="mt-4 flex items-center gap-2 rounded-[18px] bg-gradient-to-b from-[#c8252c] to-[#a5151d] px-4 pb-[17px] pt-[15px] text-white shadow-[0_4px_14px_rgba(157,21,30,0.32)]"
         >
           <svg viewBox="0 0 24 24" className="h-9 w-9 shrink-0" fill="currentColor" aria-hidden="true">
             <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
@@ -120,7 +120,7 @@ export default function Support() {
             <span className="whitespace-nowrap text-[clamp(11px,3vw,13.5px)] font-bold leading-none tracking-[0.04em]">
               緊急時も対応｜タップで発信
             </span>
-            <span className="mt-2 whitespace-nowrap text-[clamp(24px,7vw,32px)] font-black leading-none tracking-[-0.01em]">
+            <span className="mt-2 whitespace-nowrap text-[clamp(29px,8vw,38px)] font-black leading-none tracking-[-0.01em]">
               03-4400-2098
             </span>
             <span className="mt-[9px] whitespace-nowrap rounded-full border-[1.5px] border-white/90 px-4 py-[5px] text-[clamp(9px,2.4vw,11px)] font-bold leading-none tracking-[0.02em]">
@@ -135,7 +135,7 @@ export default function Support() {
           href="https://page.line.me/782qjphg"
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-3 flex items-center gap-2.5 rounded-[16px] bg-gradient-to-b from-[#0bd160] to-[#05b04a] px-3.5 pb-[14px] pt-[13px] text-white shadow-[0_4px_14px_rgba(5,166,72,0.32)]"
+          className="mt-3 flex items-center gap-2.5 rounded-[18px] bg-gradient-to-b from-[#0bd160] to-[#05b04a] px-4 pb-[17px] pt-[15px] text-white shadow-[0_4px_14px_rgba(5,166,72,0.32)]"
         >
           <svg viewBox="0 0 24 24" className="h-[clamp(34px,9vw,42px)] w-[clamp(34px,9vw,42px)] shrink-0" aria-hidden="true">
             <path
@@ -159,7 +159,7 @@ export default function Support() {
               見積無料｜まずは現地調査から
             </span>
             <span className="mt-2 whitespace-nowrap text-[clamp(17px,4.7vw,21px)] font-bold leading-none tracking-[0.02em]">
-              今すぐLINEで依頼する
+              まずはLINEで相談する
             </span>
             <span className="mt-[9px] whitespace-nowrap rounded-full border-[1.5px] border-white/90 px-4 py-[5px] text-[clamp(9px,2.4vw,11px)] font-bold leading-none tracking-[0.02em]">
               24時間受付

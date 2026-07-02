@@ -283,7 +283,7 @@ export default function Kaiketsu() {
             原状回復<span className="text-[clamp(16px,4.4vw,21px)]">がゴールです</span>
           </span>
         </h3>
-        <p className="mt-4 text-[clamp(12px,3.2vw,13.5px)] leading-[1.95] text-ink">
+        <p className="mt-4 text-[clamp(12px,3.2vw,13.5px)] leading-[1.95] text-ink [word-break:auto-phrase]">
           清掃だけでなく、汚染箇所の建材撤去も行い、再利用できる素材を適切に処理します。作業後には、建材の補修や清掃を行い、元の状態に戻します。さらに、防臭・特殊コーティングで臭いの再発を長期的に防止します。原状回復まで一括で作業をすることで、皆様に安心いただける、徹底した特殊清掃ができることがセレンシアの強みです。
         </p>
         <div className="mt-4 flex items-stretch gap-3">

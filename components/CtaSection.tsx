@@ -62,7 +62,7 @@ function ChevronCircle({ color }: Readonly<{ color: string }>) {
 
 export default function CtaSection() {
   return (
-    <section className="w-full bg-forest-950">
+    <section data-cta-section className="w-full bg-forest-950">
       {/* thin gold rule on top */}
       <div
         aria-hidden="true"
@@ -124,7 +124,7 @@ export default function CtaSection() {
             <li className="flex items-start gap-2.5 border-b border-[#d9c8a3] py-[11px]">
               <GoldCheck />
               <span className="text-[clamp(11.5px,3.1vw,13.5px)] font-bold leading-[1.9] text-ink">
-                追加費用一切なし！{/* TODO: 景表法対応: 例外条件の明記を検討 */}
+お見積り確定後の追加費用なし
               </span>
             </li>
             <li className="flex items-start gap-2.5 py-[11px]">

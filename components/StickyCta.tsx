@@ -7,16 +7,39 @@ import { useEffect, useState } from "react";
  * (crimson phone / LINE green on an ivory-glass bar).
  */
 export default function StickyCta() {
-  const [visible, setVisible] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [ctaInView, setCtaInView] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setVisible(window.scrollY > 400);
+      setScrolled(window.scrollY > 400);
     };
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    // Hide the sticky bar while a full-width CTA section is on screen
+    // (avoids duplicate phone/LINE buttons competing with the page CTA).
+    const sections = document.querySelectorAll("[data-cta-section]");
+    const inView = new Set<Element>();
+    const observer = new IntersectionObserver(handleIntersect, {
+      threshold: 0.12,
+    });
+    function handleIntersect(entries: IntersectionObserverEntry[]) {
+      for (const entry of entries) {
+        if (entry.isIntersecting) inView.add(entry.target);
+        else inView.delete(entry.target);
+      }
+      setCtaInView(inView.size > 0);
+    }
+    sections.forEach((s) => observer.observe(s));
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
+    };
   }, []);
+
+  const visible = scrolled && !ctaInView;
 
   return (
     <div

@@ -10,6 +10,9 @@ import path from "node:path";
 
 const PORTRAIT = "/img/hero_portrait.jpg";
 
+// TODO: 実際のGoogleビジネスプロフィール(クチコミ)URLに差し替える
+const GOOGLE_REVIEW_URL = "https://www.google.com/search?q=セレンシア+特殊清掃";
+
 /** Round-dot underline (mockup-style) as an inline background. */
 const DOT_RULE = {
   backgroundImage:
@@ -297,8 +300,15 @@ export default function Hero() {
       </div>
 
       {/* ===== Google / track-record bar ===== */}
+      {/* TODO: GOOGLE_REVIEW_URL を実際のGoogleビジネスプロフィールURLに差し替え、
+          ★とレーティングは実際の評価値に合わせること（景表法・優良誤認の回避） */}
       <div className="mx-3.5 mt-3 flex items-center rounded-xl bg-white px-2 py-[15px] shadow-[0_2px_10px_rgba(60,50,30,0.06)]">
-        <div className="flex flex-1 items-center justify-center gap-2.5">
+        <a
+          href={GOOGLE_REVIEW_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex flex-1 items-center justify-center gap-2.5"
+        >
           <IconGoogleG />
           <div className="leading-tight">
             <p className="text-[clamp(9.5px,2.5vw,11.5px)] font-bold text-ink">
@@ -307,11 +317,14 @@ export default function Hero() {
             <p className="mt-[2px] font-display text-[clamp(16px,4.3vw,20px)] font-bold leading-tight text-forest-950">
               高評価
             </p>
-            <p className="mt-[2px] text-[clamp(11px,2.8vw,13px)] leading-none tracking-[0.14em] text-[#d4a445]">
+            <p className="mt-[2px] text-[clamp(11px,2.8vw,13px)] leading-none tracking-[0.14em] text-[#c09a4a]">
               ★★★★★
             </p>
+            <p className="mt-[3px] text-[clamp(8.5px,2.2vw,10px)] font-bold text-forest-700 underline decoration-[#c09a4a] underline-offset-2">
+              クチコミを見る →
+            </p>
           </div>
-        </div>
+        </a>
         <div className="flex flex-[1.35] items-center justify-center gap-2 border-l border-[#d9c8a3] pl-1.5">
           <IconLaurel />
           <div className="leading-tight">

@@ -83,7 +83,7 @@ export default function Ooya() {
       </h2>
 
       {/* body copy */}
-      <p className="mt-5 text-[clamp(11px,2.95vw,13.5px)] font-medium leading-[2.05] text-ink">
+      <p className="mt-5 text-[clamp(11px,2.95vw,13.5px)] font-medium leading-[2.05] text-ink [word-break:auto-phrase]">
         管理をする物件で事故やトラブルが発生した際は緊急を要することで、ご相談をいただくことが多くあります。一刻も早く、次の入居者が安心して住める状態に戻すため、セレンシアが迅速に駆けつけます。汚染除去・消臭・消毒から、必要に応じた建材撤去や原状回復の段取りまで一括で進められます。
       </p>
 
