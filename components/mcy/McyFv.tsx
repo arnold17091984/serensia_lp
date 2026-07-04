@@ -35,7 +35,7 @@ export default function McyFv() {
       </h1>
 
       {/* slices sit flush — the KV artwork already bakes in the spacing */}
-      <div data-cta-section className="flex w-full flex-col">
+      <div className="flex w-full flex-col">
         {/* top: header + 全域対応 + headline + 代表 太田 + 4 benefits */}
         <img
           src="/img/kv_top.webp"
@@ -48,29 +48,33 @@ export default function McyFv() {
           className="block w-full"
         />
 
-        {/* phone button (design piece) — tappable + shine */}
-        <a
-          href={PHONE_TEL}
-          data-gtm="cta_tel_fv"
-          aria-label="電話で今すぐ相談する 03-4400-2098（受付 9:00〜21:00 年中無休）"
-          className="relative block overflow-hidden transition-[filter] active:brightness-95"
-        >
-          <img src="/img/kv_btn_phone.webp" alt="電話で今すぐ相談する 03-4400-2098" width={753} height={140} loading="eager" decoding="async" className="block w-full" />
-          <Shine />
-        </a>
+        {/* CTA buttons — only THIS block flags data-cta-section, so the bottom
+            sticky bar re-appears the moment the hero buttons scroll off (no dead zone) */}
+        <div data-cta-section>
+          {/* phone button (design piece) — tappable + shine */}
+          <a
+            href={PHONE_TEL}
+            data-gtm="cta_tel_fv"
+            aria-label="電話で今すぐ相談する 03-4400-2098（受付 9:00〜21:00 年中無休）"
+            className="relative block overflow-hidden transition-[filter] active:brightness-95"
+          >
+            <img src="/img/kv_btn_phone.webp" alt="電話で今すぐ相談する 03-4400-2098" width={753} height={140} loading="eager" decoding="async" className="block w-full" />
+            <Shine />
+          </a>
 
-        {/* LINE button (design piece) — tappable + shine (offset so it alternates) */}
-        <a
-          href={LINE_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          data-gtm="cta_line_fv"
-          aria-label="LINEで写真を送って相談する（写真相談・概算見積り・24時間受付）"
-          className="relative block overflow-hidden transition-[filter] active:brightness-95"
-        >
-          <img src="/img/kv_btn_line.webp" alt="LINEで写真を送るだけ 写真相談・概算見積り" width={753} height={142} loading="eager" decoding="async" className="block w-full" />
-          <Shine delay="1.8s" />
-        </a>
+          {/* LINE button (design piece) — tappable + shine (offset so it alternates) */}
+          <a
+            href={LINE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-gtm="cta_line_fv"
+            aria-label="LINEで写真を送って相談する（写真相談・概算見積り・24時間受付）"
+            className="relative block overflow-hidden transition-[filter] active:brightness-95"
+          >
+            <img src="/img/kv_btn_line.webp" alt="LINEで写真を送るだけ 写真相談・概算見積り" width={753} height={142} loading="eager" decoding="async" className="block w-full" />
+            <Shine delay="1.8s" />
+          </a>
+        </div>
 
         {/* Google reviews + ご相談実績 */}
         <img

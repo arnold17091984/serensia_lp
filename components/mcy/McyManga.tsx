@@ -123,7 +123,7 @@ export default function McyManga() {
       {head.map((c, i) => (
         <div key={c.no}>
           {i > 0 && <ChapterConnector />}
-          <MangaPanel chapter={c} eager={c.no === 1} />
+          <MangaPanel chapter={c} />
         </div>
       ))}
 
