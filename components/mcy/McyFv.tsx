@@ -29,7 +29,7 @@ function Shine({ delay = "0s" }: Readonly<{ delay?: string }>) {
 
 export default function McyFv() {
   return (
-    <section className="relative w-full overflow-hidden bg-lux-cream">
+    <section className="relative w-full overflow-hidden bg-[#fdfbf7]">
       <h1 className="sr-only">
         孤独死・事故現場の特殊清掃専門 セレンシア｜東京・神奈川 全域対応・最短即日で現地確認
       </h1>
@@ -51,7 +51,7 @@ export default function McyFv() {
         {/* CTA buttons — reproduced in HTML/CSS (phone number is real, selectable,
             crawlable text; copy is editable — 不定休 etc). Only THIS block flags
             data-cta-section so the sticky bar re-appears once the buttons scroll off. */}
-        <div data-cta-section className="flex flex-col gap-[clamp(6px,1.8vw,10px)] px-[clamp(6px,1.8vw,12px)] py-[clamp(6px,1.8vw,10px)]">
+        <div data-cta-section className="flex flex-col gap-[clamp(6px,1.8vw,10px)] bg-gradient-to-b from-[#fcf9f1] to-[#fefefe] px-[clamp(6px,1.8vw,12px)] py-[clamp(6px,1.8vw,10px)]">
           {/* phone — red glossy button */}
           <a
             href={PHONE_TEL}
