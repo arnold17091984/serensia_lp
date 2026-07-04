@@ -95,10 +95,15 @@ export default function McyProblems() {
           aria-hidden="true"
           className="absolute inset-0 scale-110 bg-[url(/img/onayami_room.jpg)] bg-cover bg-center opacity-60 blur-[6px]"
         />
-        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-white/92 via-white/86 to-mcy-sky/95" />
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-white via-white/86 to-mcy-sky/95" />
         <div
           aria-hidden="true"
           className="absolute inset-0 bg-[radial-gradient(circle_at_85%_10%,rgba(43,199,205,0.16),transparent_55%)]"
+        />
+        {/* seamless blend from the KV image bottom (warm cream) into this section */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 h-[clamp(60px,16vw,96px)] bg-gradient-to-b from-[#efece4] via-[#efece4]/60 to-transparent"
         />
         <Sparkle className="left-[6%] top-[clamp(14px,4vw,26px)] text-[clamp(12px,3.4vw,17px)] text-mcy-turq/50" />
         <Sparkle className="right-[7%] top-[clamp(30px,9vw,54px)] text-[clamp(10px,3vw,15px)] text-mcy-gold/70" />
