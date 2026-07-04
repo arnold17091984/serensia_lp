@@ -1,10 +1,11 @@
 import { LINE_URL, PHONE_DISPLAY, PHONE_TEL } from "./McyHeader";
 
 /**
- * No.33 — trust block: owners / support / license & insurance / ihin.
- * 実写写真のみ使用（生成人物なし）。代表写真は実在アセットのため掲載可。
- * Visual language: layered photo/gradient backgrounds, deep-shadow white
- * cards, gold medallions, glossy pill CTAs (per No.33 turquoise sample).
+ * Trust block: owners / support / license & insurance / ihin.
+ * 実写写真のみ使用（生成人物なし）。Green×gold luxury theme matched to the KV
+ * (mockups 8-9): cream grounds, deep-emerald medallions/CTAs, gold frames &
+ * number medallions, a single emerald accent band for the ihin section.
+ * All licenses/insurance/figures unchanged (verified against content.json).
  */
 
 const OWNER_BADGES = [
@@ -113,7 +114,7 @@ function ArrowBubble({ className }: Readonly<{ className: string }>) {
   return (
     <span
       aria-hidden="true"
-      className={`relative grid h-[clamp(20px,5.6vw,26px)] w-[clamp(20px,5.6vw,26px)] shrink-0 place-items-center rounded-full bg-white shadow-[0_1px_3px_rgba(18,41,63,0.35)] ${className}`}
+      className={`relative grid h-[clamp(20px,5.6vw,26px)] w-[clamp(20px,5.6vw,26px)] shrink-0 place-items-center rounded-full bg-white shadow-[0_1px_3px_rgba(18,61,40,0.35)] ${className}`}
     >
       <svg
         viewBox="0 0 24 24"
@@ -135,7 +136,7 @@ function PillGloss() {
   return (
     <span
       aria-hidden="true"
-      className="pointer-events-none absolute inset-x-[8%] top-[3px] h-[42%] rounded-full bg-gradient-to-b from-white/45 to-transparent"
+      className="pointer-events-none absolute inset-x-[8%] top-[3px] h-[42%] rounded-full bg-gradient-to-b from-white/40 to-transparent"
     />
   );
 }
@@ -157,23 +158,23 @@ function SectionHeading({
       <span
         aria-hidden="true"
         className={`pointer-events-none absolute inset-x-0 top-[clamp(2px,0.8vw,6px)] select-none whitespace-nowrap font-display text-[clamp(38px,11.5vw,58px)] font-black uppercase leading-none tracking-[0.08em] ${
-          dark ? "text-white/10" : "text-mcy-turq/10"
+          dark ? "text-white/10" : "text-lux-green/[0.08]"
         }`}
       >
         {watermark}
       </span>
       <span
-        className={`relative inline-block px-[clamp(14px,4vw,22px)] py-[clamp(5px,1.5vw,8px)] text-[clamp(10px,2.9vw,14px)] font-black tracking-[0.06em] [clip-path:polygon(4%_0,96%_0,100%_50%,96%_100%,4%_100%,0_50%)] ${
+        className={`relative inline-block px-[clamp(16px,4.4vw,24px)] py-[clamp(5px,1.5vw,8px)] text-[clamp(10px,2.9vw,14px)] font-black tracking-[0.06em] ring-1 ring-lux-gold/60 [clip-path:polygon(5%_0,95%_0,100%_50%,95%_100%,5%_100%,0_50%)] ${
           dark
-            ? "bg-white text-mcy-turq-deep"
-            : "bg-gradient-to-r from-mcy-turq to-mcy-turq-deep text-white"
+            ? "bg-white text-lux-green"
+            : "bg-gradient-to-b from-lux-green-2 to-lux-green text-white"
         }`}
       >
         {kicker}
       </span>
       <h2
         className={`relative mt-[clamp(8px,2.4vw,13px)] font-display text-[clamp(22px,5.8vw,30px)] font-black leading-snug ${
-          dark ? "text-white" : "text-mcy-navy"
+          dark ? "text-white" : "text-lux-green-ink"
         }`}
       >
         {children}
@@ -182,21 +183,9 @@ function SectionHeading({
         aria-hidden="true"
         className="relative mx-auto mt-[clamp(9px,2.4vw,13px)] flex items-center justify-center gap-[6px]"
       >
-        <span
-          className={`h-px w-[clamp(28px,8vw,44px)] bg-gradient-to-l to-transparent ${
-            dark ? "from-mcy-gold-light" : "from-mcy-gold"
-          }`}
-        />
-        <span
-          className={`h-[7px] w-[7px] rotate-45 shadow-[0_0_6px_rgba(201,162,79,0.6)] ${
-            dark ? "bg-mcy-gold-light" : "bg-mcy-gold"
-          }`}
-        />
-        <span
-          className={`h-px w-[clamp(28px,8vw,44px)] bg-gradient-to-r to-transparent ${
-            dark ? "from-mcy-gold-light" : "from-mcy-gold"
-          }`}
-        />
+        <span className={`h-px w-[clamp(28px,8vw,44px)] bg-gradient-to-l to-transparent ${dark ? "from-lux-gold-light" : "from-lux-gold"}`} />
+        <span className={`h-[8px] w-[8px] rotate-45 shadow-[0_0_6px_rgba(200,162,78,0.6)] ${dark ? "bg-lux-gold-light" : "bg-gradient-to-br from-lux-gold-light to-lux-gold-deep"}`} />
+        <span className={`h-px w-[clamp(28px,8vw,44px)] bg-gradient-to-r to-transparent ${dark ? "from-lux-gold-light" : "from-lux-gold"}`} />
       </span>
     </div>
   );
@@ -207,51 +196,42 @@ export default function McyTrust() {
     <>
       {/* ===== owners ===== */}
       <section className="relative w-full overflow-hidden px-4 py-[clamp(24px,7vw,40px)]">
-        {/* layered bg: blurred real photo + white veil + soft turq glow */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 scale-110 bg-[url(/img/ooya_photo.jpg)] bg-cover bg-center opacity-60 blur-[7px]"
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-b from-white/92 via-white/86 to-mcy-sky/95"
-        />
-        <div
-          aria-hidden="true"
-          className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(43,199,205,0.3),transparent_70%)] blur-2xl"
-        />
-        <Sparkle className="absolute left-[6%] top-[clamp(14px,4vw,24px)] h-[clamp(12px,3.4vw,18px)] w-[clamp(12px,3.4vw,18px)] text-mcy-gold/70" />
+        {/* layered bg: blurred real photo + cream veil + soft gold glow */}
+        <div aria-hidden="true" className="absolute inset-0 scale-110 bg-[url(/img/ooya_photo.jpg)] bg-cover bg-center opacity-45 blur-[7px]" />
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-lux-cream/92 via-lux-cream/88 to-lux-cream-2/95" />
+        <div aria-hidden="true" className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(200,162,78,0.24),transparent_70%)] blur-2xl" />
+        <Sparkle className="absolute left-[6%] top-[clamp(14px,4vw,24px)] h-[clamp(12px,3.4vw,18px)] w-[clamp(12px,3.4vw,18px)] text-lux-gold/70" />
 
         <div className="relative">
           <SectionHeading watermark="OWNER" kicker="次の入居者のために物件を回復">
             大家様・管理会社様の
             <br />
-            <span className="text-mcy-turq-deep">SOS</span>も緊急対応
+            <span className="text-lux-green">SOS</span>も緊急対応
           </SectionHeading>
-          <p className="mx-auto mt-[clamp(10px,3vw,16px)] max-w-[460px] text-[clamp(11.5px,3.2vw,14px)] font-medium leading-[2] text-mcy-navy/90 [word-break:auto-phrase]">
+          <p className="mx-auto mt-[clamp(10px,3vw,16px)] max-w-[460px] text-[clamp(11.5px,3.2vw,14px)] font-medium leading-[2] text-lux-green-ink/90 [word-break:auto-phrase]">
             管理をする物件で事故やトラブルが発生した際は緊急を要することで、ご相談をいただくことが多くあります。一刻も早く、次の入居者が安心して住める状態に戻すため、セレンシアが迅速に駆けつけます。汚染除去・消臭・消毒から、必要に応じた建材撤去や原状回復の段取りまで一括で進められます。万が一に備え、東京海上日動火災保険の賠償責任保険にも加入しています。
           </p>
           <div className="mx-auto mt-[clamp(14px,4vw,20px)] grid max-w-[460px] grid-cols-3 gap-[clamp(6px,1.8vw,10px)]">
             {OWNER_BADGES.map((b) => (
               <div
                 key={b.label}
-                className="flex flex-col items-center rounded-2xl border border-white/70 bg-white px-2 py-[clamp(11px,3.2vw,16px)] text-center shadow-[0_10px_26px_rgba(18,58,92,0.14)]"
+                className="flex flex-col items-center rounded-2xl border border-lux-gold/30 bg-white px-2 py-[clamp(11px,3.2vw,16px)] text-center shadow-[0_10px_26px_rgba(18,61,40,0.14)]"
               >
-                <span className="grid h-[clamp(34px,9.5vw,44px)] w-[clamp(34px,9.5vw,44px)] place-items-center rounded-full bg-gradient-to-b from-mcy-turq-bright via-mcy-turq to-mcy-turq-deep text-white shadow-[0_4px_10px_rgba(11,127,133,0.35)] ring-2 ring-white">
+                <span className="grid h-[clamp(34px,9.5vw,44px)] w-[clamp(34px,9.5vw,44px)] place-items-center rounded-full bg-gradient-to-b from-lux-green-2 via-lux-green to-[#0c2c1c] text-white shadow-[0_4px_10px_rgba(18,61,40,0.35)] ring-2 ring-lux-gold/50">
                   <LineIcon name={b.icon} className="h-[56%] w-[56%]" />
                 </span>
-                <span className="mt-2 text-[clamp(9.5px,2.7vw,12px)] font-black leading-[1.5] text-mcy-navy [word-break:auto-phrase]">
+                <span className="mt-2 text-[clamp(9.5px,2.7vw,12px)] font-black leading-[1.5] text-lux-green-ink [word-break:auto-phrase]">
                   {b.label}
                 </span>
               </div>
             ))}
           </div>
 
-          {/* dedicated phone CTA for owners / property managers (same glossy pill as the support call card) */}
+          {/* dedicated phone CTA for owners / property managers */}
           <a
             href={PHONE_TEL}
             data-gtm="cta_tel_owners"
-            className="relative mx-auto mt-[clamp(12px,3.4vw,18px)] flex max-w-[460px] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/75 bg-gradient-to-b from-mcy-turq-bright via-mcy-turq to-mcy-turq-deep px-4 py-[clamp(9px,2.7vw,13px)] text-white shadow-[0_10px_24px_rgba(11,143,150,0.45)] ring-1 ring-mcy-gold/70 transition-[filter] active:brightness-90"
+            className="relative mx-auto mt-[clamp(12px,3.4vw,18px)] flex max-w-[460px] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/40 bg-gradient-to-b from-lux-green-2 via-lux-green to-[#0c2c1c] px-4 py-[clamp(9px,2.7vw,13px)] text-white shadow-[0_10px_24px_rgba(18,61,40,0.45)] ring-1 ring-lux-gold/70 transition-[filter] active:brightness-95"
           >
             <PillGloss />
             <span className="relative min-w-0 text-center leading-none">
@@ -265,7 +245,7 @@ export default function McyTrust() {
                 最短即日で現地確認｜原状回復まで一括対応
               </span>
             </span>
-            <ArrowBubble className="text-mcy-turq-deep" />
+            <ArrowBubble className="text-lux-green" />
           </a>
 
           <img
@@ -275,53 +255,39 @@ export default function McyTrust() {
             height={410}
             loading="lazy"
             decoding="async"
-            className="mx-auto mt-[clamp(14px,4vw,20px)] w-full max-w-[460px] rounded-[16px] border-[3px] border-white object-cover shadow-[0_12px_30px_rgba(18,58,92,0.22)]"
+            className="mx-auto mt-[clamp(14px,4vw,20px)] w-full max-w-[460px] rounded-[16px] border-[3px] border-white object-cover shadow-[0_12px_30px_rgba(18,61,40,0.22)] ring-1 ring-lux-gold/30"
           />
         </div>
       </section>
 
       {/* ===== support ===== */}
-      <section className="relative w-full overflow-hidden px-4 py-[clamp(24px,7vw,40px)]">
-        {/* layered bg: sky gradient + micro dots + soft glows */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-b from-mcy-sky via-mcy-turq-light to-mcy-sky"
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 opacity-70 [background-image:radial-gradient(circle,rgba(18,165,171,0.16)_1px,transparent_1.4px)] [background-size:18px_18px]"
-        />
-        <div
-          aria-hidden="true"
-          className="absolute -right-20 -top-16 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(43,199,205,0.35),transparent_70%)] blur-2xl"
-        />
-        <div
-          aria-hidden="true"
-          className="absolute -bottom-24 -left-16 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(201,162,79,0.22),transparent_70%)] blur-2xl"
-        />
+      <section className="relative w-full overflow-hidden bg-gradient-to-b from-lux-cream to-lux-cream-2 px-4 py-[clamp(24px,7vw,40px)]">
+        <div aria-hidden="true" className="lux-dots absolute inset-0 opacity-50" />
+        <div aria-hidden="true" className="absolute -right-20 -top-16 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(29,90,58,0.18),transparent_70%)] blur-2xl" />
+        <div aria-hidden="true" className="absolute -bottom-24 -left-16 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(200,162,78,0.2),transparent_70%)] blur-2xl" />
 
         <div className="relative">
           <SectionHeading watermark="SUPPORT" kicker="特殊清掃の不安やお悩みを和らげる">
-            柔軟な<span className="text-mcy-turq-deep">サポート体制</span>
+            柔軟な<span className="text-lux-green">サポート体制</span>
           </SectionHeading>
           <div className="mx-auto mt-[clamp(20px,5.2vw,28px)] grid max-w-[460px] grid-cols-2 gap-x-[clamp(8px,2.2vw,12px)] gap-y-[clamp(18px,4.8vw,24px)]">
             {SUPPORT_ITEMS.map((s) => (
               <div
                 key={s.no}
-                className="relative rounded-2xl border border-white/80 bg-white px-3 pb-[clamp(12px,3.4vw,17px)] pt-[clamp(16px,4.4vw,22px)] text-center shadow-[0_10px_30px_rgba(18,58,92,0.14)]"
+                className="relative rounded-2xl border border-lux-gold/30 bg-white px-3 pb-[clamp(12px,3.4vw,17px)] pt-[clamp(16px,4.4vw,22px)] text-center shadow-[0_10px_30px_rgba(18,61,40,0.14)]"
               >
                 {/* gold number medallion */}
-                <span className="absolute -top-[13px] left-1/2 grid h-[clamp(26px,7.2vw,32px)] w-[clamp(26px,7.2vw,32px)] -translate-x-1/2 place-items-center rounded-full bg-gradient-to-b from-mcy-gold-light via-mcy-gold to-mcy-gold-deep font-display text-[clamp(11px,3.1vw,14px)] font-black text-white shadow-[0_4px_10px_rgba(165,129,58,0.45)] ring-2 ring-white">
+                <span className="absolute -top-[13px] left-1/2 grid h-[clamp(26px,7.2vw,32px)] w-[clamp(26px,7.2vw,32px)] -translate-x-1/2 place-items-center rounded-full bg-gradient-to-b from-lux-gold-light via-lux-gold to-lux-gold-deep font-display text-[clamp(11px,3.1vw,14px)] font-black text-white shadow-[0_4px_10px_rgba(156,119,41,0.45)] ring-2 ring-white">
                   {s.no}
                 </span>
-                <span className="mx-auto grid h-[clamp(38px,10.5vw,48px)] w-[clamp(38px,10.5vw,48px)] place-items-center rounded-xl bg-gradient-to-b from-mcy-turq-light to-white text-mcy-turq-deep ring-1 ring-mcy-turq/25">
+                <span className="mx-auto grid h-[clamp(38px,10.5vw,48px)] w-[clamp(38px,10.5vw,48px)] place-items-center rounded-xl bg-gradient-to-b from-lux-cream to-white text-lux-green ring-1 ring-lux-gold/30">
                   <LineIcon name={s.icon} className="h-[58%] w-[58%]" />
                 </span>
-                <p className="mt-2 text-[clamp(11.5px,3.2vw,14px)] font-black leading-[1.6] text-mcy-navy [word-break:auto-phrase]">
+                <p className="mt-2 text-[clamp(11.5px,3.2vw,14px)] font-black leading-[1.6] text-lux-green-ink [word-break:auto-phrase]">
                   {s.title}
                 </p>
                 {s.sub ? (
-                  <p className="mt-1 text-[clamp(9.5px,2.7vw,11.5px)] font-medium leading-[1.6] text-mcy-navy/75 [word-break:auto-phrase]">
+                  <p className="mt-1 text-[clamp(9.5px,2.7vw,11.5px)] font-medium leading-[1.6] text-lux-green-ink/75 [word-break:auto-phrase]">
                     {s.sub}
                   </p>
                 ) : null}
@@ -329,18 +295,18 @@ export default function McyTrust() {
             ))}
           </div>
 
-          {/* call card — glass + gold frame (data-cta-section hides the sticky bar while visible) */}
-          <div data-cta-section className="relative mx-auto mt-[clamp(16px,4.4vw,24px)] max-w-[460px] overflow-hidden rounded-2xl border-2 border-mcy-gold/60 bg-white/80 px-4 pb-5 pt-4 text-center shadow-[0_14px_34px_rgba(18,58,92,0.18)] ring-1 ring-inset ring-white/70 backdrop-blur">
-            <Sparkle className="absolute right-[10px] top-[10px] h-[clamp(10px,2.8vw,14px)] w-[clamp(10px,2.8vw,14px)] text-mcy-gold/70" />
-            <p className="flex items-center justify-center gap-2 font-display text-[clamp(14px,4vw,18px)] font-black text-mcy-navy">
-              <span aria-hidden="true" className="h-[6px] w-[6px] shrink-0 rotate-45 bg-mcy-gold" />
+          {/* call card — gold-framed cream glass (data-cta-section hides sticky bar) */}
+          <div data-cta-section className="relative mx-auto mt-[clamp(16px,4.4vw,24px)] max-w-[460px] overflow-hidden rounded-2xl border-2 border-lux-gold/60 bg-white px-4 pb-5 pt-4 text-center shadow-[0_14px_34px_rgba(18,61,40,0.18)]">
+            <Sparkle className="absolute right-[10px] top-[10px] h-[clamp(10px,2.8vw,14px)] w-[clamp(10px,2.8vw,14px)] text-lux-gold/70" />
+            <p className="flex items-center justify-center gap-2 font-display text-[clamp(14px,4vw,18px)] font-black text-lux-green-ink">
+              <span aria-hidden="true" className="h-[6px] w-[6px] shrink-0 rotate-45 bg-lux-gold-deep" />
               <span>まずは相談事をお聞かせください</span>
-              <span aria-hidden="true" className="h-[6px] w-[6px] shrink-0 rotate-45 bg-mcy-gold" />
+              <span aria-hidden="true" className="h-[6px] w-[6px] shrink-0 rotate-45 bg-lux-gold-deep" />
             </p>
             <a
               href={PHONE_TEL}
               data-gtm="cta_tel_support"
-              className="relative mt-3 flex items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/75 bg-gradient-to-b from-mcy-turq-bright via-mcy-turq to-mcy-turq-deep px-4 py-[clamp(9px,2.7vw,13px)] text-white shadow-[0_10px_24px_rgba(11,143,150,0.45)] ring-1 ring-mcy-gold/70 transition-[filter] active:brightness-90"
+              className="relative mt-3 flex items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/40 bg-gradient-to-b from-lux-green-2 via-lux-green to-[#0c2c1c] px-4 py-[clamp(9px,2.7vw,13px)] text-white shadow-[0_10px_24px_rgba(18,61,40,0.45)] ring-1 ring-lux-gold/70 transition-[filter] active:brightness-95"
             >
               <PillGloss />
               <span className="relative min-w-0 text-center leading-none">
@@ -354,14 +320,14 @@ export default function McyTrust() {
                   9:00〜21:00 年中無休
                 </span>
               </span>
-              <ArrowBubble className="text-mcy-turq-deep" />
+              <ArrowBubble className="text-lux-green" />
             </a>
             <a
               href={LINE_URL}
               target="_blank"
               rel="noopener noreferrer"
               data-gtm="cta_line_support"
-              className="relative mt-3 flex items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/75 bg-gradient-to-b from-[#25d94e] to-[#06a32a] px-4 py-[clamp(8px,2.4vw,12px)] text-white shadow-[0_8px_20px_rgba(6,163,42,0.4)] ring-1 ring-[#06a32a]/45 transition-[filter] active:brightness-90"
+              className="relative mt-3 flex items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-lux-gold/50 bg-gradient-to-b from-[#37d857] to-[#06a32a] px-4 py-[clamp(8px,2.4vw,12px)] text-white shadow-[0_8px_20px_rgba(6,163,42,0.4)] transition-[filter] active:brightness-90"
             >
               <PillGloss />
               <span className="relative grid h-[clamp(22px,6.2vw,30px)] w-[clamp(22px,6.2vw,30px)] shrink-0 place-items-center rounded-full bg-white text-[clamp(5px,1.4vw,7px)] font-black text-[#06a32a]">
@@ -382,38 +348,38 @@ export default function McyTrust() {
       </section>
 
       {/* ===== license & insurance ===== */}
-      <section className="relative w-full overflow-hidden bg-white px-4 pb-[clamp(36px,10vw,54px)] pt-[clamp(24px,7vw,40px)]">
-        {/* bottom layer: blurred real photo fading into white */}
+      <section className="relative w-full overflow-hidden bg-lux-cream px-4 pb-[clamp(36px,10vw,54px)] pt-[clamp(24px,7vw,40px)]">
+        {/* bottom layer: blurred real photo fading into cream */}
         <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-[46%] overflow-hidden">
-          <div className="absolute inset-0 scale-110 bg-[url(/img/shikaku_photo.jpg)] bg-cover bg-center opacity-50 blur-[6px]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-white via-white/85 to-white/65" />
+          <div className="absolute inset-0 scale-110 bg-[url(/img/shikaku_photo.jpg)] bg-cover bg-center opacity-45 blur-[6px]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-lux-cream via-lux-cream/85 to-lux-cream/65" />
         </div>
-        <Sparkle className="absolute right-[7%] top-[clamp(16px,4.4vw,26px)] h-[clamp(12px,3.4vw,18px)] w-[clamp(12px,3.4vw,18px)] text-mcy-turq/50" />
+        <Sparkle className="absolute right-[7%] top-[clamp(16px,4.4vw,26px)] h-[clamp(12px,3.4vw,18px)] w-[clamp(12px,3.4vw,18px)] text-lux-gold/60" />
 
         <div className="relative">
           <SectionHeading watermark="LICENSE" kicker="技術を磨き、住まいを磨く。">
-            保有許可・<span className="text-mcy-turq-deep">資格</span>
+            保有許可・<span className="text-lux-green">資格</span>
           </SectionHeading>
-          <p className="mx-auto mt-[clamp(10px,3vw,16px)] max-w-[460px] text-[clamp(11.5px,3.2vw,14px)] font-medium leading-[2] text-mcy-navy/90 [word-break:auto-phrase]">
+          <p className="mx-auto mt-[clamp(10px,3vw,16px)] max-w-[460px] text-[clamp(11.5px,3.2vw,14px)] font-medium leading-[2] text-lux-green-ink/90 [word-break:auto-phrase]">
             セレンシアでは、安心してお任せいただけるよう、多くの資格を持ったプロフェッショナルが特殊清掃や遺品整理に対応します。
           </p>
-          <div className="mx-auto mt-[clamp(14px,4vw,20px)] max-w-[460px] overflow-hidden rounded-2xl border border-white/70 bg-white shadow-[0_12px_32px_rgba(18,58,92,0.16)]">
-            <ul className="divide-y divide-mcy-turq/15">
+          <div className="mx-auto mt-[clamp(14px,4vw,20px)] max-w-[460px] overflow-hidden rounded-2xl border border-lux-gold/40 bg-white shadow-[0_12px_32px_rgba(18,61,40,0.16)]">
+            <ul className="divide-y divide-lux-gold/15">
               {LICENSES.map((l, i) => (
                 <li
                   key={l}
-                  className="flex items-center gap-3 px-4 py-[clamp(10px,2.8vw,14px)] odd:bg-white even:bg-mcy-turq-light/60"
+                  className="flex items-center gap-3 px-4 py-[clamp(10px,2.8vw,14px)] odd:bg-white even:bg-lux-cream"
                 >
-                  <span className="grid h-[clamp(22px,6vw,28px)] w-[clamp(22px,6vw,28px)] shrink-0 place-items-center rounded-full bg-gradient-to-b from-mcy-gold-light via-mcy-gold to-mcy-gold-deep font-display text-[clamp(10px,2.8vw,13px)] font-black text-white shadow-[0_2px_6px_rgba(165,129,58,0.4)] ring-1 ring-white/70">
+                  <span className="grid h-[clamp(22px,6vw,28px)] w-[clamp(22px,6vw,28px)] shrink-0 place-items-center rounded-full bg-gradient-to-b from-lux-gold-light via-lux-gold to-lux-gold-deep font-display text-[clamp(10px,2.8vw,13px)] font-black text-white shadow-[0_2px_6px_rgba(156,119,41,0.4)] ring-1 ring-white/70">
                     {i + 1}
                   </span>
-                  <span className="text-[clamp(11px,3.1vw,13.5px)] font-bold leading-[1.6] text-mcy-navy [word-break:auto-phrase]">
+                  <span className="text-[clamp(11px,3.1vw,13.5px)] font-bold leading-[1.6] text-lux-green-ink [word-break:auto-phrase]">
                     {l}
                   </span>
                 </li>
               ))}
             </ul>
-            <p className="bg-gradient-to-r from-mcy-gold-deep via-mcy-gold to-mcy-gold-deep px-4 py-[clamp(11px,3vw,15px)] text-center text-[clamp(10.5px,2.9vw,13px)] font-black text-white [text-shadow:0_1px_2px_rgba(122,90,32,0.4)]">
+            <p className="bg-gradient-to-r from-lux-gold-deep via-lux-gold to-lux-gold-deep px-4 py-[clamp(11px,3vw,15px)] text-center text-[clamp(10.5px,2.9vw,13px)] font-black text-white [text-shadow:0_1px_2px_rgba(122,90,32,0.4)]">
               万が一に備え、東京海上日動火災保険の
               <br className="min-[420px]:hidden" />
               賠償責任保険に加入しています
@@ -426,71 +392,51 @@ export default function McyTrust() {
             height={312}
             loading="lazy"
             decoding="async"
-            className="mx-auto mt-[clamp(14px,4vw,20px)] w-full max-w-[460px] rounded-[16px] border-[3px] border-white object-cover shadow-[0_12px_30px_rgba(18,58,92,0.22)]"
+            className="mx-auto mt-[clamp(14px,4vw,20px)] w-full max-w-[460px] rounded-[16px] border-[3px] border-white object-cover shadow-[0_12px_30px_rgba(18,61,40,0.22)] ring-1 ring-lux-gold/30"
           />
         </div>
 
-        {/* wave seam into the turquoise ihin section below */}
+        {/* wave seam into the emerald ihin section below */}
         <svg
           aria-hidden="true"
           viewBox="0 0 375 26"
           preserveAspectRatio="none"
           className="absolute inset-x-0 bottom-[-1px] h-[clamp(14px,4.5vw,24px)] w-full"
         >
-          <path
-            d="M0 26h375V12c-62-10-125-2-188 4C124 22 62 20 0 8z"
-            fill="var(--color-mcy-turq)"
-          />
+          <path d="M0 26h375V12c-62-10-125-2-188 4C124 22 62 20 0 8z" fill="var(--color-lux-green-2)" />
         </svg>
       </section>
 
       {/* ===== ihin ===== */}
       <section className="relative w-full overflow-hidden px-4 py-[clamp(24px,7vw,40px)]">
-        {/* layered bg: turq gradient + glow + micro dots */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-b from-mcy-turq to-mcy-turq-deep"
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.28),transparent_60%)]"
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 opacity-60 [background-image:radial-gradient(circle,rgba(255,255,255,0.16)_1px,transparent_1.4px)] [background-size:18px_18px]"
-        />
-        <Sparkle className="absolute left-[7%] top-[clamp(18px,5vw,28px)] h-[clamp(12px,3.4vw,18px)] w-[clamp(12px,3.4vw,18px)] text-mcy-gold-light/90" />
+        {/* layered bg: emerald gradient + glow + micro dots */}
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-lux-green-2 to-lux-green" />
+        <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.2),transparent_60%)]" />
+        <div aria-hidden="true" className="absolute inset-0 opacity-50 [background-image:radial-gradient(circle,rgba(255,255,255,0.14)_1px,transparent_1.4px)] [background-size:18px_18px]" />
+        <Sparkle className="absolute left-[7%] top-[clamp(18px,5vw,28px)] h-[clamp(12px,3.4vw,18px)] w-[clamp(12px,3.4vw,18px)] text-lux-gold-light/90" />
         <Sparkle className="absolute bottom-[clamp(14px,4vw,22px)] right-[8%] h-[clamp(10px,2.8vw,14px)] w-[clamp(10px,2.8vw,14px)] text-white/70" />
 
         <div className="relative">
           <SectionHeading tone="dark" watermark="KEEPSAKE" kicker="Google口コミ高評価獲得！">
             経験豊富なスタッフが対応する
             <br />
-            <span className="text-mcy-gold-light">遺品整理</span>
+            <span className="text-lux-gold-light">遺品整理</span>
           </SectionHeading>
           <div className="mx-auto mt-[clamp(14px,4vw,22px)] grid max-w-[460px] grid-cols-2 gap-[clamp(8px,2.2vw,12px)]">
             {["遺品整理士が在籍", "不用品の買取可能"].map((b) => (
               <div
                 key={b}
-                className="flex items-center justify-center gap-2 rounded-2xl border border-white/70 bg-white px-3 py-[clamp(15px,4.2vw,21px)] shadow-[0_12px_30px_rgba(9,50,55,0.35)]"
+                className="flex items-center justify-center gap-2 rounded-2xl border border-lux-gold/40 bg-white px-3 py-[clamp(15px,4.2vw,21px)] shadow-[0_12px_30px_rgba(10,44,27,0.35)]"
               >
                 <span
                   aria-hidden="true"
-                  className="grid h-[clamp(26px,7.2vw,34px)] w-[clamp(26px,7.2vw,34px)] shrink-0 place-items-center rounded-full bg-gradient-to-b from-mcy-turq-bright to-mcy-turq-deep shadow-[0_3px_8px_rgba(11,127,133,0.4)] ring-2 ring-mcy-turq-light"
+                  className="grid h-[clamp(26px,7.2vw,34px)] w-[clamp(26px,7.2vw,34px)] shrink-0 place-items-center rounded-full bg-gradient-to-b from-lux-green-2 to-lux-green shadow-[0_3px_8px_rgba(18,61,40,0.4)] ring-2 ring-lux-gold/50"
                 >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="white"
-                    strokeWidth={3.2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-[58%] w-[58%]"
-                  >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth={3.2} strokeLinecap="round" strokeLinejoin="round" className="h-[58%] w-[58%]">
                     <path d="m4.5 12.5 5 5L19.5 7" />
                   </svg>
                 </span>
-                <span className="text-[clamp(12px,3.4vw,15px)] font-black text-mcy-navy">{b}</span>
+                <span className="text-[clamp(12px,3.4vw,15px)] font-black text-lux-green-ink">{b}</span>
               </div>
             ))}
           </div>
