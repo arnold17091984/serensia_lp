@@ -101,18 +101,18 @@ body {
   color: var(--color-ink);
 }
 
-/* diagonal light sweep for the FV buttons (periodic glint) */
+/* diagonal light sweep for the FV buttons (frequent, clearly-visible glint) */
 @keyframes mcyShine {
   0% {
-    transform: translateX(-160%) skewX(-20deg);
+    transform: translateX(-130%) skewX(-20deg);
   }
-  58%,
+  62%,
   100% {
-    transform: translateX(560%) skewX(-20deg);
+    transform: translateX(320%) skewX(-20deg);
   }
 }
 .mcy-shine {
-  animation: mcyShine 3s cubic-bezier(0.25, 0, 0.2, 1) infinite;
+  animation: mcyShine 2.4s cubic-bezier(0.33, 0, 0.15, 1) infinite;
 }
 @media (prefers-reduced-motion: reduce) {
   .mcy-shine {

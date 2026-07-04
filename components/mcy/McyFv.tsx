@@ -20,7 +20,7 @@ function Shine({ delay = "0s" }: Readonly<{ delay?: string }>) {
   return (
     <span aria-hidden="true" className="pointer-events-none absolute inset-0 z-10 overflow-hidden">
       <span
-        className="mcy-shine absolute inset-y-[-30%] left-0 w-[46%] bg-gradient-to-r from-transparent via-white/95 to-transparent"
+        className="mcy-shine absolute inset-y-[-40%] left-0 w-[55%] bg-[linear-gradient(90deg,transparent_0%,rgba(255,255,255,0.12)_38%,rgba(255,255,255,0.98)_50%,rgba(255,255,255,0.12)_62%,transparent_100%)]"
         style={{ animationDelay: delay }}
       />
     </span>
