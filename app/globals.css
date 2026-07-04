@@ -1,12 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  /* fonts (loaded via next/font in layout.tsx) */
-  --font-sans: var(--font-noto-sans), "Hiragino Kaku Gothic ProN", "Yu Gothic",
-    sans-serif;
-  --font-serif: var(--font-noto-serif), "Hiragino Mincho ProN", "Yu Mincho",
-    serif;
-  --font-display: var(--font-shippori), "Hiragino Mincho ProN", serif;
+  /* fonts — OS font stack (no external webfont fetch; builds anywhere) */
+  --font-sans: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic",
+    "YuGothic", "Meiryo", system-ui, sans-serif;
+  --font-serif: "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Yu Mincho",
+    "YuMincho", "MS PMincho", serif;
+  --font-display: "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Yu Mincho",
+    "YuMincho", serif;
 
   /* new FV design (mockup reproduction) */
   --color-ivory: #f6f1e6;

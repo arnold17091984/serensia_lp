@@ -1,32 +1,10 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import {
-  Noto_Sans_JP,
-  Noto_Serif_JP,
-  Shippori_Mincho_B1,
-} from "next/font/google";
 import "./globals.css";
 
-const notoSans = Noto_Sans_JP({
-  subsets: ["latin"],
-  weight: ["400", "500", "700", "900"],
-  variable: "--font-noto-sans",
-  display: "swap",
-});
-
-const notoSerif = Noto_Serif_JP({
-  subsets: ["latin"],
-  weight: ["500", "700", "900"],
-  variable: "--font-noto-serif",
-  display: "swap",
-});
-
-const shippori = Shippori_Mincho_B1({
-  subsets: ["latin"],
-  weight: ["400", "700", "800"],
-  variable: "--font-shippori",
-  display: "swap",
-});
+// Fonts are served from the OS font stack (see globals.css @theme). Google Fonts
+// is intentionally not used at build time so the static export builds anywhere;
+// the mincho/gothic system fallbacks match the design on iOS/Mac/Windows.
 
 // NOTE: 現行LPと同じGTMコンテナを使用（AB計測を同一プロパティに集約するため）
 const GTM_ID = "GTM-M3SM8R2M";
@@ -53,10 +31,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="ja"
-      className={`${notoSans.variable} ${notoSerif.variable} ${shippori.variable}`}
-    >
+    <html lang="ja">
       <body className="font-sans antialiased">
         <Script id="gtm" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');`}
