@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { LINE_URL, PHONE_DISPLAY, PHONE_TEL } from "./McyHeader";
 import McyManga from "./McyManga";
+import McyDaihyo from "./McyDaihyo";
 import {
   CheckGreen,
   GoldCard,
@@ -82,6 +83,9 @@ export default function McyProblems() {
           </LuxHeading>
 
           <McyManga />
+
+          {/* real 代表 太田 photo + message right after the manga (trust bridge) */}
+          <McyDaihyo />
 
           {/* fact-based urgency + inline dual CTA (data-cta-section hides sticky bar) */}
           <GoldCard className="mx-auto mt-[clamp(16px,4.4vw,24px)] max-w-[460px]">
