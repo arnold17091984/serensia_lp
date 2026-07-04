@@ -1,0 +1,51 @@
+{
+  "note": "まーしー式AI-LP No.33 のHTMLクリック対応LP分割出力ルールに準拠。CTAボタンは背景に焼き込まず、HTML要素として配置する。",
+  "max_width": "520px",
+  "source_design": "ChatGPT Image 2026-07-03 17:50 (1024x1536)",
+  "sections": [
+    {
+      "section_type": "cta",
+      "id": "header",
+      "background_image": "/img/kv_s1_headerbg.jpg",
+      "height_px_at_1024": 128,
+      "alt": "特殊清掃・遺品整理 セレンシア｜相談・見積り無料（24時間受付・年中無休）",
+      "buttons": ["header_tel", "header_line"]
+    },
+    {
+      "section_type": "image",
+      "id": "hero",
+      "image": "/img/kv_s2_hero.jpg",
+      "height_px_at_1024": 598,
+      "alt": "東京・神奈川全域対応。孤独死・事故現場の特殊清掃専門。臭い・体液汚染を最短即日で現地確認。代表 太田"
+    },
+    {
+      "section_type": "image",
+      "id": "benefits",
+      "image": "/img/kv_s3_benefits.jpg",
+      "height_px_at_1024": 110,
+      "alt": "相談・見積り無料／追加料金なし／立ち会い不要／近隣配慮・秘密厳守"
+    },
+    {
+      "section_type": "cta",
+      "id": "main_cta",
+      "background_image": "/img/kv_s4_ctabg.jpg",
+      "height_px_at_1024": 164,
+      "alt": "",
+      "buttons": ["main_tel", "main_line"]
+    },
+    {
+      "section_type": "image",
+      "id": "proof",
+      "image": "/img/kv_s5_proof.jpg",
+      "height_px_at_1024": 220,
+      "alt": "Googleクチコミ高評価4.9/5.0 クチコミ120件以上／ご相談実績2,000件以上"
+    },
+    {
+      "section_type": "image",
+      "id": "worries",
+      "image": "/img/kv_s6_worries.jpg",
+      "height_px_at_1024": 316,
+      "alt": "こんなお悩みをすべて解決します"
+    }
+  ]
+}

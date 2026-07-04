@@ -1,0 +1,41 @@
+{
+  "note": "ボタン位置は各セクション画像に対する%指定（まーしー式ルール準拠）。座標は元画像1024x1536の実測値由来。",
+  "buttons": {
+    "header_tel": {
+      "text": "03-4400-2098（受付 9:00〜21:00 / 年中無休）",
+      "href": "tel:0344002098",
+      "gtm": "cta_tel_header",
+      "section": "header",
+      "position": { "left": "53.9%", "top": "17.2%" },
+      "size": { "width": "27.9%", "height": "67.2%" },
+      "style": { "border_radius": "min(1.2vw,6px)", "gradient": "#c04a43->#8e1613" }
+    },
+    "header_line": {
+      "text": "LINEで写真相談する",
+      "href": "https://page.line.me/782qjphg",
+      "gtm": "cta_line_header",
+      "section": "header",
+      "position": { "left": "82.5%", "top": "17.2%" },
+      "size": { "width": "15.9%", "height": "67.2%" },
+      "style": { "border_radius": "min(1.2vw,6px)", "gradient": "#4e9d45->#2a7526" }
+    },
+    "main_tel": {
+      "text": "電話で今すぐ相談する 03-4400-2098（受付時間 9:00〜21:00 / 年中無休）",
+      "href": "tel:0344002098",
+      "gtm": "cta_tel_fv",
+      "section": "main_cta",
+      "position": { "left": "2.7%", "top": "3%" },
+      "size": { "width": "45.9%", "height": "88%" },
+      "style": { "border_radius": "min(1.6vw,8px)", "border": "1.5px #e8dcb8", "gradient": "#cb2822->#98100e" }
+    },
+    "main_line": {
+      "text": "LINEで写真を送るだけ 写真相談・概算見積り（簡単・安心・すぐにご回答します）",
+      "href": "https://page.line.me/782qjphg",
+      "gtm": "cta_line_fv",
+      "section": "main_cta",
+      "position": { "left": "50.6%", "top": "3%" },
+      "size": { "width": "46.7%", "height": "88%" },
+      "style": { "border_radius": "min(1.6vw,8px)", "border": "1.5px #e8dcb8", "gradient": "#37a51e->#176c0b" }
+    }
+  }
+}
