@@ -104,29 +104,14 @@ export default function McyProblems() {
         <Sparkle className="right-[7%] top-[clamp(30px,9vw,54px)] text-[clamp(10px,3vw,15px)] text-mcy-gold/70" />
 
         <div className="relative">
-          <RibbonHeading kicker="こんなお悩みはありませんか？" watermark="WORRIES">
-            こんな<span className="text-mcy-turq-deep">お悩み</span>を
+          <RibbonHeading kicker="はじめてでも安心" watermark="STORY">
+            マンガでわかる
             <br />
-            すべて解決します！
+            <span className="text-mcy-turq-deep">ご相談〜解決</span>の流れ
           </RibbonHeading>
 
-          {/* worries told as a 5-chapter manga (scroll-revealed, progressive) */}
+          {/* customer journey told as a 5-chapter manga (scroll-revealed, progressive) */}
           <McyManga />
-
-          {/* closing navy band → gold-rimmed rounded card */}
-          <div className="relative mx-auto mt-[clamp(16px,4.4vw,24px)] max-w-[460px] overflow-hidden rounded-2xl border-2 border-mcy-gold/70 bg-gradient-to-br from-mcy-navy to-mcy-navy-deep px-4 py-[clamp(12px,3.2vw,17px)] shadow-[0_12px_30px_rgba(18,41,63,0.35)]">
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/10 to-transparent"
-            />
-            <Sparkle className="left-3 top-2 text-[11px] text-mcy-gold/80" />
-            <Sparkle className="bottom-2 right-3 text-[11px] text-mcy-gold/80" />
-            <p className="relative text-center text-[clamp(11px,3vw,13.5px)] font-black leading-[1.7] text-white">
-              どんな状況でも、まずはご相談ください。
-              <br />
-              専門スタッフが丁寧に対応します。
-            </p>
-          </div>
 
           {/* fact-based urgency + inline dual CTA (data-cta-section hides the sticky bar while visible) */}
           <div
