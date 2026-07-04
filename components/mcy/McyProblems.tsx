@@ -146,7 +146,7 @@ export default function McyProblems() {
               <a
                 href={PHONE_TEL}
                 data-gtm="cta_tel_worries"
-                className="relative flex items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/75 bg-gradient-to-b from-mcy-turq-bright via-mcy-turq to-mcy-turq-deep px-4 py-[clamp(9px,2.7vw,13px)] text-white shadow-[0_8px_20px_rgba(11,143,150,0.4)] ring-1 ring-mcy-gold/70 transition-[filter] active:brightness-90"
+                className="relative flex min-h-[clamp(74px,21vw,92px)] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/75 bg-gradient-to-b from-mcy-turq-bright via-mcy-turq to-mcy-turq-deep px-4 py-[clamp(8px,2.4vw,12px)] text-white shadow-[0_8px_20px_rgba(11,143,150,0.4)] ring-1 ring-mcy-gold/70 transition-[filter] active:brightness-90"
               >
                 <span
                   aria-hidden
@@ -180,7 +180,7 @@ export default function McyProblems() {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-gtm="cta_line_worries"
-                className="relative flex items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/75 bg-gradient-to-b from-[#25d94e] to-[#06a32a] px-4 py-[clamp(9px,2.7vw,13px)] text-white shadow-[0_8px_20px_rgba(6,163,42,0.35)] ring-1 ring-mcy-gold/70 transition-[filter] active:brightness-90"
+                className="relative flex min-h-[clamp(74px,21vw,92px)] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/75 bg-gradient-to-b from-[#25d94e] to-[#06a32a] px-4 py-[clamp(8px,2.4vw,12px)] text-white shadow-[0_8px_20px_rgba(6,163,42,0.35)] ring-1 ring-mcy-gold/70 transition-[filter] active:brightness-90"
               >
                 <span
                   aria-hidden
@@ -190,11 +190,14 @@ export default function McyProblems() {
                   LINE
                 </span>
                 <span className="relative min-w-0 text-center leading-none">
-                  <span className="block whitespace-nowrap text-[clamp(12px,3.4vw,15px)] font-black">
-                    LINEで写真を送って相談する
+                  <span className="block whitespace-nowrap text-[clamp(9.5px,2.7vw,12px)] font-black">
+                    写真を送るだけ・無料相談
+                  </span>
+                  <span className="mt-[4px] block whitespace-nowrap text-[clamp(17px,4.8vw,23px)] font-black tracking-[-0.01em]">
+                    LINEで写真相談する
                   </span>
                   <span className="mt-[4px] block whitespace-nowrap text-[clamp(7.5px,2.1vw,10px)] font-bold opacity-95">
-                    24時間受付
+                    24時間受付｜写真がなくてもOK
                   </span>
                 </span>
                 <span className="grid h-[clamp(20px,5.6vw,26px)] w-[clamp(20px,5.6vw,26px)] shrink-0 place-items-center rounded-full bg-white shadow-[0_2px_5px_rgba(0,0,0,0.2)]">
@@ -397,8 +400,8 @@ export default function McyProblems() {
             </p>
           </div>
 
-          {/* +α card: navy gradient, gold rim, glass shine */}
-          <div className="mx-auto mt-[clamp(14px,3.8vw,20px)] flex max-w-[460px] items-stretch overflow-hidden rounded-2xl border-2 border-mcy-gold/60 shadow-[0_12px_30px_rgba(18,41,63,0.3)]">
+          {/* +α card: full-width photo with navy scrim + gold badge overlay */}
+          <div className="relative mx-auto mt-[clamp(14px,3.8vw,20px)] max-w-[460px] overflow-hidden rounded-[20px] shadow-[0_16px_38px_rgba(18,41,63,0.28)] ring-1 ring-mcy-gold/40">
             <img
               src="/img/kaiketsu_s4.jpg"
               alt="専用コーティング剤を噴霧する作業"
@@ -406,25 +409,35 @@ export default function McyProblems() {
               height={500}
               loading="lazy"
               decoding="async"
-              className="w-2/5 object-cover"
+              className="h-[clamp(158px,44vw,220px)] w-full object-cover object-center"
             />
-            <div className="relative flex w-3/5 flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-mcy-navy to-mcy-navy-deep px-4 py-6 text-center text-white">
-              <span
-                aria-hidden="true"
-                className="pointer-events-none absolute -left-1/4 top-0 h-[140%] w-1/2 rotate-12 bg-gradient-to-r from-transparent via-white/10 to-transparent"
-              />
-              <Sparkle className="right-3 top-2 text-[11px] text-mcy-gold/80" />
-              <p className="relative font-display text-[clamp(14px,4vw,18px)] font-bold text-mcy-gold-light">
-                さらに<span className="ml-1 text-[clamp(22px,6vw,28px)] font-black text-mcy-gold">+α</span>
-              </p>
-              <span
-                aria-hidden="true"
-                className="relative mt-1 block h-px w-[clamp(60px,17vw,90px)] bg-gradient-to-r from-transparent via-mcy-gold to-transparent"
-              />
-              <p className="relative mt-2 text-[clamp(12px,3.4vw,15px)] font-bold leading-[1.8]">
+            {/* navy scrim bottom→transparent for legible text */}
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-mcy-navy-deep via-mcy-navy-deep/72 to-transparent"
+            />
+            {/* diagonal glass shine */}
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute -top-1/4 right-0 h-[150%] w-1/2 rotate-12 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+            />
+            {/* soft gold hairline inset */}
+            <span aria-hidden="true" className="pointer-events-none absolute inset-[7px] rounded-[14px] ring-1 ring-white/15" />
+            <Sparkle className="right-[14px] top-[12px] text-[clamp(11px,3vw,15px)] text-mcy-gold" />
+
+            <div className="absolute inset-x-0 bottom-0 p-[clamp(14px,4vw,20px)] text-white">
+              <span className="inline-flex items-center gap-[6px] rounded-full bg-gradient-to-r from-mcy-gold to-mcy-gold-deep px-[clamp(10px,2.8vw,14px)] py-[clamp(4px,1.2vw,6px)] shadow-[0_3px_10px_rgba(165,129,58,0.5)] ring-1 ring-white/40">
+                <span aria-hidden="true" className="text-[clamp(9px,2.4vw,11px)] leading-none">✦</span>
+                <span className="font-display text-[clamp(11px,3vw,14px)] font-black tracking-[0.12em]">
+                  さらに ＋α
+                </span>
+              </span>
+              <p className="mt-[clamp(8px,2.2vw,11px)] font-display text-[clamp(16px,4.6vw,21px)] font-black leading-snug [text-shadow:0_2px_10px_rgba(0,0,0,0.45)] [word-break:auto-phrase]">
                 専用コーティング剤で
-                <br />
-                封じ込め<span className="text-mcy-gold">“密閉”</span>
+                <span className="text-mcy-gold-light">封じ込め“密閉”</span>
+              </p>
+              <p className="mt-[5px] text-[clamp(10px,2.8vw,12.5px)] font-bold leading-[1.7] text-white/85 [word-break:auto-phrase]">
+                臭いの再発を長期的に防ぐ、仕上げの一手間。
               </p>
             </div>
           </div>
