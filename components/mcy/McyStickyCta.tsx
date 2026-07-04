@@ -91,7 +91,7 @@ export default function McyStickyCta() {
             className="pointer-events-none absolute inset-x-[8px] top-[2px] h-[46%] rounded-full bg-gradient-to-b from-white/50 via-white/15 to-white/0"
           />
           <span className="relative flex items-center gap-1.5 whitespace-nowrap text-[clamp(12px,3.9vw,15px)] font-black leading-tight drop-shadow-[0_1px_1px_rgba(6,163,42,0.5)]">
-            <span className="grid h-[clamp(15px,4.4vw,18px)] w-[clamp(15px,4.4vw,18px)] shrink-0 place-items-center rounded-full bg-white text-[4.5px] font-black text-[#06a32a] shadow-[0_1px_2px_rgba(0,0,0,0.18)]">
+            <span className="grid h-[clamp(15px,4.4vw,18px)] w-[clamp(15px,4.4vw,18px)] shrink-0 place-items-center rounded-full bg-white text-[clamp(6px,1.6vw,8px)] font-black text-[#06a32a] shadow-[0_1px_2px_rgba(0,0,0,0.18)]">
               LINE
             </span>
             {"LINEで無料相談"}

@@ -1,4 +1,4 @@
-import { LINE_URL, PHONE_DISPLAY, PHONE_TEL } from "./McyHeader";
+import McyFvCtas from "./McyFvCtas";
 
 /**
  * No.33 first view — layered photo background (blurred room + white veil +
@@ -75,23 +75,6 @@ function Sparkle({ className }: Readonly<{ className?: string }>) {
     <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
       <path d="M12 0c.8 6.4 4.8 10.4 12 12-7.2 1.6-11.2 5.6-12 12-.8-6.4-4.8-10.4-12-12C7.2 10.4 11.2 6.4 12 0Z" />
     </svg>
-  );
-}
-
-function CtaArrow({ color }: Readonly<{ color: string }>) {
-  return (
-    <span className="grid h-[clamp(22px,6vw,30px)] w-[clamp(22px,6vw,30px)] shrink-0 place-items-center rounded-full bg-white shadow-[0_2px_5px_rgba(0,0,0,0.2)]">
-      <svg viewBox="0 0 24 24" className="h-[58%] w-[58%]" aria-hidden="true">
-        <path
-          d="m9.5 5.5 6.5 6.5-6.5 6.5"
-          fill="none"
-          stroke={color}
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    </span>
   );
 }
 
@@ -182,7 +165,7 @@ export default function McyFv() {
               専門
             </span>
           </h1>
-          <p className="relative mt-[clamp(10px,3vw,16px)] font-display font-black leading-[1.2]">
+          <p className="relative mt-[clamp(7px,2.2vw,12px)] font-display font-black leading-[1.2]">
             <span className="text-[clamp(26px,7.6vw,42px)] tracking-[-0.02em] text-mcy-navy">
               臭い・体液汚染を
             </span>
@@ -194,21 +177,19 @@ export default function McyFv() {
           {/* gold ―◆― divider */}
           <div
             aria-hidden
-            className="mt-[clamp(10px,3vw,16px)] flex items-center justify-center gap-[clamp(8px,2.4vw,12px)]"
+            className="mt-[clamp(7px,2.2vw,12px)] flex items-center justify-center gap-[clamp(8px,2.4vw,12px)]"
           >
             <span className="h-px w-[clamp(36px,11vw,64px)] bg-gradient-to-r from-transparent to-mcy-gold" />
             <span className="h-[7px] w-[7px] rotate-45 bg-mcy-gold shadow-[0_1px_2px_rgba(165,129,58,0.5)]" />
             <span className="h-px w-[clamp(36px,11vw,64px)] bg-gradient-to-l from-transparent to-mcy-gold" />
           </div>
-          <p className="relative mx-auto mt-[clamp(8px,2.4vw,14px)] max-w-[430px] text-[clamp(12px,3.3vw,15px)] font-bold leading-[1.9] text-mcy-navy/90">
-            強い腐敗臭・体液汚染・害虫の発生まで
-            <br />
-            原因を特定し、<span className="text-mcy-turq-deep">根本から解決</span>します。
+          <p className="relative mx-auto mt-[clamp(8px,2.4vw,14px)] max-w-[430px] text-[clamp(12px,3.3vw,15px)] font-bold leading-[1.9] text-mcy-navy/90 [word-break:auto-phrase]">
+            腐敗臭・体液汚染・害虫まで、原因から<span className="text-mcy-turq-deep">根本解決</span>します。
           </p>
         </div>
 
-        {/* room photo card (人物なし・実写素材) — white frame + deep shadow + gold sparkle */}
-        <div className="mt-[clamp(14px,4vw,22px)] px-4">
+        {/* room photo card + representative portrait (real photo) — answers "who will come?" */}
+        <div className="mt-[clamp(12px,3.4vw,18px)] px-4">
           <div className="relative rounded-[18px] bg-white p-[clamp(5px,1.4vw,8px)] shadow-[0_16px_36px_rgba(18,58,92,0.22)] ring-1 ring-mcy-navy/5">
             <img
               src="/img/kv_room.jpg"
@@ -218,78 +199,38 @@ export default function McyFv() {
               loading="eager"
               decoding="async"
               fetchPriority="high"
-              className="h-[clamp(130px,36vw,190px)] w-full rounded-[12px] object-cover"
+              className="h-[clamp(105px,28vw,150px)] w-full rounded-[12px] object-cover"
             />
             <span
               aria-hidden
               className="pointer-events-none absolute inset-[clamp(5px,1.4vw,8px)] rounded-[12px] ring-1 ring-white/60"
             />
+            <img
+              src="/img/hero_daihyo.jpg"
+              alt="セレンシア代表 太田"
+              width={260}
+              height={265}
+              loading="eager"
+              decoding="async"
+              className="absolute bottom-[10px] left-[10px] h-[clamp(64px,18vw,88px)] w-[clamp(64px,18vw,88px)] rounded-full border-[3px] border-white object-cover shadow-[0_4px_12px_rgba(18,58,92,0.3)] ring-1 ring-mcy-gold/70"
+            />
             <Sparkle className="absolute -left-[7px] -top-[10px] h-[clamp(18px,5vw,26px)] w-[clamp(18px,5vw,26px)] text-mcy-gold drop-shadow-[0_1px_2px_rgba(165,129,58,0.45)]" />
             <Sparkle className="absolute left-[clamp(14px,4vw,20px)] -top-[2px] h-[clamp(8px,2.2vw,12px)] w-[clamp(8px,2.2vw,12px)] text-mcy-gold/70" />
           </div>
+          <p className="mt-[6px] text-center text-[clamp(9.5px,2.7vw,12px)] font-bold leading-[1.5] text-mcy-navy [word-break:auto-phrase]">
+            代表・太田が直接ご対応します｜事件現場特殊清掃士・遺品整理士認定協会 認定優良事業所
+          </p>
         </div>
 
-        {/* dual CTA — glossy pills in gold hairline frames */}
-        <div className="mt-[clamp(16px,4.6vw,24px)] grid grid-cols-1 gap-[clamp(10px,2.8vw,14px)] px-4">
-          <div className="rounded-full bg-gradient-to-b from-[#e9d59c] via-mcy-gold to-mcy-gold-deep p-[2px] shadow-[0_10px_24px_rgba(11,143,150,0.45)]">
-            <a
-              href={PHONE_TEL}
-              data-gtm="cta_tel_fv"
-              className="relative flex items-center justify-center gap-[clamp(6px,1.8vw,10px)] overflow-hidden rounded-full border-2 border-white/75 bg-gradient-to-b from-mcy-turq-bright via-mcy-turq to-mcy-turq-deep px-[clamp(12px,3.4vw,18px)] py-[clamp(11px,3.2vw,16px)] text-white transition-[filter] active:brightness-90"
-            >
-              <span
-                aria-hidden
-                className="pointer-events-none absolute inset-x-[6%] top-[3px] h-[46%] rounded-full bg-gradient-to-b from-white/40 to-transparent"
-              />
-              <span className="grid h-[clamp(30px,8.4vw,44px)] w-[clamp(30px,8.4vw,44px)] shrink-0 place-items-center rounded-full bg-white shadow-[0_2px_5px_rgba(0,0,0,0.18)]">
-                <svg viewBox="0 0 24 24" className="h-[58%] w-[58%]" fill="#0b7f85" aria-hidden="true">
-                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-                </svg>
-              </span>
-              <span className="relative min-w-0 text-center leading-none">
-                <span className="block whitespace-nowrap text-[clamp(10px,2.8vw,14px)] font-black">
-                  電話で今すぐ相談する
-                </span>
-                <span className="mt-[5px] block whitespace-nowrap text-[clamp(21px,6vw,30px)] font-black tracking-[-0.01em] drop-shadow-[0_2px_3px_rgba(7,80,84,0.35)]">
-                  {PHONE_DISPLAY}
-                </span>
-                <span className="mt-[4px] block whitespace-nowrap text-[clamp(8px,2.2vw,11px)] font-bold opacity-95">
-                  受付時間 9:00〜21:00 / 年中無休
-                </span>
-              </span>
-              <CtaArrow color="#0b7f85" />
-            </a>
-          </div>
-          <div className="rounded-full bg-gradient-to-b from-[#e9d59c] via-mcy-gold to-mcy-gold-deep p-[2px] shadow-[0_10px_24px_rgba(6,163,42,0.35)]">
-            <a
-              href={LINE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-gtm="cta_line_fv"
-              className="relative flex items-center justify-center gap-[clamp(6px,1.8vw,10px)] overflow-hidden rounded-full border-2 border-white/75 bg-gradient-to-b from-[#25d94e] to-[#06a32a] px-[clamp(12px,3.4vw,18px)] py-[clamp(11px,3.2vw,16px)] text-white transition-[filter] active:brightness-90"
-            >
-              <span
-                aria-hidden
-                className="pointer-events-none absolute inset-x-[6%] top-[3px] h-[46%] rounded-full bg-gradient-to-b from-white/40 to-transparent"
-              />
-              <span className="grid h-[clamp(30px,8.4vw,44px)] w-[clamp(30px,8.4vw,44px)] shrink-0 place-items-center rounded-full bg-white text-[clamp(7px,2vw,10px)] font-black text-[#06a32a] shadow-[0_2px_5px_rgba(0,0,0,0.18)]">
-                LINE
-              </span>
-              <span className="relative min-w-0 text-center leading-none">
-                <span className="block whitespace-nowrap text-[clamp(10px,2.8vw,14px)] font-black">
-                  LINEで写真を送るだけ
-                </span>
-                <span className="mt-[5px] block whitespace-nowrap text-[clamp(16px,4.6vw,23px)] font-black drop-shadow-[0_2px_3px_rgba(4,90,26,0.35)]">
-                  写真相談・概算見積り
-                </span>
-                <span className="mt-[4px] block whitespace-nowrap text-[clamp(8px,2.2vw,11px)] font-bold opacity-95">
-                  簡単・安心・すぐにご回答します｜24時間受付
-                </span>
-              </span>
-              <CtaArrow color="#06a32a" />
-            </a>
-          </div>
+        {/* one-line social proof (verified figures) just above the ask */}
+        <div className="mt-[clamp(12px,3.4vw,18px)] px-4">
+          <p className="mx-auto w-fit max-w-full rounded-full bg-white/85 px-[14px] py-[6px] text-center text-[clamp(10px,2.8vw,12px)] font-bold text-mcy-navy shadow-[0_2px_8px_rgba(18,58,92,0.1)] ring-1 ring-mcy-turq/20 [word-break:auto-phrase]">
+            <span className="text-mcy-gold">★4.9</span> Googleクチコミ120件以上｜ご相談実績2,000件以上
+          </p>
         </div>
+
+        {/* dual CTA (client) — time-aware ordering + reassurance microcopy */}
+        <McyFvCtas />
 
         {/* gold laurel benefit medallions — turquoise icon + ★★★ */}
         <div className="mt-[clamp(18px,5vw,28px)] grid grid-cols-4 gap-[clamp(4px,1.4vw,8px)] px-3">
@@ -301,10 +242,10 @@ export default function McyFv() {
                   <span className="grid h-[clamp(20px,5.6vw,28px)] w-[clamp(20px,5.6vw,28px)] place-items-center rounded-full bg-gradient-to-b from-mcy-turq-bright to-mcy-turq-deep shadow-[0_2px_6px_rgba(11,127,133,0.4)] ring-1 ring-white/70">
                     <BenefitIcon kind={b.icon} />
                   </span>
-                  <span className="whitespace-nowrap text-[clamp(6.5px,1.8vw,9px)] font-bold leading-tight text-mcy-navy">
+                  <span className="whitespace-nowrap text-[clamp(8px,2.1vw,10px)] font-bold leading-tight text-mcy-navy">
                     {b.top}
                   </span>
-                  <span className="whitespace-nowrap text-[clamp(10px,2.9vw,14.5px)] font-black leading-none text-mcy-turq-deep">
+                  <span className="whitespace-nowrap text-[clamp(11px,3vw,14.5px)] font-black leading-none text-mcy-turq-deep">
                     {b.main}
                   </span>
                 </div>

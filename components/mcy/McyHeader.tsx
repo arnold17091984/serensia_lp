@@ -40,7 +40,7 @@ export default function McyHeader() {
               無料
             </span>
             <span className="block text-[clamp(5px,1.25vw,7.5px)] font-bold text-mcy-navy/80">
-              24時間受付・年中無休
+              電話9〜21時／LINEは24時間
             </span>
           </p>
           <svg viewBox="0 0 30 60" className="h-[clamp(26px,6.6vw,38px)] w-auto -scale-x-100 drop-shadow-[0_1px_1px_rgba(165,129,58,0.35)]" fill="#c9a24f" aria-hidden="true">

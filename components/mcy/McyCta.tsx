@@ -51,6 +51,11 @@ export default function McyCta() {
               ―◆―
             </p>
 
+            {/* social-proof recap at the decision point (verified figures) */}
+            <p className="mt-2 text-center text-[clamp(10px,2.8vw,12.5px)] font-bold leading-[1.7] text-mcy-navy">
+              Googleクチコミ <span className="text-mcy-gold">★</span>4.9／120件以上｜ご相談実績2,000件以上
+            </p>
+
             <ul className="mx-auto mt-3 w-fit divide-y divide-mcy-turq-deep/10 text-left">
               {["最短即日対応！緊急時もご相談ください", "お見積り確定後の追加費用なし", "クレジットカードご利用可能"].map((t) => (
                 <li key={t} className="flex items-start gap-2 py-[5px] text-[clamp(11px,3.1vw,13.5px)] font-bold leading-[1.7]">
@@ -59,6 +64,11 @@ export default function McyCta() {
                 </li>
               ))}
             </ul>
+
+            {/* reassurance microcopy just before the call action */}
+            <p className="mt-3 text-center text-[clamp(10px,2.8vw,12px)] font-medium leading-[1.7] text-mcy-navy/75">
+              うまく状況をご説明できなくても大丈夫です。お話を伺いながら丁寧にご案内します。
+            </p>
 
             <a
               href={PHONE_TEL}

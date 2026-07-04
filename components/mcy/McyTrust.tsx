@@ -13,12 +13,22 @@ const OWNER_BADGES = [
   { icon: "clock", label: "緊急時も迅速対応" },
 ] as const;
 
-const SUPPORT_ITEMS = [
+const SUPPORT_ITEMS: ReadonlyArray<{
+  no: string;
+  icon: IconName;
+  title: string;
+  sub?: string;
+}> = [
   { no: "01", icon: "document", title: "立会い不要" },
   { no: "02", icon: "key", title: "鍵のお預り可能" },
   { no: "03", icon: "person", title: "代表または副社長が現地立ち合い" },
-  { no: "04", icon: "home", title: "近隣への配慮を徹底" },
-] as const;
+  {
+    no: "04",
+    icon: "home",
+    title: "近隣への配慮を徹底",
+    sub: "社名の入っていない車両・私服でお伺いします",
+  },
+];
 
 const LICENSES = [
   "東京都公安委員会 古物商番号 第303312321474号",
@@ -219,7 +229,7 @@ export default function McyTrust() {
             <span className="text-mcy-turq-deep">SOS</span>も緊急対応
           </SectionHeading>
           <p className="mx-auto mt-[clamp(10px,3vw,16px)] max-w-[460px] text-[clamp(11.5px,3.2vw,14px)] font-medium leading-[2] text-mcy-navy/90 [word-break:auto-phrase]">
-            管理をする物件で事故やトラブルが発生した際は緊急を要することで、ご相談をいただくことが多くあります。一刻も早く、次の入居者が安心して住める状態に戻すため、セレンシアが迅速に駆けつけます。汚染除去・消臭・消毒から、必要に応じた建材撤去や原状回復の段取りまで一括で進められます。
+            管理をする物件で事故やトラブルが発生した際は緊急を要することで、ご相談をいただくことが多くあります。一刻も早く、次の入居者が安心して住める状態に戻すため、セレンシアが迅速に駆けつけます。汚染除去・消臭・消毒から、必要に応じた建材撤去や原状回復の段取りまで一括で進められます。万が一に備え、東京海上日動火災保険の賠償責任保険にも加入しています。
           </p>
           <div className="mx-auto mt-[clamp(14px,4vw,20px)] grid max-w-[460px] grid-cols-3 gap-[clamp(6px,1.8vw,10px)]">
             {OWNER_BADGES.map((b) => (
@@ -236,6 +246,28 @@ export default function McyTrust() {
               </div>
             ))}
           </div>
+
+          {/* dedicated phone CTA for owners / property managers (same glossy pill as the support call card) */}
+          <a
+            href={PHONE_TEL}
+            data-gtm="cta_tel_owners"
+            className="relative mx-auto mt-[clamp(12px,3.4vw,18px)] flex max-w-[460px] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/75 bg-gradient-to-b from-mcy-turq-bright via-mcy-turq to-mcy-turq-deep px-4 py-[clamp(9px,2.7vw,13px)] text-white shadow-[0_10px_24px_rgba(11,143,150,0.45)] ring-1 ring-mcy-gold/70 transition-[filter] active:brightness-90"
+          >
+            <PillGloss />
+            <span className="relative min-w-0 text-center leading-none">
+              <span className="block whitespace-nowrap text-[clamp(9.5px,2.7vw,12px)] font-black">
+                大家様・管理会社様の緊急対応窓口
+              </span>
+              <span className="mt-[4px] block whitespace-nowrap text-[clamp(19px,5.5vw,26px)] font-black tracking-[-0.01em]">
+                {PHONE_DISPLAY}
+              </span>
+              <span className="mt-[4px] block whitespace-nowrap text-[clamp(7.5px,2.1vw,10px)] font-bold opacity-95">
+                最短即日で現地確認｜原状回復まで一括対応
+              </span>
+            </span>
+            <ArrowBubble className="text-mcy-turq-deep" />
+          </a>
+
           <img
             src="/img/ooya_photo.jpg"
             alt="物件のドアを丁寧に清掃する作業"
@@ -288,12 +320,17 @@ export default function McyTrust() {
                 <p className="mt-2 text-[clamp(11.5px,3.2vw,14px)] font-black leading-[1.6] text-mcy-navy [word-break:auto-phrase]">
                   {s.title}
                 </p>
+                {s.sub ? (
+                  <p className="mt-1 text-[clamp(9.5px,2.7vw,11.5px)] font-medium leading-[1.6] text-mcy-navy/75 [word-break:auto-phrase]">
+                    {s.sub}
+                  </p>
+                ) : null}
               </div>
             ))}
           </div>
 
-          {/* call card — glass + gold frame */}
-          <div className="relative mx-auto mt-[clamp(16px,4.4vw,24px)] max-w-[460px] overflow-hidden rounded-2xl border-2 border-mcy-gold/60 bg-white/80 px-4 pb-5 pt-4 text-center shadow-[0_14px_34px_rgba(18,58,92,0.18)] ring-1 ring-inset ring-white/70 backdrop-blur">
+          {/* call card — glass + gold frame (data-cta-section hides the sticky bar while visible) */}
+          <div data-cta-section className="relative mx-auto mt-[clamp(16px,4.4vw,24px)] max-w-[460px] overflow-hidden rounded-2xl border-2 border-mcy-gold/60 bg-white/80 px-4 pb-5 pt-4 text-center shadow-[0_14px_34px_rgba(18,58,92,0.18)] ring-1 ring-inset ring-white/70 backdrop-blur">
             <Sparkle className="absolute right-[10px] top-[10px] h-[clamp(10px,2.8vw,14px)] w-[clamp(10px,2.8vw,14px)] text-mcy-gold/70" />
             <p className="flex items-center justify-center gap-2 font-display text-[clamp(14px,4vw,18px)] font-black text-mcy-navy">
               <span aria-hidden="true" className="h-[6px] w-[6px] shrink-0 rotate-45 bg-mcy-gold" />

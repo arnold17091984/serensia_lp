@@ -119,7 +119,7 @@ export default function McyPricing() {
   return (
     <section
       id="ryokin"
-      className="relative w-full overflow-hidden bg-gradient-to-b from-mcy-sky via-white to-mcy-sky px-4 py-[clamp(28px,8vw,52px)]"
+      className="relative w-full scroll-mt-[70px] overflow-hidden bg-gradient-to-b from-mcy-sky via-white to-mcy-sky px-4 py-[clamp(28px,8vw,52px)]"
     >
       {/* layered ground: soft radial glows + micro dot texture */}
       <div
@@ -167,7 +167,7 @@ export default function McyPricing() {
             <span className="h-px w-[clamp(30px,9vw,48px)] bg-gradient-to-l from-transparent to-mcy-gold" />
           </span>
           <p className="mx-auto mt-3 max-w-[440px] text-[clamp(9.5px,2.7vw,12px)] font-medium leading-[1.8] text-mcy-navy/70">
-            ※汚染範囲、臭気の強さ、残置物量、体液付着状況、建物構造により金額は変動します。正式な金額は必ず現地確認後にお見積りします。
+            ※汚染範囲、臭気の強さ、残置物量、体液付着状況、建物構造により金額は変動します。正式な金額は必ず現地確認後にお見積りします。現地確認後、通常30分〜1時間でお見積りをご提示します。
           </p>
         </div>
 
@@ -178,21 +178,40 @@ export default function McyPricing() {
               <span aria-hidden="true" className="pointer-events-none absolute inset-[6px] rounded-[15px] border border-mcy-gold/40" />
 
               <p className="font-display text-[clamp(13px,3.7vw,17px)] font-bold tracking-[0.14em] text-mcy-navy">
-                特殊清掃
+                特殊清掃の参考料金
               </p>
               <span aria-hidden="true" className="mx-auto mt-[6px] block h-[3px] w-[44px] rounded-full bg-gradient-to-r from-mcy-turq-bright to-mcy-turq-deep" />
-              <p className="mt-2 whitespace-nowrap font-display font-black leading-none text-mcy-turq-deep">
-                <span className="text-[clamp(44px,12.5vw,60px)] tracking-[-0.01em] [text-shadow:0_2px_0_rgba(255,255,255,0.9),0_5px_14px_rgba(11,127,133,0.2)]">
-                  50,000
-                </span>
-                <span className="ml-1 text-[clamp(17px,4.8vw,23px)]">円〜</span>
-              </p>
+
+              {/* honest two-tier anchor — same-rank labels, no "bait" self-correction */}
+              <div className="mt-3 flex flex-col gap-[10px] text-left">
+                <div className="flex items-center justify-between gap-2 rounded-[12px] border border-mcy-turq/15 bg-mcy-sky/70 px-3 py-[8px]">
+                  <span className="text-[clamp(11px,3.1vw,13.5px)] font-bold leading-[1.4] text-mcy-navy [word-break:auto-phrase]">
+                    空間除菌・消毒のみ
+                  </span>
+                  <span className="shrink-0 whitespace-nowrap font-display font-black leading-none text-mcy-turq-deep">
+                    <span className="text-[clamp(30px,8.5vw,42px)] tracking-[-0.01em] [text-shadow:0_2px_0_rgba(255,255,255,0.9)]">
+                      50,000
+                    </span>
+                    <span className="ml-[2px] text-[clamp(13px,3.6vw,17px)]">円〜</span>
+                  </span>
+                </div>
+                <div className="flex items-center justify-between gap-2 rounded-[12px] border-2 border-mcy-turq/30 bg-gradient-to-br from-mcy-turq-light to-mcy-sky px-3 py-[10px] shadow-[0_3px_10px_rgba(11,127,133,0.12)]">
+                  <span className="text-[clamp(11px,3.1vw,13.5px)] font-bold leading-[1.4] text-mcy-navy [word-break:auto-phrase]">
+                    体液除去を伴う
+                    <br />
+                    特殊清掃
+                  </span>
+                  <span className="shrink-0 whitespace-nowrap font-display font-black leading-none text-mcy-turq-deep">
+                    <span className="text-[clamp(38px,10.5vw,52px)] tracking-[-0.01em] [text-shadow:0_2px_0_rgba(255,255,255,0.9),0_5px_14px_rgba(11,127,133,0.2)]">
+                      150,000
+                    </span>
+                    <span className="ml-[2px] text-[clamp(15px,4.2vw,20px)]">円〜</span>
+                  </span>
+                </div>
+              </div>
 
               <div className="mx-auto mt-3 max-w-[380px]">
-                <p className="text-[clamp(9.5px,2.7vw,12px)] font-medium leading-[1.8] text-mcy-navy/70">
-                  ※50,000円は空間除菌・消毒のみの場合。体液除去を伴う特殊清掃は150,000円〜が目安です
-                </p>
-                <p className="mt-2 flex items-start justify-center gap-[7px] rounded-[12px] border border-mcy-gold/45 bg-gradient-to-b from-white to-mcy-gold-light/60 px-3 py-[9px] text-left text-[clamp(10.5px,2.9vw,13px)] font-black leading-[1.7] text-mcy-navy shadow-[0_2px_8px_rgba(201,162,79,0.18)]">
+                <p className="flex items-start justify-center gap-[7px] rounded-[12px] border border-mcy-gold/45 bg-gradient-to-b from-white to-mcy-gold-light/60 px-3 py-[9px] text-left text-[clamp(10.5px,2.9vw,13px)] font-black leading-[1.7] text-mcy-navy shadow-[0_2px_8px_rgba(201,162,79,0.18)]">
                   <span
                     aria-hidden="true"
                     className="mt-[3px] grid h-[17px] w-[17px] shrink-0 place-items-center rounded-full bg-gradient-to-b from-mcy-gold to-mcy-gold-deep text-[9.5px] text-white shadow-[0_1px_3px_rgba(165,129,58,0.5)]"
@@ -215,9 +234,23 @@ export default function McyPricing() {
           {CASES.map((c, i) => (
             <Fragment key={c.title}>
               {i > 0 && <CaseDivider />}
+              {i === 3 && (
+                <a
+                  href={LINE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-gtm="cta_line_cases_mid"
+                  className="mx-auto flex min-h-[44px] w-full max-w-[380px] items-center justify-center gap-2 rounded-full bg-white px-4 text-center text-[clamp(10.5px,3vw,13px)] font-bold text-mcy-navy shadow-[0_2px_8px_rgba(6,163,42,0.12)] ring-1 ring-[#06a32a]/35"
+                >
+                  <span className="grid h-[22px] w-[22px] shrink-0 place-items-center rounded-full bg-white text-[7px] font-black text-[#06a32a] ring-1 ring-[#06a32a]/30">
+                    LINE
+                  </span>
+                  <span className="[word-break:auto-phrase]">似た状況ですか？ 写真を送って概算を聞く（無料・24時間）</span>
+                </a>
+              )}
               <article className="overflow-hidden rounded-[18px] border border-white/70 bg-white shadow-[0_10px_30px_rgba(18,58,92,0.14)]">
                 {/* header band: navy → turquoise gradient + white CASE chip + shine */}
-                <div className="relative flex items-center gap-2 overflow-hidden bg-gradient-to-r from-mcy-navy-deep via-mcy-navy to-mcy-turq-deep px-4 py-[clamp(9px,2.6vw,13px)]">
+                <div className="relative flex flex-wrap items-center gap-x-2 gap-y-[5px] overflow-hidden bg-gradient-to-r from-mcy-navy-deep via-mcy-navy to-mcy-turq-deep px-4 py-[clamp(9px,2.6vw,13px)]">
                   <span
                     aria-hidden="true"
                     className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,transparent_35%,rgba(255,255,255,0.14)_48%,transparent_62%)]"
@@ -225,7 +258,12 @@ export default function McyPricing() {
                   <span className="relative shrink-0 rounded-[5px] bg-white px-2 py-[3px] font-display text-[clamp(9px,2.5vw,11px)] font-black tracking-[0.1em] text-mcy-turq-deep shadow-[0_2px_5px_rgba(0,0,0,0.2)]">
                     CASE {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="relative min-w-0 text-[clamp(12.5px,3.5vw,15.5px)] font-black leading-snug text-white">
+                  {i >= 4 && (
+                    <span className="relative shrink-0 whitespace-nowrap rounded-[5px] bg-gradient-to-b from-mcy-gold to-mcy-gold-deep px-[6px] py-[3px] text-[clamp(8px,2.3vw,10px)] font-black text-white shadow-[0_2px_5px_rgba(165,129,58,0.4)]">
+                      遺品整理費を含む総額
+                    </span>
+                  )}
+                  <h3 className="relative min-w-0 flex-1 text-[clamp(12.5px,3.5vw,15.5px)] font-black leading-snug text-white [word-break:auto-phrase]">
                     {c.title}
                   </h3>
                 </div>
@@ -331,12 +369,15 @@ export default function McyPricing() {
           ))}
         </div>
 
-        {/* closing mini CTA — glass panel + glossy LINE pill + phone link */}
-        <div className="mx-auto mt-[clamp(18px,5vw,26px)] max-w-[460px] rounded-[18px] border border-white/70 bg-white/75 px-4 py-[clamp(14px,4vw,20px)] shadow-[0_10px_30px_rgba(18,58,92,0.12)] backdrop-blur">
+        {/* closing mini CTA — glass panel + glossy LINE pill + phone pill (data-cta-section hides sticky) */}
+        <div data-cta-section className="mx-auto mt-[clamp(18px,5vw,26px)] max-w-[460px] rounded-[18px] border border-white/70 bg-white/75 px-4 py-[clamp(14px,4vw,20px)] shadow-[0_10px_30px_rgba(18,58,92,0.12)] backdrop-blur">
           <p className="flex items-center justify-center gap-[10px] text-center font-display text-[clamp(13px,3.7vw,16px)] font-bold text-mcy-navy">
             <span aria-hidden="true" className="h-px w-[clamp(14px,4.5vw,26px)] shrink-0 bg-gradient-to-r from-transparent to-mcy-turq/60" />
             <span>あなたのケースの概算が知りたい方へ</span>
             <span aria-hidden="true" className="h-px w-[clamp(14px,4.5vw,26px)] shrink-0 bg-gradient-to-l from-transparent to-mcy-turq/60" />
+          </p>
+          <p className="mx-auto mt-2 max-w-[400px] text-center text-[clamp(10px,2.8vw,12px)] font-medium leading-[1.8] text-mcy-navy/85 [word-break:auto-phrase]">
+            特殊清掃は50,000円〜。状況により大きく変わるため、写真からまず概算をお出しします。お見積り確定後の追加費用はありません。金額にご納得いただいてから作業を開始します。
           </p>
           <div className="mt-3 rounded-full bg-gradient-to-b from-mcy-gold-light via-mcy-gold to-mcy-gold-deep p-[2px] shadow-[0_10px_24px_rgba(6,163,42,0.38)]">
             <a
@@ -371,12 +412,35 @@ export default function McyPricing() {
               </span>
             </a>
           </div>
+
+          {/* what to send — reduces post-add drop-off */}
+          <p className="mt-[10px] text-center text-[clamp(9.5px,2.7vw,11.5px)] font-medium leading-[1.8] text-mcy-navy/75 [word-break:auto-phrase]">
+            送るのは3つだけ ① 現場の写真（撮れる範囲で大丈夫です） ② おおよその間取り ③ 気になっていること
+            <br />
+            ※お部屋に入れない場合は、状況を文章でお送りいただくだけで構いません
+          </p>
+
+          {/* phone pill (smaller than the LINE pill — keeps LINE primary) */}
           <a
             href={PHONE_TEL}
             data-gtm="cta_tel_pricing"
-            className="mt-3 block text-center text-[clamp(11px,3.1vw,13.5px)] font-black text-mcy-navy underline decoration-mcy-gold decoration-2 underline-offset-4"
+            className="relative mt-3 flex min-h-[48px] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/75 bg-gradient-to-b from-mcy-turq-bright via-mcy-turq to-mcy-turq-deep px-4 py-[10px] text-white shadow-[0_6px_16px_rgba(11,143,150,0.4)] ring-1 ring-mcy-gold/70 transition-[filter] active:brightness-90"
           >
-            お急ぎの方はお電話で {PHONE_DISPLAY}（9:00〜21:00）
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-[6%] top-[3px] h-[42%] rounded-full bg-gradient-to-b from-white/40 to-transparent"
+            />
+            <svg viewBox="0 0 24 24" className="h-[clamp(15px,4vw,18px)] w-[clamp(15px,4vw,18px)] shrink-0" fill="currentColor" aria-hidden="true">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+            </svg>
+            <span className="relative min-w-0 text-center leading-none">
+              <span className="block whitespace-nowrap text-[clamp(12px,3.3vw,15.5px)] font-black tracking-[-0.01em]">
+                お急ぎの方はお電話で {PHONE_DISPLAY}
+              </span>
+              <span className="mt-[4px] block text-[clamp(8.5px,2.4vw,10.5px)] font-bold opacity-95 [word-break:auto-phrase]">
+                9:00〜21:00 年中無休｜最短即日で現地確認
+              </span>
+            </span>
           </a>
         </div>
       </div>

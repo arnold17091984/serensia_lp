@@ -1,3 +1,5 @@
+import { LINE_URL, PHONE_DISPLAY, PHONE_TEL } from "./McyHeader";
+
 /**
  * No.33 — worries / solution / strengths / 6-step process / restoration goal.
  * Layered grounds (blurred photo + white veil, sky gradient + dot grid),
@@ -13,6 +15,12 @@ const WORRIES = [
   ["", "大家・管理会社から急ぎで対応を求められている"],
   ["", "費用がどれくらいか不安"],
 ] as const;
+
+/* extra note shown under specific worry rows (real, verified facts only) */
+const WORRY_NOTES: Readonly<Record<number, string>> = {
+  3: "※社名の入っていない車両・私服でお伺いします",
+};
+const COST_WORRY_INDEX = 5;
 
 /* small live-photo thumbs cycled on the right edge of each worry pill */
 const WORRY_THUMBS = [
@@ -125,6 +133,8 @@ export default function McyProblems() {
           <ul className="mx-auto mt-[clamp(14px,4vw,22px)] flex max-w-[460px] flex-col gap-[clamp(8px,2.3vw,12px)]">
             {WORRIES.map(([em, rest], i) => {
               const thumb = WORRY_THUMBS[i % WORRY_THUMBS.length];
+              const note = WORRY_NOTES[i];
+              const isCost = i === COST_WORRY_INDEX;
               return (
                 <li
                   key={em + rest}
@@ -132,24 +142,40 @@ export default function McyProblems() {
                 >
                   <Check />
                   <span aria-hidden="true" className="h-[clamp(20px,5.6vw,26px)] w-px shrink-0 bg-mcy-turq/30" />
-                  <p className="min-w-0 flex-1 text-[clamp(11.5px,3.2vw,14px)] font-bold leading-[1.65] text-mcy-navy [word-break:auto-phrase]">
-                    {em && (
-                      <span className="text-mcy-turq-deep underline decoration-mcy-gold decoration-2 underline-offset-4">
-                        {em}
-                      </span>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-[clamp(11.5px,3.2vw,14px)] font-bold leading-[1.65] text-mcy-navy [word-break:auto-phrase]">
+                      {em && (
+                        <span className="text-mcy-turq-deep underline decoration-mcy-gold decoration-2 underline-offset-4">
+                          {em}
+                        </span>
+                      )}
+                      {rest}
+                    </p>
+                    {note && (
+                      <p className="mt-[3px] text-[clamp(9px,2.5vw,11px)] font-bold text-mcy-turq-deep [word-break:auto-phrase]">
+                        {note}
+                      </p>
                     )}
-                    {rest}
-                  </p>
-                  <img
-                    src={thumb.src}
-                    alt=""
-                    aria-hidden="true"
-                    width={thumb.w}
-                    height={thumb.h}
-                    loading="lazy"
-                    decoding="async"
-                    className="h-[clamp(38px,10.5vw,50px)] w-[clamp(52px,14.5vw,72px)] shrink-0 rounded-lg object-cover shadow-[0_2px_6px_rgba(18,58,92,0.18)] ring-1 ring-mcy-turq/20"
-                  />
+                  </div>
+                  {isCost ? (
+                    <a
+                      href="#ryokin"
+                      className="shrink-0 whitespace-nowrap rounded-full bg-mcy-turq-light px-[10px] py-[6px] text-[clamp(9.5px,2.7vw,12px)] font-bold text-mcy-turq-deep ring-1 ring-mcy-turq/25"
+                    >
+                      料金の目安を見る →
+                    </a>
+                  ) : (
+                    <img
+                      src={thumb.src}
+                      alt=""
+                      aria-hidden="true"
+                      width={thumb.w}
+                      height={thumb.h}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-[clamp(38px,10.5vw,50px)] w-[clamp(52px,14.5vw,72px)] shrink-0 rounded-lg object-cover shadow-[0_2px_6px_rgba(18,58,92,0.18)] ring-1 ring-mcy-turq/20"
+                    />
+                  )}
                 </li>
               );
             })}
@@ -169,6 +195,85 @@ export default function McyProblems() {
               専門スタッフが丁寧に対応します。
             </p>
           </div>
+
+          {/* fact-based urgency + inline dual CTA (data-cta-section hides the sticky bar while visible) */}
+          <div
+            data-cta-section
+            className="relative mx-auto mt-[clamp(14px,4vw,22px)] max-w-[460px] overflow-hidden rounded-2xl border-2 border-mcy-gold/60 bg-white/90 px-4 py-[clamp(14px,4vw,20px)] shadow-[0_10px_26px_rgba(18,58,92,0.14)] backdrop-blur-[2px]"
+          >
+            <p className="text-center font-display text-[clamp(15px,4.2vw,19px)] font-black leading-snug text-mcy-navy">
+              特殊清掃は<span className="text-mcy-turq-deep">“時間との勝負”</span>です
+            </p>
+            <GoldOrnament />
+            <p className="mt-[clamp(8px,2.4vw,12px)] text-center text-[clamp(11px,3.1vw,13.5px)] font-medium leading-[1.9] text-mcy-navy/90 [word-break:auto-phrase]">
+              臭いや体液は、時間の経過とともに床材・壁材へ浸透し、害虫の発生や原状回復費用の増大につながります。夏場は特に進行が速いため、早めのご相談が結果的に費用を抑えることにつながります。
+            </p>
+
+            <div className="mt-[clamp(12px,3.4vw,18px)] flex flex-col gap-[10px]">
+              {/* phone pill */}
+              <a
+                href={PHONE_TEL}
+                data-gtm="cta_tel_worries"
+                className="relative flex items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/75 bg-gradient-to-b from-mcy-turq-bright via-mcy-turq to-mcy-turq-deep px-4 py-[clamp(9px,2.7vw,13px)] text-white shadow-[0_8px_20px_rgba(11,143,150,0.4)] ring-1 ring-mcy-gold/70 transition-[filter] active:brightness-90"
+              >
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-x-[6%] top-[3px] h-[46%] rounded-full bg-gradient-to-b from-white/40 to-transparent"
+                />
+                <span className="grid h-[clamp(26px,7vw,36px)] w-[clamp(26px,7vw,36px)] shrink-0 place-items-center rounded-full bg-white shadow-[0_2px_5px_rgba(0,0,0,0.18)]">
+                  <svg viewBox="0 0 24 24" className="h-[58%] w-[58%]" fill="#0b7f85" aria-hidden="true">
+                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                  </svg>
+                </span>
+                <span className="relative min-w-0 text-center leading-none">
+                  <span className="block whitespace-nowrap text-[clamp(9.5px,2.7vw,12px)] font-black">
+                    最短即日で現地確認に伺います
+                  </span>
+                  <span className="mt-[4px] block whitespace-nowrap text-[clamp(19px,5.5vw,26px)] font-black tracking-[-0.01em]">
+                    {PHONE_DISPLAY}
+                  </span>
+                  <span className="mt-[4px] block whitespace-nowrap text-[clamp(7.5px,2.1vw,10px)] font-bold opacity-95">
+                    相談無料｜9:00〜21:00 年中無休
+                  </span>
+                </span>
+                <span className="grid h-[clamp(20px,5.6vw,26px)] w-[clamp(20px,5.6vw,26px)] shrink-0 place-items-center rounded-full bg-white shadow-[0_2px_5px_rgba(0,0,0,0.2)]">
+                  <svg viewBox="0 0 24 24" className="h-[58%] w-[58%]" aria-hidden="true">
+                    <path d="m9.5 5.5 6.5 6.5-6.5 6.5" fill="none" stroke="#0b7f85" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              </a>
+              {/* LINE pill */}
+              <a
+                href={LINE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-gtm="cta_line_worries"
+                className="relative flex items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/75 bg-gradient-to-b from-[#25d94e] to-[#06a32a] px-4 py-[clamp(9px,2.7vw,13px)] text-white shadow-[0_8px_20px_rgba(6,163,42,0.35)] ring-1 ring-mcy-gold/70 transition-[filter] active:brightness-90"
+              >
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-x-[6%] top-[3px] h-[46%] rounded-full bg-gradient-to-b from-white/40 to-transparent"
+                />
+                <span className="grid h-[clamp(26px,7vw,36px)] w-[clamp(26px,7vw,36px)] shrink-0 place-items-center rounded-full bg-white text-[clamp(7px,2vw,10px)] font-black text-[#06a32a] shadow-[0_2px_5px_rgba(0,0,0,0.18)]">
+                  LINE
+                </span>
+                <span className="relative min-w-0 text-center leading-none">
+                  <span className="block whitespace-nowrap text-[clamp(12px,3.4vw,15px)] font-black">
+                    LINEで写真を送って相談する
+                  </span>
+                  <span className="mt-[4px] block whitespace-nowrap text-[clamp(7.5px,2.1vw,10px)] font-bold opacity-95">
+                    24時間受付
+                  </span>
+                </span>
+                <span className="grid h-[clamp(20px,5.6vw,26px)] w-[clamp(20px,5.6vw,26px)] shrink-0 place-items-center rounded-full bg-white shadow-[0_2px_5px_rgba(0,0,0,0.2)]">
+                  <svg viewBox="0 0 24 24" className="h-[58%] w-[58%]" aria-hidden="true">
+                    <path d="m9.5 5.5 6.5 6.5-6.5 6.5" fill="none" stroke="#06a32a" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              </a>
+            </div>
+          </div>
+
           <span
             aria-hidden="true"
             className="mx-auto mt-[clamp(10px,2.8vw,15px)] block h-0 w-0 border-l-[11px] border-r-[11px] border-t-[11px] border-l-transparent border-r-transparent border-t-mcy-turq-deep/60"
@@ -305,26 +410,21 @@ export default function McyProblems() {
                     {s.desc}
                   </p>
                 </div>
-                <svg
-                  aria-hidden="true"
-                  viewBox="0 0 8 14"
-                  className="h-[clamp(12px,3.4vw,16px)] w-auto shrink-0 text-mcy-turq/60"
-                >
-                  <path
-                    d="M1 1l6 6-6 6"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
               </li>
             ))}
           </ol>
           <p className="mx-auto mt-3 max-w-[460px] text-center text-[clamp(9px,2.5vw,11px)] font-medium text-mcy-navy/65">
             ※現場の状況により一部工程を実施しない場合がございます。
           </p>
+          <a
+            href={LINE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-gtm="cta_line_process"
+            className="mx-auto mt-[clamp(8px,2.2vw,12px)] block max-w-[460px] py-[12px] text-center text-[clamp(11px,3.1vw,13px)] font-bold text-mcy-navy underline decoration-mcy-gold decoration-2 underline-offset-4 [word-break:auto-phrase]"
+          >
+            うちの場合はどの工程が必要？ → LINEで写真を送って確認する（24時間受付）
+          </a>
         </div>
       </section>
 

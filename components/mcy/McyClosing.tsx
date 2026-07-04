@@ -1,17 +1,33 @@
+import { LINE_URL, PHONE_DISPLAY, PHONE_TEL } from "./McyHeader";
+
 /**
  * No.33 — FAQ + request flow.
- * FAQ: white ground with soft turquoise glow (top-right), each Q&A as a floating
- * white card (turquoise accent bar / turq-gradient Q block / gold A medallion).
+ * FAQ: white ground with soft turquoise glow (top-right); each Q&A is a native
+ * details/summary accordion (turquoise accent bar / turq-gradient Q block / gold
+ * A medallion). The top three high-intent questions open by default.
  * Flow: layered sky ground, turquoise-gradient STEP blocks + white cards with
  * thin-line icons, turquoise gradient timeline. STEP1 card is the live tel CTA.
  */
 
-const FAQ = [
-  { q: "すぐに来てもらえますか？", a: "東京・神奈川を中心に、最短即日で現地確認に伺います。お急ぎの場合は、まずはお電話（9:00〜21:00 年中無休）でご相談ください。" },
-  { q: "相談や見積りにお金はかかりますか？", a: "ご相談・お見積り・出張費用はすべて無料です。お見積り確定後の追加費用もありません。金額にご納得いただいてから作業を開始します。" },
+interface FaqItem {
+  q: string;
+  a: string;
+  open?: boolean;
+  link?: { href: string; label: string; gtm: string };
+}
+
+/* ordered by intent strength: cost → same-day → night, then the rest */
+const FAQ: readonly FaqItem[] = [
+  { q: "相談や見積りにお金はかかりますか？", a: "ご相談・お見積り・出張費用はすべて無料です。お見積り確定後の追加費用もありません。金額にご納得いただいてから作業を開始します。", open: true },
+  { q: "すぐに来てもらえますか？", a: "東京・神奈川を中心に、最短即日で現地確認に伺います。お急ぎの場合は、まずはお電話（9:00〜21:00 年中無休）でご相談ください。", open: true },
+  {
+    q: "夜間に発見した場合はどうすればいいですか？",
+    a: "LINE・メールは24時間受付しております。緊急の場合も内容を確認次第、折り返しご連絡いたします。",
+    open: true,
+    link: { href: LINE_URL, label: "→ 今すぐLINEで状況を送る（24時間受付）", gtm: "cta_line_faq_night" },
+  },
+  { q: "ご近所へ迷惑をかけたくない", a: "社名の入っていない車両で伺い、ロゴや業者名の入った服装も避けて、目立たない形で訪問・作業を行います。搬出時の動きやお声がけなどにも気を配り、近隣の方に配慮しながら進めます。" },
   { q: "遠方に住んでいて立ち会えません。依頼できますか？", a: "立ち会い不要で対応可能です。鍵のお預かりも承っております。作業前後の状況は写真などでご報告いたしますので、遠方の方も安心してご依頼いただけます。" },
-  { q: "ご近所へ迷惑をかけたくない", a: "作業時はご近所へのご負担をできる限り抑えられるよう、十分に配慮しております。ロゴや業者名の入った服装は避け、目立たない形で訪問・作業を行います。搬出時の動きやお声がけなどにも気を配り、近隣の方に配慮しながら進めます。" },
-  { q: "夜間に発見した場合はどうすればいいですか？", a: "LINE・メールは24時間受付しております。緊急の場合も内容を確認次第、折り返しご連絡いたします。" },
   { q: "クレジットカードで支払いできますか？", a: "はい、当社ではクレジットカードでのお支払いが可能です。安心してご利用いただけるよう各種カードに対応しています。詳細についてはお問い合わせください。" },
   { q: "見積もりの所要時間は？", a: "見積もりは現場調査後、通常30分〜1時間程度でお伝えしています。お急ぎの場合はお電話でご相談ください。" },
   { q: "作業の所要時間は？", a: "作業の内容や規模により異なりますが、一般的には1日〜数日で完了します。作業前に詳細なスケジュールをご案内いたします。" },
@@ -127,30 +143,97 @@ export default function McyClosing() {
 
           <div className="mx-auto mt-[clamp(14px,4vw,22px)] flex max-w-[460px] flex-col gap-[clamp(10px,2.8vw,14px)]">
             {FAQ.map((f) => (
-              <div
+              <details
                 key={f.q}
-                className="relative overflow-hidden rounded-2xl border border-white/70 bg-white/85 py-[clamp(12px,3.4vw,17px)] pl-[clamp(16px,4.4vw,21px)] pr-[clamp(12px,3.4vw,17px)] shadow-[0_10px_30px_rgba(18,58,92,0.12)] backdrop-blur-[2px]"
+                open={f.open}
+                className="group relative overflow-hidden rounded-2xl border border-white/70 bg-white/85 shadow-[0_10px_30px_rgba(18,58,92,0.12)] backdrop-blur-[2px]"
               >
                 {/* turquoise accent bar */}
-                <span aria-hidden="true" className="absolute inset-y-0 left-0 w-[4px] bg-gradient-to-b from-mcy-turq-bright via-mcy-turq to-mcy-turq-deep" />
-                <div className="flex items-start gap-2.5">
+                <span aria-hidden="true" className="absolute inset-y-0 left-0 z-10 w-[4px] bg-gradient-to-b from-mcy-turq-bright via-mcy-turq to-mcy-turq-deep" />
+                <summary className="flex cursor-pointer list-none items-start gap-2.5 py-[clamp(12px,3.4vw,17px)] pl-[clamp(16px,4.4vw,21px)] pr-[clamp(12px,3.4vw,17px)] [&::-webkit-details-marker]:hidden">
                   <span className="grid h-[clamp(24px,6.6vw,30px)] w-[clamp(24px,6.6vw,30px)] shrink-0 place-items-center rounded-[9px] bg-gradient-to-br from-mcy-turq-bright to-mcy-turq-deep font-display text-[clamp(12px,3.3vw,15px)] font-black text-white shadow-[0_3px_8px_rgba(11,127,133,0.35)]">
                     Q
                   </span>
-                  <p className="pt-[3px] text-[clamp(12px,3.4vw,14.5px)] font-black leading-[1.65] text-mcy-navy [word-break:auto-phrase]">
+                  <p className="min-w-0 flex-1 pt-[3px] text-[clamp(12px,3.4vw,14.5px)] font-black leading-[1.65] text-mcy-navy [word-break:auto-phrase]">
                     {f.q}
                   </p>
-                </div>
-                <div className="mt-[clamp(8px,2.3vw,11px)] flex items-start gap-2.5 border-t border-dashed border-mcy-turq/25 pt-[clamp(8px,2.3vw,11px)]">
+                  <span
+                    aria-hidden="true"
+                    className="mt-[5px] grid h-[19px] w-[19px] shrink-0 place-items-center rounded-full bg-mcy-turq-light text-mcy-turq-deep ring-1 ring-mcy-turq/25 transition-transform duration-200 group-open:rotate-180"
+                  >
+                    <svg viewBox="0 0 12 8" className="h-[7px] w-[10px]" fill="none">
+                      <path d="M1 1l5 5 5-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                </summary>
+                <div className="mx-[clamp(16px,4.4vw,21px)] mb-[clamp(12px,3.4vw,17px)] flex items-start gap-2.5 border-t border-dashed border-mcy-turq/25 pt-[clamp(8px,2.3vw,11px)]">
                   <span className="grid h-[clamp(24px,6.6vw,30px)] w-[clamp(24px,6.6vw,30px)] shrink-0 place-items-center rounded-full bg-gradient-to-br from-mcy-gold to-mcy-gold-deep font-display text-[clamp(12px,3.3vw,15px)] font-black text-white shadow-[0_3px_8px_rgba(165,129,58,0.35)]">
                     A
                   </span>
-                  <p className="pt-[3px] text-[clamp(11px,3.1vw,13px)] font-medium leading-[1.9] text-mcy-navy/85 [word-break:auto-phrase]">
-                    {f.a}
-                  </p>
+                  <div className="min-w-0 flex-1 pt-[3px]">
+                    <p className="text-[clamp(11px,3.1vw,13px)] font-medium leading-[1.9] text-mcy-navy/85 [word-break:auto-phrase]">
+                      {f.a}
+                    </p>
+                    {f.link && (
+                      <a
+                        href={f.link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-gtm={f.link.gtm}
+                        className="mt-2 inline-block font-bold text-mcy-turq-deep underline decoration-mcy-gold decoration-2 underline-offset-4 [word-break:auto-phrase]"
+                      >
+                        {f.link.label}
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </div>
+              </details>
             ))}
+          </div>
+
+          {/* FAQ tail mini CTA (data-cta-section hides the sticky bar while visible) */}
+          <div
+            data-cta-section
+            className="mx-auto mt-[clamp(16px,4.4vw,24px)] max-w-[460px] rounded-[18px] border border-white/70 bg-white/80 px-4 py-[clamp(14px,4vw,20px)] shadow-[0_10px_30px_rgba(18,58,92,0.12)] backdrop-blur"
+          >
+            <p className="text-center font-display text-[clamp(13px,3.7vw,16px)] font-bold leading-snug text-mcy-navy [word-break:auto-phrase]">
+              ほかにご不安な点は、そのままお尋ねください
+            </p>
+            <div className="mt-3 flex flex-col gap-[10px]">
+              <a
+                href={PHONE_TEL}
+                data-gtm="cta_tel_faq"
+                className="relative flex min-h-[48px] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/75 bg-gradient-to-b from-mcy-turq-bright via-mcy-turq to-mcy-turq-deep px-4 py-[10px] text-white shadow-[0_6px_16px_rgba(11,143,150,0.4)] ring-1 ring-mcy-gold/70 transition-[filter] active:brightness-90"
+              >
+                <span aria-hidden="true" className="pointer-events-none absolute inset-x-[6%] top-[3px] h-[42%] rounded-full bg-gradient-to-b from-white/40 to-transparent" />
+                <svg viewBox="0 0 24 24" className="h-[clamp(15px,4vw,18px)] w-[clamp(15px,4vw,18px)] shrink-0" fill="currentColor" aria-hidden="true">
+                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                </svg>
+                <span className="relative min-w-0 text-center leading-none">
+                  <span className="block whitespace-nowrap text-[clamp(14px,4vw,18px)] font-black tracking-[-0.01em]">
+                    {PHONE_DISPLAY}｜相談無料
+                  </span>
+                  <span className="mt-[4px] block whitespace-nowrap text-[clamp(8.5px,2.4vw,10.5px)] font-bold opacity-95">
+                    9:00〜21:00 年中無休
+                  </span>
+                </span>
+              </a>
+              <a
+                href={LINE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-gtm="cta_line_faq"
+                className="relative flex min-h-[48px] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/75 bg-gradient-to-b from-[#25d94e] to-[#06a32a] px-4 py-[10px] text-white shadow-[0_6px_16px_rgba(6,163,42,0.35)] ring-1 ring-mcy-gold/70 transition-[filter] active:brightness-90"
+              >
+                <span aria-hidden="true" className="pointer-events-none absolute inset-x-[6%] top-[3px] h-[42%] rounded-full bg-gradient-to-b from-white/40 to-transparent" />
+                <span className="grid h-[clamp(24px,6.4vw,30px)] w-[clamp(24px,6.4vw,30px)] shrink-0 place-items-center rounded-full bg-white text-[clamp(6.5px,1.9vw,9px)] font-black text-[#06a32a] shadow-[0_2px_5px_rgba(0,0,0,0.18)]">
+                  LINE
+                </span>
+                <span className="relative whitespace-nowrap text-[clamp(13px,3.7vw,16px)] font-black">
+                  LINEで質問する｜24時間受付
+                </span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -237,6 +320,16 @@ export default function McyClosing() {
               );
             })}
           </ol>
+
+          {/* emotional lead-in to the final CTA section */}
+          <div className="mx-auto mt-[clamp(18px,5vw,26px)] max-w-[460px] text-center">
+            <p className="font-display text-[clamp(15px,4.2vw,19px)] font-black leading-snug text-mcy-navy [word-break:auto-phrase]">
+              一人で抱え込まず、まずはご相談ください。
+            </p>
+            <p className="mt-[6px] text-[clamp(11px,3vw,13px)] font-medium leading-[1.8] text-mcy-navy/80 [word-break:auto-phrase]">
+              どんな小さなことでも、専門スタッフが丁寧にお答えします。
+            </p>
+          </div>
         </div>
       </section>
     </>
