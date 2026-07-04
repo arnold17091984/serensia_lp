@@ -52,46 +52,46 @@ export default function McyFv() {
             crawlable text; copy is editable — 不定休 etc). Only THIS block flags
             data-cta-section so the sticky bar re-appears once the buttons scroll off. */}
         <div data-cta-section className="flex flex-col gap-[clamp(6px,1.8vw,10px)] bg-gradient-to-b from-[#fcf9f1] to-[#fefefe] px-[clamp(6px,1.8vw,12px)] py-[clamp(6px,1.8vw,10px)]">
-          {/* phone — red glossy button */}
+          {/* phone — red glossy button (gold frame, thicker gold base) */}
           <a
             href={PHONE_TEL}
             data-gtm="cta_tel_fv"
             aria-label="電話で今すぐ相談する 03-4400-2098（受付 9:00〜21:00 不定休）"
-            className="relative block rounded-[16px] bg-gradient-to-b from-[#e7be77] via-[#c99a51] to-[#9c7233] p-[2px] shadow-[0_7px_16px_rgba(150,20,10,0.3)] transition-[filter] active:brightness-95"
+            className="relative block rounded-[18px] bg-gradient-to-b from-[#ffce7e] via-[#f2a63e] to-[#f8c94e] px-[2px] pt-[2px] pb-[4px] shadow-[0_7px_16px_rgba(150,20,10,0.3)] transition-[filter] active:brightness-95"
           >
-            <span className="relative flex min-h-[clamp(70px,18.2vw,82px)] items-center gap-[clamp(6px,2vw,10px)] overflow-hidden rounded-[14px] bg-gradient-to-b from-[#fc4a12] via-[#ee2809] to-[#d20601] px-[clamp(10px,3vw,16px)] py-[clamp(9px,2.5vw,13px)] shadow-[inset_0_2px_2px_rgba(255,255,255,0.28),inset_0_-4px_8px_rgba(110,0,0,0.45)]">
-              <span aria-hidden="true" className="pointer-events-none absolute inset-x-[2.5%] top-[3px] h-[36%] rounded-full bg-gradient-to-b from-white/45 to-transparent" />
+            <span className="relative flex min-h-[clamp(72px,19vw,86px)] items-center gap-[clamp(7px,2.2vw,12px)] overflow-hidden rounded-[15px] bg-gradient-to-b from-[#fe4415] via-[#ee2b0a] to-[#d10405] px-[clamp(10px,3vw,16px)] py-[clamp(8px,2.2vw,12px)] shadow-[inset_0_2px_2px_rgba(255,255,255,0.3),inset_0_-4px_9px_rgba(120,0,0,0.45)]">
+              <span aria-hidden="true" className="pointer-events-none absolute inset-x-[2.5%] top-[2px] h-[38%] rounded-full bg-gradient-to-b from-white/45 to-transparent" />
               <Shine />
-              <span className="relative grid h-[clamp(38px,10vw,48px)] w-[clamp(38px,10vw,48px)] shrink-0 place-items-center rounded-full bg-white shadow-[0_2px_5px_rgba(0,0,0,0.25)]">
-                <svg viewBox="0 0 24 24" className="h-[54%] w-[54%]" fill="#e01a06" aria-hidden="true">
+              <span className="relative grid h-[clamp(44px,11.6vw,54px)] w-[clamp(44px,11.6vw,54px)] shrink-0 place-items-center rounded-full bg-white shadow-[0_2px_6px_rgba(0,0,0,0.28)]">
+                <svg viewBox="0 0 24 24" className="h-[56%] w-[56%]" fill="#e21606" aria-hidden="true">
                   <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
                 </svg>
               </span>
               <span className="relative min-w-0 flex-1 text-center leading-none text-white [text-shadow:0_1px_2px_rgba(120,0,0,0.5)]">
-                <span className="block text-[clamp(11px,3vw,14px)] font-bold tracking-[0.02em]">電話で今すぐ相談する</span>
-                <span className="mt-[3px] block text-[clamp(22px,6.4vw,31px)] font-black tracking-[-0.01em]">03-4400-2098</span>
+                <span className="block text-[clamp(11px,3.1vw,14.5px)] font-bold tracking-[0.02em]">電話で今すぐ相談する</span>
+                <span className="mt-[3px] block text-[clamp(23px,6.7vw,33px)] font-black tracking-[-0.01em]">03-4400-2098</span>
                 <span className="mt-[3px] block text-[clamp(8.5px,2.4vw,11px)] font-bold opacity-95">受付時間 9:00〜21:00 / 不定休</span>
               </span>
-              <svg viewBox="0 0 24 24" className="relative h-[clamp(18px,5vw,26px)] w-[clamp(18px,5vw,26px)] shrink-0" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <svg viewBox="0 0 24 24" className="relative h-[clamp(19px,5.2vw,27px)] w-[clamp(19px,5.2vw,27px)] shrink-0" fill="none" stroke="white" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="m9 5 7 7-7 7" />
               </svg>
             </span>
           </a>
 
-          {/* LINE — green glossy button */}
+          {/* LINE — green glossy button (gold frame, thicker gold base) */}
           <a
             href={LINE_URL}
             target="_blank"
             rel="noopener noreferrer"
             data-gtm="cta_line_fv"
             aria-label="LINEで写真を送って相談する（写真相談・概算見積り・24時間受付）"
-            className="relative block rounded-[16px] bg-gradient-to-b from-[#e7be77] via-[#c99a51] to-[#9c7233] p-[2px] shadow-[0_7px_16px_rgba(6,120,20,0.28)] transition-[filter] active:brightness-95"
+            className="relative block rounded-[18px] bg-gradient-to-b from-[#ffce7e] via-[#f2a63e] to-[#f8c94e] px-[2px] pt-[2px] pb-[4px] shadow-[0_7px_16px_rgba(6,120,20,0.28)] transition-[filter] active:brightness-95"
           >
-            <span className="relative flex min-h-[clamp(70px,18.2vw,82px)] items-center gap-[clamp(6px,2vw,10px)] overflow-hidden rounded-[14px] bg-gradient-to-b from-[#6ccf20] via-[#28a516] to-[#017a0c] px-[clamp(10px,3vw,16px)] py-[clamp(9px,2.5vw,13px)] shadow-[inset_0_2px_2px_rgba(255,255,255,0.28),inset_0_-4px_8px_rgba(0,70,5,0.45)]">
-              <span aria-hidden="true" className="pointer-events-none absolute inset-x-[2.5%] top-[3px] h-[36%] rounded-full bg-gradient-to-b from-white/40 to-transparent" />
+            <span className="relative flex min-h-[clamp(72px,19vw,86px)] items-center gap-[clamp(7px,2.2vw,12px)] overflow-hidden rounded-[15px] bg-gradient-to-b from-[#63ca1a] via-[#28a414] to-[#017c0e] px-[clamp(10px,3vw,16px)] py-[clamp(8px,2.2vw,12px)] shadow-[inset_0_2px_2px_rgba(255,255,255,0.3),inset_0_-4px_9px_rgba(0,70,5,0.45)]">
+              <span aria-hidden="true" className="pointer-events-none absolute inset-x-[2.5%] top-[2px] h-[38%] rounded-full bg-gradient-to-b from-white/40 to-transparent" />
               <Shine delay="1.8s" />
-              <span className="relative grid h-[clamp(38px,10vw,48px)] w-[clamp(38px,10vw,48px)] shrink-0 place-items-center rounded-[12px] bg-white shadow-[0_2px_5px_rgba(0,0,0,0.22)]">
-                <svg viewBox="0 0 32 32" className="h-[82%] w-[82%]" aria-hidden="true">
+              <span className="relative grid h-[clamp(44px,11.6vw,54px)] w-[clamp(44px,11.6vw,54px)] shrink-0 place-items-center rounded-[13px] bg-white shadow-[0_2px_6px_rgba(0,0,0,0.24)]">
+                <svg viewBox="0 0 32 32" className="h-[84%] w-[84%]" aria-hidden="true">
                   <path
                     fill="#06C755"
                     d="M16 3.2C8.3 3.2 2 8.3 2 14.5c0 5.6 5 10.2 11.7 11.1.46.1 1.08.3 1.24.69.14.35.09.9.05 1.25l-.2 1.2c-.06.35-.28 1.38 1.21.75 1.49-.62 8.03-4.73 10.96-8.1C29.9 20.9 31 18 31 14.5 31 8.3 24.7 3.2 16 3.2Z"
@@ -112,11 +112,11 @@ export default function McyFv() {
                 </svg>
               </span>
               <span className="relative min-w-0 flex-1 text-center leading-none text-white [text-shadow:0_1px_2px_rgba(0,70,5,0.5)]">
-                <span className="block text-[clamp(11px,3vw,14px)] font-bold tracking-[0.02em]">LINEで写真を送るだけ</span>
-                <span className="mt-[3px] block text-[clamp(18px,5.2vw,25px)] font-black tracking-[0.01em]">写真相談・概算見積り</span>
+                <span className="block text-[clamp(11px,3.1vw,14.5px)] font-bold tracking-[0.02em]">LINEで写真を送るだけ</span>
+                <span className="mt-[3px] block text-[clamp(19px,5.6vw,27px)] font-black tracking-[0.01em]">写真相談・概算見積り</span>
                 <span className="mt-[3px] block text-[clamp(8.5px,2.4vw,11px)] font-bold opacity-95">簡単・安心・すぐにご回答します</span>
               </span>
-              <svg viewBox="0 0 24 24" className="relative h-[clamp(18px,5vw,26px)] w-[clamp(18px,5vw,26px)] shrink-0" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <svg viewBox="0 0 24 24" className="relative h-[clamp(19px,5.2vw,27px)] w-[clamp(19px,5.2vw,27px)] shrink-0" fill="none" stroke="white" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="m9 5 7 7-7 7" />
               </svg>
             </span>
