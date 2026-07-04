@@ -206,7 +206,7 @@ export default function McyClosing() {
                 </svg>
                 <span className="relative min-w-0 text-center leading-none">
                   <span className="block whitespace-nowrap text-[clamp(14px,4vw,18px)] font-black tracking-[-0.01em]">
-                    {PHONE_DISPLAY}｜相談無料
+                    <span className="text-lux-amber [text-shadow:0_1px_2px_rgba(0,0,0,0.3)]">{PHONE_DISPLAY}</span>｜相談無料
                   </span>
                   <span className="mt-[4px] block whitespace-nowrap text-[clamp(8.5px,2.4vw,10.5px)] font-bold opacity-95">
                     9:00〜21:00 年中無休

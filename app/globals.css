@@ -87,6 +87,7 @@
   --color-lux-gold: #c8a24e;
   --color-lux-gold-deep: #9c7729;
   --color-lux-gold-light: #ecdba8;
+  --color-lux-amber: #ffce33; /* bright golden-yellow — phone numbers on dark CTAs */
   --color-lux-crimson: #c0202a; /* 参考価格 numbers */
 }
 

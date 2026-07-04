@@ -397,7 +397,7 @@ export default function McyPricing() {
                 </span>
                 <span className="relative min-w-0 flex-1 text-center leading-none">
                   <span className="block whitespace-nowrap text-[clamp(14px,4vw,19px)] font-black tracking-[-0.01em] [text-shadow:0_1px_2px_rgba(0,0,0,0.2)]">
-                    お電話で相談 {PHONE_DISPLAY}
+                    お電話で相談 <span className="text-lux-amber">{PHONE_DISPLAY}</span>
                   </span>
                   <span className="mt-[5px] block text-[clamp(9px,2.5vw,11.5px)] font-bold opacity-95 [word-break:auto-phrase]">
                     9:00〜21:00 年中無休｜最短即日で現地確認

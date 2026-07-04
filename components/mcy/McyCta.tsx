@@ -86,7 +86,7 @@ export default function McyCta() {
                 <span className="block whitespace-nowrap text-[clamp(9.5px,2.7vw,13px)] font-black">
                   お電話で今すぐ相談する
                 </span>
-                <span className="mt-[4px] block whitespace-nowrap text-[clamp(19px,5.5vw,27px)] font-black tracking-[-0.01em] [text-shadow:0_1px_2px_rgba(0,0,0,0.2)]">
+                <span className="mt-[4px] block whitespace-nowrap text-[clamp(19px,5.5vw,27px)] font-black tracking-[-0.01em] text-lux-amber [text-shadow:0_1px_2px_rgba(0,0,0,0.3)]">
                   {PHONE_DISPLAY}
                 </span>
                 <span className="mt-[4px] block whitespace-nowrap text-[clamp(7.5px,2.1vw,10px)] font-bold opacity-95">

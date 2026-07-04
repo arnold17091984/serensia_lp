@@ -134,18 +134,26 @@ export default function McyManga() {
             type="button"
             onClick={() => setExpanded(true)}
             data-gtm="manga_read_more"
-            className="relative flex w-full max-w-[380px] flex-col items-center overflow-hidden rounded-full border-2 border-white/40 bg-gradient-to-b from-lux-green-2 via-lux-green to-[#0c2c1c] px-5 py-[clamp(11px,3.2vw,15px)] text-white shadow-[0_10px_24px_rgba(18,61,40,0.4)] ring-1 ring-lux-gold/70 transition-[filter] active:brightness-90"
+            className="mcy-cta-nudge relative flex w-full max-w-[400px] flex-col items-center overflow-hidden rounded-full border-2 border-lux-gold/70 bg-gradient-to-b from-lux-green-2 via-lux-green to-[#0c2c1c] px-5 py-[clamp(13px,3.6vw,18px)] text-white shadow-[0_14px_30px_rgba(18,61,40,0.48)] ring-1 ring-white/25 transition-[filter] active:brightness-90"
           >
-            <span
-              aria-hidden
-              className="pointer-events-none absolute inset-x-[6%] top-[3px] h-[42%] rounded-full bg-gradient-to-b from-white/40 to-transparent"
-            />
-            <span className="relative text-[clamp(13px,3.7vw,16px)] font-black">続きを読む</span>
-            <span className="relative mt-[3px] text-[clamp(9px,2.5vw,11px)] font-bold opacity-95">
-              この後、解決までの流れ（全{CHAPTERS.length}話）
+            {/* animated shine sweep */}
+            <span aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+              <span className="mcy-shine absolute inset-y-[-30%] left-0 w-[42%] bg-gradient-to-r from-transparent via-white/45 to-transparent" />
             </span>
-            <span aria-hidden className="relative mt-[4px] animate-bounce text-[13px] leading-none">
-              ▼
+            {/* glossy top highlight */}
+            <span aria-hidden className="pointer-events-none absolute inset-x-[6%] top-[3px] h-[42%] rounded-full bg-gradient-to-b from-white/35 to-transparent" />
+
+            <span className="relative flex items-center gap-[8px] text-[clamp(15px,4.4vw,19px)] font-black text-lux-amber [text-shadow:0_1px_3px_rgba(0,0,0,0.45)]">
+              <svg viewBox="0 0 24 24" className="h-[clamp(16px,4.4vw,20px)] w-[clamp(16px,4.4vw,20px)]" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M12 6.5C10.5 5 8.5 4.5 4.5 4.5v13C8.5 17.5 10.5 18 12 19.5M12 6.5c1.5-1.5 3.5-2 7.5-2v13c-4 0-6 .5-7.5 2M12 6.5v13" />
+              </svg>
+              続きを読む
+            </span>
+            <span className="relative mt-[4px] text-[clamp(9.5px,2.7vw,12px)] font-bold text-white/90">
+              この続きが気になる方へ（残り{tail.length}話・解決まで）
+            </span>
+            <span aria-hidden className="relative mt-[5px] animate-bounce text-[clamp(13px,3.4vw,16px)] font-black leading-none text-lux-amber">
+              ▼▼
             </span>
           </button>
         </div>

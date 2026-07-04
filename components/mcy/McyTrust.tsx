@@ -249,7 +249,7 @@ export default function McyTrust() {
               <span className="block whitespace-nowrap text-[clamp(9.5px,2.7vw,12px)] font-black">
                 大家様・管理会社様の緊急対応窓口
               </span>
-              <span className="mt-[4px] block whitespace-nowrap text-[clamp(19px,5.5vw,26px)] font-black tracking-[-0.01em]">
+              <span className="mt-[4px] block whitespace-nowrap text-[clamp(19px,5.5vw,26px)] font-black tracking-[-0.01em] text-lux-amber [text-shadow:0_1px_2px_rgba(0,0,0,0.3)]">
                 {PHONE_DISPLAY}
               </span>
               <span className="mt-[4px] block whitespace-nowrap text-[clamp(7.5px,2.1vw,10px)] font-bold opacity-95">
