@@ -18,7 +18,7 @@ const WORRIES = [
 
 /* extra note shown under specific worry rows (real, verified facts only) */
 const WORRY_NOTES: Readonly<Record<number, string>> = {
-  3: "※社名の入っていない車両・私服でお伺いします",
+  3: "※ロゴや社名の入った服装は避けてお伺いします",
 };
 const COST_WORRY_INDEX = 5;
 

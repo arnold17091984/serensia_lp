@@ -26,7 +26,7 @@ const SUPPORT_ITEMS: ReadonlyArray<{
     no: "04",
     icon: "home",
     title: "近隣への配慮を徹底",
-    sub: "社名の入っていない車両・私服でお伺いします",
+    sub: "ロゴや社名の入った服装は避けてお伺いします",
   },
 ];
 
