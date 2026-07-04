@@ -67,7 +67,7 @@ export default function McyStickyCta() {
             {"電話で相談する"}
           </span>
           <span className="relative mt-[3px] whitespace-nowrap text-[clamp(8.5px,2.5vw,9.5px)] font-bold leading-none opacity-95">
-            9:00〜21:00 年中無休
+            9:00〜21:00 不定休
           </span>
           <span
             aria-hidden

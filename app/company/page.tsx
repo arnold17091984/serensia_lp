@@ -8,24 +8,8 @@ export const metadata: Metadata = {
 const COMPANY_ROWS: { label: string; value: React.ReactNode }[] = [
   { label: "会社名", value: "株式会社TAKAKU" },
   { label: "サービス名", value: "セレンシア" },
-  {
-    label: "代表者",
-    value: (
-      <>
-        {/* TODO: 代表 太田様のフルネームを記入 */}
-        【要記入】
-      </>
-    ),
-  },
-  {
-    label: "所在地",
-    value: (
-      <>
-        {/* TODO: 所在地を記入 */}
-        【要記入】
-      </>
-    ),
-  },
+  { label: "代表者", value: "太田 貴也" },
+  { label: "所在地", value: "〒158-0087 東京都世田谷区玉堤1丁目21-12" },
   {
     label: "電話番号",
     value: (
@@ -39,7 +23,16 @@ const COMPANY_ROWS: { label: string; value: React.ReactNode }[] = [
       </>
     ),
   },
-  { label: "事業内容", value: "特殊清掃・遺品整理・原状回復" },
+  { label: "営業時間", value: "9:00〜21:00（不定休）" },
+  {
+    label: "事業内容",
+    value:
+      "特殊清掃・遺品整理・生前整理・空き家整理・片付け・ハウスクリーニング・リフォーム・原状回復工事",
+  },
+  {
+    label: "保有資格・許可",
+    value: "東京都公安委員会 古物商許可 第303312321474号／遺品整理協会認定 遺品整理士（地区統括会員）",
+  },
 ];
 
 export default function CompanyPage() {

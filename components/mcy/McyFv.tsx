@@ -55,7 +55,7 @@ export default function McyFv() {
           <a
             href={PHONE_TEL}
             data-gtm="cta_tel_fv"
-            aria-label="電話で今すぐ相談する 03-4400-2098（受付 9:00〜21:00 年中無休）"
+            aria-label="電話で今すぐ相談する 03-4400-2098（受付 9:00〜21:00 不定休）"
             className="relative block overflow-hidden transition-[filter] active:brightness-95"
           >
             <img src="/img/kv_btn_phone.webp" alt="電話で今すぐ相談する 03-4400-2098" width={753} height={140} loading="eager" decoding="async" className="block w-full" />

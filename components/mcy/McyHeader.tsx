@@ -90,7 +90,7 @@ export default function McyHeader() {
               </span>
             </span>
             <span className="relative mt-[3px] whitespace-nowrap text-[clamp(5.5px,1.4vw,8px)] font-bold leading-none">
-              受付 9:00〜21:00 / 年中無休
+              受付 9:00〜21:00 / 不定休
             </span>
           </a>
 

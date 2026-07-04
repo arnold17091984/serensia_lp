@@ -400,7 +400,7 @@ export default function McyPricing() {
                     お電話で相談 <span className="text-lux-amber">{PHONE_DISPLAY}</span>
                   </span>
                   <span className="mt-[5px] block text-[clamp(9px,2.5vw,11.5px)] font-bold opacity-95 [word-break:auto-phrase]">
-                    9:00〜21:00 年中無休｜最短即日で現地確認
+                    9:00〜21:00 不定休｜最短即日で現地確認
                   </span>
                 </span>
                 <span aria-hidden="true" className="relative grid h-[22px] w-[22px] shrink-0 place-items-center rounded-full bg-white shadow-[0_2px_5px_rgba(0,0,0,0.15)]">

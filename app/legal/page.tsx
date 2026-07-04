@@ -6,16 +6,9 @@ export const metadata: Metadata = {
 };
 
 const LEGAL_ROWS: { label: string; value: React.ReactNode }[] = [
-  { label: "事業者名", value: "株式会社TAKAKU" },
-  {
-    label: "所在地",
-    value: (
-      <>
-        {/* TODO: 所在地を記入 */}
-        【要記入】
-      </>
-    ),
-  },
+  { label: "事業者名", value: "株式会社TAKAKU（屋号：セレンシア）" },
+  { label: "代表者名", value: "太田 貴也" },
+  { label: "所在地", value: "〒158-0087 東京都世田谷区玉堤1丁目21-12" },
   {
     label: "連絡先",
     value: (
@@ -29,26 +22,18 @@ const LEGAL_ROWS: { label: string; value: React.ReactNode }[] = [
       </>
     ),
   },
+  { label: "営業時間", value: "9:00〜21:00（不定休）" },
   {
     label: "役務の内容",
-    value: "特殊清掃・遺品整理・原状回復",
+    value:
+      "特殊清掃・遺品整理・生前整理・空き家整理・片付け・ハウスクリーニング・リフォーム・原状回復工事",
   },
-  {
-    label: "料金",
-    value: "現地でのお見積りにより確定します。",
-  },
-  {
-    label: "支払方法",
-    value: "現金／クレジットカード",
-  },
+  { label: "料金", value: "現地でのお見積りにより確定します。" },
+  { label: "支払方法", value: "現金／クレジットカード" },
   {
     label: "キャンセルについて",
-    value: (
-      <>
-        {/* TODO: 契約書面のキャンセル規定に合わせて記入 */}
-        【要記入】
-      </>
-    ),
+    value:
+      "ご契約後、作業着手前のキャンセルは無料です。作業着手後にキャンセルされる場合は、既に発生した出張費・実費相当分をご負担いただく場合がございます。詳細は契約書面・お見積り時にご説明いたします。",
   },
 ];
 

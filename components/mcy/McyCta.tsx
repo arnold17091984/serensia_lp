@@ -90,7 +90,7 @@ export default function McyCta() {
                   {PHONE_DISPLAY}
                 </span>
                 <span className="mt-[4px] block whitespace-nowrap text-[clamp(7.5px,2.1vw,10px)] font-bold opacity-95">
-                  9:00〜21:00 年中無休｜タップで電話
+                  9:00〜21:00 不定休｜タップで電話
                 </span>
               </span>
               <span aria-hidden="true" className="grid h-[clamp(18px,5vw,24px)] w-[clamp(18px,5vw,24px)] shrink-0 place-items-center rounded-full bg-white shadow-[0_2px_6px_rgba(0,0,0,0.25)]">

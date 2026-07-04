@@ -75,7 +75,7 @@ export default function McyFooter() {
           </span>
         </a>
         <p className="mt-2 text-[clamp(9.5px,2.7vw,12px)] font-medium leading-[1.8] text-white/80">
-          お電話受付 9:00〜21:00 年中無休／
+          お電話受付 9:00〜21:00 不定休／
           <br className="min-[430px]:hidden" />
           LINE・メールは24時間受付・緊急時は折り返し対応
         </p>
