@@ -8,11 +8,11 @@ import { LINE_URL, PHONE_DISPLAY, PHONE_TEL } from "./McyHeader";
  * All licenses/insurance/figures unchanged (verified against content.json).
  */
 
-const OWNER_BADGES = [
-  { icon: "home", label: "解体から原状回復まで一貫対応" },
-  { icon: "shield", label: "近隣住民への配慮を徹底" },
-  { icon: "clock", label: "緊急時も迅速対応" },
-] as const;
+const OWNER_BADGES: ReadonlyArray<{ icon: IconName; label: string; desc: string }> = [
+  { icon: "clock", label: "迅速対応", desc: "最短即日対応で、被害の拡大や空室期間の長期化を防ぎます。" },
+  { icon: "search", label: "原因の徹底除去", desc: "目に見えない汚染や臭いの原因まで根本から除去します。" },
+  { icon: "home", label: "資産価値の維持", desc: "原状回復・消臭・消毒まで一貫対応し、物件価値を守ります。" },
+];
 
 const SUPPORT_ITEMS: ReadonlyArray<{
   no: string;
@@ -20,15 +20,10 @@ const SUPPORT_ITEMS: ReadonlyArray<{
   title: string;
   sub?: string;
 }> = [
-  { no: "01", icon: "document", title: "立会い不要" },
-  { no: "02", icon: "key", title: "鍵のお預り可能" },
-  { no: "03", icon: "person", title: "代表または副社長が現地立ち合い" },
-  {
-    no: "04",
-    icon: "home",
-    title: "近隣への配慮を徹底",
-    sub: "ロゴや社名の入った服装は避けてお伺いします",
-  },
+  { no: "01", icon: "document", title: "立ち会い不要", sub: "遠方にお住まいでも、鍵の受け渡しのみで対応可能。現地立ち会いは不要です。" },
+  { no: "02", icon: "card", title: "クレジットカード利用可能", sub: "お支払いは各種クレジットカードに対応。お手持ちのカードで決済できます。" },
+  { no: "03", icon: "key", title: "鍵のお預り可能", sub: "鍵をお預かりし、立ち会いなしで作業を進めます。" },
+  { no: "04", icon: "shield", title: "近隣配慮・秘密厳守", sub: "作業は近隣に配慮し、秘密厳守で対応。ロゴや社名の入った服装は避けてお伺いします。" },
 ];
 
 const LICENSES = [
@@ -40,9 +35,22 @@ const LICENSES = [
   "不用品回収健全化指導員",
 ];
 
-type IconName = "home" | "shield" | "clock" | "document" | "key" | "person";
+type IconName = "home" | "shield" | "clock" | "document" | "key" | "person" | "search" | "card";
 
 const ICON_PATHS: Record<IconName, React.ReactNode> = {
+  search: (
+    <>
+      <circle cx="10.5" cy="10.5" r="6" />
+      <path d="m15 15 4.8 4.8" />
+      <path d="M8 10.5h5M10.5 8v5" />
+    </>
+  ),
+  card: (
+    <>
+      <rect x="3" y="6" width="18" height="12" rx="2.5" />
+      <path d="M3 10h18M6.5 14.5h4" />
+    </>
+  ),
   home: (
     <>
       <path d="M3.5 11 12 4l8.5 7" />
@@ -209,19 +217,22 @@ export default function McyTrust() {
             <span className="text-lux-green">SOS</span>も緊急対応
           </SectionHeading>
           <p className="mx-auto mt-[clamp(10px,3vw,16px)] max-w-[460px] text-[clamp(11.5px,3.2vw,14px)] font-medium leading-[2] text-lux-green-ink/90 [word-break:auto-phrase]">
-            管理をする物件で事故やトラブルが発生した際は緊急を要することで、ご相談をいただくことが多くあります。一刻も早く、次の入居者が安心して住める状態に戻すため、セレンシアが迅速に駆けつけます。汚染除去・消臭・消毒から、必要に応じた建材撤去や原状回復の段取りまで一括で進められます。万が一に備え、東京海上日動火災保険の賠償責任保険にも加入しています。
+            孤独死が発生した物件は、放置すれば異臭や汚染が広がり、資産価値や入居率の低下につながります。セレンシアは、迅速・丁寧な特殊清掃と原状回復で、次の入居者を安心して迎えられる環境を整えます。万が一に備え、東京海上日動火災保険の賠償責任保険にも加入しています。
           </p>
           <div className="mx-auto mt-[clamp(14px,4vw,20px)] grid max-w-[460px] grid-cols-3 gap-[clamp(6px,1.8vw,10px)]">
             {OWNER_BADGES.map((b) => (
               <div
                 key={b.label}
-                className="flex flex-col items-center rounded-2xl border border-lux-gold/30 bg-white px-2 py-[clamp(11px,3.2vw,16px)] text-center shadow-[0_10px_26px_rgba(18,61,40,0.14)]"
+                className="flex flex-col items-center rounded-2xl border border-lux-gold/30 bg-white px-2 py-[clamp(12px,3.4vw,17px)] text-center shadow-[0_10px_26px_rgba(18,61,40,0.14)]"
               >
-                <span className="grid h-[clamp(34px,9.5vw,44px)] w-[clamp(34px,9.5vw,44px)] place-items-center rounded-full bg-gradient-to-b from-lux-green-2 via-lux-green to-[#0c2c1c] text-white shadow-[0_4px_10px_rgba(18,61,40,0.35)] ring-2 ring-lux-gold/50">
-                  <LineIcon name={b.icon} className="h-[56%] w-[56%]" />
+                <span className="grid h-[clamp(38px,10.5vw,48px)] w-[clamp(38px,10.5vw,48px)] place-items-center rounded-full bg-lux-cream text-lux-gold-deep ring-1 ring-lux-gold/45">
+                  <LineIcon name={b.icon} className="h-[54%] w-[54%]" />
                 </span>
-                <span className="mt-2 text-[clamp(9.5px,2.7vw,12px)] font-black leading-[1.5] text-lux-green-ink [word-break:auto-phrase]">
+                <span className="mt-2 text-[clamp(10.5px,3vw,13px)] font-black leading-[1.4] text-lux-green-ink [word-break:auto-phrase]">
                   {b.label}
+                </span>
+                <span className="mt-[4px] text-[clamp(8.5px,2.4vw,10.5px)] font-medium leading-[1.55] text-lux-green-ink/70 [word-break:auto-phrase]">
+                  {b.desc}
                 </span>
               </div>
             ))}
@@ -247,16 +258,6 @@ export default function McyTrust() {
             </span>
             <ArrowBubble className="text-lux-green" />
           </a>
-
-          <img
-            src="/img/ooya_photo.jpg"
-            alt="物件のドアを丁寧に清掃する作業"
-            width={1000}
-            height={410}
-            loading="lazy"
-            decoding="async"
-            className="mx-auto mt-[clamp(14px,4vw,20px)] w-full max-w-[460px] rounded-[16px] border-[3px] border-white object-cover shadow-[0_12px_30px_rgba(18,61,40,0.22)] ring-1 ring-lux-gold/30"
-          />
         </div>
       </section>
 
@@ -364,6 +365,25 @@ export default function McyTrust() {
           <p className="mx-auto mt-[clamp(10px,3vw,16px)] max-w-[460px] text-[clamp(11.5px,3.2vw,14px)] font-medium leading-[2] text-lux-green-ink/90 [word-break:auto-phrase]">
             セレンシアでは、安心してお任せいただけるよう、多くの資格を持ったプロフェッショナルが特殊清掃や遺品整理に対応します。
           </p>
+
+          {/* real 代表 太田 photo alongside the credentials (trust) */}
+          <div className="mx-auto mt-[clamp(14px,4vw,20px)] flex max-w-[460px] items-center gap-[clamp(12px,3.4vw,18px)] rounded-2xl border border-lux-gold/35 bg-white/75 p-[clamp(10px,2.8vw,14px)] shadow-[0_10px_26px_rgba(18,61,40,0.12)]">
+            <img
+              src="/img/daihyo_ota.webp"
+              alt="セレンシア 代表 太田"
+              width={416}
+              height={645}
+              loading="lazy"
+              decoding="async"
+              className="h-auto w-[clamp(112px,31vw,150px)] shrink-0 drop-shadow-[0_10px_22px_rgba(18,61,40,0.2)]"
+            />
+            <p className="text-[clamp(11px,3vw,13.5px)] font-bold leading-[1.95] text-lux-green-ink [word-break:auto-phrase]">
+              有資格の専門スタッフが、
+              <span className="text-lux-green">責任をもって最後まで</span>
+              対応します。まずは代表・太田がお話を伺います。
+            </p>
+          </div>
+
           <div className="mx-auto mt-[clamp(14px,4vw,20px)] max-w-[460px] overflow-hidden rounded-2xl border border-lux-gold/40 bg-white shadow-[0_12px_32px_rgba(18,61,40,0.16)]">
             <ul className="divide-y divide-lux-gold/15">
               {LICENSES.map((l, i) => (
