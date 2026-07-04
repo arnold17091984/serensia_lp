@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { LINE_URL, PHONE_DISPLAY, PHONE_TEL } from "./McyHeader";
-import { GoldDiamond, LeafSprig, LuxHeading, Sparkle } from "./McyLux";
+import { LeafSprig, LuxHeading } from "./McyLux";
 
 /**
  * Entry price + 6 case reports (real before/after photos) + concept CTA.
@@ -351,7 +351,7 @@ export default function McyPricing() {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-gtm="cta_line_pricing"
-                className="relative flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-b from-[#37d857] via-[#12bb38] to-[#06a32a] px-4 py-[clamp(10px,3vw,14px)] text-white ring-2 ring-inset ring-white/50 transition-[filter] active:brightness-90"
+                className="relative flex min-h-[clamp(78px,19vw,88px)] items-center gap-2 overflow-hidden rounded-full bg-gradient-to-b from-[#37d857] via-[#12bb38] to-[#06a32a] px-4 py-[clamp(10px,3vw,14px)] text-white ring-2 ring-inset ring-white/50 transition-[filter] active:brightness-90"
               >
                 <span aria-hidden="true" className="pointer-events-none absolute inset-x-[8%] top-[3px] h-[36%] rounded-full bg-gradient-to-b from-white/55 to-white/0" />
                 <span className="relative grid h-[clamp(26px,7.4vw,38px)] w-[clamp(26px,7.4vw,38px)] shrink-0 place-items-center rounded-full bg-white text-[clamp(6px,1.7vw,8.5px)] font-black text-[#06a32a] shadow-[0_2px_5px_rgba(0,0,0,0.15)]">
@@ -379,25 +379,37 @@ export default function McyPricing() {
               ※お部屋に入れない場合は、状況を文章でお送りいただくだけで構いません
             </p>
 
-            {/* phone pill (deep-green, secondary to LINE) */}
-            <a
-              href={PHONE_TEL}
-              data-gtm="cta_tel_pricing"
-              className="relative mt-3 flex min-h-[48px] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/40 bg-gradient-to-b from-lux-green-2 via-lux-green to-[#0c2c1c] px-4 py-[10px] text-white shadow-[0_6px_16px_rgba(18,61,40,0.4)] ring-1 ring-lux-gold/70 transition-[filter] active:brightness-95"
+            {/* phone pill — same gold-framed pill + equal height as the LINE CTA */}
+            <div
+              style={{ animationDelay: "0.5s" }}
+              className="mcy-cta-nudge mt-3 rounded-full bg-gradient-to-b from-lux-gold-light via-lux-gold to-lux-gold-deep p-[2px] shadow-[0_10px_24px_rgba(18,61,40,0.34)]"
             >
-              <span aria-hidden="true" className="pointer-events-none absolute inset-x-[6%] top-[3px] h-[42%] rounded-full bg-gradient-to-b from-white/35 to-transparent" />
-              <svg viewBox="0 0 24 24" className="h-[clamp(15px,4vw,18px)] w-[clamp(15px,4vw,18px)] shrink-0" fill="currentColor" aria-hidden="true">
-                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-              </svg>
-              <span className="relative min-w-0 text-center leading-none">
-                <span className="block whitespace-nowrap text-[clamp(12px,3.3vw,15.5px)] font-black tracking-[-0.01em]">
-                  お急ぎの方はお電話で {PHONE_DISPLAY}
+              <a
+                href={PHONE_TEL}
+                data-gtm="cta_tel_pricing"
+                className="relative flex min-h-[clamp(78px,19vw,88px)] items-center gap-2 overflow-hidden rounded-full bg-gradient-to-b from-lux-green-2 via-lux-green to-[#0c2c1c] px-4 py-[clamp(10px,3vw,14px)] text-white ring-2 ring-inset ring-white/40 transition-[filter] active:brightness-95"
+              >
+                <span aria-hidden="true" className="pointer-events-none absolute inset-x-[8%] top-[3px] h-[36%] rounded-full bg-gradient-to-b from-white/35 to-white/0" />
+                <span className="relative grid h-[clamp(26px,7.4vw,38px)] w-[clamp(26px,7.4vw,38px)] shrink-0 place-items-center rounded-full bg-white shadow-[0_2px_5px_rgba(0,0,0,0.15)]">
+                  <svg viewBox="0 0 24 24" className="h-[56%] w-[56%]" fill="#123d28" aria-hidden="true">
+                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                  </svg>
                 </span>
-                <span className="mt-[4px] block text-[clamp(8.5px,2.4vw,10.5px)] font-bold opacity-95 [word-break:auto-phrase]">
-                  9:00〜21:00 年中無休｜最短即日で現地確認
+                <span className="relative min-w-0 flex-1 text-center leading-none">
+                  <span className="block whitespace-nowrap text-[clamp(14px,4vw,19px)] font-black tracking-[-0.01em] [text-shadow:0_1px_2px_rgba(0,0,0,0.2)]">
+                    お電話で相談 {PHONE_DISPLAY}
+                  </span>
+                  <span className="mt-[5px] block text-[clamp(9px,2.5vw,11.5px)] font-bold opacity-95 [word-break:auto-phrase]">
+                    9:00〜21:00 年中無休｜最短即日で現地確認
+                  </span>
                 </span>
-              </span>
-            </a>
+                <span aria-hidden="true" className="relative grid h-[22px] w-[22px] shrink-0 place-items-center rounded-full bg-white shadow-[0_2px_5px_rgba(0,0,0,0.15)]">
+                  <svg width="7" height="10" viewBox="0 0 7 10" fill="none">
+                    <path d="M1.5 1l4 4-4 4" stroke="#123d28" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              </a>
+            </div>
           </div>
         </div>
       </div>

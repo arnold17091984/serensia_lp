@@ -18,9 +18,9 @@ import { LINE_URL, PHONE_TEL } from "./McyHeader";
  */
 function Shine({ delay = "0s" }: Readonly<{ delay?: string }>) {
   return (
-    <span aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+    <span aria-hidden="true" className="pointer-events-none absolute inset-0 z-10 overflow-hidden">
       <span
-        className="mcy-shine absolute inset-y-[-20%] left-0 w-[34%] bg-gradient-to-r from-transparent via-white/85 to-transparent"
+        className="mcy-shine absolute inset-y-[-30%] left-0 w-[46%] bg-gradient-to-r from-transparent via-white/95 to-transparent"
         style={{ animationDelay: delay }}
       />
     </span>
