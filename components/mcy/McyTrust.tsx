@@ -231,7 +231,7 @@ export default function McyTrust() {
           <a
             href={PHONE_TEL}
             data-gtm="cta_tel_owners"
-            className="relative mx-auto mt-[clamp(12px,3.4vw,18px)] flex max-w-[460px] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/40 bg-gradient-to-b from-lux-green-2 via-lux-green to-[#0c2c1c] px-4 py-[clamp(9px,2.7vw,13px)] text-white shadow-[0_10px_24px_rgba(18,61,40,0.45)] ring-1 ring-lux-gold/70 transition-[filter] active:brightness-95"
+            className="mcy-cta-nudge relative mx-auto mt-[clamp(12px,3.4vw,18px)] flex min-h-[clamp(82px,20vw,96px)] max-w-[460px] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/40 bg-gradient-to-b from-lux-green-2 via-lux-green to-[#0c2c1c] px-4 py-[clamp(9px,2.7vw,13px)] text-white shadow-[0_10px_24px_rgba(18,61,40,0.45)] ring-1 ring-lux-gold/70 transition-[filter] active:brightness-95"
           >
             <PillGloss />
             <span className="relative min-w-0 text-center leading-none">
@@ -306,7 +306,7 @@ export default function McyTrust() {
             <a
               href={PHONE_TEL}
               data-gtm="cta_tel_support"
-              className="relative mt-3 flex items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/40 bg-gradient-to-b from-lux-green-2 via-lux-green to-[#0c2c1c] px-4 py-[clamp(9px,2.7vw,13px)] text-white shadow-[0_10px_24px_rgba(18,61,40,0.45)] ring-1 ring-lux-gold/70 transition-[filter] active:brightness-95"
+              className="mcy-cta-nudge relative mt-3 flex min-h-[clamp(82px,20vw,96px)] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/40 bg-gradient-to-b from-lux-green-2 via-lux-green to-[#0c2c1c] px-4 py-[clamp(9px,2.7vw,13px)] text-white shadow-[0_10px_24px_rgba(18,61,40,0.45)] ring-1 ring-lux-gold/70 transition-[filter] active:brightness-95"
             >
               <PillGloss />
               <span className="relative min-w-0 text-center leading-none">
@@ -327,7 +327,8 @@ export default function McyTrust() {
               target="_blank"
               rel="noopener noreferrer"
               data-gtm="cta_line_support"
-              className="relative mt-3 flex items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-lux-gold/50 bg-gradient-to-b from-[#37d857] to-[#06a32a] px-4 py-[clamp(8px,2.4vw,12px)] text-white shadow-[0_8px_20px_rgba(6,163,42,0.4)] transition-[filter] active:brightness-90"
+              style={{ animationDelay: "0.5s" }}
+              className="mcy-cta-nudge relative mt-3 flex min-h-[clamp(82px,20vw,96px)] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-lux-gold/50 bg-gradient-to-b from-[#37d857] to-[#06a32a] px-4 py-[clamp(8px,2.4vw,12px)] text-white shadow-[0_8px_20px_rgba(6,163,42,0.4)] transition-[filter] active:brightness-90"
             >
               <PillGloss />
               <span className="relative grid h-[clamp(22px,6.2vw,30px)] w-[clamp(22px,6.2vw,30px)] shrink-0 place-items-center rounded-full bg-white text-[clamp(5px,1.4vw,7px)] font-black text-[#06a32a]">

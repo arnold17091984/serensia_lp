@@ -150,7 +150,8 @@ export function LuxCtaPill({
       data-gtm={gtm}
       aria-label={ariaLabel}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-      className={`relative flex min-h-[clamp(74px,21vw,92px)] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/40 bg-gradient-to-b ${bg} px-4 py-[clamp(8px,2.4vw,12px)] text-white shadow-[0_9px_22px_rgba(18,61,40,0.34)] ring-1 ring-lux-gold/70 transition-[filter] active:brightness-95`}
+      style={{ animationDelay: isPhone ? "0s" : "0.5s" }}
+      className={`mcy-cta-nudge relative flex min-h-[clamp(74px,21vw,92px)] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/40 bg-gradient-to-b ${bg} px-4 py-[clamp(8px,2.4vw,12px)] text-white shadow-[0_9px_22px_rgba(18,61,40,0.34)] ring-1 ring-lux-gold/70 transition-[filter] active:brightness-95`}
     >
       <span aria-hidden className="pointer-events-none absolute inset-x-[6%] top-[3px] h-[46%] rounded-full bg-gradient-to-b from-white/35 to-transparent" />
       {isPhone ? (

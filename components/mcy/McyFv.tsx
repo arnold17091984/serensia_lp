@@ -12,14 +12,15 @@ import { LINE_URL, PHONE_TEL } from "./McyHeader";
  * bottom sticky bar auto-hide while the FV is visible.
  */
 
+/**
+ * A bright diagonal band that sweeps across the whole button (`.mcy-shine`).
+ * Covers the full slice so the glint clearly crosses the button artwork.
+ */
 function Shine({ delay = "0s" }: Readonly<{ delay?: string }>) {
   return (
-    <span
-      aria-hidden="true"
-      className="pointer-events-none absolute inset-y-[6px] inset-x-[2.6%] overflow-hidden rounded-[16px]"
-    >
+    <span aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
       <span
-        className="mcy-shine absolute inset-y-0 left-0 w-[26%] bg-gradient-to-r from-transparent via-white/70 to-transparent"
+        className="mcy-shine absolute inset-y-[-20%] left-0 w-[34%] bg-gradient-to-r from-transparent via-white/85 to-transparent"
         style={{ animationDelay: delay }}
       />
     </span>
@@ -33,7 +34,8 @@ export default function McyFv() {
         孤独死・事故現場の特殊清掃専門 セレンシア｜東京・神奈川 全域対応・最短即日で現地確認
       </h1>
 
-      <div data-cta-section className="flex w-full flex-col gap-[clamp(5px,1.7vw,10px)]">
+      {/* slices sit flush — the KV artwork already bakes in the spacing */}
+      <div data-cta-section className="flex w-full flex-col">
         {/* top: header + 全域対応 + headline + 代表 太田 + 4 benefits */}
         <img
           src="/img/kv_top.webp"

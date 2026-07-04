@@ -73,7 +73,7 @@ export default function McyCta() {
             <a
               href={PHONE_TEL}
               data-gtm="cta_tel_section"
-              className="relative mt-4 flex items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-lux-gold/70 bg-gradient-to-b from-lux-green-2 via-lux-green to-[#0c2c1c] px-3 py-[clamp(9px,2.7vw,13px)] text-white shadow-[0_10px_24px_rgba(18,61,40,0.45)] transition-[filter] active:brightness-95"
+              className="mcy-cta-nudge relative mt-4 flex min-h-[clamp(82px,20vw,96px)] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-lux-gold/70 bg-gradient-to-b from-lux-green-2 via-lux-green to-[#0c2c1c] px-3 py-[clamp(9px,2.7vw,13px)] text-white shadow-[0_10px_24px_rgba(18,61,40,0.45)] transition-[filter] active:brightness-95"
             >
               <span aria-hidden="true" className="pointer-events-none absolute inset-[3px] rounded-full border border-white/40" />
               <span aria-hidden="true" className="pointer-events-none absolute inset-x-[10%] top-[4px] h-[34%] rounded-full bg-gradient-to-b from-white/40 to-white/0" />
@@ -105,7 +105,8 @@ export default function McyCta() {
               target="_blank"
               rel="noopener noreferrer"
               data-gtm="cta_line_section"
-              className="relative mt-3 flex items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-lux-gold/70 bg-gradient-to-b from-[#37d857] to-[#06a32a] px-3 py-[clamp(9px,2.7vw,13px)] text-white shadow-[0_10px_24px_rgba(6,163,42,0.4)] transition-[filter] active:brightness-90"
+              style={{ animationDelay: "0.5s" }}
+              className="mcy-cta-nudge relative mt-3 flex min-h-[clamp(82px,20vw,96px)] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-lux-gold/70 bg-gradient-to-b from-[#37d857] to-[#06a32a] px-3 py-[clamp(9px,2.7vw,13px)] text-white shadow-[0_10px_24px_rgba(6,163,42,0.4)] transition-[filter] active:brightness-90"
             >
               <span aria-hidden="true" className="pointer-events-none absolute inset-[3px] rounded-full border border-white/50" />
               <span aria-hidden="true" className="pointer-events-none absolute inset-x-[10%] top-[4px] h-[34%] rounded-full bg-gradient-to-b from-white/45 to-white/0" />

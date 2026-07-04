@@ -198,7 +198,7 @@ export default function McyClosing() {
               <a
                 href={PHONE_TEL}
                 data-gtm="cta_tel_faq"
-                className="relative flex min-h-[48px] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/40 bg-gradient-to-b from-lux-green-2 via-lux-green to-[#0c2c1c] px-4 py-[10px] text-white shadow-[0_6px_16px_rgba(18,61,40,0.4)] ring-1 ring-lux-gold/70 transition-[filter] active:brightness-95"
+                className="mcy-cta-nudge relative flex min-h-[clamp(56px,15vw,66px)] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/40 bg-gradient-to-b from-lux-green-2 via-lux-green to-[#0c2c1c] px-4 py-[10px] text-white shadow-[0_6px_16px_rgba(18,61,40,0.4)] ring-1 ring-lux-gold/70 transition-[filter] active:brightness-95"
               >
                 <span aria-hidden="true" className="pointer-events-none absolute inset-x-[6%] top-[3px] h-[42%] rounded-full bg-gradient-to-b from-white/35 to-transparent" />
                 <svg viewBox="0 0 24 24" className="h-[clamp(15px,4vw,18px)] w-[clamp(15px,4vw,18px)] shrink-0" fill="currentColor" aria-hidden="true">
@@ -218,7 +218,8 @@ export default function McyClosing() {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-gtm="cta_line_faq"
-                className="relative flex min-h-[48px] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-lux-gold/50 bg-gradient-to-b from-[#37d857] to-[#06a32a] px-4 py-[10px] text-white shadow-[0_6px_16px_rgba(6,163,42,0.35)] transition-[filter] active:brightness-90"
+                style={{ animationDelay: "0.5s" }}
+                className="mcy-cta-nudge relative flex min-h-[clamp(56px,15vw,66px)] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-lux-gold/50 bg-gradient-to-b from-[#37d857] to-[#06a32a] px-4 py-[10px] text-white shadow-[0_6px_16px_rgba(6,163,42,0.35)] transition-[filter] active:brightness-90"
               >
                 <span aria-hidden="true" className="pointer-events-none absolute inset-x-[6%] top-[3px] h-[42%] rounded-full bg-gradient-to-b from-white/40 to-transparent" />
                 <span className="grid h-[clamp(24px,6.4vw,30px)] w-[clamp(24px,6.4vw,30px)] shrink-0 place-items-center rounded-full bg-white text-[clamp(6.5px,1.9vw,9px)] font-black text-[#06a32a] shadow-[0_2px_5px_rgba(0,0,0,0.18)]">

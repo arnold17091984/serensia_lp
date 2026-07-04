@@ -118,6 +118,36 @@ body {
   }
 }
 
+/* CTA attention "nudge" — a periodic horizontal sway that invites a tap */
+@keyframes mcyNudge {
+  0%,
+  70%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0);
+  }
+  76% {
+    transform: translate3d(-3px, 0, 0) rotate(-0.5deg) scale(1.015);
+  }
+  82% {
+    transform: translate3d(3px, 0, 0) rotate(0.5deg) scale(1.015);
+  }
+  88% {
+    transform: translate3d(-2px, 0, 0) rotate(-0.3deg) scale(1.008);
+  }
+  94% {
+    transform: translate3d(1px, 0, 0) rotate(0) scale(1);
+  }
+}
+.mcy-cta-nudge {
+  animation: mcyNudge 4s ease-in-out infinite;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .mcy-cta-nudge {
+    animation: none;
+  }
+}
+
 /* luxury theme — soft radial "window light" glow behind section headers */
 .lux-rays {
   background:

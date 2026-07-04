@@ -345,7 +345,7 @@ export default function McyPricing() {
               特殊清掃は50,000円〜。状況により大きく変わるため、写真からまず概算をお出しします。お見積り確定後の追加費用はありません。金額にご納得いただいてから作業を開始します。
             </p>
 
-            <div className="mt-3 rounded-full bg-gradient-to-b from-lux-gold-light via-lux-gold to-lux-gold-deep p-[2px] shadow-[0_10px_24px_rgba(6,163,42,0.34)]">
+            <div className="mcy-cta-nudge mt-3 rounded-full bg-gradient-to-b from-lux-gold-light via-lux-gold to-lux-gold-deep p-[2px] shadow-[0_10px_24px_rgba(6,163,42,0.34)]">
               <a
                 href={LINE_URL}
                 target="_blank"
