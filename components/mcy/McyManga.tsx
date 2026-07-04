@@ -35,13 +35,13 @@ const HEAD_COUNT = 2; // chapters shown before the "続きを読む" reveal
 function ChapterMarker({ no, title }: Readonly<{ no: number; title: string }>) {
   return (
     <div className="flex flex-col items-center text-center">
-      <span className="inline-flex items-center gap-[6px] rounded-full bg-gradient-to-r from-mcy-turq-bright via-mcy-turq to-mcy-turq-deep px-[clamp(12px,3.4vw,18px)] py-[clamp(5px,1.5vw,7px)] text-white shadow-[0_4px_10px_rgba(11,127,133,0.32)] ring-1 ring-white/60">
-        <span aria-hidden className="h-[6px] w-[6px] shrink-0 animate-pulse rounded-full bg-white" />
+      <span className="inline-flex items-center gap-[6px] rounded-full bg-gradient-to-r from-lux-green-2 to-lux-green px-[clamp(12px,3.4vw,18px)] py-[clamp(5px,1.5vw,7px)] text-white shadow-[0_4px_10px_rgba(18,61,40,0.32)] ring-1 ring-lux-gold/60">
+        <span aria-hidden className="h-[6px] w-[6px] shrink-0 animate-pulse rounded-full bg-lux-gold-light" />
         <span className="font-display text-[clamp(11px,3vw,14px)] font-black tracking-[0.08em]">
           第{no}話
         </span>
       </span>
-      <p className="mt-[6px] font-display text-[clamp(13px,3.7vw,17px)] font-black leading-snug text-mcy-navy [word-break:auto-phrase]">
+      <p className="mt-[6px] font-display text-[clamp(13px,3.7vw,17px)] font-black leading-snug text-lux-green-ink [word-break:auto-phrase]">
         {title}
       </p>
     </div>
@@ -82,7 +82,7 @@ function MangaPanel({ chapter, eager }: Readonly<{ chapter: Chapter; eager?: boo
           shown ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
         }`}
       >
-        <div className="overflow-hidden rounded-[18px] bg-white p-[clamp(4px,1.2vw,7px)] shadow-[0_14px_34px_rgba(18,58,92,0.18)] ring-1 ring-mcy-navy/5">
+        <div className="overflow-hidden rounded-[18px] bg-white p-[clamp(4px,1.2vw,7px)] shadow-[0_14px_34px_rgba(18,61,40,0.18)] ring-1 ring-lux-gold/30">
           <img
             src={chapter.src}
             alt={`セレンシア 第${chapter.no}話「${chapter.title}」`}
@@ -102,11 +102,11 @@ function MangaPanel({ chapter, eager }: Readonly<{ chapter: Chapter; eager?: boo
 function ChapterConnector() {
   return (
     <div aria-hidden="true" className="flex flex-col items-center py-[clamp(10px,3vw,16px)]">
-      <span className="h-[clamp(18px,5vw,28px)] w-[2px] rounded-full bg-gradient-to-b from-mcy-turq/50 to-mcy-turq-deep/50" />
-      <span className="my-[3px] text-[clamp(9px,2.5vw,11px)] font-bold tracking-[0.2em] text-mcy-turq-deep/70">
+      <span className="h-[clamp(18px,5vw,28px)] w-[2px] rounded-full bg-gradient-to-b from-lux-gold/60 to-lux-green/50" />
+      <span className="my-[3px] text-[clamp(9px,2.5vw,11px)] font-bold tracking-[0.2em] text-lux-green/70">
         つづく
       </span>
-      <span className="animate-bounce text-[clamp(12px,3.2vw,15px)] leading-none text-mcy-turq-deep/70">
+      <span className="animate-bounce text-[clamp(12px,3.2vw,15px)] leading-none text-lux-green/70">
         ▼
       </span>
     </div>
@@ -134,7 +134,7 @@ export default function McyManga() {
             type="button"
             onClick={() => setExpanded(true)}
             data-gtm="manga_read_more"
-            className="relative flex w-full max-w-[380px] flex-col items-center overflow-hidden rounded-full border-2 border-white/75 bg-gradient-to-b from-mcy-turq-bright via-mcy-turq to-mcy-turq-deep px-5 py-[clamp(11px,3.2vw,15px)] text-white shadow-[0_10px_24px_rgba(11,143,150,0.4)] ring-1 ring-mcy-gold/70 transition-[filter] active:brightness-90"
+            className="relative flex w-full max-w-[380px] flex-col items-center overflow-hidden rounded-full border-2 border-white/40 bg-gradient-to-b from-lux-green-2 via-lux-green to-[#0c2c1c] px-5 py-[clamp(11px,3.2vw,15px)] text-white shadow-[0_10px_24px_rgba(18,61,40,0.4)] ring-1 ring-lux-gold/70 transition-[filter] active:brightness-90"
           >
             <span
               aria-hidden
@@ -165,7 +165,7 @@ export default function McyManga() {
         <a
           href="#ryokin"
           data-gtm="manga_to_pricing"
-          className="inline-flex items-center gap-[6px] whitespace-nowrap rounded-full bg-mcy-turq-light px-[14px] py-[8px] text-[clamp(10.5px,3vw,13px)] font-bold text-mcy-turq-deep ring-1 ring-mcy-turq/25"
+          className="inline-flex items-center gap-[6px] whitespace-nowrap rounded-full bg-lux-cream px-[14px] py-[8px] text-[clamp(10.5px,3vw,13px)] font-bold text-lux-green ring-1 ring-lux-gold/40"
         >
           料金の目安を見る →
         </a>

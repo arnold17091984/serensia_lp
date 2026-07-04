@@ -77,6 +77,17 @@
   /* neutrals */
   --color-cream: #f6f3ec;
   --color-ink: #23241f;
+
+  /* ===== luxury green×gold (KV-matched body theme) ===== */
+  --color-lux-cream: #f6f1e6;
+  --color-lux-cream-2: #efe7d3;
+  --color-lux-green: #123d28; /* deep emerald — shields / banners / labels */
+  --color-lux-green-2: #1d5a3a; /* lighter emerald — gradient partner */
+  --color-lux-green-ink: #1a4a33; /* headings / accents on light ground */
+  --color-lux-gold: #c8a24e;
+  --color-lux-gold-deep: #9c7729;
+  --color-lux-gold-light: #ecdba8;
+  --color-lux-crimson: #c0202a; /* 参考価格 numbers */
 }
 
 html {
@@ -105,4 +116,28 @@ body {
   .mcy-shine {
     animation: none;
   }
+}
+
+/* luxury theme — soft radial "window light" glow behind section headers */
+.lux-rays {
+  background:
+    radial-gradient(
+      120% 80% at 50% -8%,
+      rgba(255, 255, 255, 0.95),
+      rgba(255, 255, 255, 0) 60%
+    ),
+    radial-gradient(
+      90% 60% at 88% 4%,
+      rgba(200, 162, 78, 0.14),
+      rgba(200, 162, 78, 0) 55%
+    ),
+    linear-gradient(180deg, var(--color-lux-cream), var(--color-lux-cream-2));
+}
+/* faint gold pin-dot grid for texture on cream grounds */
+.lux-dots {
+  background-image: radial-gradient(
+    rgba(200, 162, 78, 0.16) 1px,
+    transparent 1.5px
+  );
+  background-size: 18px 18px;
 }

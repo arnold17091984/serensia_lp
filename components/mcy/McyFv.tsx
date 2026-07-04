@@ -1,20 +1,22 @@
 import { LINE_URL, PHONE_TEL } from "./McyHeader";
 
 /**
- * First view — the approved KV design (kv.png) rendered as sliced pieces stacked
- * with a little breathing room between elements. The two design buttons stay as
- * the artwork; each is wrapped in a live, GTM-tracked link (cta_tel_fv /
- * cta_line_fv) and carries an animated diagonal shine sweep (.mcy-shine).
- * The KV keeps its own header, so the sticky McyHeader stays hidden at the top
- * and slides in on scroll. Baked copy kept crawlable via sr-only h1 + alt.
- * data-cta-section lets the bottom sticky bar auto-hide while the FV is visible.
+ * First view — the approved KV design (Downloads/kv.png) rendered as clean
+ * sliced pieces stacked with a little breathing room. The red phone button and
+ * green LINE button stay as the artwork; each is wrapped in a live, GTM-tracked
+ * link (cta_tel_fv / cta_line_fv) with an animated diagonal shine (.mcy-shine).
+ * The KV carries its own header, so the sticky McyHeader stays hidden at the top
+ * and slides in on scroll. The design's "マンガでわかる" heading is left off the
+ * slice and rendered by McyProblems instead (editable, theme-consistent).
+ * Baked copy kept crawlable via sr-only h1 + alt. data-cta-section lets the
+ * bottom sticky bar auto-hide while the FV is visible.
  */
 
 function Shine({ delay = "0s" }: Readonly<{ delay?: string }>) {
   return (
     <span
       aria-hidden="true"
-      className="pointer-events-none absolute inset-y-[5px] inset-x-[3.4%] overflow-hidden rounded-[16px]"
+      className="pointer-events-none absolute inset-y-[6px] inset-x-[2.6%] overflow-hidden rounded-[16px]"
     >
       <span
         className="mcy-shine absolute inset-y-0 left-0 w-[26%] bg-gradient-to-r from-transparent via-white/70 to-transparent"
@@ -26,18 +28,18 @@ function Shine({ delay = "0s" }: Readonly<{ delay?: string }>) {
 
 export default function McyFv() {
   return (
-    <section className="relative w-full overflow-hidden bg-[#f7f5ef]">
+    <section className="relative w-full overflow-hidden bg-lux-cream">
       <h1 className="sr-only">
         孤独死・事故現場の特殊清掃専門 セレンシア｜東京・神奈川 全域対応・最短即日で現地確認
       </h1>
 
       <div data-cta-section className="flex w-full flex-col gap-[clamp(5px,1.7vw,10px)]">
-        {/* top: header + headline + 代表 太田 + 4 benefits */}
+        {/* top: header + 全域対応 + headline + 代表 太田 + 4 benefits */}
         <img
           src="/img/kv_top.webp"
-          alt="孤独死・事故現場の特殊清掃専門 セレンシア。東京・神奈川 全域対応。臭い・体液汚染を最短即日で現地確認。代表 太田が対応。相談・見積り無料／追加料金なし／立ち会い不要／近隣配慮・秘密厳守。"
-          width={941}
-          height={985}
+          alt="特殊清掃・遺品整理 セレンシア。東京・神奈川 全域対応。孤独死・事故現場の特殊清掃専門。臭い・体液汚染を最短即日で現地確認。代表 太田が対応。相談・見積り無料／追加料金なし／立ち会い不要／近隣配慮・秘密厳守。"
+          width={753}
+          height={877}
           loading="eager"
           decoding="async"
           fetchPriority="high"
@@ -45,14 +47,26 @@ export default function McyFv() {
         />
 
         {/* phone button (design piece) — tappable + shine */}
-        <a href={PHONE_TEL} data-gtm="cta_tel_fv" aria-label="電話で今すぐ相談する 03-4400-2098（受付 9:00〜21:00 年中無休）" className="relative block overflow-hidden transition-[filter] active:brightness-95">
-          <img src="/img/kv_btn_phone.webp" alt="電話で今すぐ相談する 03-4400-2098" width={941} height={139} loading="eager" decoding="async" className="block w-full" />
+        <a
+          href={PHONE_TEL}
+          data-gtm="cta_tel_fv"
+          aria-label="電話で今すぐ相談する 03-4400-2098（受付 9:00〜21:00 年中無休）"
+          className="relative block overflow-hidden transition-[filter] active:brightness-95"
+        >
+          <img src="/img/kv_btn_phone.webp" alt="電話で今すぐ相談する 03-4400-2098" width={753} height={140} loading="eager" decoding="async" className="block w-full" />
           <Shine />
         </a>
 
         {/* LINE button (design piece) — tappable + shine (offset so it alternates) */}
-        <a href={LINE_URL} target="_blank" rel="noopener noreferrer" data-gtm="cta_line_fv" aria-label="LINEで写真を送って相談する（写真相談・概算見積り・24時間受付）" className="relative block overflow-hidden transition-[filter] active:brightness-95">
-          <img src="/img/kv_btn_line.webp" alt="LINEで写真を送るだけ 写真相談・概算見積り" width={941} height={178} loading="eager" decoding="async" className="block w-full" />
+        <a
+          href={LINE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-gtm="cta_line_fv"
+          aria-label="LINEで写真を送って相談する（写真相談・概算見積り・24時間受付）"
+          className="relative block overflow-hidden transition-[filter] active:brightness-95"
+        >
+          <img src="/img/kv_btn_line.webp" alt="LINEで写真を送るだけ 写真相談・概算見積り" width={753} height={142} loading="eager" decoding="async" className="block w-full" />
           <Shine delay="1.8s" />
         </a>
 
@@ -60,19 +74,30 @@ export default function McyFv() {
         <img
           src="/img/kv_reviews.webp"
           alt="Googleクチコミ高評価 4.9／5.0（クチコミ120件以上）。ご相談実績2,000件以上。ご遺族・大家様・管理会社様から多くご相談いただいています。"
-          width={941}
-          height={118}
+          width={753}
+          height={171}
           loading="eager"
           decoding="async"
           className="block w-full"
         />
 
-        {/* worry summary + 「どんな状況でも」band */}
+        {/* こんなお悩みをすべて解決します！ + 6 checks */}
         <img
           src="/img/kv_worries.webp"
-          alt="こんなお悩みをすべて解決します。部屋に入れないほど臭いが強い、何から始めればいいか分からない、遠方で立ち会えない、近隣に知られたくない、大家・管理会社から急ぎで対応を求められている、費用がどれくらいか不安。どんな状況でも、まずはご相談ください。"
-          width={941}
-          height={252}
+          alt="こんなお悩みをすべて解決します。部屋に入れないほど臭いが強い、近隣に知られず静かに対応してほしい、孤独死・事故現場で何から始めればいいか分からない、大家・管理会社から急ぎで対応を求められている、遠方で立ち会えない、費用がどれくらいか不安。"
+          width={753}
+          height={284}
+          loading="lazy"
+          decoding="async"
+          className="block w-full"
+        />
+
+        {/* reassurance: 専門スタッフが丁寧に対応します */}
+        <img
+          src="/img/kv_reassure.webp"
+          alt="どんな状況でも、まずはご相談ください。専門スタッフが丁寧に対応します。"
+          width={753}
+          height={192}
           loading="lazy"
           decoding="async"
           className="block w-full"
