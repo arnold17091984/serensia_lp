@@ -28,7 +28,7 @@ function Laurel({ flip }: Readonly<{ flip?: boolean }>) {
 
 export default function McyFooter() {
   return (
-    <footer className="relative w-full overflow-hidden bg-gradient-to-b from-mcy-navy to-mcy-navy-deep pb-28 text-white">
+    <footer className="relative w-full overflow-hidden bg-gradient-to-b from-lux-green to-[#0a2c1c] pb-28 text-white">
       {/* gold double rule */}
       <div aria-hidden="true" className="relative z-10">
         <div className="h-[3px] w-full bg-gradient-to-r from-mcy-gold-deep via-mcy-gold-light to-mcy-gold-deep" />
@@ -37,8 +37,8 @@ export default function McyFooter() {
 
       {/* layered background: turquoise halo behind brand / faint gold glow / micro dots */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-[-6%] h-[clamp(200px,58vw,320px)] w-[clamp(250px,76vw,410px)] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(43,199,205,0.16),transparent_65%)]" />
-        <div className="absolute -left-[14%] bottom-[4%] h-[clamp(140px,42vw,230px)] w-[clamp(140px,42vw,230px)] rounded-full bg-[radial-gradient(circle,rgba(201,162,79,0.12),transparent_65%)]" />
+        <div className="absolute left-1/2 top-[-6%] h-[clamp(200px,58vw,320px)] w-[clamp(250px,76vw,410px)] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(74,138,96,0.22),transparent_65%)]" />
+        <div className="absolute -left-[14%] bottom-[4%] h-[clamp(140px,42vw,230px)] w-[clamp(140px,42vw,230px)] rounded-full bg-[radial-gradient(circle,rgba(200,162,78,0.14),transparent_65%)]" />
         <div className="absolute inset-0 [background-image:radial-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:20px_20px]" />
       </div>
 
