@@ -48,31 +48,62 @@ export default function McyFv() {
           className="block w-full"
         />
 
-        {/* CTA buttons — only THIS block flags data-cta-section, so the bottom
-            sticky bar re-appears the moment the hero buttons scroll off (no dead zone) */}
-        <div data-cta-section>
-          {/* phone button (design piece) — tappable + shine */}
+        {/* CTA buttons — reproduced in HTML/CSS (phone number is real, selectable,
+            crawlable text; copy is editable — 不定休 etc). Only THIS block flags
+            data-cta-section so the sticky bar re-appears once the buttons scroll off. */}
+        <div data-cta-section className="flex flex-col gap-[clamp(6px,1.8vw,10px)] px-[clamp(6px,1.8vw,12px)] py-[clamp(6px,1.8vw,10px)]">
+          {/* phone — red glossy button */}
           <a
             href={PHONE_TEL}
             data-gtm="cta_tel_fv"
             aria-label="電話で今すぐ相談する 03-4400-2098（受付 9:00〜21:00 不定休）"
-            className="relative block overflow-hidden transition-[filter] active:brightness-95"
+            className="relative block rounded-[16px] bg-gradient-to-b from-[#e7be77] via-[#c99a51] to-[#9c7233] p-[2px] shadow-[0_7px_16px_rgba(150,20,10,0.3)] transition-[filter] active:brightness-95"
           >
-            <img src="/img/kv_btn_phone.webp" alt="電話で今すぐ相談する 03-4400-2098" width={753} height={140} loading="eager" decoding="async" className="block w-full" />
-            <Shine />
+            <span className="relative flex min-h-[clamp(70px,18.2vw,82px)] items-center gap-[clamp(6px,2vw,10px)] overflow-hidden rounded-[14px] bg-gradient-to-b from-[#fc4a12] via-[#ee2809] to-[#d20601] px-[clamp(10px,3vw,16px)] py-[clamp(9px,2.5vw,13px)] shadow-[inset_0_2px_2px_rgba(255,255,255,0.28),inset_0_-4px_8px_rgba(110,0,0,0.45)]">
+              <span aria-hidden="true" className="pointer-events-none absolute inset-x-[2.5%] top-[3px] h-[36%] rounded-full bg-gradient-to-b from-white/45 to-transparent" />
+              <Shine />
+              <span className="relative grid h-[clamp(38px,10vw,48px)] w-[clamp(38px,10vw,48px)] shrink-0 place-items-center rounded-full bg-white shadow-[0_2px_5px_rgba(0,0,0,0.25)]">
+                <svg viewBox="0 0 24 24" className="h-[54%] w-[54%]" fill="#e01a06" aria-hidden="true">
+                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                </svg>
+              </span>
+              <span className="relative min-w-0 flex-1 text-center leading-none text-white [text-shadow:0_1px_2px_rgba(120,0,0,0.5)]">
+                <span className="block text-[clamp(11px,3vw,14px)] font-bold tracking-[0.02em]">電話で今すぐ相談する</span>
+                <span className="mt-[3px] block text-[clamp(22px,6.4vw,31px)] font-black tracking-[-0.01em]">03-4400-2098</span>
+                <span className="mt-[3px] block text-[clamp(8.5px,2.4vw,11px)] font-bold opacity-95">受付時間 9:00〜21:00 / 不定休</span>
+              </span>
+              <svg viewBox="0 0 24 24" className="relative h-[clamp(18px,5vw,26px)] w-[clamp(18px,5vw,26px)] shrink-0" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="m9 5 7 7-7 7" />
+              </svg>
+            </span>
           </a>
 
-          {/* LINE button (design piece) — tappable + shine (offset so it alternates) */}
+          {/* LINE — green glossy button */}
           <a
             href={LINE_URL}
             target="_blank"
             rel="noopener noreferrer"
             data-gtm="cta_line_fv"
             aria-label="LINEで写真を送って相談する（写真相談・概算見積り・24時間受付）"
-            className="relative block overflow-hidden transition-[filter] active:brightness-95"
+            className="relative block rounded-[16px] bg-gradient-to-b from-[#e7be77] via-[#c99a51] to-[#9c7233] p-[2px] shadow-[0_7px_16px_rgba(6,120,20,0.28)] transition-[filter] active:brightness-95"
           >
-            <img src="/img/kv_btn_line.webp" alt="LINEで写真を送るだけ 写真相談・概算見積り" width={753} height={142} loading="eager" decoding="async" className="block w-full" />
-            <Shine delay="1.8s" />
+            <span className="relative flex min-h-[clamp(70px,18.2vw,82px)] items-center gap-[clamp(6px,2vw,10px)] overflow-hidden rounded-[14px] bg-gradient-to-b from-[#6ccf20] via-[#28a516] to-[#017a0c] px-[clamp(10px,3vw,16px)] py-[clamp(9px,2.5vw,13px)] shadow-[inset_0_2px_2px_rgba(255,255,255,0.28),inset_0_-4px_8px_rgba(0,70,5,0.45)]">
+              <span aria-hidden="true" className="pointer-events-none absolute inset-x-[2.5%] top-[3px] h-[36%] rounded-full bg-gradient-to-b from-white/40 to-transparent" />
+              <Shine delay="1.8s" />
+              <span className="relative grid h-[clamp(38px,10vw,48px)] w-[clamp(38px,10vw,48px)] shrink-0 place-items-center rounded-[12px] bg-white shadow-[0_2px_5px_rgba(0,0,0,0.22)]">
+                <span className="rounded-[7px] bg-[#06c755] px-[clamp(4px,1.3vw,6px)] py-[clamp(2px,0.8vw,4px)] text-[clamp(7px,2vw,9.5px)] font-black leading-none text-white">
+                  LINE
+                </span>
+              </span>
+              <span className="relative min-w-0 flex-1 text-center leading-none text-white [text-shadow:0_1px_2px_rgba(0,70,5,0.5)]">
+                <span className="block text-[clamp(11px,3vw,14px)] font-bold tracking-[0.02em]">LINEで写真を送るだけ</span>
+                <span className="mt-[3px] block text-[clamp(18px,5.2vw,25px)] font-black tracking-[0.01em]">写真相談・概算見積り</span>
+                <span className="mt-[3px] block text-[clamp(8.5px,2.4vw,11px)] font-bold opacity-95">簡単・安心・すぐにご回答します</span>
+              </span>
+              <svg viewBox="0 0 24 24" className="relative h-[clamp(18px,5vw,26px)] w-[clamp(18px,5vw,26px)] shrink-0" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="m9 5 7 7-7 7" />
+              </svg>
+            </span>
           </a>
         </div>
 
