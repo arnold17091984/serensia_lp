@@ -40,8 +40,8 @@ export default function McyFv() {
         <img
           src="/img/kv_top.webp"
           alt="特殊清掃・遺品整理 セレンシア。東京・神奈川 全域対応。孤独死・事故現場の特殊清掃専門。臭い・体液汚染を最短即日で現地確認。代表 太田が対応。相談・見積り無料／追加料金なし／立ち会い不要／近隣配慮・秘密厳守。"
-          width={753}
-          height={877}
+          width={754}
+          height={862}
           loading="eager"
           decoding="async"
           fetchPriority="high"
@@ -57,7 +57,7 @@ export default function McyFv() {
             href={PHONE_TEL}
             data-gtm="cta_tel_fv"
             aria-label="電話で今すぐ相談する 03-4400-2098（受付 9:00〜21:00 不定休）"
-            className="relative block rounded-[18px] bg-gradient-to-b from-[#ffce7e] via-[#f2a63e] to-[#f8c94e] px-[2px] pt-[2px] pb-[4px] shadow-[0_7px_16px_rgba(150,20,10,0.3)] transition-[filter] active:brightness-95"
+            className="relative block rounded-[18px] bg-gradient-to-b from-[#fff3ac] via-[#f7d63f] to-[#e3b524] px-[2px] pt-[2px] pb-[4px] shadow-[0_7px_16px_rgba(150,20,10,0.3)] transition-[filter] active:brightness-95"
           >
             <span className="relative flex min-h-[clamp(72px,19vw,86px)] items-center gap-[clamp(7px,2.2vw,12px)] overflow-hidden rounded-[15px] bg-gradient-to-b from-[#fe4415] via-[#ee2b0a] to-[#d10405] px-[clamp(10px,3vw,16px)] py-[clamp(8px,2.2vw,12px)] shadow-[inset_0_2px_2px_rgba(255,255,255,0.3),inset_0_-4px_9px_rgba(120,0,0,0.45)]">
               <span aria-hidden="true" className="pointer-events-none absolute inset-x-[2.5%] top-[2px] h-[38%] rounded-full bg-gradient-to-b from-white/45 to-transparent" />
@@ -85,7 +85,7 @@ export default function McyFv() {
             rel="noopener noreferrer"
             data-gtm="cta_line_fv"
             aria-label="LINEで写真を送って相談する（写真相談・概算見積り・24時間受付）"
-            className="relative block rounded-[18px] bg-gradient-to-b from-[#ffce7e] via-[#f2a63e] to-[#f8c94e] px-[2px] pt-[2px] pb-[4px] shadow-[0_7px_16px_rgba(6,120,20,0.28)] transition-[filter] active:brightness-95"
+            className="relative block rounded-[18px] bg-gradient-to-b from-[#fff3ac] via-[#f7d63f] to-[#e3b524] px-[2px] pt-[2px] pb-[4px] shadow-[0_7px_16px_rgba(6,120,20,0.28)] transition-[filter] active:brightness-95"
           >
             <span className="relative flex min-h-[clamp(72px,19vw,86px)] items-center gap-[clamp(7px,2.2vw,12px)] overflow-hidden rounded-[15px] bg-gradient-to-b from-[#63ca1a] via-[#28a414] to-[#017c0e] px-[clamp(10px,3vw,16px)] py-[clamp(8px,2.2vw,12px)] shadow-[inset_0_2px_2px_rgba(255,255,255,0.3),inset_0_-4px_9px_rgba(0,70,5,0.45)]">
               <span aria-hidden="true" className="pointer-events-none absolute inset-x-[2.5%] top-[2px] h-[38%] rounded-full bg-gradient-to-b from-white/40 to-transparent" />
@@ -172,23 +172,12 @@ export default function McyFv() {
           </div>
         </div>
 
-        {/* こんなお悩みをすべて解決します！ + 6 checks */}
+        {/* こんなお悩みをすべて解決します！ + reassurance (専門スタッフが丁寧に対応します) */}
         <img
-          src="/img/kv_worries.webp"
-          alt="こんなお悩みをすべて解決します。部屋に入れないほど臭いが強い、近隣に知られず静かに対応してほしい、孤独死・事故現場で何から始めればいいか分からない、大家・管理会社から急ぎで対応を求められている、遠方で立ち会えない、費用がどれくらいか不安。"
-          width={753}
-          height={284}
-          loading="lazy"
-          decoding="async"
-          className="block w-full"
-        />
-
-        {/* reassurance: 専門スタッフが丁寧に対応します */}
-        <img
-          src="/img/kv_reassure.webp"
-          alt="どんな状況でも、まずはご相談ください。専門スタッフが丁寧に対応します。"
-          width={753}
-          height={192}
+          src="/img/kv_bottom.webp"
+          alt="こんなお悩みをすべて解決します。部屋に入れないほど臭いが強い、近隣に知られず静かに対応してほしい、孤独死・事故現場で何から始めればいいか分からない、大家・管理会社から急ぎで対応を求められている、遠方で立ち会えない、費用がどれくらいか不安。どんな状況でも、まずはご相談ください。専門スタッフが丁寧に対応します。"
+          width={754}
+          height={501}
           loading="lazy"
           decoding="async"
           className="block w-full"
