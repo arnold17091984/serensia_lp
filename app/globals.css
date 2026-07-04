@@ -87,3 +87,22 @@ body {
   background: #e9e7e2;
   color: var(--color-ink);
 }
+
+/* diagonal light sweep for the FV buttons (periodic glint) */
+@keyframes mcyShine {
+  0% {
+    transform: translateX(-140%) skewX(-18deg);
+  }
+  55%,
+  100% {
+    transform: translateX(520%) skewX(-18deg);
+  }
+}
+.mcy-shine {
+  animation: mcyShine 3.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .mcy-shine {
+    animation: none;
+  }
+}
