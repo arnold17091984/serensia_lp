@@ -1,33 +1,13 @@
 import { LINE_URL, PHONE_DISPLAY, PHONE_TEL } from "./McyHeader";
+import McyManga from "./McyManga";
 
 /**
- * No.33 — worries / solution / strengths / 6-step process / restoration goal.
+ * No.33 — worries (manga) / solution / strengths / 6-step process / restoration.
  * Layered grounds (blurred photo + white veil, sky gradient + dot grid),
  * navy mincho headings with turquoise ribbon kickers, gold diamond ornaments,
  * watermark English behind headings, deep-shadow white cards.
+ * The worries are told as a 5-chapter manga (McyManga) instead of a bullet list.
  */
-
-const WORRIES = [
-  ["部屋に入れない", "ほど臭いが強い"],
-  ["孤独死・事故現場", "で何から始めればいいか分からない"],
-  ["遠方", "で立ち会えない"],
-  ["", "近隣に知られず静かに対応してほしい"],
-  ["", "大家・管理会社から急ぎで対応を求められている"],
-  ["", "費用がどれくらいか不安"],
-] as const;
-
-/* extra note shown under specific worry rows (real, verified facts only) */
-const WORRY_NOTES: Readonly<Record<number, string>> = {
-  3: "※ロゴや社名の入った服装は避けてお伺いします",
-};
-const COST_WORRY_INDEX = 5;
-
-/* small live-photo thumbs cycled on the right edge of each worry pill */
-const WORRY_THUMBS = [
-  { src: "/img/hero_photo1.jpg", w: 300, h: 160 },
-  { src: "/img/hero_photo2.jpg", w: 420, h: 160 },
-  { src: "/img/hero_photo3.jpg", w: 280, h: 160 },
-] as const;
 
 const STRENGTH_CHECKS = [
   "体液が染みた床材の撤去",
@@ -130,56 +110,8 @@ export default function McyProblems() {
             すべて解決します！
           </RibbonHeading>
 
-          <ul className="mx-auto mt-[clamp(14px,4vw,22px)] flex max-w-[460px] flex-col gap-[clamp(8px,2.3vw,12px)]">
-            {WORRIES.map(([em, rest], i) => {
-              const thumb = WORRY_THUMBS[i % WORRY_THUMBS.length];
-              const note = WORRY_NOTES[i];
-              const isCost = i === COST_WORRY_INDEX;
-              return (
-                <li
-                  key={em + rest}
-                  className="flex items-center gap-[clamp(7px,2vw,11px)] rounded-xl border border-white/70 bg-white/90 py-[clamp(8px,2.3vw,12px)] pl-[clamp(10px,2.8vw,14px)] pr-[clamp(8px,2.3vw,12px)] shadow-[0_6px_18px_rgba(18,58,92,0.12)] backdrop-blur-[2px]"
-                >
-                  <Check />
-                  <span aria-hidden="true" className="h-[clamp(20px,5.6vw,26px)] w-px shrink-0 bg-mcy-turq/30" />
-                  <div className="min-w-0 flex-1">
-                    <p className="text-[clamp(11.5px,3.2vw,14px)] font-bold leading-[1.65] text-mcy-navy [word-break:auto-phrase]">
-                      {em && (
-                        <span className="text-mcy-turq-deep underline decoration-mcy-gold decoration-2 underline-offset-4">
-                          {em}
-                        </span>
-                      )}
-                      {rest}
-                    </p>
-                    {note && (
-                      <p className="mt-[3px] text-[clamp(9px,2.5vw,11px)] font-bold text-mcy-turq-deep [word-break:auto-phrase]">
-                        {note}
-                      </p>
-                    )}
-                  </div>
-                  {isCost ? (
-                    <a
-                      href="#ryokin"
-                      className="shrink-0 whitespace-nowrap rounded-full bg-mcy-turq-light px-[10px] py-[6px] text-[clamp(9.5px,2.7vw,12px)] font-bold text-mcy-turq-deep ring-1 ring-mcy-turq/25"
-                    >
-                      料金の目安を見る →
-                    </a>
-                  ) : (
-                    <img
-                      src={thumb.src}
-                      alt=""
-                      aria-hidden="true"
-                      width={thumb.w}
-                      height={thumb.h}
-                      loading="lazy"
-                      decoding="async"
-                      className="h-[clamp(38px,10.5vw,50px)] w-[clamp(52px,14.5vw,72px)] shrink-0 rounded-lg object-cover shadow-[0_2px_6px_rgba(18,58,92,0.18)] ring-1 ring-mcy-turq/20"
-                    />
-                  )}
-                </li>
-              );
-            })}
-          </ul>
+          {/* worries told as a 5-chapter manga (scroll-revealed, progressive) */}
+          <McyManga />
 
           {/* closing navy band → gold-rimmed rounded card */}
           <div className="relative mx-auto mt-[clamp(16px,4.4vw,24px)] max-w-[460px] overflow-hidden rounded-2xl border-2 border-mcy-gold/70 bg-gradient-to-br from-mcy-navy to-mcy-navy-deep px-4 py-[clamp(12px,3.2vw,17px)] shadow-[0_12px_30px_rgba(18,41,63,0.35)]">
