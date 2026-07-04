@@ -1,42 +1,34 @@
-import Hero from "@/components/Hero";
-import Kaiketsu from "@/components/Kaiketsu";
-import Ooya from "@/components/Ooya";
-import Support from "@/components/Support";
-import Shikaku from "@/components/Shikaku";
-import Ihin from "@/components/Ihin";
-import CtaSection from "@/components/CtaSection";
-import Jisseki from "@/components/Jisseki";
-import Faq from "@/components/Faq";
-import Nagare from "@/components/Nagare";
-import SiteFooter from "@/components/SiteFooter";
-import StickyCta from "@/components/StickyCta";
+import McyHeader from "@/components/mcy/McyHeader";
+import McyFv from "@/components/mcy/McyFv";
+import McyProblems from "@/components/mcy/McyProblems";
+import McyPricing from "@/components/mcy/McyPricing";
+import McyCta from "@/components/mcy/McyCta";
+import McyTrust from "@/components/mcy/McyTrust";
+import McyClosing from "@/components/mcy/McyClosing";
+import McyFooter from "@/components/mcy/McyFooter";
+import McyStickyCta from "@/components/mcy/McyStickyCta";
 
 /**
- * 縦1カラム再構築版LP。
- * 現行スワイプLPの縦チャプター順を踏襲し、横分岐（強み・遺品整理・実績2/3）を本線に統合:
- * FV → クチコミ → お悩み → 解決+強み → 大家様 → サポート体制 → 資格 → 遺品整理
- * → CTA → 実績・参考料金(1-3統合) → FAQ → ご依頼の流れ → CTA → フッター
+ * まーしー式AI-LP No.33「ターコイズ不動産土地活用フォト」文法での全面再構築版。
+ * 原稿: content/content.md（現行LPから抽出）。
+ * 配色: 白×ターコイズ×ネイビー×ゴールド／人物は生成しない／CTAは全て生きたHTML。
+ * 流れ: FV → 悩み → 解決・強み・工程 → 料金・実績 → CTA → 信頼形成 → FAQ → 流れ → CTA。
  */
 export default function Home() {
   return (
     <>
       <main className="relative mx-auto w-full max-w-[520px] bg-white shadow-xl">
-        <Hero />
-        <Kaiketsu />
-        {/* CV最適化: 専門家パネルの提言に基づき「価格・証拠」を前段へ配置
-            （悩み→解決→料金事例→CTA→信頼形成→FAQ→流れ→最終CTA） */}
-        <Jisseki />
-        <CtaSection />
-        <Ooya />
-        <Support />
-        <Shikaku />
-        <Ihin />
-        <Faq />
-        <Nagare />
-        <CtaSection />
-        <SiteFooter />
+        <McyHeader />
+        <McyFv />
+        <McyProblems />
+        <McyPricing />
+        <McyCta />
+        <McyTrust />
+        <McyClosing />
+        <McyCta />
+        <McyFooter />
       </main>
-      <StickyCta />
+      <McyStickyCta />
     </>
   );
 }

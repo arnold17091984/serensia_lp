@@ -16,6 +16,16 @@
   --color-crimson: #c0202a;
   --color-crimson-deep: #9d151e;
 
+  /* まーしー式 No.33 ターコイズ不動産土地活用フォト palette */
+  --color-mcy-turq: #12a5ab;
+  --color-mcy-turq-deep: #0b7f85;
+  --color-mcy-turq-light: #e9f7f8;
+  --color-mcy-navy: #1b3a5c;
+  --color-mcy-navy-deep: #12293f;
+  --color-mcy-gold: #c9a24f;
+  --color-mcy-gold-deep: #a5813a;
+  --color-mcy-gold-light: #f3e8cf;
+
   /* KV (key-visual reproduction) palette */
   --color-kv-bg: #0c3b23;
   --color-kv-bg2: #0a2f1c;
