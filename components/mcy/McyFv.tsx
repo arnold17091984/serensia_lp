@@ -91,9 +91,25 @@ export default function McyFv() {
               <span aria-hidden="true" className="pointer-events-none absolute inset-x-[2.5%] top-[3px] h-[36%] rounded-full bg-gradient-to-b from-white/40 to-transparent" />
               <Shine delay="1.8s" />
               <span className="relative grid h-[clamp(38px,10vw,48px)] w-[clamp(38px,10vw,48px)] shrink-0 place-items-center rounded-[12px] bg-white shadow-[0_2px_5px_rgba(0,0,0,0.22)]">
-                <span className="rounded-[7px] bg-[#06c755] px-[clamp(4px,1.3vw,6px)] py-[clamp(2px,0.8vw,4px)] text-[clamp(7px,2vw,9.5px)] font-black leading-none text-white">
-                  LINE
-                </span>
+                <svg viewBox="0 0 32 32" className="h-[82%] w-[82%]" aria-hidden="true">
+                  <path
+                    fill="#06C755"
+                    d="M16 3.2C8.3 3.2 2 8.3 2 14.5c0 5.6 5 10.2 11.7 11.1.46.1 1.08.3 1.24.69.14.35.09.9.05 1.25l-.2 1.2c-.06.35-.28 1.38 1.21.75 1.49-.62 8.03-4.73 10.96-8.1C29.9 20.9 31 18 31 14.5 31 8.3 24.7 3.2 16 3.2Z"
+                  />
+                  <text
+                    x="16"
+                    y="15.3"
+                    textAnchor="middle"
+                    dominantBaseline="central"
+                    fontFamily="Arial, Helvetica, sans-serif"
+                    fontWeight="800"
+                    fontSize="7.2"
+                    letterSpacing="-0.2"
+                    fill="#fff"
+                  >
+                    LINE
+                  </text>
+                </svg>
               </span>
               <span className="relative min-w-0 flex-1 text-center leading-none text-white [text-shadow:0_1px_2px_rgba(0,70,5,0.5)]">
                 <span className="block text-[clamp(11px,3vw,14px)] font-bold tracking-[0.02em]">LINEで写真を送るだけ</span>
@@ -107,16 +123,54 @@ export default function McyFv() {
           </a>
         </div>
 
-        {/* Google reviews + ご相談実績 */}
-        <img
-          src="/img/kv_reviews.webp"
-          alt="Googleクチコミ高評価 4.9／5.0（クチコミ120件以上）。ご相談実績2,000件以上。ご遺族・大家様・管理会社様から多くご相談いただいています。"
-          width={753}
-          height={171}
-          loading="eager"
-          decoding="async"
-          className="block w-full"
-        />
+        {/* Google reviews + ご相談実績 — coded (real, crawlable 5.0 / 167件) */}
+        <div className="grid grid-cols-2 gap-[clamp(6px,1.8vw,10px)] px-[clamp(6px,1.8vw,12px)] pb-[clamp(6px,1.8vw,10px)]">
+          {/* Google review card */}
+          <div className="flex flex-col justify-center rounded-[12px] border border-lux-gold/45 bg-white px-[clamp(8px,2.3vw,13px)] py-[clamp(9px,2.5vw,13px)] shadow-[0_2px_6px_rgba(18,61,40,0.1)]">
+            <div className="flex items-center gap-[clamp(3px,1vw,6px)]">
+              <svg viewBox="0 0 48 48" className="h-[clamp(15px,4.2vw,20px)] w-[clamp(15px,4.2vw,20px)] shrink-0" aria-hidden="true">
+                <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z" />
+                <path fill="#FF3D00" d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z" />
+                <path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238C29.211 35.091 26.715 36 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z" />
+                <path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303c-.792 2.237-2.231 4.166-4.087 5.571l6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z" />
+              </svg>
+              <span className="text-[clamp(9px,2.5vw,12px)] font-bold text-lux-green-ink [word-break:auto-phrase]">Google クチコミ高評価</span>
+            </div>
+            <div className="mt-[clamp(3px,1vw,5px)] flex items-center gap-[clamp(3px,1vw,6px)]">
+              <span aria-hidden="true" className="flex">
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <svg key={i} viewBox="0 0 24 24" className="h-[clamp(11px,3vw,15px)] w-[clamp(11px,3vw,15px)]" fill="#f6b500">
+                    <path d="M12 2l2.9 6.26L21.8 9l-5.1 4.55L18.2 20.4 12 16.9 5.8 20.4l1.5-6.85L2.2 9l6.9-.74z" />
+                  </svg>
+                ))}
+              </span>
+              <span className="font-display leading-none text-lux-green-ink">
+                <span className="text-[clamp(18px,5vw,24px)] font-black">5.0</span>
+                <span className="text-[clamp(9px,2.5vw,12px)] font-bold text-lux-green-ink/70">/5.0</span>
+              </span>
+            </div>
+            <span className="mt-[clamp(3px,1vw,5px)] text-[clamp(8.5px,2.4vw,11px)] font-bold text-lux-green-ink/80">クチコミ167件以上</span>
+          </div>
+
+          {/* record card */}
+          <div className="flex flex-col justify-center rounded-[12px] border border-lux-gold/45 bg-white px-[clamp(8px,2.3vw,13px)] py-[clamp(9px,2.5vw,13px)] shadow-[0_2px_6px_rgba(18,61,40,0.1)]">
+            <div className="flex items-center gap-[clamp(4px,1.4vw,8px)]">
+              <svg viewBox="0 0 24 24" className="h-[clamp(20px,5.6vw,28px)] w-[clamp(20px,5.6vw,28px)] shrink-0 fill-lux-green" aria-hidden="true">
+                <circle cx="7" cy="7" r="2.6" />
+                <circle cx="17" cy="7" r="2.6" />
+                <circle cx="12" cy="6" r="3" />
+                <path d="M2.5 19c0-2.9 2-4.8 4.5-4.8 1 0 1.9.3 2.6.8-1 1.1-1.6 2.5-1.7 4H2.5zM15.4 15c.7-.5 1.6-.8 2.6-.8 2.5 0 4.5 1.9 4.5 4.8h-5.4c-.1-1.5-.7-2.9-1.7-4zM12 13.4c3 0 5.4 2.3 5.4 5.6H6.6c0-3.3 2.4-5.6 5.4-5.6z" />
+              </svg>
+              <span className="leading-tight">
+                <span className="block text-[clamp(8.5px,2.4vw,11px)] font-bold text-lux-green-ink">ご相談実績</span>
+                <span className="block font-display text-[clamp(15px,4.3vw,20px)] font-black text-lux-gold-deep">2,000件以上</span>
+              </span>
+            </div>
+            <span className="mt-[clamp(3px,1vw,5px)] block text-[clamp(8px,2.3vw,10.5px)] font-medium leading-[1.5] text-lux-green-ink/80 [word-break:auto-phrase]">
+              ご遺族・大家様・管理会社様から多くご相談いただいています
+            </span>
+          </div>
+        </div>
 
         {/* こんなお悩みをすべて解決します！ + 6 checks */}
         <img

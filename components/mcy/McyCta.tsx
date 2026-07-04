@@ -53,7 +53,7 @@ export default function McyCta() {
 
             {/* social-proof recap at the decision point (verified figures) */}
             <p className="mt-2 text-center text-[clamp(10px,2.8vw,12.5px)] font-bold leading-[1.7] text-lux-green-ink">
-              Googleクチコミ <span className="text-lux-gold-deep">★</span>4.9／120件以上｜ご相談実績2,000件以上
+              Googleクチコミ <span className="text-lux-gold-deep">★</span>5.0／167件｜ご相談実績2,000件以上
             </p>
 
             <ul className="mx-auto mt-3 w-fit divide-y divide-lux-green/10 text-left">
