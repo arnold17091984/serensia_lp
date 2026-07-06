@@ -156,23 +156,23 @@ export default function McyProblems() {
           </div>
 
           <img
-            src="/img/kaiketsu_photo.jpg"
-            alt="特殊清掃の作業風景"
-            width={948}
-            height={188}
+            src="/img/work_scene.webp"
+            alt="防護服の専門スタッフによる特殊清掃の作業風景（床面の汚染除去）"
+            width={1200}
+            height={800}
             loading="lazy"
             decoding="async"
-            className="mt-[clamp(14px,3.8vw,20px)] w-full rounded-[14px] border-4 border-white object-cover shadow-[0_12px_28px_rgba(18,61,40,0.2)] ring-1 ring-lux-gold/40"
+            className="mt-[clamp(14px,3.8vw,20px)] h-[clamp(160px,44vw,240px)] w-full rounded-[14px] border-4 border-white object-cover object-center shadow-[0_12px_28px_rgba(18,61,40,0.2)] ring-1 ring-lux-gold/40"
           />
 
           <GoldCard className="mt-[clamp(16px,4.4vw,24px)] overflow-hidden">
             <div className="overflow-hidden rounded-[18px]">
               <div className="relative">
                 <img
-                  src="/img/kaiketsu_s2.jpg"
-                  alt="特殊清掃の現場写真（浴室・玄関・床の汚染箇所）"
-                  width={1000}
-                  height={175}
+                  src="/img/work_genba.webp"
+                  alt="特殊清掃の現場写真（腐敗した浴室・玄関・床の汚染箇所）"
+                  width={1276}
+                  height={420}
                   loading="lazy"
                   decoding="async"
                   className="w-full object-cover"
@@ -290,13 +290,13 @@ export default function McyProblems() {
           {/* +α card: full-width photo with emerald scrim + gold badge overlay */}
           <div className="relative mx-auto mt-[clamp(14px,3.8vw,20px)] max-w-[460px] overflow-hidden rounded-[20px] shadow-[0_16px_38px_rgba(12,44,28,0.3)] ring-1 ring-lux-gold/50">
             <img
-              src="/img/kaiketsu_s4.jpg"
-              alt="専用コーティング剤を噴霧する作業"
-              width={370}
-              height={500}
+              src="/img/work_spray.webp"
+              alt="防護服の専門スタッフが専用薬剤を噴霧して消毒・コーティングする作業"
+              width={820}
+              height={1093}
               loading="lazy"
               decoding="async"
-              className="h-[clamp(158px,44vw,220px)] w-full object-cover object-center"
+              className="h-[clamp(158px,44vw,220px)] w-full object-cover object-top"
             />
             <span aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0a2c1b] via-[#0a2c1b]/72 to-transparent" />
             <span aria-hidden="true" className="pointer-events-none absolute -top-1/4 right-0 h-[150%] w-1/2 rotate-12 bg-gradient-to-r from-transparent via-white/10 to-transparent" />

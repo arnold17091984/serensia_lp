@@ -10,6 +10,9 @@
 *.pem
 npm-debug.log*
 
+# raw photo source (originals; only optimized webp under public/img are committed)
+/photos/
+
 # env
 .env*
 

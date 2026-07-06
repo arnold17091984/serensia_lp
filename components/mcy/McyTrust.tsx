@@ -205,7 +205,7 @@ export default function McyTrust() {
       {/* ===== owners ===== */}
       <section className="relative w-full overflow-hidden px-4 py-[clamp(24px,7vw,40px)]">
         {/* layered bg: blurred real photo + cream veil + soft gold glow */}
-        <div aria-hidden="true" className="absolute inset-0 scale-110 bg-[url(/img/ooya_photo.jpg)] bg-cover bg-center opacity-45 blur-[7px]" />
+        <div aria-hidden="true" className="absolute inset-0 scale-110 bg-[url(/img/owner_bg.webp)] bg-cover bg-center opacity-45 blur-[7px]" />
         <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-lux-cream/92 via-lux-cream/88 to-lux-cream-2/95" />
         <div aria-hidden="true" className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(200,162,78,0.24),transparent_70%)] blur-2xl" />
         <Sparkle className="absolute left-[6%] top-[clamp(14px,4vw,24px)] h-[clamp(12px,3.4vw,18px)] w-[clamp(12px,3.4vw,18px)] text-lux-gold/70" />
@@ -353,7 +353,7 @@ export default function McyTrust() {
       <section className="relative w-full overflow-hidden bg-lux-cream px-4 pb-[clamp(36px,10vw,54px)] pt-[clamp(24px,7vw,40px)]">
         {/* bottom layer: blurred real photo fading into cream */}
         <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-[46%] overflow-hidden">
-          <div className="absolute inset-0 scale-110 bg-[url(/img/shikaku_photo.jpg)] bg-cover bg-center opacity-45 blur-[6px]" />
+          <div className="absolute inset-0 scale-110 bg-[url(/img/ihin_work.webp)] bg-cover bg-center opacity-45 blur-[6px]" />
           <div className="absolute inset-0 bg-gradient-to-b from-lux-cream via-lux-cream/85 to-lux-cream/65" />
         </div>
         <Sparkle className="absolute right-[7%] top-[clamp(16px,4.4vw,26px)] h-[clamp(12px,3.4vw,18px)] w-[clamp(12px,3.4vw,18px)] text-lux-gold/60" />
@@ -370,12 +370,12 @@ export default function McyTrust() {
           <div className="mx-auto mt-[clamp(14px,4vw,20px)] flex max-w-[460px] items-center gap-[clamp(12px,3.4vw,18px)] rounded-2xl border border-lux-gold/35 bg-white/75 p-[clamp(10px,2.8vw,14px)] shadow-[0_10px_26px_rgba(18,61,40,0.12)]">
             <img
               src="/img/daihyo_ota.webp"
-              alt="セレンシア 代表 太田"
-              width={416}
-              height={645}
+              alt="セレンシア 代表 太田 貴也"
+              width={520}
+              height={509}
               loading="lazy"
               decoding="async"
-              className="h-auto w-[clamp(112px,31vw,150px)] shrink-0 drop-shadow-[0_10px_22px_rgba(18,61,40,0.2)]"
+              className="h-auto w-[clamp(112px,31vw,150px)] shrink-0 rounded-2xl object-cover shadow-[0_10px_22px_rgba(18,61,40,0.22)] ring-1 ring-lux-gold/40"
             />
             <p className="text-[clamp(11px,3vw,13.5px)] font-bold leading-[1.95] text-lux-green-ink [word-break:auto-phrase]">
               有資格の専門スタッフが、
@@ -407,10 +407,10 @@ export default function McyTrust() {
             </p>
           </div>
           <img
-            src="/img/shikaku_photo.jpg"
-            alt="遺品整理を行うスタッフの作業"
-            width={794}
-            height={312}
+            src="/img/ihin_work.webp"
+            alt="遺品整理を行うセレンシアのスタッフの作業（室内の仕分け・搬出）"
+            width={1200}
+            height={470}
             loading="lazy"
             decoding="async"
             className="mx-auto mt-[clamp(14px,4vw,20px)] w-full max-w-[460px] rounded-[16px] border-[3px] border-white object-cover shadow-[0_12px_30px_rgba(18,61,40,0.22)] ring-1 ring-lux-gold/30"
