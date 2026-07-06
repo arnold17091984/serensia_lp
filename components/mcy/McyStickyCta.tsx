@@ -91,8 +91,16 @@ export default function McyStickyCta() {
             className="pointer-events-none absolute inset-x-[8px] top-[2px] h-[46%] rounded-full bg-gradient-to-b from-white/50 via-white/15 to-white/0"
           />
           <span className="relative flex items-center gap-1.5 whitespace-nowrap text-[clamp(12px,3.9vw,15px)] font-black leading-tight drop-shadow-[0_1px_1px_rgba(6,163,42,0.5)]">
-            <span className="grid h-[clamp(15px,4.4vw,18px)] w-[clamp(15px,4.4vw,18px)] shrink-0 place-items-center rounded-full bg-white text-[clamp(6px,1.6vw,8px)] font-black text-[#06a32a] shadow-[0_1px_2px_rgba(0,0,0,0.18)]">
-              LINE
+            <span className="grid h-[clamp(17px,4.8vw,20px)] w-[clamp(17px,4.8vw,20px)] shrink-0 place-items-center rounded-[5px] bg-white shadow-[0_1px_2px_rgba(0,0,0,0.18)]">
+              <svg viewBox="0 0 32 32" className="h-[86%] w-[86%]" aria-hidden="true">
+                <path
+                  fill="#06C755"
+                  d="M16 3.2C8.3 3.2 2 8.3 2 14.5c0 5.6 5 10.2 11.7 11.1.46.1 1.08.3 1.24.69.14.35.09.9.05 1.25l-.2 1.2c-.06.35-.28 1.38 1.21.75 1.49-.62 8.03-4.73 10.96-8.1C29.9 20.9 31 18 31 14.5 31 8.3 24.7 3.2 16 3.2Z"
+                />
+                <text x="16" y="15.3" textAnchor="middle" dominantBaseline="central" fontFamily="Arial, Helvetica, sans-serif" fontWeight="800" fontSize="7.2" letterSpacing="-0.2" fill="#fff">
+                  LINE
+                </text>
+              </svg>
             </span>
             {"LINEで無料相談"}
           </span>
