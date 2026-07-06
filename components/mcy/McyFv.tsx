@@ -40,7 +40,7 @@ export default function McyFv() {
         <img
           src="/img/kv_top.webp"
           alt="特殊清掃・遺品整理 セレンシア。東京・神奈川 全域対応。孤独死・事故現場の特殊清掃専門。臭い・体液汚染を最短即日で現地確認。代表 太田が対応。相談・見積り無料（24時間受付・年中無休）／追加料金なし／立ち会い不要／近隣配慮・秘密厳守。"
-          width={753}
+          width={755}
           height={885}
           loading="eager"
           decoding="async"
@@ -176,8 +176,8 @@ export default function McyFv() {
         <img
           src="/img/kv_bottom.webp"
           alt="こんなお悩みをすべて解決します。部屋に入れないほど臭いが強い、近隣に知られず静かに対応してほしい、孤独死・事故現場で何から始めればいいか分からない、大家・管理会社から急ぎで対応を求められている、遠方で立ち会えない、費用がどれくらいか不安。どんな状況でも、まずはご相談ください。専門スタッフが丁寧に対応します。"
-          width={753}
-          height={573}
+          width={755}
+          height={483}
           loading="lazy"
           decoding="async"
           className="block w-full"
