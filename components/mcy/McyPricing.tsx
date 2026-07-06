@@ -29,7 +29,7 @@ const CASES: CaseItem[] = [
     reasons: ["発見までの日数", "便器脱着の有無", "臭気の強さ", "床下まで体液が浸透しているか"],
     work: ["体液・汚染物の除去", "床・壁・便器まわりの特殊洗浄", "除菌・消毒処理", "臭気対策（薬剤＋機械脱臭）", "必要に応じて便器脱着・床材撤去"],
     priceNotes: [],
-    before: "/img/jisseki_3b.jpg",
+    before: "/img/before_toilet.webp",
     after: "/img/jisseki_3a.jpg",
   },
   {
@@ -56,7 +56,7 @@ const CASES: CaseItem[] = [
     desc: "和室の畳上で亡くなられていたケース。発見までに時間が経過しており、体液が畳・床下まで浸透。室内全体に強い腐敗臭が広がっている状態。",
     work: ["畳撤去・汚染物の回収処分", "体液付着部の除去", "床面の特殊洗浄", "除菌・消毒作業", "強力消臭処理"],
     priceNotes: ["※畳撤去・特殊清掃・除菌消臭を含む"],
-    before: "/img/jisseki_1b.jpg",
+    before: "/img/before_tatami.webp",
     after: "/img/jisseki_1a.jpg",
   },
   {
