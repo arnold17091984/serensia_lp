@@ -21,7 +21,7 @@ const REASONS: ReadonlyArray<{ icon: ReactNode; title: string; desc: string }> =
     ),
   },
   {
-    title: "原因の根本除去 → 原状回復まで一貫対応",
+    title: "原因の根本除去から原状回復まで一貫対応",
     desc: "消臭・除菌から汚染建材の撤去、リフォーム・原状回復まで自社で一括。臭いや汚染の再発を根本から防ぎます。",
     icon: (
       <>

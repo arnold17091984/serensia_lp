@@ -42,8 +42,8 @@ export default function McyDaihyo() {
                 <span aria-hidden="true" className="text-[clamp(7px,1.9vw,9px)] leading-none text-lux-gold-light">◆</span>
                 <span>代表メッセージ</span>
               </span>
-              <p className="mt-[clamp(7px,2vw,10px)] text-[clamp(9.5px,2.6vw,11.5px)] font-bold tracking-[0.04em] text-lux-green-ink/70">
-                株式会社TAKAKU（セレンシア）代表
+              <p className="mt-[clamp(7px,2vw,10px)] text-[clamp(9.5px,2.6vw,11.5px)] font-bold tracking-[0.04em] text-lux-green-ink/70 [word-break:auto-phrase]">
+                <span className="whitespace-nowrap">株式会社TAKAKU（セレンシア）代表</span>
               </p>
               <p className="font-display text-[clamp(20px,5.6vw,26px)] font-black leading-tight text-lux-green-ink [text-shadow:0_1px_0_rgba(255,255,255,0.8)]">
                 太田 貴也
@@ -68,8 +68,7 @@ export default function McyDaihyo() {
               >
                 <CheckGreen className="mt-[1px] h-[clamp(18px,5vw,22px)] w-[clamp(18px,5vw,22px)]" />
                 <span className="min-w-0 text-[clamp(10.5px,2.9vw,13px)] leading-[1.6] text-lux-green-ink/85 [word-break:auto-phrase]">
-                  <span className="font-black text-lux-green">{p.title}</span>
-                  <span className="mx-[5px] text-lux-gold-deep">｜</span>
+                  <span className="whitespace-nowrap"><span className="font-black text-lux-green">{p.title}</span><span className="mx-[5px] text-lux-gold-deep">｜</span></span>
                   {p.desc}
                 </span>
               </li>

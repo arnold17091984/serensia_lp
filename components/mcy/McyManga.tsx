@@ -128,7 +128,7 @@ export default function McyManga() {
       ))}
 
       {!expanded ? (
-        <div className="mt-[clamp(14px,4vw,22px)] flex flex-col items-center">
+        <div className="flex flex-col items-center">
           <ChapterConnector />
           <button
             type="button"
@@ -150,7 +150,7 @@ export default function McyManga() {
               続きを読む
             </span>
             <span className="relative mt-[4px] text-[clamp(9.5px,2.7vw,12px)] font-bold text-white/90">
-              この続きが気になる方へ（残り{tail.length}話・解決まで）
+              この続きが気になる方へ<span className="whitespace-nowrap">（残り{tail.length}話・解決まで）</span>
             </span>
             <span aria-hidden className="relative mt-[5px] animate-bounce text-[clamp(13px,3.4vw,16px)] font-black leading-none text-lux-amber">
               ▼▼

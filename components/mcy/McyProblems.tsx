@@ -144,10 +144,12 @@ export default function McyProblems() {
               そのお悩みはセレンシアが
             </p>
             <p className="relative mt-[clamp(4px,1.4vw,8px)] font-display font-black leading-[1.15] [text-shadow:0_1px_0_rgba(255,255,255,0.85)]">
-              <span className="text-[clamp(32px,9.2vw,48px)] text-lux-green">対応力</span>
-              <span className="mx-1 text-[clamp(21px,6vw,30px)] text-lux-gold-deep">&amp;</span>
-              <span className="text-[clamp(32px,9.2vw,48px)] text-lux-green">技術力</span>
-              <span className="ml-1 text-[clamp(25px,7vw,36px)] text-lux-green-ink">で解決！</span>
+              <span className="whitespace-nowrap">
+                <span className="text-[clamp(32px,9.2vw,48px)] text-lux-green">対応力</span>
+                <span className="mx-1 text-[clamp(21px,6vw,30px)] text-lux-gold-deep">&amp;</span>
+                <span className="text-[clamp(32px,9.2vw,48px)] text-lux-green">技術力</span>
+              </span>
+              <span className="ml-1 whitespace-nowrap text-[clamp(25px,7vw,36px)] text-lux-green-ink">で解決！</span>
             </p>
             <GoldDiamond />
             <p className="relative mt-[clamp(8px,2.2vw,12px)] text-[clamp(11.5px,3.2vw,14px)] font-bold text-lux-green-ink/85">
@@ -250,7 +252,7 @@ export default function McyProblems() {
             data-gtm="cta_line_process"
             className="mx-auto mt-[clamp(8px,2.2vw,12px)] block max-w-[460px] py-[12px] text-center text-[clamp(11px,3.1vw,13px)] font-bold text-lux-green-ink underline decoration-lux-gold decoration-2 underline-offset-4 [word-break:auto-phrase]"
           >
-            うちの場合はどの工程が必要？ → LINEで写真を送って確認する（24時間受付）
+            うちの場合はどの工程が必要？ → LINEで写真を送って確認する<span className="whitespace-nowrap">（24時間受付）</span>
           </a>
         </div>
       </section>

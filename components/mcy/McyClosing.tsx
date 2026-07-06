@@ -175,7 +175,7 @@ export default function McyClosing() {
                         target="_blank"
                         rel="noopener noreferrer"
                         data-gtm={f.link.gtm}
-                        className="mt-2 inline-block font-bold text-lux-green underline decoration-lux-gold decoration-2 underline-offset-4 [word-break:auto-phrase]"
+                        className="mt-2 inline-block text-[clamp(11px,3.1vw,13px)] font-bold text-lux-green underline decoration-lux-gold decoration-2 underline-offset-4 [word-break:auto-phrase]"
                       >
                         {f.link.label}
                       </a>

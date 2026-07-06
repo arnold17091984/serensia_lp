@@ -400,9 +400,9 @@ export default function McyTrust() {
                 </li>
               ))}
             </ul>
-            <p className="bg-gradient-to-r from-lux-gold-deep via-lux-gold to-lux-gold-deep px-4 py-[clamp(11px,3vw,15px)] text-center text-[clamp(10.5px,2.9vw,13px)] font-black text-white [text-shadow:0_1px_2px_rgba(122,90,32,0.4)]">
+            <p className="bg-gradient-to-r from-lux-gold-deep via-lux-gold to-lux-gold-deep px-4 py-[clamp(11px,3vw,15px)] text-center text-[clamp(10.5px,2.9vw,13px)] font-black text-white [text-shadow:0_1px_2px_rgba(122,90,32,0.4)] [word-break:auto-phrase]">
               万が一に備え、東京海上日動火災保険の
-              <br className="min-[420px]:hidden" />
+              <br className="min-[480px]:hidden" />
               賠償責任保険に加入しています
             </p>
           </div>

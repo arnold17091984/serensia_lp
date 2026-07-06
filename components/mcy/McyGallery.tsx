@@ -17,7 +17,7 @@ const SHOTS: ReadonlyArray<{ src: string; caption: string }> = [
   { src: "/img/gallery_5.webp", caption: "床面の体液除去・特殊洗浄" },
   { src: "/img/gallery_6.webp", caption: "汚染箇所の清掃作業" },
   { src: "/img/gallery_7.webp", caption: "壁面の薬剤噴霧・消毒" },
-  { src: "/img/gallery_8.webp", caption: "和室の汚染確認（作業前）" },
+  { src: "/img/gallery_8.webp", caption: "和室の汚染確認・作業前" },
 ];
 
 export default function McyGallery() {
@@ -74,7 +74,7 @@ export default function McyGallery() {
           data-gtm="cta_line_gallery"
           className="mx-auto mt-[clamp(8px,2.2vw,12px)] block max-w-[460px] py-[12px] text-center text-[clamp(11px,3.1vw,13px)] font-bold text-lux-green-ink underline decoration-lux-gold decoration-2 underline-offset-4 [word-break:auto-phrase]"
         >
-          似た状況ですか？ → LINEで写真を送って、いまの状態を相談する（無料・24時間）
+          似た状況ですか？ → LINEで写真を送って、いまの状態を相談する<span className="whitespace-nowrap">（無料・24時間）</span>
         </a>
       </div>
     </section>

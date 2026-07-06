@@ -44,8 +44,8 @@ export default function CompanyPage() {
 
       <dl className="mt-8 divide-y divide-neutral-200 border-y border-neutral-200 text-[14px] leading-relaxed text-ink">
         {COMPANY_ROWS.map((row) => (
-          <div key={row.label} className="flex py-3.5">
-            <dt className="w-24 shrink-0 font-bold text-neutral-600">
+          <div key={row.label} className="flex gap-3 py-3.5">
+            <dt className="w-28 shrink-0 font-bold text-neutral-600">
               {row.label}
             </dt>
             <dd className="min-w-0 flex-1">{row.value}</dd>

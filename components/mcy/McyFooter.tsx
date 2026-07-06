@@ -28,7 +28,7 @@ function Laurel({ flip }: Readonly<{ flip?: boolean }>) {
 
 export default function McyFooter() {
   return (
-    <footer className="relative w-full overflow-hidden bg-gradient-to-b from-lux-green to-[#0a2c1c] pb-28 text-white">
+    <footer data-cta-section className="relative w-full overflow-hidden bg-gradient-to-b from-lux-green to-[#0a2c1c] pb-[max(28px,env(safe-area-inset-bottom))] text-white">
       {/* gold double rule */}
       <div aria-hidden="true" className="relative z-10">
         <div className="h-[3px] w-full bg-gradient-to-r from-mcy-gold-deep via-mcy-gold-light to-mcy-gold-deep" />
@@ -74,10 +74,10 @@ export default function McyFooter() {
             {PHONE_DISPLAY}
           </span>
         </a>
-        <p className="mt-2 text-[clamp(9.5px,2.7vw,12px)] font-medium leading-[1.8] text-white/80">
-          お電話受付 9:00〜21:00 年中無休／
+        <p className="mt-2 text-[clamp(9.5px,2.7vw,12px)] font-medium leading-[1.8] text-white/80 [word-break:auto-phrase]">
+          <span className="whitespace-nowrap">お電話受付 9:00〜21:00 年中無休／</span>
           <br className="min-[430px]:hidden" />
-          LINE・メールは24時間受付・緊急時は折り返し対応
+          <span className="whitespace-nowrap">LINE・メールは24時間受付・緊急時は折り返し対応</span>
         </p>
         <p className="mt-3 text-[clamp(9.5px,2.7vw,12px)] font-medium text-white/80">
           対応エリア：東京・神奈川を中心に関東一円

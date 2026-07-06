@@ -1,5 +1,4 @@
 import McyFv from "@/components/mcy/McyFv";
-import McyEmpathy from "@/components/mcy/McyEmpathy";
 import McyProblems from "@/components/mcy/McyProblems";
 import McyGallery from "@/components/mcy/McyGallery";
 import McyReasons from "@/components/mcy/McyReasons";
@@ -14,7 +13,7 @@ import McyStickyCta from "@/components/mcy/McyStickyCta";
  * セレンシアLP — 緑×金の高級テーマ（新KVと統一）。
  * 原稿: content/content.md（現行LPから抽出）。テキストは全て content.json 準拠。
  * 配色: 緑×金×赤／人物は生成しない（KV/漫画のイラスト・実写のみ）／CTAは全て生きたHTML。
- * 流れ: FV(自前ヘッダー内蔵) → 共感・安心 → 悩み → 解決・強み・工程 → 現場ギャラリー → 選ばれる理由 → 料金・実績 → CTA → 信頼形成 → FAQ → 流れ → CTA。
+ * 流れ: FV(自前ヘッダー内蔵) → 悩み(漫画) → 解決・強み・工程 → 現場ギャラリー → 選ばれる理由 → 料金・実績 → CTA → 信頼形成 → FAQ → 流れ → CTA。
  * スクロール追従ヘッダーは廃止（KVがヘッダーを内蔵しているため）。
  */
 export default function Home() {
@@ -22,7 +21,6 @@ export default function Home() {
     <>
       <main className="relative mx-auto w-full max-w-[520px] bg-white shadow-xl">
         <McyFv />
-        <McyEmpathy />
         <McyProblems />
         <McyGallery />
         <McyReasons />

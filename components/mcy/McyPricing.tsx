@@ -212,7 +212,7 @@ export default function McyPricing() {
                   <span className="grid h-[22px] w-[22px] shrink-0 place-items-center rounded-full bg-[#06c755] text-[7px] font-black text-white ring-1 ring-[#06a32a]/30">
                     LINE
                   </span>
-                  <span className="[word-break:auto-phrase]">似た状況ですか？ 写真を送って概算を聞く（無料・24時間）</span>
+                  <span className="[word-break:auto-phrase]">似た状況ですか？ 写真を送って概算を聞く<span className="whitespace-nowrap">（無料・24時間）</span></span>
                 </a>
               )}
               <article className="overflow-hidden rounded-[18px] border border-lux-gold/30 bg-white shadow-[0_10px_30px_rgba(18,61,40,0.14)]">
@@ -374,7 +374,7 @@ export default function McyPricing() {
             </div>
 
             <p className="mt-[10px] text-center text-[clamp(9.5px,2.7vw,11.5px)] font-medium leading-[1.8] text-lux-green-ink/75 [word-break:auto-phrase]">
-              送るのは3つだけ ① 現場の写真（撮れる範囲で大丈夫です） ② おおよその間取り ③ 気になっていること
+              送るのは3つだけ ① 現場の写真<span className="whitespace-nowrap">（撮れる範囲で大丈夫です）</span> ② おおよその間取り ③ 気になっていること
               <br />
               ※お部屋に入れない場合は、状況を文章でお送りいただくだけで構いません
             </p>
@@ -399,7 +399,7 @@ export default function McyPricing() {
                   <span className="block whitespace-nowrap text-[clamp(14px,4vw,19px)] font-black tracking-[-0.01em] [text-shadow:0_1px_2px_rgba(0,0,0,0.2)]">
                     お電話で相談 <span className="text-lux-amber">{PHONE_DISPLAY}</span>
                   </span>
-                  <span className="mt-[5px] block text-[clamp(9px,2.5vw,11.5px)] font-bold opacity-95 [word-break:auto-phrase]">
+                  <span className="mt-[5px] block whitespace-nowrap text-[clamp(9px,2.5vw,11.5px)] font-bold opacity-95">
                     9:00〜21:00 年中無休｜最短即日で現地確認
                   </span>
                 </span>

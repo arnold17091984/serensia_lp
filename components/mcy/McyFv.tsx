@@ -113,8 +113,8 @@ export default function McyFv() {
               </span>
               <span className="relative min-w-0 flex-1 text-center leading-none text-white [text-shadow:0_1px_2px_rgba(0,70,5,0.5)]">
                 <span className="block text-[clamp(11px,3.1vw,14.5px)] font-bold tracking-[0.02em]">LINEで写真を送るだけ</span>
-                <span className="mt-[3px] block text-[clamp(19px,5.6vw,27px)] font-black tracking-[0.01em]">写真相談・概算見積り</span>
-                <span className="mt-[3px] block text-[clamp(8.5px,2.4vw,11px)] font-bold opacity-95">簡単・安心・すぐにご回答します</span>
+                <span className="mt-[3px] block whitespace-nowrap text-[clamp(19px,5.6vw,27px)] font-black tracking-[0.01em]">写真相談・概算見積り</span>
+                <span className="mt-[3px] block whitespace-nowrap text-[clamp(8.5px,2.4vw,11px)] font-bold opacity-95">簡単・安心・すぐにご回答します</span>
               </span>
               <svg viewBox="0 0 24 24" className="relative h-[clamp(19px,5.2vw,27px)] w-[clamp(19px,5.2vw,27px)] shrink-0" fill="none" stroke="white" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="m9 5 7 7-7 7" />
