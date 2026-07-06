@@ -103,10 +103,10 @@ export default function McyProblems() {
                   tone="phone"
                   href={PHONE_TEL}
                   gtm="cta_tel_worries"
-                  ariaLabel="電話で今すぐ相談する 03-4400-2098（受付 9:00〜21:00 不定休）"
+                  ariaLabel="電話で今すぐ相談する 03-4400-2098（受付 9:00〜21:00 年中無休）"
                   top="最短即日で現地確認に伺います"
                   main={PHONE_DISPLAY}
-                  sub="相談無料｜9:00〜21:00 不定休"
+                  sub="相談無料｜9:00〜21:00 年中無休"
                 />
                 <LuxCtaPill
                   tone="line"

@@ -20,7 +20,7 @@ interface FaqItem {
 /* ordered by intent strength: cost → same-day → night, then the rest */
 const FAQ: readonly FaqItem[] = [
   { q: "相談や見積りにお金はかかりますか？", a: "ご相談・お見積り・出張費用はすべて無料です。お見積り確定後の追加費用もありません。金額にご納得いただいてから作業を開始します。", open: true },
-  { q: "すぐに来てもらえますか？", a: "東京・神奈川を中心に、最短即日で現地確認に伺います。お急ぎの場合は、まずはお電話（9:00〜21:00 不定休）でご相談ください。", open: true },
+  { q: "すぐに来てもらえますか？", a: "東京・神奈川を中心に、最短即日で現地確認に伺います。お急ぎの場合は、まずはお電話（9:00〜21:00 年中無休）でご相談ください。", open: true },
   {
     q: "夜間に発見した場合はどうすればいいですか？",
     a: "LINE・メールは24時間受付しております。緊急の場合も内容を確認次第、折り返しご連絡いたします。",
@@ -209,7 +209,7 @@ export default function McyClosing() {
                     <span className="text-lux-amber [text-shadow:0_1px_2px_rgba(0,0,0,0.3)]">{PHONE_DISPLAY}</span>｜相談無料
                   </span>
                   <span className="mt-[4px] block whitespace-nowrap text-[clamp(8.5px,2.4vw,10.5px)] font-bold opacity-95">
-                    9:00〜21:00 不定休
+                    9:00〜21:00 年中無休
                   </span>
                 </span>
               </a>

@@ -39,9 +39,9 @@ export default function McyFv() {
         {/* top: header + 全域対応 + headline + 代表 太田 + 4 benefits */}
         <img
           src="/img/kv_top.webp"
-          alt="特殊清掃・遺品整理 セレンシア。東京・神奈川 全域対応。孤独死・事故現場の特殊清掃専門。臭い・体液汚染を最短即日で現地確認。代表 太田が対応。相談・見積り無料／追加料金なし／立ち会い不要／近隣配慮・秘密厳守。"
-          width={754}
-          height={862}
+          alt="特殊清掃・遺品整理 セレンシア。東京・神奈川 全域対応。孤独死・事故現場の特殊清掃専門。臭い・体液汚染を最短即日で現地確認。代表 太田が対応。相談・見積り無料（24時間受付・年中無休）／追加料金なし／立ち会い不要／近隣配慮・秘密厳守。"
+          width={753}
+          height={852}
           loading="eager"
           decoding="async"
           fetchPriority="high"
@@ -49,14 +49,14 @@ export default function McyFv() {
         />
 
         {/* CTA buttons — reproduced in HTML/CSS (phone number is real, selectable,
-            crawlable text; copy is editable — 不定休 etc). Only THIS block flags
+            crawlable text; copy is editable — 年中無休 etc). Only THIS block flags
             data-cta-section so the sticky bar re-appears once the buttons scroll off. */}
         <div data-cta-section className="flex flex-col gap-[clamp(6px,1.8vw,10px)] bg-gradient-to-b from-[#fcf9f1] to-[#fefefe] px-[clamp(6px,1.8vw,12px)] py-[clamp(6px,1.8vw,10px)]">
           {/* phone — red glossy button (gold frame, thicker gold base) */}
           <a
             href={PHONE_TEL}
             data-gtm="cta_tel_fv"
-            aria-label="電話で今すぐ相談する 03-4400-2098（受付 9:00〜21:00 不定休）"
+            aria-label="電話で今すぐ相談する 03-4400-2098（受付 9:00〜21:00 年中無休）"
             className="relative block rounded-[18px] bg-gradient-to-b from-[#fff3ac] via-[#f7d63f] to-[#e3b524] px-[2px] pt-[2px] pb-[4px] shadow-[0_7px_16px_rgba(150,20,10,0.3)] transition-[filter] active:brightness-95"
           >
             <span className="relative flex min-h-[clamp(72px,19vw,86px)] items-center gap-[clamp(7px,2.2vw,12px)] overflow-hidden rounded-[15px] bg-gradient-to-b from-[#fe4415] via-[#ee2b0a] to-[#d10405] px-[clamp(10px,3vw,16px)] py-[clamp(8px,2.2vw,12px)] shadow-[inset_0_2px_2px_rgba(255,255,255,0.3),inset_0_-4px_9px_rgba(120,0,0,0.45)]">
@@ -70,7 +70,7 @@ export default function McyFv() {
               <span className="relative min-w-0 flex-1 text-center leading-none text-white [text-shadow:0_1px_2px_rgba(120,0,0,0.5)]">
                 <span className="block text-[clamp(11px,3.1vw,14.5px)] font-bold tracking-[0.02em]">電話で今すぐ相談する</span>
                 <span className="mt-[3px] block text-[clamp(23px,6.7vw,33px)] font-black tracking-[-0.01em]">03-4400-2098</span>
-                <span className="mt-[3px] block text-[clamp(8.5px,2.4vw,11px)] font-bold opacity-95">受付時間 9:00〜21:00 / 不定休</span>
+                <span className="mt-[3px] block text-[clamp(8.5px,2.4vw,11px)] font-bold opacity-95">受付時間 9:00〜21:00 / 年中無休</span>
               </span>
               <svg viewBox="0 0 24 24" className="relative h-[clamp(19px,5.2vw,27px)] w-[clamp(19px,5.2vw,27px)] shrink-0" fill="none" stroke="white" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="m9 5 7 7-7 7" />
@@ -176,8 +176,8 @@ export default function McyFv() {
         <img
           src="/img/kv_bottom.webp"
           alt="こんなお悩みをすべて解決します。部屋に入れないほど臭いが強い、近隣に知られず静かに対応してほしい、孤独死・事故現場で何から始めればいいか分からない、大家・管理会社から急ぎで対応を求められている、遠方で立ち会えない、費用がどれくらいか不安。どんな状況でも、まずはご相談ください。専門スタッフが丁寧に対応します。"
-          width={754}
-          height={501}
+          width={753}
+          height={573}
           loading="lazy"
           decoding="async"
           className="block w-full"

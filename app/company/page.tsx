@@ -18,12 +18,12 @@ const COMPANY_ROWS: { label: string; value: React.ReactNode }[] = [
           03-4400-2098
         </a>
         <span className="mt-1 block text-[12px] leading-relaxed text-neutral-500">
-          お電話受付 9:00〜21:00（不定休）／LINE・メールは24時間受付・緊急時は折り返し対応
+          お電話受付 9:00〜21:00（年中無休）／LINE・メールは24時間受付・緊急時は折り返し対応
         </span>
       </>
     ),
   },
-  { label: "営業時間", value: "9:00〜21:00（不定休）" },
+  { label: "営業時間", value: "9:00〜21:00（年中無休）" },
   {
     label: "事業内容",
     value:

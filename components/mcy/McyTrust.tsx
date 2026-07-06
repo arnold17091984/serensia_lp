@@ -318,7 +318,7 @@ export default function McyTrust() {
                   {PHONE_DISPLAY}
                 </span>
                 <span className="mt-[4px] block whitespace-nowrap text-[clamp(7.5px,2.1vw,10px)] font-bold opacity-95">
-                  9:00〜21:00 不定休
+                  9:00〜21:00 年中無休
                 </span>
               </span>
               <ArrowBubble className="text-lux-green" />
