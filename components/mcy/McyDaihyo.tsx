@@ -30,7 +30,7 @@ export default function McyDaihyo() {
                 src="/img/daihyo_photo.webp"
                 alt="セレンシア 代表 太田 貴也。特殊清掃・遺品整理をご遺族・大家様・管理会社様に寄り添って対応します。"
                 width={760}
-                height={744}
+                height={862}
                 loading="lazy"
                 decoding="async"
                 className="block w-[clamp(112px,31vw,140px)] rounded-[14px] object-cover"

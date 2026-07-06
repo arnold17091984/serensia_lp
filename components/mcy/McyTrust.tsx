@@ -372,7 +372,7 @@ export default function McyTrust() {
               src="/img/daihyo_ota.webp"
               alt="セレンシア 代表 太田 貴也"
               width={520}
-              height={509}
+              height={589}
               loading="lazy"
               decoding="async"
               className="h-auto w-[clamp(112px,31vw,150px)] shrink-0 rounded-2xl object-cover shadow-[0_10px_22px_rgba(18,61,40,0.22)] ring-1 ring-lux-gold/40"
