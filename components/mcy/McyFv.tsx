@@ -38,10 +38,10 @@ export default function McyFv() {
       <div className="flex w-full flex-col">
         {/* top: header + 全域対応 + headline + 代表 太田 + 4 benefits */}
         <img
-          src="/img/kv_top.webp?v=3"
+          src="/img/kv_top.webp?v=4"
           alt="特殊清掃・遺品整理 セレンシア。東京・神奈川 全域対応。孤独死・事故現場の特殊清掃専門。臭い・体液汚染を最短即日で現地確認。代表 太田が対応。相談・見積り無料（24時間受付・年中無休）／追加料金なし／立ち会い不要／近隣配慮・秘密厳守。"
-          width={754}
-          height={882}
+          width={852}
+          height={890}
           loading="eager"
           decoding="async"
           fetchPriority="high"
