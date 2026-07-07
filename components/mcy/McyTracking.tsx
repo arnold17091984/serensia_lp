@@ -56,10 +56,13 @@ export default function McyTracking() {
         cta_channel,
         page_path: window.location.pathname,
       };
-      // Conversions = phone taps / LINE clicks ONLY. Engagement buttons (manga
-      // "続きを読む" / scroll-to-pricing) fire a separate, non-conversion event
-      // so `cta_click` stays a clean GA4 key event / Google Ads conversion.
-      const eventName = cta_channel === "tel" || cta_channel === "line" ? "cta_click" : "engagement_click";
+      // Distinct event names so each can be marked / imported independently.
+      // Phone is ALREADY a Google Ads call conversion ("広告経由通話数"), so only
+      // `line_click` is imported as a new conversion; `phone_click` stays a
+      // GA4-only analytics event (avoids double-counting phone). manga buttons
+      // fire `engagement_click` (never a conversion).
+      const eventName =
+        cta_channel === "line" ? "line_click" : cta_channel === "tel" ? "phone_click" : "engagement_click";
       window.dataLayer?.push({ event: eventName, ...payload }); // GTM triggers
       window.gtag?.("event", eventName, payload); // GA4 (direct)
     };
