@@ -50,15 +50,18 @@ export default function McyTracking() {
       if (!cta) return;
 
       const anchor = cta.closest("a[href]") ?? cta;
+      const cta_channel = channelOf(anchor);
       const payload = {
         cta_id: cta.getAttribute("data-gtm") ?? "unknown",
-        cta_channel: channelOf(anchor),
+        cta_channel,
         page_path: window.location.pathname,
       };
-      // GTM custom event (for any GTM-side triggers)
-      window.dataLayer?.push({ event: "cta_click", ...payload });
-      // GA4 event (direct via gtag) — becomes the key event / Ads conversion
-      window.gtag?.("event", "cta_click", payload);
+      // Conversions = phone taps / LINE clicks ONLY. Engagement buttons (manga
+      // "続きを読む" / scroll-to-pricing) fire a separate, non-conversion event
+      // so `cta_click` stays a clean GA4 key event / Google Ads conversion.
+      const eventName = cta_channel === "tel" || cta_channel === "line" ? "cta_click" : "engagement_click";
+      window.dataLayer?.push({ event: eventName, ...payload }); // GTM triggers
+      window.gtag?.("event", eventName, payload); // GA4 (direct)
     };
 
     document.addEventListener("click", handleClick, { capture: true });
