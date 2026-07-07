@@ -29,6 +29,7 @@ type CtaChannel = "tel" | "line" | "other";
 declare global {
   interface Window {
     dataLayer?: Record<string, unknown>[];
+    gtag?: (...args: unknown[]) => void;
   }
 }
 
@@ -49,12 +50,15 @@ export default function McyTracking() {
       if (!cta) return;
 
       const anchor = cta.closest("a[href]") ?? cta;
-      window.dataLayer?.push({
-        event: "cta_click",
+      const payload = {
         cta_id: cta.getAttribute("data-gtm") ?? "unknown",
         cta_channel: channelOf(anchor),
         page_path: window.location.pathname,
-      });
+      };
+      // GTM custom event (for any GTM-side triggers)
+      window.dataLayer?.push({ event: "cta_click", ...payload });
+      // GA4 event (direct via gtag) — becomes the key event / Ads conversion
+      window.gtag?.("event", "cta_click", payload);
     };
 
     document.addEventListener("click", handleClick, { capture: true });

@@ -9,6 +9,9 @@ import McyTracking from "@/components/mcy/McyTracking";
 
 // NOTE: 現行LPと同じGTMコンテナを使用（AB計測を同一プロパティに集約するため）
 const GTM_ID = "GTM-M3SM8R2M";
+// GA4 (Google tag). Loaded directly so page_view + cta_click reach GA4 without
+// requiring any GTM UI work. Coexists with GTM (which has no GA4 tag).
+const GA4_ID = "G-0VCKZL8TG7";
 
 // JSON-LD: mirrors on-page text (FAQ + business info). Reinforces landing-page
 // relevance/transparency for Google Ads without adding any new claims.
@@ -88,6 +91,10 @@ export default function RootLayout({
         />
         <Script id="gtm" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');`}
+        </Script>
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`} strategy="afterInteractive" />
+        <Script id="ga4" strategy="afterInteractive">
+          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','${GA4_ID}');`}
         </Script>
         <noscript>
           <iframe
