@@ -125,8 +125,15 @@ export default function McyFv() {
 
         {/* Google reviews + ご相談実績 — coded (real, crawlable 5.0 / 167件) */}
         <div className="grid grid-cols-2 gap-[clamp(6px,1.8vw,10px)] px-[clamp(6px,1.8vw,12px)] pb-[clamp(6px,1.8vw,10px)]">
-          {/* Google review card */}
-          <div className="flex flex-col justify-center rounded-[12px] border border-lux-gold/45 bg-white px-[clamp(8px,2.3vw,13px)] py-[clamp(9px,2.5vw,13px)] shadow-[0_2px_6px_rgba(18,61,40,0.1)]">
+          {/* Google review card — links to the real Google reviews (5.0 / 167件) */}
+          <a
+            href="https://share.google/PsIN6ZnlzieZp6LIk"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-gtm="review_google"
+            aria-label="Googleクチコミ 5.0・167件以上を見る（別タブで開く）"
+            className="flex flex-col justify-center rounded-[12px] border border-lux-gold/45 bg-white px-[clamp(8px,2.3vw,13px)] py-[clamp(9px,2.5vw,13px)] shadow-[0_2px_6px_rgba(18,61,40,0.1)] transition-shadow hover:shadow-[0_5px_14px_rgba(18,61,40,0.2)] active:brightness-[0.98]"
+          >
             <div className="flex items-center gap-[clamp(3px,1vw,6px)]">
               <svg viewBox="0 0 48 48" className="h-[clamp(15px,4.2vw,20px)] w-[clamp(15px,4.2vw,20px)] shrink-0" aria-hidden="true">
                 <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z" />
@@ -150,7 +157,11 @@ export default function McyFv() {
               </span>
             </div>
             <span className="mt-[clamp(3px,1vw,5px)] text-[clamp(8.5px,2.4vw,11px)] font-bold text-lux-green-ink/80">クチコミ167件以上</span>
-          </div>
+            <span className="mt-[3px] inline-flex items-center gap-[3px] text-[clamp(8px,2.3vw,10.5px)] font-bold text-lux-green underline decoration-lux-gold decoration-2 underline-offset-2">
+              口コミを見る
+              <span aria-hidden="true">→</span>
+            </span>
+          </a>
 
           {/* record card */}
           <div className="flex flex-col justify-center rounded-[12px] border border-lux-gold/45 bg-white px-[clamp(8px,2.3vw,13px)] py-[clamp(9px,2.5vw,13px)] shadow-[0_2px_6px_rgba(18,61,40,0.1)]">
