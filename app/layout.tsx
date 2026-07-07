@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
+import McyTracking from "@/components/mcy/McyTracking";
 
 // Fonts are served from the OS font stack (see globals.css @theme). Google Fonts
 // is intentionally not used at build time so the static export builds anywhere;
@@ -97,6 +98,7 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
+        <McyTracking />
         {children}
       </body>
     </html>
