@@ -1,4 +1,5 @@
 import { LINE_URL, PHONE_TEL } from "./McyHeader";
+import OpenReviewsButton from "./OpenReviewsButton";
 
 /**
  * First view — the approved KV design (Downloads/kv.png) rendered as clean
@@ -125,14 +126,11 @@ export default function McyFv() {
 
         {/* Google reviews + ご相談実績 — coded (real, crawlable 5.0 / 167件) */}
         <div className="grid grid-cols-2 gap-[clamp(6px,1.8vw,10px)] px-[clamp(6px,1.8vw,12px)] pb-[clamp(6px,1.8vw,10px)]">
-          {/* Google review card — links to the real Google reviews (5.0 / 167件) */}
-          <a
-            href="https://share.google/PsIN6ZnlzieZp6LIk"
-            target="_blank"
-            rel="noopener noreferrer"
-            data-gtm="review_google"
-            aria-label="Googleクチコミ 5.0・167件以上を見る（別タブで開く）"
-            className="flex flex-col justify-center rounded-[12px] border border-lux-gold/45 bg-white px-[clamp(8px,2.3vw,13px)] py-[clamp(9px,2.5vw,13px)] shadow-[0_2px_6px_rgba(18,61,40,0.1)] transition-shadow hover:shadow-[0_5px_14px_rgba(18,61,40,0.2)] active:brightness-[0.98]"
+          {/* Google review card — opens the reviews modal on the page (no navigation → no drop-off) */}
+          <OpenReviewsButton
+            gtm="reviews_open_fv"
+            ariaLabel="お客様の声（Googleクチコミ 5.0・167件）を見る"
+            className="flex w-full flex-col justify-center rounded-[12px] border border-lux-gold/45 bg-white px-[clamp(8px,2.3vw,13px)] py-[clamp(9px,2.5vw,13px)] text-left shadow-[0_2px_6px_rgba(18,61,40,0.1)] transition-shadow hover:shadow-[0_5px_14px_rgba(18,61,40,0.2)] active:brightness-[0.98]"
           >
             <div className="flex items-center gap-[clamp(3px,1vw,6px)]">
               <svg viewBox="0 0 48 48" className="h-[clamp(15px,4.2vw,20px)] w-[clamp(15px,4.2vw,20px)] shrink-0" aria-hidden="true">
@@ -161,7 +159,7 @@ export default function McyFv() {
               口コミを見る
               <span aria-hidden="true">→</span>
             </span>
-          </a>
+          </OpenReviewsButton>
 
           {/* record card */}
           <div className="flex flex-col justify-center rounded-[12px] border border-lux-gold/45 bg-white px-[clamp(8px,2.3vw,13px)] py-[clamp(9px,2.5vw,13px)] shadow-[0_2px_6px_rgba(18,61,40,0.1)]">
