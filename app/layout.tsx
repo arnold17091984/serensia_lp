@@ -72,8 +72,15 @@ export const metadata: Metadata = {
     title: "セレンシア｜特殊清掃・遺品整理",
     description:
       "臭いの原因から徹底除去。相談と見積無料、料金をすぐにご提示します。",
-    images: ["/img/og.jpg"],
+    images: [{ url: "/img/og.jpg?v=2", width: 1200, height: 630 }],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "セレンシア｜特殊清掃・遺品整理",
+    description:
+      "臭いの原因から徹底除去。相談と見積無料、料金をすぐにご提示します。",
+    images: ["/img/og.jpg?v=2"],
   },
 };
 
