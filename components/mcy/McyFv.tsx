@@ -1,5 +1,7 @@
 import { LINE_URL, PHONE_TEL } from "./McyHeader";
+import LineSteps from "./LineSteps";
 import OpenReviewsButton from "./OpenReviewsButton";
+import PhoneHoursNotice from "./PhoneHoursNotice";
 
 /**
  * First view — the approved KV design (Downloads/kv.png) rendered as clean
@@ -40,7 +42,7 @@ export default function McyFv() {
         {/* top: header + 全域対応 + headline + 代表 太田 + 4 benefits */}
         <img
           src="/img/kv_top.webp?v=4"
-          alt="特殊清掃・遺品整理 セレンシア。東京・神奈川 全域対応。孤独死・事故現場の特殊清掃専門。臭い・体液汚染を最短即日で現地確認。代表 太田が対応。相談・見積り無料（24時間受付・年中無休）／追加料金なし／立ち会い不要／近隣配慮・秘密厳守。"
+          alt="特殊清掃・遺品整理 セレンシア。東京・神奈川 全域対応。孤独死・事故現場の特殊清掃専門。臭い・体液汚染を最短即日で現地確認。代表 太田が対応。相談・見積り無料（電話9:00〜21:00・LINEは24時間受付・年中無休）／追加料金なし／立ち会い不要／近隣配慮・秘密厳守。"
           width={852}
           height={890}
           loading="eager"
@@ -53,6 +55,8 @@ export default function McyFv() {
             crawlable text; copy is editable — 年中無休 etc). Only THIS block flags
             data-cta-section so the sticky bar re-appears once the buttons scroll off. */}
         <div data-cta-section className="flex flex-col gap-[clamp(6px,1.8vw,10px)] bg-gradient-to-b from-[#fcf9f1] to-[#fefefe] px-[clamp(6px,1.8vw,12px)] py-[clamp(6px,1.8vw,10px)]">
+          {/* out-of-hours strip (21:00–9:00 only): keeps the night tap from dead-ending */}
+          <PhoneHoursNotice />
           {/* phone — red glossy button (gold frame, thicker gold base) */}
           <a
             href={PHONE_TEL}
@@ -71,7 +75,7 @@ export default function McyFv() {
               <span className="relative min-w-0 flex-1 text-center leading-none text-white [text-shadow:0_1px_2px_rgba(120,0,0,0.5)]">
                 <span className="block text-[clamp(11px,3.1vw,14.5px)] font-bold tracking-[0.02em]">電話で今すぐ相談する</span>
                 <span className="mt-[3px] block text-[clamp(23px,6.7vw,33px)] font-black tracking-[-0.01em]">03-4400-2098</span>
-                <span className="mt-[3px] block text-[clamp(8.5px,2.4vw,11px)] font-bold opacity-95">受付時間 9:00〜21:00 / 年中無休</span>
+                <span className="mt-[3px] block text-[clamp(11px,2.8vw,12px)] font-bold opacity-95">受付 9:00〜21:00 年中無休｜相談だけでもOK</span>
               </span>
               <svg viewBox="0 0 24 24" className="relative h-[clamp(19px,5.2vw,27px)] w-[clamp(19px,5.2vw,27px)] shrink-0" fill="none" stroke="white" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="m9 5 7 7-7 7" />
@@ -115,13 +119,16 @@ export default function McyFv() {
               <span className="relative min-w-0 flex-1 text-center leading-none text-white [text-shadow:0_1px_2px_rgba(0,70,5,0.5)]">
                 <span className="block text-[clamp(11px,3.1vw,14.5px)] font-bold tracking-[0.02em]">LINEで写真を送るだけ</span>
                 <span className="mt-[3px] block whitespace-nowrap text-[clamp(19px,5.6vw,27px)] font-black tracking-[0.01em]">写真相談・概算見積り</span>
-                <span className="mt-[3px] block whitespace-nowrap text-[clamp(8.5px,2.4vw,11px)] font-bold opacity-95">簡単・安心・すぐにご回答します</span>
+                <span className="mt-[3px] block whitespace-nowrap text-[clamp(11px,2.8vw,12px)] font-bold opacity-95">友だち追加して送るだけ｜24時間受付</span>
               </span>
               <svg viewBox="0 0 24 24" className="relative h-[clamp(19px,5.2vw,27px)] w-[clamp(19px,5.2vw,27px)] shrink-0" fill="none" stroke="white" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="m9 5 7 7-7 7" />
               </svg>
             </span>
           </a>
+
+          {/* what happens after the LINE tap — closes the tap→first-message gap */}
+          <LineSteps />
         </div>
 
         {/* Google reviews + ご相談実績 — coded (real, crawlable 5.0 / 167件) */}
@@ -179,6 +186,20 @@ export default function McyFv() {
               ご遺族・大家様・管理会社様から多くご相談いただいています
             </span>
           </div>
+        </div>
+
+        {/* shortcut for price-anxious visitors — the KV itself says 「費用がどれくらいか不安」 */}
+        <div className="px-[clamp(6px,1.8vw,12px)] pb-[clamp(6px,1.8vw,10px)]">
+          <a
+            href="#ryokin"
+            data-gtm="fv_to_pricing"
+            className="flex items-center justify-center gap-[6px] rounded-full border border-lux-gold/50 bg-white px-[clamp(12px,3.4vw,18px)] py-[clamp(10px,2.8vw,13px)] text-[clamp(12px,3.3vw,14px)] font-black text-lux-green-ink shadow-[0_2px_6px_rgba(18,61,40,0.1)] transition-shadow hover:shadow-[0_5px_14px_rgba(18,61,40,0.2)] active:brightness-[0.98]"
+          >
+            <span className="text-lux-gold-deep">特殊清掃 50,000円〜</span>
+            <span aria-hidden="true" className="text-lux-green-ink/40">｜</span>
+            料金の目安を見る
+            <span aria-hidden="true" className="text-lux-green">↓</span>
+          </a>
         </div>
 
         {/* こんなお悩みをすべて解決します！ + reassurance (専門スタッフが丁寧に対応します) */}

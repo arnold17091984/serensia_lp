@@ -28,7 +28,7 @@ function Laurel({ flip }: Readonly<{ flip?: boolean }>) {
 
 export default function McyFooter() {
   return (
-    <footer data-cta-section className="relative w-full overflow-hidden bg-gradient-to-b from-lux-green to-[#0a2c1c] pb-[max(28px,env(safe-area-inset-bottom))] text-white">
+    <footer className="relative w-full overflow-hidden bg-gradient-to-b from-lux-green to-[#0a2c1c] pb-[max(28px,env(safe-area-inset-bottom))] text-white">
       {/* gold double rule */}
       <div aria-hidden="true" className="relative z-10">
         <div className="h-[3px] w-full bg-gradient-to-r from-mcy-gold-deep via-mcy-gold-light to-mcy-gold-deep" />
@@ -59,10 +59,16 @@ export default function McyFooter() {
         <p className="mt-2 text-[clamp(10px,2.8vw,12.5px)] font-medium text-white/80">
           運営会社：株式会社TAKAKU
         </p>
+        <p className="mt-1 text-[clamp(10px,2.8vw,12px)] font-medium text-white/75">
+          〒158-0087 東京都世田谷区玉堤1丁目21-12
+        </p>
 
+        {/* data-cta-section: the sticky bar hides only while this tappable
+            phone block is genuinely on screen */}
         <a
           href={PHONE_TEL}
           data-gtm="cta_tel_footer"
+          data-cta-section
           className="mt-[clamp(14px,4vw,20px)] inline-flex items-center gap-[clamp(7px,2vw,11px)] text-white transition-[filter] active:brightness-90"
         >
           <span className="grid h-[clamp(28px,7.6vw,36px)] w-[clamp(28px,7.6vw,36px)] shrink-0 place-items-center rounded-full bg-gradient-to-br from-mcy-gold to-mcy-gold-deep shadow-[0_4px_10px_rgba(0,0,0,0.35)] ring-1 ring-white/30">

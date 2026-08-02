@@ -22,7 +22,7 @@ const SHOTS: ReadonlyArray<{ src: string; caption: string }> = [
 
 export default function McyGallery() {
   return (
-    <section className="relative w-full overflow-hidden bg-gradient-to-b from-lux-cream to-lux-cream-2 px-4 py-[clamp(28px,8vw,46px)]">
+    <section data-section="gallery" className="relative w-full overflow-hidden bg-gradient-to-b from-lux-cream to-lux-cream-2 px-4 py-[clamp(28px,8vw,46px)]">
       {/* layered ground: gold glow + fine dot texture + foliage */}
       <div aria-hidden="true" className="pointer-events-none absolute -right-[130px] top-[8%] h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle,rgba(200,162,78,0.16),transparent_65%)]" />
       <div aria-hidden="true" className="lux-dots pointer-events-none absolute inset-0 opacity-50" />

@@ -121,6 +121,7 @@ export default function McyPricing() {
   return (
     <section
       id="ryokin"
+      data-section="pricing"
       className="relative w-full scroll-mt-[70px] overflow-hidden bg-gradient-to-b from-lux-cream to-lux-cream-2 px-4 py-[clamp(28px,8vw,52px)]"
     >
       {/* layered ground: soft gold glows + micro dot texture + foliage */}

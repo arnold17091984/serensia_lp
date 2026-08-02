@@ -1,4 +1,5 @@
 import { LINE_URL, PHONE_DISPLAY, PHONE_TEL } from "./McyHeader";
+import LineSteps from "./LineSteps";
 
 /**
  * Full-width conversion section (used mid-page and at the end).
@@ -9,7 +10,7 @@ import { LINE_URL, PHONE_DISPLAY, PHONE_TEL } from "./McyHeader";
  */
 export default function McyCta() {
   return (
-    <section data-cta-section className="relative w-full overflow-hidden bg-gradient-to-b from-lux-green to-[#0a2c1c]">
+    <section className="relative w-full overflow-hidden bg-gradient-to-b from-lux-green to-[#0a2c1c]">
       {/* layered background: gold glow + soft green glow + fine dot texture */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div className="absolute -top-28 left-1/2 h-[440px] w-[760px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(200,162,78,0.26),transparent_72%)] blur-2xl" />
@@ -39,8 +40,10 @@ export default function McyCta() {
           <span className="inline-block bg-gradient-to-b from-[#f7edd2] via-lux-gold to-lux-gold-deep bg-clip-text text-[clamp(20px,5.6vw,27px)] text-transparent drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">円</span>
         </p>
 
-        {/* glass card with double gold frame */}
-        <div className="mx-auto mt-[clamp(14px,3.8vw,20px)] max-w-[460px] rounded-[18px] bg-gradient-to-b from-lux-gold-light via-lux-gold to-lux-gold-deep p-[2px] shadow-[0_18px_40px_rgba(0,0,0,0.4)]">
+        {/* glass card with double gold frame — data-cta-section lives HERE (the
+            block that actually contains the buttons) so the sticky bar only
+            hides once real, tappable CTAs are on screen */}
+        <div data-cta-section className="mx-auto mt-[clamp(14px,3.8vw,20px)] max-w-[460px] rounded-[18px] bg-gradient-to-b from-lux-gold-light via-lux-gold to-lux-gold-deep p-[2px] shadow-[0_18px_40px_rgba(0,0,0,0.4)]">
           <div className="relative rounded-[16px] bg-white px-4 pb-5 pt-4 text-lux-green-ink">
             <div aria-hidden="true" className="pointer-events-none absolute inset-[5px] rounded-[12px] border border-lux-gold/45" />
 
@@ -68,8 +71,9 @@ export default function McyCta() {
             </ul>
 
             {/* reassurance microcopy just before the call action */}
-            <p className="mt-3 text-center text-[clamp(10px,2.8vw,12px)] font-medium leading-[1.7] text-lux-green-ink/75 [word-break:auto-phrase]">
+            <p className="mt-3 text-center text-[clamp(11px,2.9vw,12.5px)] font-medium leading-[1.7] text-lux-green-ink/80 [word-break:auto-phrase]">
               うまく状況をご説明できなくても大丈夫です。お話を伺いながら丁寧にご案内します。
+              <span className="mt-[2px] block font-bold text-lux-green-ink">無理な営業は一切いたしません。ご相談だけでも歓迎です。</span>
             </p>
 
             <a
@@ -85,13 +89,13 @@ export default function McyCta() {
                 </svg>
               </span>
               <span className="min-w-0 text-center leading-none">
-                <span className="block whitespace-nowrap text-[clamp(9.5px,2.7vw,13px)] font-black">
+                <span className="block whitespace-nowrap text-[clamp(11px,2.9vw,13px)] font-black">
                   お電話で今すぐ相談する
                 </span>
                 <span className="mt-[4px] block whitespace-nowrap text-[clamp(19px,5.5vw,27px)] font-black tracking-[-0.01em] text-lux-amber [text-shadow:0_1px_2px_rgba(0,0,0,0.3)]">
                   {PHONE_DISPLAY}
                 </span>
-                <span className="mt-[4px] block whitespace-nowrap text-[clamp(7.5px,2.1vw,10px)] font-bold opacity-95">
+                <span className="mt-[4px] block whitespace-nowrap text-[clamp(11px,2.9vw,12px)] font-bold opacity-95">
                   9:00〜21:00 年中無休｜タップで電話
                 </span>
               </span>
@@ -119,8 +123,8 @@ export default function McyCta() {
                 <span className="block whitespace-nowrap text-[clamp(14px,4vw,19px)] font-black [text-shadow:0_1px_2px_rgba(0,0,0,0.2)]">
                   LINEで無料相談する
                 </span>
-                <span className="mt-[4px] block whitespace-nowrap text-[clamp(8px,2.3vw,10.5px)] font-bold opacity-95">
-                  写真を送るだけで簡単見積り｜24時間受付中
+                <span className="mt-[4px] block whitespace-nowrap text-[clamp(11px,2.9vw,12px)] font-bold opacity-95">
+                  写真を送るだけ｜24時間受付中
                 </span>
               </span>
               <span aria-hidden="true" className="grid h-[clamp(18px,5vw,24px)] w-[clamp(18px,5vw,24px)] shrink-0 place-items-center rounded-full bg-white shadow-[0_2px_6px_rgba(0,0,0,0.25)]">
@@ -129,6 +133,11 @@ export default function McyCta() {
                 </svg>
               </span>
             </a>
+
+            {/* what happens after the LINE tap */}
+            <div className="mt-3">
+              <LineSteps />
+            </div>
           </div>
         </div>
       </div>

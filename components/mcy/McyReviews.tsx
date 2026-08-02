@@ -34,7 +34,7 @@ function Stars({ className = "h-[13px] w-[13px]" }: Readonly<{ className?: strin
 export default function McyReviews() {
   const featured = REVIEWS.slice(0, 3);
   return (
-    <section className="lux-rays relative w-full overflow-hidden px-4 py-[clamp(28px,8vw,46px)]">
+    <section data-section="reviews" className="lux-rays relative w-full overflow-hidden px-4 py-[clamp(28px,8vw,46px)]">
       <LeafSprig className="left-[-10px] top-[clamp(50px,13vw,90px)] h-[clamp(54px,15vw,84px)] w-auto opacity-55" />
       <Sparkle className="right-[8%] top-[clamp(16px,4.6vw,30px)] text-[clamp(11px,3.2vw,16px)] text-lux-gold/80" />
 
@@ -88,11 +88,11 @@ export default function McyReviews() {
             ariaLabel="お客様の声をもっと見る"
             className="mcy-cta-nudge inline-flex items-center gap-2 rounded-full border-2 border-lux-green/35 bg-white px-[clamp(20px,6vw,30px)] py-[clamp(11px,3vw,14px)] text-[clamp(12.5px,3.4vw,14.5px)] font-black text-lux-green-ink shadow-[0_4px_12px_rgba(18,61,40,0.12)] transition-[background-color,transform] hover:bg-lux-green-soft active:scale-[0.98]"
           >
-            口コミをもっと見る（{GOOGLE_REVIEW_COUNT}件）
+            口コミを読む
             <span aria-hidden="true">→</span>
           </OpenReviewsButton>
-          <p className="mt-[7px] text-[clamp(9.5px,2.6vw,11px)] font-medium text-lux-green-ink/55">
-            ※実際のGoogleクチコミです（このページ内で開きます）
+          <p className="mt-[7px] text-[clamp(11px,3vw,12px)] font-medium text-lux-green-ink/75">
+            ※実際のGoogleクチコミ{GOOGLE_REVIEW_COUNT}件から抜粋（このページ内で開きます）
           </p>
         </div>
       </div>

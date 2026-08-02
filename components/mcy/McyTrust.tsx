@@ -252,7 +252,7 @@ export default function McyTrust() {
               <span className="mt-[4px] block whitespace-nowrap text-[clamp(19px,5.5vw,26px)] font-black tracking-[-0.01em] text-lux-amber [text-shadow:0_1px_2px_rgba(0,0,0,0.3)]">
                 {PHONE_DISPLAY}
               </span>
-              <span className="mt-[4px] block whitespace-nowrap text-[clamp(7.5px,2.1vw,10px)] font-bold opacity-95">
+              <span className="mt-[4px] block whitespace-nowrap text-[clamp(11px,2.9vw,12px)] font-bold opacity-95">
                 最短即日で現地確認｜原状回復まで一括対応
               </span>
             </span>
@@ -317,7 +317,7 @@ export default function McyTrust() {
                 <span className="mt-[4px] block whitespace-nowrap text-[clamp(19px,5.5vw,26px)] font-black tracking-[-0.01em]">
                   {PHONE_DISPLAY}
                 </span>
-                <span className="mt-[4px] block whitespace-nowrap text-[clamp(7.5px,2.1vw,10px)] font-bold opacity-95">
+                <span className="mt-[4px] block whitespace-nowrap text-[clamp(11px,2.9vw,12px)] font-bold opacity-95">
                   9:00〜21:00 年中無休
                 </span>
               </span>
@@ -339,8 +339,8 @@ export default function McyTrust() {
                 <span className="block whitespace-nowrap text-[clamp(12px,3.4vw,16px)] font-black">
                   まずはLINEで相談する
                 </span>
-                <span className="mt-[3px] block whitespace-nowrap text-[clamp(7.5px,2.1vw,10px)] font-bold opacity-95">
-                  見積無料｜まずは現地調査から｜24時間受付
+                <span className="mt-[3px] block whitespace-nowrap text-[clamp(11px,2.9vw,12px)] font-bold opacity-95">
+                  見積無料｜24時間受付
                 </span>
               </span>
               <ArrowBubble className="text-[#06a32a]" />

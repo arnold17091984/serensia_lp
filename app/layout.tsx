@@ -7,10 +7,10 @@ import McyTracking from "@/components/mcy/McyTracking";
 // is intentionally not used at build time so the static export builds anywhere;
 // the mincho/gothic system fallbacks match the design on iOS/Mac/Windows.
 
-// NOTE: 現行LPと同じGTMコンテナを使用（AB計測を同一プロパティに集約するため）
-const GTM_ID = "GTM-M3SM8R2M";
-// GA4 (Google tag). Loaded directly so page_view + cta_click reach GA4 without
-// requiring any GTM UI work. Coexists with GTM (which has no GA4 tag).
+// GA4 (Google tag), loaded directly. GTM (GTM-M3SM8R2M) was removed on purpose:
+// the container only held the OLD LP's triggers plus a stale GA4 property
+// (G-184ZZJZ34M), so it cost ~150KB/PV and double-sent page_view while never
+// firing on this LP's events. All tracking goes through gtag + McyTracking.
 const GA4_ID = "G-0VCKZL8TG7";
 
 // JSON-LD: mirrors on-page text (FAQ + business info). Reinforces landing-page
@@ -36,7 +36,14 @@ const JSON_LD = {
       description:
         "孤独死・事故現場の特殊清掃、腐敗臭・体液汚染の除去、遺品整理、原状回復。東京・神奈川を中心に関東一円、最短即日で現地確認。",
       telephone: "+81-3-4400-2098",
-      image: "/img/og.jpg",
+      image: "https://tokuso-serenshia.com/img/og.jpg",
+      address: {
+        "@type": "PostalAddress",
+        postalCode: "158-0087",
+        addressRegion: "東京都",
+        addressLocality: "世田谷区",
+        streetAddress: "玉堤1丁目21-12",
+      },
       priceRange: "¥50,000〜¥460,000",
       areaServed: ["東京都", "神奈川県", "関東一円"],
       openingHours: "Mo-Su 09:00-21:00",
@@ -96,22 +103,10 @@ export default function RootLayout({
           // structured data mirrors on-page FAQ + business info
           dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
         />
-        <Script id="gtm" strategy="afterInteractive">
-          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');`}
-        </Script>
         <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`} strategy="afterInteractive" />
         <Script id="ga4" strategy="afterInteractive">
           {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','${GA4_ID}');`}
         </Script>
-        <noscript>
-          <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-            title="Google Tag Manager"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
         <McyTracking />
         {children}
       </body>

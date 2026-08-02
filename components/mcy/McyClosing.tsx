@@ -122,7 +122,7 @@ export default function McyClosing() {
   return (
     <>
       {/* ===== FAQ ===== */}
-      <section id="faq" className="relative w-full overflow-hidden bg-lux-cream px-4 py-[clamp(24px,7vw,40px)]">
+      <section id="faq" data-section="faq" className="relative w-full overflow-hidden bg-lux-cream px-4 py-[clamp(24px,7vw,40px)]">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute -right-[16%] -top-[8%] h-[clamp(190px,56vw,310px)] w-[clamp(190px,56vw,310px)] rounded-full bg-[radial-gradient(circle,rgba(200,162,78,0.16),transparent_65%)]" />
           <div className="absolute -left-[14%] bottom-[4%] h-[clamp(150px,45vw,250px)] w-[clamp(150px,45vw,250px)] rounded-full bg-[radial-gradient(circle,rgba(29,90,58,0.1),transparent_65%)]" />

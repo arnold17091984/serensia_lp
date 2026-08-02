@@ -39,6 +39,8 @@ export default function McyReviewsModal() {
   useEffect(() => {
     if (!open) return;
     const prevOverflow = document.body.style.overflow;
+    // remember the opener so keyboard/AT users land back where they started
+    const opener = document.activeElement as HTMLElement | null;
     document.body.style.overflow = "hidden";
     closeBtnRef.current?.focus();
     const onKey = (e: KeyboardEvent) => {
@@ -48,6 +50,7 @@ export default function McyReviewsModal() {
     return () => {
       document.body.style.overflow = prevOverflow;
       document.removeEventListener("keydown", onKey);
+      opener?.focus?.();
     };
   }, [open]);
 
@@ -80,7 +83,7 @@ export default function McyReviewsModal() {
             <p className="mt-[1px] flex items-center gap-1.5 text-[clamp(10.5px,2.9vw,12px)] font-bold text-lux-green-ink/75">
               <Stars />
               <span className="font-display text-[clamp(14px,3.8vw,16px)] font-black text-lux-green-ink">{GOOGLE_RATING}</span>
-              <span>／{GOOGLE_REVIEW_COUNT}件</span>
+              <span>／{GOOGLE_REVIEW_COUNT}件から抜粋</span>
             </p>
           </div>
           <button
@@ -88,7 +91,7 @@ export default function McyReviewsModal() {
             type="button"
             onClick={() => setOpen(false)}
             aria-label="閉じる"
-            className="grid h-9 w-9 shrink-0 place-items-center rounded-full text-lux-green-ink/70 transition-colors hover:bg-black/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-lux-green"
+            className="grid h-11 w-11 shrink-0 place-items-center rounded-full text-lux-green-ink/70 transition-colors hover:bg-black/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-lux-green"
           >
             <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
               <path d="M6 6l12 12M18 6L6 18" />

@@ -1,19 +1,31 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { LINE_URL, PHONE_TEL } from "./McyHeader";
+import { isPhoneClosed } from "./PhoneHoursNotice";
 
 /**
  * No.33 — sticky CTA bar (glossy turquoise phone / LINE green on white glass).
- * Hidden while a full-width CTA section (data-cta-section) is on screen.
+ * Hidden while a full-width CTA block (data-cta-section) is on screen — the
+ * attribute sits on the blocks that actually contain buttons, and rootMargin
+ * shrinks the viewport check so the bar only hides once those buttons are
+ * genuinely visible (no dead zone with zero tappable CTAs).
+ * During 21:00–9:00 the LINE button takes the lead slot and the phone button
+ * shows an out-of-hours label instead of pretending calls connect.
  */
 export default function McyStickyCta() {
   const [scrolled, setScrolled] = useState(false);
   const [ctaInView, setCtaInView] = useState(false);
+  const [phoneClosed, setPhoneClosed] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 400);
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
+
+    const updateHours = () => setPhoneClosed(isPhoneClosed(new Date()));
+    updateHours();
+    const hoursId = setInterval(updateHours, 60_000);
 
     const sections = document.querySelectorAll("[data-cta-section]");
     const inView = new Set<Element>();
@@ -25,12 +37,15 @@ export default function McyStickyCta() {
         }
         setCtaInView(inView.size > 0);
       },
-      { threshold: 0.12 },
+      // Hide the bar only when a decent slice of the CTA block is inside the
+      // lower 70% of the viewport (i.e. its buttons are actually reachable).
+      { threshold: 0.35, rootMargin: "0px 0px -15% 0px" },
     );
     sections.forEach((s) => observer.observe(s));
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      clearInterval(hoursId);
       observer.disconnect();
     };
   }, []);
@@ -51,10 +66,12 @@ export default function McyStickyCta() {
           className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-lux-gold-light via-lux-gold-deep to-lux-gold-light"
         />
         <a
-          href="tel:0344002098"
+          href={PHONE_TEL}
           tabIndex={visible ? undefined : -1}
           data-gtm="cta_tel_sticky"
-          className="relative flex flex-1 flex-col items-center justify-center overflow-hidden rounded-full bg-gradient-to-b from-lux-green-2 via-lux-green to-[#0c2c1c] py-[8px] pl-[10px] pr-[26px] text-white shadow-[0_0_0_3.5px_rgba(200,162,78,0.5),0_10px_24px_rgba(18,61,40,0.45)] ring-2 ring-white/60 transition-[filter] active:brightness-90"
+          className={`relative flex flex-1 flex-col items-center justify-center overflow-hidden rounded-full bg-gradient-to-b from-lux-green-2 via-lux-green to-[#0c2c1c] py-[8px] pl-[10px] pr-[26px] text-white shadow-[0_0_0_3.5px_rgba(200,162,78,0.5),0_10px_24px_rgba(18,61,40,0.45)] ring-2 ring-white/60 transition-[filter] active:brightness-90 ${
+            phoneClosed ? "order-2 opacity-80 saturate-[0.85]" : "order-1"
+          }`}
         >
           <span
             aria-hidden
@@ -66,8 +83,8 @@ export default function McyStickyCta() {
             </svg>
             {"電話で相談する"}
           </span>
-          <span className="relative mt-[3px] whitespace-nowrap text-[clamp(8.5px,2.5vw,9.5px)] font-bold leading-none opacity-95">
-            9:00〜21:00 年中無休
+          <span className="relative mt-[3px] whitespace-nowrap text-[clamp(11px,3vw,12px)] font-bold leading-none opacity-95">
+            {phoneClosed ? "受付時間外（朝9時〜）" : "相談だけOK・営業なし"}
           </span>
           <span
             aria-hidden
@@ -79,12 +96,14 @@ export default function McyStickyCta() {
           </span>
         </a>
         <a
-          href="https://page.line.me/782qjphg"
+          href={LINE_URL}
           target="_blank"
           rel="noopener noreferrer"
           tabIndex={visible ? undefined : -1}
           data-gtm="cta_line_sticky"
-          className="relative flex flex-1 flex-col items-center justify-center overflow-hidden rounded-full bg-gradient-to-b from-[#4be06a] via-[#25d94e] to-[#06a32a] py-[8px] pl-[10px] pr-[26px] text-white shadow-[0_0_0_3.5px_rgba(201,162,79,0.45),0_10px_24px_rgba(6,163,42,0.4)] ring-2 ring-white/70 transition-[filter] active:brightness-90"
+          className={`relative flex flex-1 flex-col items-center justify-center overflow-hidden rounded-full bg-gradient-to-b from-[#4be06a] via-[#25d94e] to-[#06a32a] py-[8px] pl-[10px] pr-[26px] text-white shadow-[0_0_0_3.5px_rgba(201,162,79,0.45),0_10px_24px_rgba(6,163,42,0.4)] ring-2 ring-white/70 transition-[filter] active:brightness-90 ${
+            phoneClosed ? "order-1" : "order-2"
+          }`}
         >
           <span
             aria-hidden
@@ -104,8 +123,8 @@ export default function McyStickyCta() {
             </span>
             {"LINEで無料相談"}
           </span>
-          <span className="relative mt-[3px] whitespace-nowrap text-[clamp(8.5px,2.5vw,9.5px)] font-bold leading-none opacity-95">
-            写真を送るだけ｜24時間受付
+          <span className="relative mt-[3px] whitespace-nowrap text-[clamp(11px,3vw,12px)] font-bold leading-none opacity-95">
+            写真でOK｜24時間受付
           </span>
           <span
             aria-hidden

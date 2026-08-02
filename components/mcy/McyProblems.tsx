@@ -65,7 +65,7 @@ export default function McyProblems() {
   return (
     <>
       {/* ===== worries (manga) ===== */}
-      <section className="lux-rays relative w-full overflow-hidden px-4 py-[clamp(28px,8vw,46px)]">
+      <section data-section="manga" className="lux-rays relative w-full overflow-hidden px-4 py-[clamp(28px,8vw,46px)]">
         {/* seamless blend from the KV image bottom (warm cream) into this section */}
         <div
           aria-hidden="true"

@@ -13,7 +13,7 @@ const LEGAL_ROWS: { label: string; value: React.ReactNode }[] = [
     label: "連絡先",
     value: (
       <>
-        <a href="tel:0344002098" className="underline underline-offset-2">
+        <a href="tel:0344002098" data-gtm="cta_tel_legal" className="underline underline-offset-2">
           03-4400-2098
         </a>
         <span className="mt-1 block text-[12px] leading-relaxed text-neutral-500">

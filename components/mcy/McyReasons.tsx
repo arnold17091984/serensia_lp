@@ -55,7 +55,7 @@ const REASONS: ReadonlyArray<{ icon: ReactNode; title: string; desc: string }> =
 
 export default function McyReasons() {
   return (
-    <section className="relative w-full overflow-hidden bg-gradient-to-b from-lux-cream to-lux-cream-2 px-4 py-[clamp(28px,8vw,46px)]">
+    <section data-section="reasons" className="relative w-full overflow-hidden bg-gradient-to-b from-lux-cream to-lux-cream-2 px-4 py-[clamp(28px,8vw,46px)]">
       <div aria-hidden="true" className="lux-dots pointer-events-none absolute inset-0 opacity-50" />
       <div aria-hidden="true" className="pointer-events-none absolute -right-[130px] top-[6%] h-[340px] w-[340px] rounded-full bg-[radial-gradient(circle,rgba(200,162,78,0.16),transparent_65%)]" />
       <LeafSprig className="left-[-10px] top-[clamp(48px,13vw,90px)] h-[clamp(54px,15vw,84px)] w-auto opacity-55" />
