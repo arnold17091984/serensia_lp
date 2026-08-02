@@ -1,7 +1,24 @@
 import { LINE_URL, PHONE_TEL } from "./McyHeader";
 import LineSteps from "./LineSteps";
+import { CheckGreen } from "./McyLux";
 import OpenReviewsButton from "./OpenReviewsButton";
 import PhoneHoursNotice from "./PhoneHoursNotice";
+
+/**
+ * FV worries checklist — coded (not baked into the KV slice) so items are
+ * editable. Rows 1-2 cover BOTH personas up front: 特殊清掃 (emergency) and
+ * 遺品整理 (the majority of paid traffic per the search-terms report).
+ */
+const WORRIES = [
+  "部屋に入れないほど臭いが強い",
+  "近隣に知られず静かに対応してほしい",
+  "実家の片付けを何から始めるか分からない",
+  "思い出の品や仏壇の扱い・供養に迷う",
+  "孤独死・事故現場の清掃をどこに頼めばいいか分からない",
+  "大家・管理会社から急ぎの対応を求められている",
+  "遠方で立ち会えない",
+  "費用がどれくらいか不安",
+] as const;
 
 /**
  * First view — the approved KV design (Downloads/kv.png) rendered as clean
@@ -127,8 +144,9 @@ export default function McyFv() {
             </span>
           </a>
 
-          {/* what happens after the LINE tap — closes the tap→first-message gap */}
-          <LineSteps />
+          {/* what happens after the LINE tap — collapsed to one line so the
+              button→social-proof flow stays tight (opens on tap, no JS) */}
+          <LineSteps collapsible />
         </div>
 
         {/* Google reviews + ご相談実績 — coded (real, crawlable 5.0 / 167件) */}
@@ -137,7 +155,7 @@ export default function McyFv() {
           <OpenReviewsButton
             gtm="reviews_open_fv"
             ariaLabel="お客様の声（Googleクチコミ 5.0・167件）を見る"
-            className="flex w-full flex-col justify-center rounded-[12px] border border-lux-gold/45 bg-white px-[clamp(8px,2.3vw,13px)] py-[clamp(9px,2.5vw,13px)] text-left shadow-[0_2px_6px_rgba(18,61,40,0.1)] transition-shadow hover:shadow-[0_5px_14px_rgba(18,61,40,0.2)] active:brightness-[0.98]"
+            className="flex w-full flex-col justify-center rounded-[12px] border border-lux-gold/45 bg-white px-[clamp(8px,2.3vw,13px)] py-[clamp(7px,2vw,10px)] text-left shadow-[0_2px_6px_rgba(18,61,40,0.1)] transition-shadow hover:shadow-[0_5px_14px_rgba(18,61,40,0.2)] active:brightness-[0.98]"
           >
             <div className="flex items-center gap-[clamp(3px,1vw,6px)]">
               <svg viewBox="0 0 48 48" className="h-[clamp(15px,4.2vw,20px)] w-[clamp(15px,4.2vw,20px)] shrink-0" aria-hidden="true">
@@ -158,10 +176,9 @@ export default function McyFv() {
               </span>
               <span className="font-display leading-none text-lux-green-ink">
                 <span className="text-[clamp(18px,5vw,24px)] font-black">5.0</span>
-                <span className="text-[clamp(9px,2.5vw,12px)] font-bold text-lux-green-ink/70">/5.0</span>
+                <span className="text-[clamp(9px,2.5vw,12px)] font-bold text-lux-green-ink/70">/5.0（167件）</span>
               </span>
             </div>
-            <span className="mt-[clamp(3px,1vw,5px)] text-[clamp(8.5px,2.4vw,11px)] font-bold text-lux-green-ink/80">クチコミ167件以上</span>
             <span className="mt-[3px] inline-flex items-center gap-[3px] text-[clamp(8px,2.3vw,10.5px)] font-bold text-lux-green underline decoration-lux-gold decoration-2 underline-offset-2">
               口コミを見る
               <span aria-hidden="true">→</span>
@@ -169,7 +186,7 @@ export default function McyFv() {
           </OpenReviewsButton>
 
           {/* record card */}
-          <div className="flex flex-col justify-center rounded-[12px] border border-lux-gold/45 bg-white px-[clamp(8px,2.3vw,13px)] py-[clamp(9px,2.5vw,13px)] shadow-[0_2px_6px_rgba(18,61,40,0.1)]">
+          <div className="flex flex-col justify-center rounded-[12px] border border-lux-gold/45 bg-white px-[clamp(8px,2.3vw,13px)] py-[clamp(7px,2vw,10px)] shadow-[0_2px_6px_rgba(18,61,40,0.1)]">
             <div className="flex items-center gap-[clamp(4px,1.4vw,8px)]">
               <svg viewBox="0 0 24 24" className="h-[clamp(20px,5.6vw,28px)] w-[clamp(20px,5.6vw,28px)] shrink-0 fill-lux-green" aria-hidden="true">
                 <circle cx="7" cy="7" r="2.6" />
@@ -182,8 +199,8 @@ export default function McyFv() {
                 <span className="block font-display text-[clamp(15px,4.3vw,20px)] font-black text-lux-gold-deep">2,000件以上</span>
               </span>
             </div>
-            <span className="mt-[clamp(3px,1vw,5px)] block text-[clamp(8px,2.3vw,10.5px)] font-medium leading-[1.5] text-lux-green-ink/80 [word-break:auto-phrase]">
-              ご遺族・大家様・管理会社様から多くご相談いただいています
+            <span className="mt-[3px] block text-[clamp(8px,2.3vw,10.5px)] font-medium text-lux-green-ink/80 [word-break:auto-phrase]">
+              ご遺族・大家様・管理会社様
             </span>
           </div>
         </div>
@@ -202,16 +219,36 @@ export default function McyFv() {
           </a>
         </div>
 
-        {/* こんなお悩みをすべて解決します！ + reassurance (専門スタッフが丁寧に対応します) */}
-        <img
-          src="/img/kv_bottom.webp?v=3"
-          alt="こんなお悩みをすべて解決します。部屋に入れないほど臭いが強い、近隣に知られず静かに対応してほしい、孤独死・事故現場で何から始めればいいか分からない、大家・管理会社から急ぎで対応を求められている、遠方で立ち会えない、費用がどれくらいか不安。どんな状況でも、まずはご相談ください。専門スタッフが丁寧に対応します。"
-          width={852}
-          height={518}
-          loading="lazy"
-          decoding="async"
-          className="block w-full"
-        />
+        {/* こんなお悩みをすべて解決します！ — coded checklist (8 items, both
+            personas) + the reassure slice (専門スタッフが丁寧に対応します) */}
+        <div className="bg-[#fdfbf7] px-[clamp(6px,1.8vw,12px)] pb-[clamp(8px,2.2vw,12px)]">
+          <div className="rounded-[14px] bg-gradient-to-b from-lux-green to-[#0e3322] p-[clamp(7px,2vw,11px)] shadow-[0_6px_18px_rgba(18,61,40,0.28)]">
+            <p className="pb-[clamp(6px,1.8vw,9px)] pt-[2px] text-center text-[clamp(15px,4.3vw,20px)] font-black tracking-[0.02em] text-white">
+              <span aria-hidden="true" className="mr-[6px] text-lux-gold-light">＼</span>
+              こんなお悩みをすべて解決します！
+              <span aria-hidden="true" className="ml-[6px] text-lux-gold-light">／</span>
+            </p>
+            <ul className="grid grid-cols-2 gap-x-[clamp(8px,2.4vw,14px)] gap-y-[clamp(9px,2.6vw,13px)] rounded-[10px] bg-white px-[clamp(10px,2.8vw,16px)] py-[clamp(12px,3.4vw,18px)]">
+              {WORRIES.map((w) => (
+                <li key={w} className="flex items-start gap-[clamp(5px,1.5vw,8px)]">
+                  <CheckGreen className="mt-[1px] h-[clamp(16px,4.4vw,20px)] w-[clamp(16px,4.4vw,20px)]" />
+                  <span className="min-w-0 text-[clamp(11px,3vw,13.5px)] font-bold leading-[1.5] text-lux-green-ink [word-break:auto-phrase]">
+                    {w}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <img
+            src="/img/kv_reassure.webp"
+            alt="どんな状況でも、まずはご相談ください。専門スタッフが丁寧に対応します。"
+            width={753}
+            height={192}
+            loading="lazy"
+            decoding="async"
+            className="mt-[clamp(6px,1.8vw,10px)] block w-full"
+          />
+        </div>
       </div>
     </section>
   );
