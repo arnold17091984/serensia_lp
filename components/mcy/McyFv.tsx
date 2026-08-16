@@ -6,16 +6,17 @@ import PhoneHoursNotice from "./PhoneHoursNotice";
 
 /**
  * FV worries checklist — coded (not baked into the KV slice) so items are
- * editable. Rows 1-2 cover BOTH personas up front: 特殊清掃 (emergency) and
- * 遺品整理 (the majority of paid traffic per the search-terms report).
+ * editable. 特掃-first order per the client's positioning (2026-08-16): the
+ * ad account targets 特殊清掃 (孤独死・事故物件) as the primary persona; 遺品整理
+ * appears only in the 特掃 context (消毒消臭とセットの遺品整理・供養).
  */
 const WORRIES = [
   "部屋に入れないほど臭いが強い",
-  "近隣に知られず静かに対応してほしい",
-  "実家の片付けを何から始めるか分からない",
-  "思い出の品や仏壇の扱い・供養に迷う",
   "孤独死・事故現場の清掃をどこに頼めばいいか分からない",
+  "近隣に知られず静かに対応してほしい",
   "大家・管理会社から急ぎの対応を求められている",
+  "消毒・消臭と一緒に遺品整理まで任せたい",
+  "思い出の品や仏壇の扱い・供養に迷う",
   "遠方で立ち会えない",
   "費用がどれくらいか不安",
 ] as const;
