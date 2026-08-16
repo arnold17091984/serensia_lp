@@ -80,8 +80,8 @@
   --color-ink: #23241f;
 
   /* ===== luxury green×gold (KV-matched body theme) ===== */
-  --color-lux-cream: #f6f1e6;
-  --color-lux-cream-2: #efe7d3;
+  --color-lux-cream: #faf7ef;
+  --color-lux-cream-2: #f5efe0;
   --color-lux-green: #123d28; /* deep emerald — shields / banners / labels */
   --color-lux-green-2: #1d5a3a; /* lighter emerald — gradient partner */
   --color-lux-green-ink: #1a4a33; /* headings / accents on light ground */
@@ -97,7 +97,7 @@ html {
 }
 
 body {
-  background: #e9e7e2;
+  background: #f0eee9;
   color: var(--color-ink);
 }
 
