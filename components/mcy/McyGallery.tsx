@@ -1,5 +1,5 @@
 import { LINE_URL } from "./McyHeader";
-import { LeafSprig, LuxHeading, Sparkle } from "./McyLux";
+import { LeafSprig, LuxHeading } from "./McyLux";
 
 /**
  * 現場ギャラリー — real special-cleaning site photos (防護服の専門スタッフによる
@@ -27,7 +27,6 @@ export default function McyGallery() {
       <div aria-hidden="true" className="pointer-events-none absolute -right-[130px] top-[8%] h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle,rgba(200,162,78,0.16),transparent_65%)]" />
       <div aria-hidden="true" className="lux-dots pointer-events-none absolute inset-0 opacity-50" />
       <LeafSprig className="left-[-10px] top-[clamp(50px,14vw,96px)] h-[clamp(54px,15vw,84px)] w-auto opacity-55" />
-      <Sparkle className="right-[8%] top-[clamp(16px,4.6vw,30px)] text-[clamp(11px,3.2vw,16px)] text-lux-gold/80" />
 
       <div className="relative">
         <LuxHeading kicker="実際の現場記録" watermark="GALLERY">

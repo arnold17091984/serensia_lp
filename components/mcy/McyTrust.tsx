@@ -110,14 +110,6 @@ function LineIcon({ name, className }: Readonly<{ name: IconName; className?: st
   );
 }
 
-function Sparkle({ className }: Readonly<{ className?: string }>) {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className={className}>
-      <path d="M12 0c1 7 4 11 12 12-8 1-11 5-12 12-1-7-4-11-12-12C8 11 11 7 12 0z" />
-    </svg>
-  );
-}
-
 function ArrowBubble({ className }: Readonly<{ className: string }>) {
   return (
     <span
@@ -208,7 +200,6 @@ export default function McyTrust() {
         <div aria-hidden="true" className="absolute inset-0 scale-110 bg-[url(/img/owner_bg.webp)] bg-cover bg-center opacity-45 blur-[7px]" />
         <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-lux-cream/92 via-lux-cream/88 to-lux-cream-2/95" />
         <div aria-hidden="true" className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(200,162,78,0.24),transparent_70%)] blur-2xl" />
-        <Sparkle className="absolute left-[6%] top-[clamp(14px,4vw,24px)] h-[clamp(12px,3.4vw,18px)] w-[clamp(12px,3.4vw,18px)] text-lux-gold/70" />
 
         <div className="relative">
           <SectionHeading watermark="OWNER" kicker="次の入居者のために物件を回復">
@@ -298,7 +289,6 @@ export default function McyTrust() {
 
           {/* call card — gold-framed cream glass (data-cta-section hides sticky bar) */}
           <div data-cta-section className="relative mx-auto mt-[clamp(16px,4.4vw,24px)] max-w-[460px] overflow-hidden rounded-2xl border-2 border-lux-gold/60 bg-white px-4 pb-5 pt-4 text-center shadow-[0_14px_34px_rgba(18,61,40,0.18)]">
-            <Sparkle className="absolute right-[10px] top-[10px] h-[clamp(10px,2.8vw,14px)] w-[clamp(10px,2.8vw,14px)] text-lux-gold/70" />
             <p className="flex items-center justify-center gap-2 font-display text-[clamp(14px,4vw,18px)] font-black text-lux-green-ink">
               <span aria-hidden="true" className="h-[6px] w-[6px] shrink-0 rotate-45 bg-lux-gold-deep" />
               <span>まずは相談事をお聞かせください</span>
@@ -362,7 +352,6 @@ export default function McyTrust() {
           <div className="absolute inset-0 scale-110 bg-[url(/img/ihin_work.webp)] bg-cover bg-center opacity-45 blur-[6px]" />
           <div className="absolute inset-0 bg-gradient-to-b from-lux-cream via-lux-cream/85 to-lux-cream/65" />
         </div>
-        <Sparkle className="absolute right-[7%] top-[clamp(16px,4.4vw,26px)] h-[clamp(12px,3.4vw,18px)] w-[clamp(12px,3.4vw,18px)] text-lux-gold/60" />
 
         <div className="relative">
           <SectionHeading watermark="LICENSE" kicker="技術を磨き、住まいを磨く。">
@@ -440,8 +429,6 @@ export default function McyTrust() {
         <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-lux-green-2 to-lux-green" />
         <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.2),transparent_60%)]" />
         <div aria-hidden="true" className="absolute inset-0 opacity-50 [background-image:radial-gradient(circle,rgba(255,255,255,0.14)_1px,transparent_1.4px)] [background-size:18px_18px]" />
-        <Sparkle className="absolute left-[7%] top-[clamp(18px,5vw,28px)] h-[clamp(12px,3.4vw,18px)] w-[clamp(12px,3.4vw,18px)] text-lux-gold-light/90" />
-        <Sparkle className="absolute bottom-[clamp(14px,4vw,22px)] right-[8%] h-[clamp(10px,2.8vw,14px)] w-[clamp(10px,2.8vw,14px)] text-white/70" />
 
         <div className="relative">
           <SectionHeading tone="dark" watermark="KEEPSAKE" kicker="Google口コミ高評価獲得！">

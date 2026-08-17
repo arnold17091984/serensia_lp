@@ -10,7 +10,6 @@ import {
   LuxCtaPill,
   LuxHeading,
   Shield,
-  Sparkle,
 } from "./McyLux";
 
 /**
@@ -73,7 +72,6 @@ export default function McyProblems() {
         />
         <LeafSprig className="left-[-8px] top-[6px] h-[clamp(62px,17vw,96px)] w-auto opacity-70" />
         <LeafSprig flip className="right-[-8px] top-[clamp(20px,6vw,40px)] h-[clamp(50px,14vw,80px)] w-auto opacity-60" />
-        <Sparkle className="right-[9%] top-[clamp(28px,8vw,50px)] text-[clamp(10px,3vw,15px)] text-lux-gold/80" />
 
         <div className="relative">
           <LuxHeading kicker="はじめてでも安心" watermark="STORY">
@@ -132,7 +130,6 @@ export default function McyProblems() {
       {/* ===== solution + strengths (mockup 1) ===== */}
       <section className="lux-rays relative w-full overflow-hidden px-4 py-[clamp(28px,8vw,46px)]">
         <LeafSprig flip className="right-[-10px] top-[10px] h-[clamp(60px,16vw,92px)] w-auto opacity-65" />
-        <Sparkle className="left-[7%] top-[clamp(16px,4.6vw,30px)] text-[clamp(11px,3.2vw,16px)] text-lux-gold/80" />
 
         <div className="relative">
           <div className="relative text-center">
@@ -213,7 +210,6 @@ export default function McyProblems() {
         <div aria-hidden="true" className="lux-dots absolute inset-0 opacity-60" />
         <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(circle_at_15%_0%,rgba(255,255,255,0.9),transparent_45%)]" />
         <LeafSprig className="left-[-10px] top-[clamp(30px,9vw,60px)] h-[clamp(56px,15vw,86px)] w-auto opacity-60" />
-        <Sparkle className="right-[6%] top-[clamp(16px,4.6vw,30px)] text-[clamp(11px,3.2vw,16px)] text-lux-gold/80" />
 
         <div className="relative">
           <LuxHeading kicker="セレンシアの技術" watermark="PROCESS">
@@ -260,7 +256,6 @@ export default function McyProblems() {
       {/* ===== restoration goal (mockup 3) ===== */}
       <section className="lux-rays relative w-full overflow-hidden px-4 py-[clamp(28px,8vw,46px)]">
         <LeafSprig className="left-[-10px] top-[8px] h-[clamp(58px,16vw,90px)] w-auto opacity-65" />
-        <Sparkle className="right-[8%] top-[clamp(16px,4.6vw,30px)] text-[clamp(11px,3.2vw,16px)] text-lux-gold/80" />
 
         <div className="relative">
           <div className="relative text-center">
@@ -303,7 +298,6 @@ export default function McyProblems() {
             <span aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0a2c1b] via-[#0a2c1b]/72 to-transparent" />
             <span aria-hidden="true" className="pointer-events-none absolute -top-1/4 right-0 h-[150%] w-1/2 rotate-12 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
             <span aria-hidden="true" className="pointer-events-none absolute inset-[7px] rounded-[14px] ring-1 ring-white/15" />
-            <Sparkle className="right-[14px] top-[12px] text-[clamp(11px,3vw,15px)] text-lux-gold-light" />
 
             <div className="absolute inset-x-0 bottom-0 p-[clamp(14px,4vw,20px)] text-white">
               <span className="inline-flex items-center gap-[6px] rounded-full bg-gradient-to-r from-lux-gold-light via-lux-gold to-lux-gold-deep px-[clamp(10px,2.8vw,14px)] py-[clamp(4px,1.2vw,6px)] shadow-[0_3px_10px_rgba(156,119,41,0.5)] ring-1 ring-white/40">

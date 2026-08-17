@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { LeafSprig, LuxHeading, Sparkle } from "./McyLux";
+import { LeafSprig, LuxHeading } from "./McyLux";
 
 /**
  * 選ばれる理由 — differentiation block placed after the on-site gallery (proof)
@@ -59,7 +59,6 @@ export default function McyReasons() {
       <div aria-hidden="true" className="lux-dots pointer-events-none absolute inset-0 opacity-50" />
       <div aria-hidden="true" className="pointer-events-none absolute -right-[130px] top-[6%] h-[340px] w-[340px] rounded-full bg-[radial-gradient(circle,rgba(200,162,78,0.16),transparent_65%)]" />
       <LeafSprig className="left-[-10px] top-[clamp(48px,13vw,90px)] h-[clamp(54px,15vw,84px)] w-auto opacity-55" />
-      <Sparkle className="right-[8%] top-[clamp(16px,4.6vw,30px)] text-[clamp(11px,3.2vw,16px)] text-lux-gold/80" />
 
       <div className="relative">
         <LuxHeading kicker="他社との違い" watermark="REASON">

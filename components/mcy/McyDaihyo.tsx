@@ -1,4 +1,4 @@
-import { CheckGreen, Sparkle } from "./McyLux";
+import { CheckGreen } from "./McyLux";
 
 /**
  * 代表メッセージ — placed right after the manga story so the manga-style read
@@ -21,7 +21,6 @@ export default function McyDaihyo() {
 
       <div className="relative rounded-[22px] bg-gradient-to-br from-lux-gold-light via-lux-gold to-lux-gold-deep p-[2px] shadow-[0_14px_34px_rgba(18,61,40,0.16)]">
         <div className="relative overflow-hidden rounded-[20px] bg-gradient-to-b from-white to-lux-cream px-[clamp(14px,4vw,20px)] pb-[clamp(16px,4.4vw,22px)] pt-[clamp(14px,3.8vw,20px)]">
-          <Sparkle className="right-[12px] top-[10px] text-[clamp(11px,3vw,15px)] text-lux-gold/70" />
 
           {/* header: real 代表 photo + name plate */}
           <div className="flex items-center gap-[clamp(12px,3.4vw,18px)]">

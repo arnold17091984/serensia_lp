@@ -1,4 +1,4 @@
-import { LeafSprig, LuxHeading, Sparkle } from "./McyLux";
+import { LeafSprig, LuxHeading } from "./McyLux";
 import OpenReviewsButton from "./OpenReviewsButton";
 import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, REVIEWS } from "./reviews-data";
 
@@ -36,7 +36,6 @@ export default function McyReviews() {
   return (
     <section data-section="reviews" className="lux-rays relative w-full overflow-hidden px-4 py-[clamp(28px,8vw,46px)]">
       <LeafSprig className="left-[-10px] top-[clamp(50px,13vw,90px)] h-[clamp(54px,15vw,84px)] w-auto opacity-55" />
-      <Sparkle className="right-[8%] top-[clamp(16px,4.6vw,30px)] text-[clamp(11px,3.2vw,16px)] text-lux-gold/80" />
 
       <div className="relative">
         <LuxHeading kicker="お客様の声" watermark="VOICE">

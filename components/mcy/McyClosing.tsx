@@ -81,15 +81,6 @@ function StepIcon({ index }: Readonly<{ index: number }>) {
   );
 }
 
-/** Small four-point sparkle (gold section accents). */
-function Sparkle({ className }: Readonly<{ className: string }>) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
-      <path d="M12 1c.8 6 5.2 10.2 11 11-5.8.8-10.2 5-11 11-.8-6-5.2-10.2-11-11C6.8 11.2 11.2 7 12 1Z" />
-    </svg>
-  );
-}
-
 function SectionHeading({ kicker, watermark, children }: Readonly<{ kicker: string; watermark: string; children: React.ReactNode }>) {
   return (
     <div className="relative text-center">
@@ -127,8 +118,6 @@ export default function McyClosing() {
           <div className="absolute -right-[16%] -top-[8%] h-[clamp(190px,56vw,310px)] w-[clamp(190px,56vw,310px)] rounded-full bg-[radial-gradient(circle,rgba(200,162,78,0.16),transparent_65%)]" />
           <div className="absolute -left-[14%] bottom-[4%] h-[clamp(150px,45vw,250px)] w-[clamp(150px,45vw,250px)] rounded-full bg-[radial-gradient(circle,rgba(29,90,58,0.1),transparent_65%)]" />
           <div className="lux-dots absolute inset-0 opacity-45" />
-          <Sparkle className="absolute right-[7%] top-[clamp(18px,5vw,30px)] h-[clamp(10px,2.8vw,14px)] w-[clamp(10px,2.8vw,14px)] text-lux-gold/75" />
-          <Sparkle className="absolute left-[8%] top-[clamp(56px,15vw,90px)] h-[clamp(7px,2vw,10px)] w-[clamp(7px,2vw,10px)] text-lux-green/40" />
         </div>
 
         <div className="relative">
@@ -240,8 +229,6 @@ export default function McyClosing() {
           <div className="absolute -left-[18%] top-[3%] h-[clamp(170px,50vw,280px)] w-[clamp(170px,50vw,280px)] rounded-full bg-[radial-gradient(circle,rgba(29,90,58,0.14),transparent_65%)]" />
           <div className="absolute -right-[15%] bottom-[5%] h-[clamp(150px,44vw,250px)] w-[clamp(150px,44vw,250px)] rounded-full bg-[radial-gradient(circle,rgba(200,162,78,0.16),transparent_65%)]" />
           <div className="lux-dots absolute inset-0 opacity-45" />
-          <Sparkle className="absolute left-[7%] top-[clamp(34px,9vw,54px)] h-[clamp(9px,2.5vw,13px)] w-[clamp(9px,2.5vw,13px)] text-lux-green/45" />
-          <Sparkle className="absolute right-[6%] top-[clamp(60px,16vw,96px)] h-[clamp(7px,2vw,10px)] w-[clamp(7px,2vw,10px)] text-lux-gold/70" />
         </div>
 
         <div className="relative">

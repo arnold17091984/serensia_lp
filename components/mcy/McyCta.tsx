@@ -26,12 +26,6 @@ export default function McyCta({ tone = "dark" }: Readonly<{ tone?: "dark" | "li
         ) : null}
       </div>
 
-      {/* gold corner sparkles */}
-      <span aria-hidden="true" className="absolute left-3 top-4 text-[14px] leading-none text-lux-gold/90 [text-shadow:0_0_10px_rgba(200,162,78,0.9)]">✦</span>
-      <span aria-hidden="true" className="absolute right-4 top-7 text-[10px] leading-none text-lux-gold-light/80 [text-shadow:0_0_8px_rgba(236,219,168,0.8)]">✦</span>
-      <span aria-hidden="true" className="absolute bottom-7 left-4 text-[10px] leading-none text-lux-gold-light/80 [text-shadow:0_0_8px_rgba(236,219,168,0.8)]">✦</span>
-      <span aria-hidden="true" className="absolute bottom-4 right-3 text-[14px] leading-none text-lux-gold/90 [text-shadow:0_0_10px_rgba(200,162,78,0.9)]">✦</span>
-
       {/* top double gold rule (thick + thin) */}
       <div aria-hidden="true" className="relative">
         <div className="h-[3px] w-full bg-gradient-to-r from-lux-gold-deep via-lux-gold-light to-lux-gold-deep" />
