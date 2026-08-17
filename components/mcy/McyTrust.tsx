@@ -323,13 +323,18 @@ export default function McyTrust() {
               </span>
               <ArrowBubble className="text-lux-green" />
             </a>
+            {/* gold-framed like the pricing LINE CTA so it reads co-equal with
+                the phone pill above (design-team review 2026-08-17) */}
+            <div
+              style={{ animationDelay: "0.5s" }}
+              className="mcy-cta-nudge mt-3 rounded-full bg-gradient-to-b from-lux-gold-light via-lux-gold to-lux-gold-deep p-[2px] shadow-[0_8px_20px_rgba(6,163,42,0.4)]"
+            >
             <a
               href={LINE_URL}
               target="_blank"
               rel="noopener noreferrer"
               data-gtm="cta_line_support"
-              style={{ animationDelay: "0.5s" }}
-              className="mcy-cta-nudge relative mt-3 flex min-h-[clamp(82px,20vw,96px)] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-lux-gold/50 bg-gradient-to-b from-[#37d857] to-[#06a32a] px-4 py-[clamp(8px,2.4vw,12px)] text-white shadow-[0_8px_20px_rgba(6,163,42,0.4)] transition-[filter] active:brightness-90"
+              className="relative flex min-h-[clamp(82px,20vw,96px)] items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-b from-[#37d857] via-[#12bb38] to-[#06a32a] px-4 py-[clamp(8px,2.4vw,12px)] text-white ring-2 ring-inset ring-white/50 transition-[filter] active:brightness-90"
             >
               <PillGloss />
               <span className="relative grid h-[clamp(22px,6.2vw,30px)] w-[clamp(22px,6.2vw,30px)] shrink-0 place-items-center rounded-full bg-white text-[clamp(5px,1.4vw,7px)] font-black text-[#06a32a]">
@@ -345,6 +350,7 @@ export default function McyTrust() {
               </span>
               <ArrowBubble className="text-[#06a32a]" />
             </a>
+            </div>
           </div>
         </div>
       </section>

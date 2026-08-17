@@ -3,19 +3,27 @@ import LineSteps from "./LineSteps";
 
 /**
  * Full-width conversion section (used mid-page and at the end).
- * Deep-emerald ground with a warm gold under-glow, fine dot texture, gold
- * sparkles and double gold rules — the LP's single dark accent band, tuned to
- * the KV's green×gold theme. Glassy white card in a double gold frame holds the
- * deep-emerald phone CTA and LINE-green CTA (live HTML buttons).
+ * tone="dark" (default): deep-emerald ground with gold under-glow — the LP's
+ * SINGLE dark accent band (used once, mid-page). tone="light": same layout on
+ * the cream ground, used for the closing instance so the page does not end on
+ * two consecutive dark blocks (design-team review 2026-08-17: the perceived
+ * "heaviness" came from dark-band repetition, not the palette itself).
  */
-export default function McyCta() {
+export default function McyCta({ tone = "dark" }: Readonly<{ tone?: "dark" | "light" }>) {
+  const dark = tone === "dark";
   return (
-    <section className="relative w-full overflow-hidden bg-gradient-to-b from-lux-green to-[#0a2c1c]">
-      {/* layered background: gold glow + soft green glow + fine dot texture */}
+    <section
+      className={`relative w-full overflow-hidden ${
+        dark ? "bg-gradient-to-b from-lux-green to-[#0a2c1c]" : "bg-gradient-to-b from-lux-cream to-lux-cream-2"
+      }`}
+    >
+      {/* layered background: gold glow + soft green glow + fine dot texture (dark only) */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div className="absolute -top-28 left-1/2 h-[440px] w-[760px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(200,162,78,0.26),transparent_72%)] blur-2xl" />
         <div className="absolute -bottom-36 -right-24 h-[320px] w-[320px] rounded-full bg-[radial-gradient(closest-side,rgba(74,138,96,0.28),transparent_72%)] blur-2xl" />
-        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.08)_1px,transparent_1.2px)] bg-[length:16px_16px] opacity-40" />
+        {dark ? (
+          <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.08)_1px,transparent_1.2px)] bg-[length:16px_16px] opacity-40" />
+        ) : null}
       </div>
 
       {/* gold corner sparkles */}
@@ -30,12 +38,12 @@ export default function McyCta() {
         <div className="mt-[3px] h-px w-full bg-gradient-to-r from-transparent via-lux-gold-light/80 to-transparent" />
       </div>
 
-      <div className="relative px-4 py-[clamp(24px,7vw,40px)] text-center text-white">
+      <div className={`relative px-4 py-[clamp(24px,7vw,40px)] text-center ${dark ? "text-white" : "text-lux-green-ink"}`}>
         <p className="font-display text-[clamp(14px,4vw,18px)] font-bold tracking-[0.04em]">
-          東京・神奈川を中心に<span className="relative mx-1 inline-block text-[1.25em] text-lux-gold-light">関東一円<span aria-hidden="true" className="absolute -bottom-[2px] left-0 h-[3px] w-full rounded-full bg-gradient-to-r from-lux-gold-deep via-lux-gold-light to-lux-gold-deep" /></span>
+          東京・神奈川を中心に<span className={`relative mx-1 inline-block text-[1.25em] ${dark ? "text-lux-gold-light" : "text-lux-gold-deep"}`}>関東一円<span aria-hidden="true" className="absolute -bottom-[2px] left-0 h-[3px] w-full rounded-full bg-gradient-to-r from-lux-gold-deep via-lux-gold-light to-lux-gold-deep" /></span>
         </p>
         <p className="mt-[clamp(10px,2.8vw,15px)] font-display font-black leading-none">
-          <span className="text-[clamp(17px,4.8vw,23px)] [text-shadow:0_2px_8px_rgba(0,0,0,0.35)]">出張費用・お見積り</span>
+          <span className={`text-[clamp(17px,4.8vw,23px)] ${dark ? "[text-shadow:0_2px_8px_rgba(0,0,0,0.35)]" : ""}`}>出張費用・お見積り</span>
           <span className="ml-2 inline-block bg-gradient-to-b from-[#f7edd2] via-lux-gold to-lux-gold-deep bg-clip-text text-[clamp(46px,13vw,64px)] text-transparent drop-shadow-[0_0_14px_rgba(255,255,255,0.35)]">0</span>
           <span className="inline-block bg-gradient-to-b from-[#f7edd2] via-lux-gold to-lux-gold-deep bg-clip-text text-[clamp(20px,5.6vw,27px)] text-transparent drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">円</span>
         </p>
@@ -106,13 +114,18 @@ export default function McyCta() {
               </span>
             </a>
 
+            {/* gold-framed like the pricing LINE CTA so it reads co-equal with
+                the phone pill (design-team review: LINE was sinking next to it) */}
+            <div
+              style={{ animationDelay: "0.5s" }}
+              className="mcy-cta-nudge mt-3 rounded-full bg-gradient-to-b from-lux-gold-light via-lux-gold to-lux-gold-deep p-[2px] shadow-[0_10px_24px_rgba(6,163,42,0.4)]"
+            >
             <a
               href={LINE_URL}
               target="_blank"
               rel="noopener noreferrer"
               data-gtm="cta_line_section"
-              style={{ animationDelay: "0.5s" }}
-              className="mcy-cta-nudge relative mt-3 flex min-h-[clamp(82px,20vw,96px)] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-lux-gold/70 bg-gradient-to-b from-[#37d857] to-[#06a32a] px-3 py-[clamp(9px,2.7vw,13px)] text-white shadow-[0_10px_24px_rgba(6,163,42,0.4)] transition-[filter] active:brightness-90"
+              className="relative flex min-h-[clamp(82px,20vw,96px)] items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-b from-[#37d857] via-[#12bb38] to-[#06a32a] px-3 py-[clamp(9px,2.7vw,13px)] text-white ring-2 ring-inset ring-white/50 transition-[filter] active:brightness-90"
             >
               <span aria-hidden="true" className="pointer-events-none absolute inset-[3px] rounded-full border border-white/50" />
               <span aria-hidden="true" className="pointer-events-none absolute inset-x-[10%] top-[4px] h-[34%] rounded-full bg-gradient-to-b from-white/45 to-white/0" />
@@ -133,6 +146,7 @@ export default function McyCta() {
                 </svg>
               </span>
             </a>
+            </div>
 
             {/* what happens after the LINE tap */}
             <div className="mt-3">

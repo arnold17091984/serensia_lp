@@ -32,7 +32,9 @@ export default function Home() {
         <McyCta />
         <McyTrust />
         <McyClosing />
-        <McyCta />
+        {/* closing CTA runs light so the page does not end on two consecutive
+            dark bands (dark McyCta + dark footer) — design-team review 2026-08-17 */}
+        <McyCta tone="light" />
         <McyFooter />
       </main>
       <McyStickyCta />

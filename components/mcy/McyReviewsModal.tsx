@@ -119,7 +119,7 @@ export default function McyReviewsModal() {
                 </div>
                 <GoogleG className="h-4 w-4 shrink-0 opacity-70" />
               </div>
-              <p className="mt-[6px] text-[clamp(10px,2.8vw,12px)] font-bold text-lux-gold-deep">{r.area}</p>
+              <p className="mt-[6px] text-[clamp(10px,2.8vw,12px)] font-bold text-lux-green-ink/75">{r.area}</p>
               <p className="mt-[3px] text-[clamp(11.5px,3.1vw,13px)] leading-[1.85] text-lux-green-ink/85 [word-break:auto-phrase]">
                 {r.text}
               </p>
