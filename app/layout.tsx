@@ -13,6 +13,16 @@ import McyTracking from "@/components/mcy/McyTracking";
 // firing on this LP's events. All tracking goes through gtag + McyTracking.
 const GA4_ID = "G-0VCKZL8TG7";
 
+// Google Ads call tracking (website call conversions, 2026-08-27). For visitors
+// arriving from an ad click (gclid), gtag swaps the displayed 03-4400-2098 for a
+// Google forwarding number so MANUAL dials get measured with call duration —
+// taps were already tracked (phone_click), this closes the see-number-and-dial
+// blind spot. Callers still reach the real line; non-ad visitors see the real
+// number unchanged.
+const AW_ID = "AW-16684609359";
+const AW_PHONE_CONVERSION_LABEL = "AW-16684609359/5SehCL_FwOgcEM_e65M-";
+const PHONE_DISPLAY_FOR_SWAP = "03-4400-2098";
+
 // JSON-LD: mirrors on-page text (FAQ + business info). Reinforces landing-page
 // relevance/transparency for Google Ads without adding any new claims.
 const FAQ_LD = [
@@ -105,7 +115,7 @@ export default function RootLayout({
         />
         <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`} strategy="afterInteractive" />
         <Script id="ga4" strategy="afterInteractive">
-          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','${GA4_ID}');`}
+          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','${GA4_ID}');gtag('config','${AW_ID}');gtag('config','${AW_PHONE_CONVERSION_LABEL}',{'phone_conversion_number':'${PHONE_DISPLAY_FOR_SWAP}'});`}
         </Script>
         <McyTracking />
         {children}
