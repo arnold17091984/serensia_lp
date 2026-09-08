@@ -128,7 +128,7 @@ export default function McyProblems() {
       </section>
 
       {/* ===== solution + strengths (mockup 1) ===== */}
-      <section className="lux-rays relative w-full overflow-hidden px-4 py-[clamp(28px,8vw,46px)]">
+      <section className="bg-lux-cream-3 relative w-full overflow-hidden px-4 py-[clamp(28px,8vw,46px)]">
         <LeafSprig flip className="right-[-10px] top-[10px] h-[clamp(60px,16vw,92px)] w-auto opacity-65" />
 
         <div className="relative">
@@ -212,7 +212,7 @@ export default function McyProblems() {
         <LeafSprig className="left-[-10px] top-[clamp(30px,9vw,60px)] h-[clamp(56px,15vw,86px)] w-auto opacity-60" />
 
         <div className="relative">
-          <LuxHeading kicker="セレンシアの技術" watermark="PROCESS">
+          <LuxHeading kicker="セレンシアの技術">
             特殊清掃の基本
             <span className="mx-1 font-display text-[clamp(32px,9vw,46px)] text-lux-green">6</span>
             工程
@@ -259,12 +259,6 @@ export default function McyProblems() {
 
         <div className="relative">
           <div className="relative text-center">
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-x-0 -top-[0.3em] select-none font-display text-[clamp(44px,14vw,74px)] font-black italic leading-none tracking-[0.08em] text-lux-green/[0.07]"
-            >
-              GOAL
-            </span>
             <p className="relative text-[clamp(11px,3.1vw,14px)] font-bold text-lux-green-ink/75">
               悲惨な状況の影も見えなくなるような
             </p>

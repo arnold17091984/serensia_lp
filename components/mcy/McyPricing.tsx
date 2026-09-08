@@ -122,7 +122,7 @@ export default function McyPricing() {
     <section
       id="ryokin"
       data-section="pricing"
-      className="relative w-full scroll-mt-[70px] overflow-hidden bg-gradient-to-b from-lux-cream to-lux-cream-2 px-4 py-[clamp(28px,8vw,52px)]"
+      className="relative w-full scroll-mt-[70px] overflow-hidden bg-gradient-to-b from-lux-cream-2 to-lux-cream px-4 py-[clamp(28px,8vw,52px)]"
     >
       {/* layered ground: soft gold glows + micro dot texture + foliage */}
       <div aria-hidden="true" className="pointer-events-none absolute -left-[120px] -top-[80px] h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle,rgba(200,162,78,0.16),transparent_65%)]" />
@@ -227,7 +227,11 @@ export default function McyPricing() {
                       遺品整理費を含む総額
                     </span>
                   )}
-                  <h3 className="relative min-w-0 flex-1 text-[clamp(12.5px,3.5vw,15.5px)] font-black leading-snug text-white [word-break:auto-phrase]">
+                  {/* the title always gets its own full-width row: sharing one line with
+                      the CASE chip (and, on 05/06, the gold badge) squeezed it into a
+                      3-line column and made those two bands taller than the rest. A fixed
+                      label row + a one-line title row keeps every band the same height. */}
+                  <h3 className="relative min-w-0 basis-full text-[clamp(12.5px,3.5vw,15.5px)] font-black leading-snug text-white [word-break:auto-phrase]">
                     {c.title}
                   </h3>
                 </div>
@@ -376,36 +380,29 @@ export default function McyPricing() {
               まずは現場の市区町村と、いまお困りのことをお知らせください。写真や間取りは、分かる範囲で大丈夫です。写真を撮るために室内へ入る必要はありません。
             </p>
 
-            {/* phone pill — same gold-framed pill + equal height as the LINE CTA */}
-            <div
-              style={{ animationDelay: "0.5s" }}
-              className="mcy-cta-nudge mt-3 rounded-full bg-[#c0202a] p-px"
+            {/* phone — deliberately demoted to a slim outlined bar: the full red phone
+                CTA is the closing section's job, and two of them ~350px apart read as
+                CTA noise. Tracking (cta_tel_pricing) is unchanged. */}
+            <a
+              href={PHONE_TEL}
+              data-gtm="cta_tel_pricing"
+              className="mt-3 flex min-h-[56px] flex-col items-center justify-center gap-[3px] rounded-full border border-[#c0202a]/35 bg-white px-4 py-[10px] text-center transition-[filter] active:brightness-95"
             >
-              <a
-                href={PHONE_TEL}
-                data-gtm="cta_tel_pricing"
-                className="relative flex min-h-[clamp(78px,19vw,88px)] items-center gap-2 overflow-hidden rounded-full bg-[#c0202a] px-4 py-[clamp(10px,3vw,14px)] text-white transition-[filter] active:brightness-95"
-              >
-                <span className="relative grid h-[clamp(26px,7.4vw,38px)] w-[clamp(26px,7.4vw,38px)] shrink-0 place-items-center rounded-full bg-white shadow-[0_2px_5px_rgba(0,0,0,0.15)]">
-                  <svg viewBox="0 0 24 24" className="h-[56%] w-[56%]" fill="#123d28" aria-hidden="true">
-                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-                  </svg>
-                </span>
-                <span className="relative min-w-0 flex-1 text-center leading-none">
-                  <span className="block text-[clamp(14px,4vw,19px)] leading-6 font-black tracking-[-0.01em] [text-shadow:0_1px_2px_rgba(0,0,0,0.2)]">
-                    お電話で相談 <span className="text-lux-amber">{PHONE_DISPLAY}</span>
-                  </span>
-                  <span className="mt-[5px] block text-[12px] leading-5 font-bold opacity-95">
-                    9:00〜21:00 年中無休｜最短即日で現地確認
-                  </span>
-                </span>
-                <span aria-hidden="true" className="relative grid h-[22px] w-[22px] shrink-0 place-items-center rounded-full bg-white shadow-[0_2px_5px_rgba(0,0,0,0.15)]">
-                  <svg width="7" height="10" viewBox="0 0 7 10" fill="none">
-                    <path d="M1.5 1l4 4-4 4" stroke="#123d28" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
-              </a>
-            </div>
+              <span className="flex items-center gap-[7px] text-[clamp(13px,3.7vw,16px)] font-black text-[#a52c25]">
+                <svg viewBox="0 0 24 24" className="h-[clamp(15px,4.2vw,18px)] w-[clamp(15px,4.2vw,18px)] shrink-0" fill="currentColor" aria-hidden="true">
+                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                </svg>
+                <span>お電話で相談</span>
+                <span className="tabular-nums">{PHONE_DISPLAY}</span>
+              </span>
+              {/* each clause is nowrap so it can never break mid-word at 320px, and the
+                  clauses are separated by gap rather than a "｜" glyph — a separator
+                  character strands itself at the end of line 1 once this wraps. */}
+              <span className="flex flex-wrap items-center justify-center gap-x-[10px] text-[11.5px] font-bold leading-[1.5] text-lux-green-ink/75">
+                <span className="whitespace-nowrap">9:00〜21:00 年中無休</span>
+                <span className="whitespace-nowrap">最短即日で現地確認</span>
+              </span>
+            </a>
           </div>
         </div>
       </div>

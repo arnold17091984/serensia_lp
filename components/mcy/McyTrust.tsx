@@ -148,21 +148,23 @@ function SectionHeading({
   children,
 }: Readonly<{
   kicker: string;
-  watermark: string;
+  watermark?: string;
   tone?: "light" | "dark";
   children: React.ReactNode;
 }>) {
   const dark = tone === "dark";
   return (
     <div className="relative text-center">
-      <span
-        aria-hidden="true"
-        className={`pointer-events-none absolute inset-x-0 top-[clamp(2px,0.8vw,6px)] select-none whitespace-nowrap font-display text-[clamp(38px,11.5vw,58px)] font-black uppercase leading-none tracking-[0.08em] ${
-          dark ? "text-white/10" : "text-lux-green/[0.08]"
-        }`}
-      >
-        {watermark}
-      </span>
+      {watermark && (
+        <span
+          aria-hidden="true"
+          className={`pointer-events-none absolute inset-x-0 top-[clamp(2px,0.8vw,6px)] select-none whitespace-nowrap font-display text-[clamp(38px,11.5vw,58px)] font-black uppercase leading-none tracking-[0.08em] ${
+            dark ? "text-white/10" : "text-lux-green/[0.08]"
+          }`}
+        >
+          {watermark}
+        </span>
+      )}
       <span
         className={`relative inline-block px-[clamp(16px,4.4vw,24px)] py-[clamp(5px,1.5vw,8px)] text-[clamp(10px,2.9vw,14px)] font-black tracking-[0.06em] ring-1 ring-lux-gold/60 [clip-path:polygon(5%_0,95%_0,100%_50%,95%_100%,5%_100%,0_50%)] ${
           dark
@@ -202,7 +204,7 @@ export default function McyTrust() {
         <div aria-hidden="true" className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(200,162,78,0.24),transparent_70%)] blur-2xl" />
 
         <div className="relative">
-          <SectionHeading watermark="OWNER" kicker="次の入居者のために物件を回復">
+          <SectionHeading kicker="次の入居者のために物件を回復">
             大家様・管理会社様の
             <br />
             <span className="text-lux-green">SOS</span>も緊急対応
@@ -259,7 +261,7 @@ export default function McyTrust() {
         <div aria-hidden="true" className="absolute -bottom-24 -left-16 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(200,162,78,0.2),transparent_70%)] blur-2xl" />
 
         <div className="relative">
-          <SectionHeading watermark="SUPPORT" kicker="特殊清掃の不安やお悩みを和らげる">
+          <SectionHeading kicker="特殊清掃の不安やお悩みを和らげる">
             柔軟な<span className="text-lux-green">サポート体制</span>
           </SectionHeading>
           <div className="mx-auto mt-[clamp(20px,5.2vw,28px)] grid max-w-[460px] grid-cols-2 gap-x-[clamp(8px,2.2vw,12px)] gap-y-[clamp(18px,4.8vw,24px)]">
@@ -346,7 +348,7 @@ export default function McyTrust() {
       </section>
 
       {/* ===== license & insurance ===== */}
-      <section className="relative w-full overflow-hidden bg-lux-cream px-4 pb-[clamp(36px,10vw,54px)] pt-[clamp(24px,7vw,40px)]">
+      <section className="relative w-full overflow-hidden bg-lux-cream-3 px-4 pb-[clamp(36px,10vw,54px)] pt-[clamp(24px,7vw,40px)]">
         {/* bottom layer: blurred real photo fading into cream */}
         <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-[46%] overflow-hidden">
           <div className="absolute inset-0 scale-110 bg-[url(/img/ihin_work.webp)] bg-cover bg-center opacity-45 blur-[6px]" />
@@ -354,7 +356,7 @@ export default function McyTrust() {
         </div>
 
         <div className="relative">
-          <SectionHeading watermark="LICENSE" kicker="技術を磨き、住まいを磨く。">
+          <SectionHeading kicker="技術を磨き、住まいを磨く。">
             保有許可・<span className="text-lux-green">資格</span>
           </SectionHeading>
           <p className="mx-auto mt-[clamp(10px,3vw,16px)] max-w-[460px] text-[clamp(11.5px,3.2vw,14px)] font-medium leading-[2] text-lux-green-ink/90 [word-break:auto-phrase]">
@@ -431,7 +433,7 @@ export default function McyTrust() {
         <div aria-hidden="true" className="absolute inset-0 opacity-50 [background-image:radial-gradient(circle,rgba(255,255,255,0.14)_1px,transparent_1.4px)] [background-size:18px_18px]" />
 
         <div className="relative">
-          <SectionHeading tone="dark" watermark="KEEPSAKE" kicker="Google口コミ高評価獲得！">
+          <SectionHeading tone="dark" kicker="Google口コミ高評価獲得！">
             経験豊富なスタッフが対応する
             <br />
             <span className="text-lux-gold-light">遺品整理</span>

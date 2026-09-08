@@ -22,14 +22,14 @@ const SHOTS: ReadonlyArray<{ src: string; caption: string }> = [
 
 export default function McyGallery() {
   return (
-    <section data-section="gallery" className="relative w-full overflow-hidden bg-gradient-to-b from-lux-cream to-lux-cream-2 px-4 py-[clamp(28px,8vw,46px)]">
+    <section data-section="gallery" className="relative w-full overflow-hidden bg-gradient-to-b from-lux-cream-2 to-lux-cream px-4 py-[clamp(28px,8vw,46px)]">
       {/* layered ground: gold glow + fine dot texture + foliage */}
       <div aria-hidden="true" className="pointer-events-none absolute -right-[130px] top-[8%] h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle,rgba(200,162,78,0.16),transparent_65%)]" />
       <div aria-hidden="true" className="lux-dots pointer-events-none absolute inset-0 opacity-50" />
       <LeafSprig className="left-[-10px] top-[clamp(50px,14vw,96px)] h-[clamp(54px,15vw,84px)] w-auto opacity-55" />
 
       <div className="relative">
-        <LuxHeading kicker="実際の現場記録" watermark="GALLERY">
+        <LuxHeading kicker="実際の現場記録">
           本物の<span className="text-lux-green">作業実績</span>
         </LuxHeading>
         <p className="mx-auto mt-[clamp(10px,3vw,16px)] max-w-[460px] text-center text-[clamp(11px,3.1vw,13.5px)] font-medium leading-[1.9] text-lux-green-ink/85 [word-break:auto-phrase]">

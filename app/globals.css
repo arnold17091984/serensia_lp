@@ -82,6 +82,10 @@
   /* ===== luxury green×gold (KV-matched body theme) ===== */
   --color-lux-cream: #fcfaf5;
   --color-lux-cream-2: #f8f7f2;
+  /* deeper warm band. cream and cream-2 sit ~1.5% apart in luminance, so a page
+     built from them alone reads as one flat tone; this is the rhythm break used
+     every few sections so adjacent grounds never repeat. */
+  --color-lux-cream-3: #f3efe4;
   --color-lux-green-soft: #f3f7f3;
   --color-lux-green: #123d28; /* deep emerald — shields / banners / labels */
   --color-lux-green-2: #1d5a3a; /* lighter emerald — gradient partner */

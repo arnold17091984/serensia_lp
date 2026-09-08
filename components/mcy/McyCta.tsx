@@ -14,7 +14,7 @@ export default function McyCta({ tone = "dark" }: Readonly<{ tone?: "dark" | "li
   return (
     <section
       className={`relative w-full overflow-hidden ${
-        dark ? "bg-gradient-to-b from-lux-green to-[#0a2c1c]" : "bg-gradient-to-b from-lux-cream to-lux-cream-2"
+        dark ? "bg-gradient-to-b from-lux-green to-[#0a2c1c]" : "bg-lux-cream-3"
       }`}
     >
       <div className={`relative px-4 py-[clamp(24px,7vw,40px)] text-center ${dark ? "text-white" : "text-lux-green-ink"}`}>

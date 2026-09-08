@@ -81,15 +81,17 @@ function StepIcon({ index }: Readonly<{ index: number }>) {
   );
 }
 
-function SectionHeading({ kicker, watermark, children }: Readonly<{ kicker: string; watermark: string; children: React.ReactNode }>) {
+function SectionHeading({ kicker, watermark, children }: Readonly<{ kicker: string; watermark?: string; children: React.ReactNode }>) {
   return (
     <div className="relative text-center">
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-[44%] -translate-x-1/2 -translate-y-1/2 select-none whitespace-nowrap font-display text-[clamp(54px,16vw,84px)] font-black uppercase leading-none tracking-[0.08em] text-lux-green/[0.08]"
-      >
-        {watermark}
-      </span>
+      {watermark && (
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute left-1/2 top-[44%] -translate-x-1/2 -translate-y-1/2 select-none whitespace-nowrap font-display text-[clamp(54px,16vw,84px)] font-black uppercase leading-none tracking-[0.08em] text-lux-green/[0.08]"
+        >
+          {watermark}
+        </span>
+      )}
       <span className="relative inline-block [filter:drop-shadow(0_3px_6px_rgba(18,61,40,0.3))]">
         <span className="inline-flex items-center gap-[clamp(6px,2vw,10px)] bg-gradient-to-b from-lux-green-2 to-lux-green px-[clamp(16px,4.4vw,24px)] py-[clamp(5px,1.5vw,8px)] text-[clamp(10px,2.9vw,14px)] font-black tracking-[0.06em] text-white ring-1 ring-lux-gold/60 [clip-path:polygon(5%_0,95%_0,100%_50%,95%_100%,5%_100%,0_50%)]">
           <span aria-hidden className="text-[clamp(7px,1.9vw,10px)] leading-none text-lux-gold-light">◆</span>
@@ -121,7 +123,7 @@ export default function McyClosing() {
         </div>
 
         <div className="relative">
-          <SectionHeading kicker="ご不安にお答えします" watermark="FAQ">
+          <SectionHeading kicker="ご不安にお答えします">
             よくある<span className="text-lux-green">質問</span>
           </SectionHeading>
 
