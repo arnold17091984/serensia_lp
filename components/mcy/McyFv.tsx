@@ -3,6 +3,7 @@ import LineSteps from "./LineSteps";
 import { CheckGreen } from "./McyLux";
 import OpenReviewsButton from "./OpenReviewsButton";
 import PhoneHoursNotice from "./PhoneHoursNotice";
+import McyConsultationGuide from "./McyConsultationGuide";
 
 /**
  * FV worries checklist — coded (not baked into the KV slice) so items are
@@ -54,7 +55,7 @@ export default function McyFv() {
             href={PHONE_TEL}
             data-gtm="cta_tel_fv"
             aria-label="電話で今すぐ相談する 03-4400-2098（受付 9:00〜21:00 年中無休）"
-            className="relative block rounded-[18px] bg-gradient-to-b from-[#f1d891] to-[#b99342] px-[2px] pt-[2px] pb-[4px] shadow-[0_3px_8px_rgba(120,35,15,0.18)] transition-[filter] active:brightness-95"
+            className="relative block rounded-[18px] bg-gradient-to-b from-[#f1d891] to-[#b99342] px-[2px] pt-[2px] pb-[4px] shadow-[0_3px_8px_rgba(120,35,15,0.18)] transition-[filter,box-shadow] hover:brightness-105 active:brightness-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lux-green"
           >
             <span className="relative flex min-h-[clamp(72px,19vw,86px)] items-center gap-[clamp(7px,2.2vw,12px)] overflow-hidden rounded-[15px] bg-gradient-to-b from-[#e83c25] to-[#bd1820] shadow-[inset_0_1px_0_rgba(255,255,255,0.3)] px-[clamp(10px,3vw,16px)] py-[clamp(8px,2.2vw,12px)]">
               <span className="relative grid h-[clamp(44px,11.6vw,54px)] w-[clamp(44px,11.6vw,54px)] shrink-0 place-items-center rounded-full bg-white shadow-[0_2px_6px_rgba(0,0,0,0.28)]">
@@ -63,9 +64,9 @@ export default function McyFv() {
                 </svg>
               </span>
               <span className="relative min-w-0 flex-1 text-center leading-none text-white [text-shadow:0_1px_2px_rgba(120,0,0,0.5)]">
-                <span className="block text-[clamp(11px,3.1vw,14.5px)] font-bold tracking-[0.02em]">電話で今すぐ相談する</span>
+                <span className="block text-[13px] font-bold tracking-normal">電話で相談する</span>
                 <span className="mt-[3px] block text-[clamp(23px,6.7vw,33px)] font-black tracking-[-0.01em]">03-4400-2098</span>
-                <span className="mt-[3px] block text-[12px] leading-[1.5] font-bold opacity-95"><span className="inline-block">受付 9:00〜21:00 年中無休</span><span className="inline-block">｜相談だけでもOK</span></span>
+                <span className="mt-[3px] block text-[12px] leading-[1.5] font-bold opacity-95"><span className="inline-block">受付 9:00〜21:00 年中無休</span></span>
               </span>
               <svg viewBox="0 0 24 24" className="relative h-[clamp(19px,5.2vw,27px)] w-[clamp(19px,5.2vw,27px)] shrink-0" fill="none" stroke="white" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="m9 5 7 7-7 7" />
@@ -80,7 +81,7 @@ export default function McyFv() {
             rel="noopener noreferrer"
             data-gtm="cta_line_fv"
             aria-label="LINEで特殊清掃を相談する（写真がなくても相談可・24時間受付）"
-            className="relative block rounded-[18px] bg-gradient-to-b from-[#f1d891] to-[#b99342] px-[2px] pt-[2px] pb-[4px] shadow-[0_3px_8px_rgba(18,61,40,0.16)] transition-[filter] active:brightness-95"
+            className="relative block rounded-[18px] bg-gradient-to-b from-[#f1d891] to-[#b99342] px-[2px] pt-[2px] pb-[4px] shadow-[0_3px_8px_rgba(18,61,40,0.16)] transition-[filter,box-shadow] hover:brightness-105 active:brightness-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lux-green"
           >
             <span className="relative flex min-h-[clamp(72px,19vw,86px)] items-center gap-[clamp(7px,2.2vw,12px)] overflow-hidden rounded-[15px] bg-gradient-to-b from-[#26a840] to-[#087f36] shadow-[inset_0_1px_0_rgba(255,255,255,0.3)] px-[clamp(10px,3vw,16px)] py-[clamp(8px,2.2vw,12px)]">
               <span className="relative grid h-[clamp(44px,11.6vw,54px)] w-[clamp(44px,11.6vw,54px)] shrink-0 place-items-center rounded-[13px] bg-white shadow-[0_2px_6px_rgba(0,0,0,0.24)]">
@@ -105,9 +106,9 @@ export default function McyFv() {
                 </svg>
               </span>
               <span className="relative min-w-0 flex-1 text-center leading-none text-white [text-shadow:0_1px_2px_rgba(0,70,5,0.5)]">
-                <span className="block text-[clamp(11px,3.1vw,14.5px)] font-bold tracking-[0.02em]">写真がなくても相談できます</span>
-                <span className="mt-[3px] block text-[clamp(18px,5.3vw,25px)] leading-tight font-black tracking-[0.01em]">特殊清掃・費用の相談</span>
-                <span className="mt-[3px] block text-[12px] leading-[1.5] font-bold opacity-95">LINEで状況を送るだけ｜24時間受付</span>
+                <span className="block text-[13px] font-bold tracking-normal">写真がなくても大丈夫</span>
+                <span className="mt-[3px] block text-[clamp(18px,5.3vw,25px)] leading-tight font-black tracking-[0.01em]">LINEで相談する</span>
+                <span className="mt-[3px] block text-[12px] leading-[1.5] font-bold opacity-95"><span className="inline-block">特殊清掃・費用のご相談</span><span className="inline-block">｜24時間受付</span></span>
               </span>
               <svg viewBox="0 0 24 24" className="relative h-[clamp(19px,5.2vw,27px)] w-[clamp(19px,5.2vw,27px)] shrink-0" fill="none" stroke="white" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="m9 5 7 7-7 7" />
@@ -120,40 +121,7 @@ export default function McyFv() {
           <LineSteps collapsible />
         </div>
 
-        <section
-          data-section="consultation_guide"
-          aria-labelledby="consultation-guide-title"
-          className="mx-3 mb-4 mt-3 overflow-hidden rounded-[14px] border border-lux-gold/45 bg-white text-lux-green-ink tracking-normal"
-        >
-          <div className="px-3 pb-3 pt-4 text-center">
-            <h2 id="consultation-guide-title" className="font-display text-[20px] font-bold leading-[1.5]">
-              <span className="inline-block">まずは、お話を</span><span className="inline-block">お聞かせください</span>
-            </h2>
-            <p className="mt-2 text-[14px] leading-[1.8]">
-              <span className="inline-block">何から始めればよいか分からなくても、</span>
-              <span className="inline-block">市区町村と、お困りのことから。</span>
-              <span className="block">写真がなくてもご相談いただけます。</span>
-            </p>
-          </div>
-          <ol aria-label="相談からご契約まで" className="mx-3 mb-3 grid grid-cols-3 divide-x divide-lux-green/15 rounded-[8px] bg-[#f1f6f2] py-3 text-center text-[14px] font-bold leading-[1.6]">
-            <li className="px-1">
-              <span aria-hidden="true" className="mx-auto mb-2 grid h-6 w-6 place-items-center rounded-full bg-lux-green text-[12px] text-white">1</span>
-              ご相談
-            </li>
-            <li className="px-1">
-              <span aria-hidden="true" className="mx-auto mb-2 grid h-6 w-6 place-items-center rounded-full bg-lux-green text-[12px] text-white">2</span>
-              現地確認<br />お見積り
-            </li>
-            <li className="px-1">
-              <span aria-hidden="true" className="mx-auto mb-2 grid h-6 w-6 place-items-center rounded-full bg-lux-green text-[12px] text-white">3</span>
-              納得して<br />ご契約
-            </li>
-          </ol>
-          <a href="#nagare" data-gtm="consultation_guide_flow" className="flex min-h-11 items-center justify-center gap-3 border-t border-lux-gold/25 px-3 py-2 text-[14px] font-bold transition-colors hover:bg-[#f1f6f2] focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-lux-green">
-            ご依頼の流れを詳しく見る
-            <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 5 7 7-7 7" /></svg>
-          </a>
-        </section>
+        <McyConsultationGuide />
 
         {/* Google reviews + ご相談実績 — coded (real, crawlable 5.0 / 167件) */}
         <div className="grid grid-cols-2 gap-[clamp(6px,1.8vw,10px)] px-[clamp(6px,1.8vw,12px)] pb-[clamp(6px,1.8vw,10px)]">

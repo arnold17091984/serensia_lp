@@ -58,15 +58,15 @@ function StepsBody({ dark }: Readonly<{ dark: boolean }>) {
 export default function LineSteps({ dark = false, collapsible = false }: Readonly<LineStepsProps>) {
   if (collapsible) {
     return (
-      <details className="group rounded-[12px] border border-lux-gold/40 bg-white shadow-[0_2px_8px_rgba(18,61,40,0.08)]">
+      <details className="group rounded-[10px] border border-[#dce5dd] bg-white">
         <summary
           data-gtm="line_steps_open"
-          className="flex cursor-pointer list-none items-center justify-center gap-[6px] px-[clamp(10px,3vw,14px)] py-[clamp(9px,2.5vw,11px)] text-[clamp(11.5px,3.2vw,13px)] font-black text-lux-green-ink [&::-webkit-details-marker]:hidden"
+          className="flex min-h-[48px] cursor-pointer list-none items-center gap-2 px-3 py-2 text-[14px] font-bold leading-6 text-lux-green-ink focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-lux-green [&::-webkit-details-marker]:hidden"
         >
-          <span aria-hidden="true" className="grid h-[16px] w-[16px] place-items-center rounded-[4px] bg-[#06C755] text-[7px] font-black text-white">
+          <span aria-hidden="true" className="grid h-[20px] w-[20px] shrink-0 place-items-center rounded-[4px] bg-[#06C755] text-[7px] font-black text-white">
             LINE
           </span>
-          LINEで何を送ればいい？（かんたん3ステップ）
+          <span className="min-w-0 flex-1">LINEで送る内容・相談の手順</span>
           <span aria-hidden="true" className="text-lux-green-ink/50 transition-transform group-open:rotate-180">
             ▼
           </span>
