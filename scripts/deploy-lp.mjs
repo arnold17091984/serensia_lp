@@ -27,8 +27,8 @@ if (mode === '--check') {
   const index = await readFile(resolve(root, 'out/index.html'), 'utf8');
   if (!index.includes('price-overview') || !index.includes('写真がなくても')) throw new Error('Expected improvements are missing from the static build');
   const stamp = new Date().toISOString().replaceAll(/[^0-9]/g, '').slice(0, 14);
-  const backup = `/var/www/serenshia-backup-${stamp}.tgz`;
-  if (mode === '--deploy') run(['ssh', ...sshOptions, target, `tar -czf ${backup} -C /var/www/serenshia .`]);
+  const backup = `$HOME/serenshia-backups/serenshia-${stamp}.tgz`;
+  if (mode === '--deploy') run(['ssh', ...sshOptions, target, `umask 077 && mkdir -p "$HOME/serenshia-backups" && tar -czf "${backup}" -C /var/www/serenshia . && test -s "${backup}"`]);
   // Preserve unrelated and old assets; only publish Next's static output, never internal docs.
   run(['rsync', '-az', '--itemize-changes', ...(mode === '--dry-run' ? ['--dry-run'] : []), '-e', 'ssh -o StrictHostKeyChecking=accept-new -o ConnectTimeout=15', 'out/', `${target}:/var/www/serenshia/`]);
   if (mode === '--deploy') {
