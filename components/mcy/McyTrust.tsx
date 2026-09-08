@@ -114,7 +114,7 @@ function ArrowBubble({ className }: Readonly<{ className: string }>) {
   return (
     <span
       aria-hidden="true"
-      className={`relative grid h-[clamp(20px,5.6vw,26px)] w-[clamp(20px,5.6vw,26px)] shrink-0 place-items-center rounded-full bg-white shadow-[0_1px_3px_rgba(18,61,40,0.35)] ${className}`}
+      className={`relative grid h-[clamp(20px,5.6vw,26px)] w-[clamp(20px,5.6vw,26px)] shrink-0 place-items-center rounded-full bg-white shadow-[0_1px_3px_rgba(7,49,95,0.35)] ${className}`}
     >
       <svg
         viewBox="0 0 24 24"
@@ -136,7 +136,7 @@ function PillGloss() {
   return (
     <span
       aria-hidden="true"
-      className="pointer-events-none absolute inset-x-[8%] top-[3px] h-[42%] rounded-full bg-gradient-to-b from-white/40 to-transparent"
+      className="pointer-events-none absolute inset-x-[8%] top-[3px] h-[42%] rounded-full bg-gradient-to-b from-white/0 to-transparent"
     />
   );
 }
@@ -216,7 +216,7 @@ export default function McyTrust() {
             {OWNER_BADGES.map((b) => (
               <div
                 key={b.label}
-                className="flex flex-col items-center rounded-2xl border border-lux-gold/30 bg-white px-2 py-[clamp(12px,3.4vw,17px)] text-center shadow-[0_10px_26px_rgba(18,61,40,0.14)]"
+                className="flex flex-col items-center rounded-2xl border border-lux-border bg-white px-2 py-[clamp(12px,3.4vw,17px)] text-center shadow-[0_10px_26px_rgba(7,49,95,0.14)]"
               >
                 <span className="grid h-[clamp(38px,10.5vw,48px)] w-[clamp(38px,10.5vw,48px)] place-items-center rounded-full bg-lux-cream text-lux-gold-deep ring-1 ring-lux-gold/45">
                   <LineIcon name={b.icon} className="h-[54%] w-[54%]" />
@@ -235,7 +235,7 @@ export default function McyTrust() {
           <a
             href={PHONE_TEL}
             data-gtm="cta_tel_owners"
-            className="mcy-cta-nudge relative mx-auto mt-[clamp(12px,3.4vw,18px)] flex min-h-[clamp(82px,20vw,96px)] max-w-[460px] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/40 bg-gradient-to-b from-lux-green-2 via-lux-green to-[#0c2c1c] px-4 py-[clamp(9px,2.7vw,13px)] text-white shadow-[0_10px_24px_rgba(18,61,40,0.45)] ring-1 ring-lux-gold/70 transition-[filter] active:brightness-95"
+            className="mcy-cta-nudge relative mx-auto mt-[clamp(12px,3.4vw,18px)] flex min-h-[clamp(82px,20vw,96px)] max-w-[460px] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/40 bg-gradient-to-b from-lux-green-2 via-lux-green to-[#07315f] px-4 py-[clamp(9px,2.7vw,13px)] text-white shadow-[0_10px_24px_rgba(7,49,95,0.45)] ring-1 ring-lux-gold/70 transition-[filter] active:brightness-95"
           >
             <PillGloss />
             <span className="relative min-w-0 text-center leading-none">
@@ -257,7 +257,7 @@ export default function McyTrust() {
       {/* ===== support ===== */}
       <section className="relative w-full overflow-hidden bg-gradient-to-b from-lux-cream to-lux-cream-2 px-4 py-[clamp(24px,7vw,40px)]">
         <div aria-hidden="true" className="lux-dots absolute inset-0 opacity-50" />
-        <div aria-hidden="true" className="absolute -right-20 -top-16 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(29,90,58,0.18),transparent_70%)] blur-2xl" />
+        <div aria-hidden="true" className="absolute -right-20 -top-16 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(22,104,174,0.18),transparent_70%)] blur-2xl" />
         <div aria-hidden="true" className="absolute -bottom-24 -left-16 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(200,162,78,0.2),transparent_70%)] blur-2xl" />
 
         <div className="relative">
@@ -268,10 +268,10 @@ export default function McyTrust() {
             {SUPPORT_ITEMS.map((s) => (
               <div
                 key={s.no}
-                className="relative rounded-2xl border border-lux-gold/30 bg-white px-3 pb-[clamp(12px,3.4vw,17px)] pt-[clamp(16px,4.4vw,22px)] text-center shadow-[0_10px_30px_rgba(18,61,40,0.14)]"
+                className="relative rounded-2xl border border-lux-border bg-white px-3 pb-[clamp(12px,3.4vw,17px)] pt-[clamp(16px,4.4vw,22px)] text-center shadow-[0_10px_30px_rgba(7,49,95,0.14)]"
               >
                 {/* gold number medallion */}
-                <span className="absolute -top-[13px] left-1/2 grid h-[clamp(26px,7.2vw,32px)] w-[clamp(26px,7.2vw,32px)] -translate-x-1/2 place-items-center rounded-full bg-gradient-to-b from-lux-gold-light via-lux-gold to-lux-gold-deep font-display text-[clamp(11px,3.1vw,14px)] font-black text-white shadow-[0_4px_10px_rgba(156,119,41,0.45)] ring-2 ring-white">
+                <span className="absolute -top-[13px] left-1/2 grid h-[clamp(26px,7.2vw,32px)] w-[clamp(26px,7.2vw,32px)] -translate-x-1/2 place-items-center rounded-full bg-gradient-to-b from-lux-gold-light via-lux-gold to-lux-gold font-display text-[clamp(11px,3.1vw,14px)] font-black text-forest-950 shadow-[0_4px_10px_rgba(156,119,41,0.45)] ring-2 ring-white">
                   {s.no}
                 </span>
                 <span className="mx-auto grid h-[clamp(38px,10.5vw,48px)] w-[clamp(38px,10.5vw,48px)] place-items-center rounded-xl bg-gradient-to-b from-lux-cream to-white text-lux-green ring-1 ring-lux-gold/30">
@@ -290,7 +290,7 @@ export default function McyTrust() {
           </div>
 
           {/* call card — gold-framed cream glass (data-cta-section hides sticky bar) */}
-          <div data-cta-section className="relative mx-auto mt-[clamp(16px,4.4vw,24px)] max-w-[460px] overflow-hidden rounded-2xl border-2 border-lux-gold/60 bg-white px-4 pb-5 pt-4 text-center shadow-[0_14px_34px_rgba(18,61,40,0.18)]">
+          <div data-cta-section className="relative mx-auto mt-[clamp(16px,4.4vw,24px)] max-w-[460px] overflow-hidden rounded-2xl border-2 border-lux-gold/60 bg-white px-4 pb-5 pt-4 text-center shadow-[0_14px_34px_rgba(7,49,95,0.18)]">
             <p className="flex items-center justify-center gap-2 font-display text-[clamp(14px,4vw,18px)] font-black text-lux-green-ink">
               <span aria-hidden="true" className="h-[6px] w-[6px] shrink-0 rotate-45 bg-lux-gold-deep" />
               <span>まずは相談事をお聞かせください</span>
@@ -299,7 +299,7 @@ export default function McyTrust() {
             <a
               href={PHONE_TEL}
               data-gtm="cta_tel_support"
-              className="mcy-cta-nudge relative mt-3 flex min-h-[clamp(82px,20vw,96px)] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/40 bg-gradient-to-b from-lux-green-2 via-lux-green to-[#0c2c1c] px-4 py-[clamp(9px,2.7vw,13px)] text-white shadow-[0_10px_24px_rgba(18,61,40,0.45)] ring-1 ring-lux-gold/70 transition-[filter] active:brightness-95"
+              className="mcy-cta-nudge relative mt-3 flex min-h-[clamp(82px,20vw,96px)] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/40 bg-gradient-to-b from-lux-green-2 via-lux-green to-[#07315f] px-4 py-[clamp(9px,2.7vw,13px)] text-white shadow-[0_10px_24px_rgba(7,49,95,0.45)] ring-1 ring-lux-gold/70 transition-[filter] active:brightness-95"
             >
               <PillGloss />
               <span className="relative min-w-0 text-center leading-none">
@@ -326,10 +326,10 @@ export default function McyTrust() {
               target="_blank"
               rel="noopener noreferrer"
               data-gtm="cta_line_support"
-              className="relative flex min-h-[clamp(82px,20vw,96px)] items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-b from-[#37d857] via-[#12bb38] to-[#06a32a] px-4 py-[clamp(8px,2.4vw,12px)] text-white ring-2 ring-inset ring-white/50 transition-[filter] active:brightness-90"
+              className="relative flex min-h-[clamp(82px,20vw,96px)] items-center justify-center gap-2 overflow-hidden rounded-full bg-[#087f36] px-4 py-[clamp(8px,2.4vw,12px)] text-white ring-2 ring-inset ring-white/50 transition-[filter] active:brightness-90"
             >
               <PillGloss />
-              <span className="relative grid h-[clamp(22px,6.2vw,30px)] w-[clamp(22px,6.2vw,30px)] shrink-0 place-items-center rounded-full bg-white text-[clamp(5px,1.4vw,7px)] font-black text-[#06a32a]">
+              <span className="relative grid h-[clamp(22px,6.2vw,30px)] w-[clamp(22px,6.2vw,30px)] shrink-0 place-items-center rounded-full bg-white text-[clamp(5px,1.4vw,7px)] font-black text-[#087f36]">
                 LINE
               </span>
               <span className="relative min-w-0 text-center leading-none">
@@ -340,7 +340,7 @@ export default function McyTrust() {
                   見積無料｜24時間受付
                 </span>
               </span>
-              <ArrowBubble className="text-[#06a32a]" />
+              <ArrowBubble className="text-[#087f36]" />
             </a>
             </div>
           </div>
@@ -364,7 +364,7 @@ export default function McyTrust() {
           </p>
 
           {/* real 代表 太田 photo alongside the credentials (trust) */}
-          <div className="mx-auto mt-[clamp(14px,4vw,20px)] flex max-w-[460px] items-center gap-[clamp(12px,3.4vw,18px)] rounded-2xl border border-lux-gold/35 bg-white/75 p-[clamp(10px,2.8vw,14px)] shadow-[0_10px_26px_rgba(18,61,40,0.12)]">
+          <div className="mx-auto mt-[clamp(14px,4vw,20px)] flex max-w-[460px] items-center gap-[clamp(12px,3.4vw,18px)] rounded-2xl border border-lux-gold/35 bg-white/75 p-[clamp(10px,2.8vw,14px)] shadow-[0_10px_26px_rgba(7,49,95,0.12)]">
             <img
               src="/img/daihyo_ota.webp"
               alt="セレンシア 代表 太田 貴也"
@@ -372,7 +372,7 @@ export default function McyTrust() {
               height={589}
               loading="lazy"
               decoding="async"
-              className="h-auto w-[clamp(112px,31vw,150px)] shrink-0 rounded-2xl object-cover shadow-[0_10px_22px_rgba(18,61,40,0.22)] ring-1 ring-lux-gold/40"
+              className="h-auto w-[clamp(112px,31vw,150px)] shrink-0 rounded-2xl object-cover shadow-[0_10px_22px_rgba(7,49,95,0.22)] ring-1 ring-lux-gold/40"
             />
             <p className="text-[clamp(11px,3vw,13.5px)] font-bold leading-[1.95] text-lux-green-ink [word-break:auto-phrase]">
               有資格の専門スタッフが、
@@ -381,14 +381,14 @@ export default function McyTrust() {
             </p>
           </div>
 
-          <div className="mx-auto mt-[clamp(14px,4vw,20px)] max-w-[460px] overflow-hidden rounded-2xl border border-lux-gold/40 bg-white shadow-[0_12px_32px_rgba(18,61,40,0.16)]">
+          <div className="mx-auto mt-[clamp(14px,4vw,20px)] max-w-[460px] overflow-hidden rounded-2xl border border-lux-gold/40 bg-white shadow-[0_12px_32px_rgba(7,49,95,0.16)]">
             <ul className="divide-y divide-lux-gold/15">
               {LICENSES.map((l, i) => (
                 <li
                   key={l}
                   className="flex items-center gap-3 px-4 py-[clamp(10px,2.8vw,14px)] odd:bg-white even:bg-lux-cream"
                 >
-                  <span className="grid h-[clamp(22px,6vw,28px)] w-[clamp(22px,6vw,28px)] shrink-0 place-items-center rounded-full bg-gradient-to-b from-lux-gold-light via-lux-gold to-lux-gold-deep font-display text-[clamp(10px,2.8vw,13px)] font-black text-white shadow-[0_2px_6px_rgba(156,119,41,0.4)] ring-1 ring-white/70">
+                  <span className="grid h-[clamp(22px,6vw,28px)] w-[clamp(22px,6vw,28px)] shrink-0 place-items-center rounded-full bg-gradient-to-b from-lux-gold-light via-lux-gold to-lux-gold font-display text-[clamp(10px,2.8vw,13px)] font-black text-forest-950 shadow-[0_2px_6px_rgba(156,119,41,0.4)] ring-1 ring-white/70">
                     {i + 1}
                   </span>
                   <span className="text-[clamp(11px,3.1vw,13.5px)] font-bold leading-[1.6] text-lux-green-ink [word-break:auto-phrase]">
@@ -397,7 +397,7 @@ export default function McyTrust() {
                 </li>
               ))}
             </ul>
-            <p className="bg-gradient-to-r from-lux-gold-deep via-lux-gold to-lux-gold-deep px-4 py-[clamp(11px,3vw,15px)] text-center text-[clamp(10.5px,2.9vw,13px)] font-black text-white [text-shadow:0_1px_2px_rgba(122,90,32,0.4)] [word-break:auto-phrase]">
+            <p className="bg-gradient-to-r from-lux-gold-light via-lux-gold to-lux-gold px-4 py-[clamp(11px,3vw,15px)] text-center text-[clamp(10.5px,2.9vw,13px)] font-black text-forest-950 [text-shadow:0_1px_2px_rgba(122,90,32,0.4)] [word-break:auto-phrase]">
               万が一に備え、東京海上日動火災保険の
               <br className="min-[480px]:hidden" />
               賠償責任保険に加入しています
@@ -410,7 +410,7 @@ export default function McyTrust() {
             height={470}
             loading="lazy"
             decoding="async"
-            className="mx-auto mt-[clamp(14px,4vw,20px)] w-full max-w-[460px] rounded-[16px] border-[3px] border-white object-cover shadow-[0_12px_30px_rgba(18,61,40,0.22)] ring-1 ring-lux-gold/30"
+            className="mx-auto mt-[clamp(14px,4vw,20px)] w-full max-w-[460px] rounded-[16px] border-[3px] border-white object-cover shadow-[0_12px_30px_rgba(7,49,95,0.22)] ring-1 ring-lux-gold/30"
           />
         </div>
 
@@ -442,11 +442,11 @@ export default function McyTrust() {
             {["遺品整理士が在籍", "不用品の買取可能"].map((b) => (
               <div
                 key={b}
-                className="flex items-center justify-center gap-2 rounded-2xl border border-lux-gold/40 bg-white px-3 py-[clamp(15px,4.2vw,21px)] shadow-[0_12px_30px_rgba(10,44,27,0.35)]"
+                className="flex items-center justify-center gap-2 rounded-2xl border border-lux-gold/40 bg-white px-3 py-[clamp(15px,4.2vw,21px)] shadow-[0_12px_30px_rgba(7,49,95,0.35)]"
               >
                 <span
                   aria-hidden="true"
-                  className="grid h-[clamp(26px,7.2vw,34px)] w-[clamp(26px,7.2vw,34px)] shrink-0 place-items-center rounded-full bg-gradient-to-b from-lux-green-2 to-lux-green shadow-[0_3px_8px_rgba(18,61,40,0.4)] ring-2 ring-lux-gold/50"
+                  className="grid h-[clamp(26px,7.2vw,34px)] w-[clamp(26px,7.2vw,34px)] shrink-0 place-items-center rounded-full bg-gradient-to-b from-lux-green-2 to-lux-green shadow-[0_3px_8px_rgba(7,49,95,0.4)] ring-2 ring-lux-gold/50"
                 >
                   <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth={3.2} strokeLinecap="round" strokeLinejoin="round" className="h-[58%] w-[58%]">
                     <path d="m4.5 12.5 5 5L19.5 7" />

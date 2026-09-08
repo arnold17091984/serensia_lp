@@ -32,7 +32,7 @@ function StepsBody({ dark }: Readonly<{ dark: boolean }>) {
           <li key={s.n} className={`flex items-start gap-[7px] text-[14px] leading-[1.6] ${ink}`}>
             <span
               aria-hidden="true"
-              className="mt-[1px] grid h-[17px] w-[17px] shrink-0 place-items-center rounded-full bg-[#06a32a] text-[10.5px] font-black text-white"
+              className="mt-[1px] grid h-[17px] w-[17px] shrink-0 place-items-center rounded-full bg-[#087f36] text-[10.5px] font-black text-white"
             >
               {s.n}
             </span>
@@ -58,12 +58,12 @@ function StepsBody({ dark }: Readonly<{ dark: boolean }>) {
 export default function LineSteps({ dark = false, collapsible = false }: Readonly<LineStepsProps>) {
   if (collapsible) {
     return (
-      <details className="group rounded-[10px] border border-[#dce5dd] bg-white">
+      <details className="group rounded-[10px] border border-[#c8d9e9] bg-white">
         <summary
           data-gtm="line_steps_open"
           className="flex min-h-[48px] cursor-pointer list-none items-center gap-2 px-3 py-2 text-[14px] font-bold leading-6 text-lux-green-ink focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-lux-green [&::-webkit-details-marker]:hidden"
         >
-          <span aria-hidden="true" className="grid h-[20px] w-[20px] shrink-0 place-items-center rounded-[4px] bg-[#06C755] text-[7px] font-black text-white">
+          <span aria-hidden="true" className="grid h-[20px] w-[20px] shrink-0 place-items-center rounded-[4px] bg-[#087f36] text-[7px] font-black text-white">
             LINE
           </span>
           <span className="min-w-0 flex-1">LINEで送る内容・相談の手順</span>
@@ -84,7 +84,7 @@ export default function LineSteps({ dark = false, collapsible = false }: Readonl
       className={`rounded-[12px] border ${
         dark ? "border-white/25 bg-white/10" : "border-lux-gold/40 bg-white"
       } px-[clamp(10px,3vw,14px)] py-[clamp(9px,2.6vw,12px)] text-left ${
-        dark ? "" : "shadow-[0_2px_8px_rgba(18,61,40,0.08)]"
+        dark ? "" : "shadow-[0_2px_8px_rgba(7,49,95,0.08)]"
       }`}
     >
       <p className={`text-center text-[14px] font-black ${ink}`}>

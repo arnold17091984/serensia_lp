@@ -1,13 +1,10 @@
 import type { ReactNode } from "react";
-import { LINE_URL, PHONE_DISPLAY, PHONE_TEL } from "./McyHeader";
-import McyManga from "./McyManga";
-import McyDaihyo from "./McyDaihyo";
+import { LINE_URL } from "./McyHeader";
 import {
   CheckGreen,
   GoldCard,
   GoldDiamond,
   LeafSprig,
-  LuxCtaPill,
   LuxHeading,
   Shield,
 } from "./McyLux";
@@ -63,69 +60,6 @@ const PROCESS: readonly { name: string; desc: string; icon: ReactNode }[] = [
 export default function McyProblems() {
   return (
     <>
-      {/* ===== worries (manga) ===== */}
-      <section data-section="manga" className="lux-rays relative w-full overflow-hidden px-4 py-[clamp(28px,8vw,46px)]">
-        {/* seamless blend from the KV image bottom (warm cream) into this section */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 top-0 h-[clamp(60px,16vw,96px)] bg-gradient-to-b from-[#f7f5ef] to-transparent"
-        />
-        <LeafSprig className="left-[-8px] top-[6px] h-[clamp(62px,17vw,96px)] w-auto opacity-70" />
-        <LeafSprig flip className="right-[-8px] top-[clamp(20px,6vw,40px)] h-[clamp(50px,14vw,80px)] w-auto opacity-60" />
-
-        <div className="relative">
-          <LuxHeading kicker="はじめてでも安心" watermark="STORY">
-            マンガでわかる
-            <br />
-            <span className="text-lux-green">ご相談〜解決</span>の流れ
-          </LuxHeading>
-
-          <McyManga />
-
-          {/* real 代表 太田 photo + message right after the manga (trust bridge) */}
-          <McyDaihyo />
-
-          {/* fact-based urgency + inline dual CTA (data-cta-section hides sticky bar) */}
-          <GoldCard className="mx-auto mt-[clamp(16px,4.4vw,24px)] max-w-[460px]">
-            <div data-cta-section className="px-4 py-[clamp(15px,4.2vw,21px)]">
-              <p className="text-center font-display text-[clamp(15px,4.2vw,19px)] font-black leading-snug text-lux-green-ink">
-                特殊清掃は<span className="text-lux-crimson">“時間との勝負”</span>です
-              </p>
-              <GoldDiamond />
-              <p className="mt-[clamp(8px,2.4vw,12px)] text-center text-[clamp(11px,3.1vw,13.5px)] font-medium leading-[1.9] text-lux-green-ink/85 [word-break:auto-phrase]">
-                臭いや体液は、時間の経過とともに床材・壁材へ浸透し、害虫の発生や原状回復費用の増大につながります。夏場は特に進行が速いため、早めのご相談が結果的に費用を抑えることにつながります。
-              </p>
-
-              <div className="mt-[clamp(12px,3.4vw,18px)] flex flex-col gap-[10px]">
-                <LuxCtaPill
-                  tone="phone"
-                  href={PHONE_TEL}
-                  gtm="cta_tel_worries"
-                  ariaLabel="電話で今すぐ相談する 03-4400-2098（受付 9:00〜21:00 年中無休）"
-                  top="最短即日で現地確認に伺います"
-                  main={PHONE_DISPLAY}
-                  sub="相談無料｜9:00〜21:00 年中無休"
-                />
-                <LuxCtaPill
-                  tone="line"
-                  href={LINE_URL}
-                  gtm="cta_line_worries"
-                  ariaLabel="LINEで特殊清掃を相談する（写真なし可・無料・24時間受付）"
-                  top="写真がなくても・無料相談"
-                  main="LINEで無料相談"
-                  sub="24時間受付｜写真がなくてもOK"
-                  external
-                />
-              </div>
-            </div>
-          </GoldCard>
-
-          <span
-            aria-hidden="true"
-            className="mx-auto mt-[clamp(10px,2.8vw,15px)] block h-0 w-0 border-l-[11px] border-r-[11px] border-t-[11px] border-l-transparent border-r-transparent border-t-lux-green/50"
-          />
-        </div>
-      </section>
 
       {/* ===== solution + strengths (mockup 1) ===== */}
       <section className="bg-lux-cream-3 relative w-full overflow-hidden px-4 py-[clamp(28px,8vw,46px)]">
@@ -161,7 +95,7 @@ export default function McyProblems() {
             height={800}
             loading="lazy"
             decoding="async"
-            className="mt-[clamp(14px,3.8vw,20px)] h-[clamp(160px,44vw,240px)] w-full rounded-[14px] border-4 border-white object-cover object-center shadow-[0_12px_28px_rgba(18,61,40,0.2)] ring-1 ring-lux-gold/40"
+            className="mt-[clamp(14px,3.8vw,20px)] h-[clamp(160px,44vw,240px)] w-full rounded-[14px] border-4 border-white object-cover object-center shadow-[0_12px_28px_rgba(7,49,95,0.2)] ring-1 ring-lux-gold/40"
           />
 
           <GoldCard className="mt-[clamp(16px,4.4vw,24px)] overflow-hidden">
@@ -192,7 +126,7 @@ export default function McyProblems() {
                   {STRENGTH_CHECKS.map((c) => (
                     <li
                       key={c}
-                      className="flex items-center gap-2 rounded-[10px] border border-lux-gold/25 bg-lux-cream px-3 py-2 shadow-[0_2px_6px_rgba(18,61,40,0.06)]"
+                      className="flex items-center gap-2 rounded-[10px] border border-lux-gold/25 bg-lux-cream px-3 py-2 shadow-[0_2px_6px_rgba(7,49,95,0.06)]"
                     >
                       <CheckGreen className="mt-[2px] h-[clamp(17px,4.8vw,22px)] w-[clamp(17px,4.8vw,22px)]" />
                       <span className="text-[clamp(10.5px,3vw,13px)] font-bold text-lux-green-ink">{c}</span>
@@ -238,7 +172,7 @@ export default function McyProblems() {
               </li>
             ))}
           </ol>
-          <p className="mx-auto mt-3 max-w-[460px] text-center text-[clamp(9px,2.5vw,11px)] font-medium text-lux-green-ink/60">
+          <p className="mx-auto mt-3 max-w-[460px] text-center text-[clamp(9px,2.5vw,11px)] font-medium text-lux-green-ink/80">
             ※現場の状況により一部工程を実施しない場合がございます。
           </p>
           <a
@@ -279,7 +213,7 @@ export default function McyProblems() {
           </div>
 
           {/* +α card: full-width photo with emerald scrim + gold badge overlay */}
-          <div className="relative mx-auto mt-[clamp(14px,3.8vw,20px)] max-w-[460px] overflow-hidden rounded-[20px] shadow-[0_16px_38px_rgba(12,44,28,0.3)] ring-1 ring-lux-gold/50">
+          <div className="relative mx-auto mt-[clamp(14px,3.8vw,20px)] max-w-[460px] overflow-hidden rounded-[20px] shadow-[0_16px_38px_rgba(6,37,76,0.3)] ring-1 ring-lux-gold/50">
             <img
               src="/img/work_spray.webp"
               alt="防護服の専門スタッフが専用薬剤を噴霧して消毒・コーティングする作業"
@@ -289,7 +223,7 @@ export default function McyProblems() {
               decoding="async"
               className="h-[clamp(158px,44vw,220px)] w-full object-cover object-top"
             />
-            <span aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0a2c1b] via-[#0a2c1b]/72 to-transparent" />
+            <span aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#06284d] via-[#06284d]/72 to-transparent" />
             <span aria-hidden="true" className="pointer-events-none absolute -top-1/4 right-0 h-[150%] w-1/2 rotate-12 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
             <span aria-hidden="true" className="pointer-events-none absolute inset-[7px] rounded-[14px] ring-1 ring-white/15" />
 

@@ -92,7 +92,7 @@ function SectionHeading({ kicker, watermark, children }: Readonly<{ kicker: stri
           {watermark}
         </span>
       )}
-      <span className="relative inline-block [filter:drop-shadow(0_3px_6px_rgba(18,61,40,0.3))]">
+      <span className="relative inline-block [filter:drop-shadow(0_3px_6px_rgba(7,49,95,0.3))]">
         <span className="inline-flex items-center gap-[clamp(6px,2vw,10px)] bg-gradient-to-b from-lux-green-2 to-lux-green px-[clamp(16px,4.4vw,24px)] py-[clamp(5px,1.5vw,8px)] text-[clamp(10px,2.9vw,14px)] font-black tracking-[0.06em] text-white ring-1 ring-lux-gold/60 [clip-path:polygon(5%_0,95%_0,100%_50%,95%_100%,5%_100%,0_50%)]">
           <span aria-hidden className="text-[clamp(7px,1.9vw,10px)] leading-none text-lux-gold-light">◆</span>
           {kicker}
@@ -118,7 +118,7 @@ export default function McyClosing() {
       <section id="faq" data-section="faq" className="relative w-full overflow-hidden bg-lux-cream px-4 py-[clamp(24px,7vw,40px)]">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute -right-[16%] -top-[8%] h-[clamp(190px,56vw,310px)] w-[clamp(190px,56vw,310px)] rounded-full bg-[radial-gradient(circle,rgba(200,162,78,0.16),transparent_65%)]" />
-          <div className="absolute -left-[14%] bottom-[4%] h-[clamp(150px,45vw,250px)] w-[clamp(150px,45vw,250px)] rounded-full bg-[radial-gradient(circle,rgba(29,90,58,0.1),transparent_65%)]" />
+          <div className="absolute -left-[14%] bottom-[4%] h-[clamp(150px,45vw,250px)] w-[clamp(150px,45vw,250px)] rounded-full bg-[radial-gradient(circle,rgba(22,104,174,0.1),transparent_65%)]" />
           <div className="lux-dots absolute inset-0 opacity-45" />
         </div>
 
@@ -132,12 +132,12 @@ export default function McyClosing() {
               <details
                 key={f.q}
                 open={f.open}
-                className="group relative overflow-hidden rounded-2xl border border-lux-gold/30 bg-white shadow-[0_10px_30px_rgba(18,61,40,0.1)]"
+                className="group relative overflow-hidden rounded-2xl border border-lux-border bg-white shadow-[0_10px_30px_rgba(7,49,95,0.1)]"
               >
                 {/* emerald accent bar */}
-                <span aria-hidden="true" className="absolute inset-y-0 left-0 z-10 w-[4px] bg-gradient-to-b from-lux-green-2 via-lux-green to-[#0c2c1c]" />
+                <span aria-hidden="true" className="absolute inset-y-0 left-0 z-10 w-[4px] bg-gradient-to-b from-lux-green-2 via-lux-green to-[#07315f]" />
                 <summary className="flex cursor-pointer list-none items-start gap-2.5 py-[clamp(12px,3.4vw,17px)] pl-[clamp(16px,4.4vw,21px)] pr-[clamp(12px,3.4vw,17px)] [&::-webkit-details-marker]:hidden">
-                  <span className="grid h-[clamp(24px,6.6vw,30px)] w-[clamp(24px,6.6vw,30px)] shrink-0 place-items-center rounded-[9px] bg-gradient-to-br from-lux-green-2 to-lux-green font-display text-[clamp(12px,3.3vw,15px)] font-black text-white shadow-[0_3px_8px_rgba(18,61,40,0.35)] ring-1 ring-lux-gold/40">
+                  <span className="grid h-[clamp(24px,6.6vw,30px)] w-[clamp(24px,6.6vw,30px)] shrink-0 place-items-center rounded-[9px] bg-gradient-to-br from-lux-green-2 to-lux-green font-display text-[clamp(12px,3.3vw,15px)] font-black text-white shadow-[0_3px_8px_rgba(7,49,95,0.35)] ring-1 ring-lux-gold/40">
                     Q
                   </span>
                   <p className="min-w-0 flex-1 pt-[3px] text-[clamp(12px,3.4vw,14.5px)] font-black leading-[1.65] text-lux-green-ink [word-break:auto-phrase]">
@@ -153,7 +153,7 @@ export default function McyClosing() {
                   </span>
                 </summary>
                 <div className="mx-[clamp(16px,4.4vw,21px)] mb-[clamp(12px,3.4vw,17px)] flex items-start gap-2.5 border-t border-dashed border-lux-gold/30 pt-[clamp(8px,2.3vw,11px)]">
-                  <span className="grid h-[clamp(24px,6.6vw,30px)] w-[clamp(24px,6.6vw,30px)] shrink-0 place-items-center rounded-full bg-gradient-to-br from-lux-gold to-lux-gold-deep font-display text-[clamp(12px,3.3vw,15px)] font-black text-white shadow-[0_3px_8px_rgba(156,119,41,0.35)]">
+                  <span className="grid h-[clamp(24px,6.6vw,30px)] w-[clamp(24px,6.6vw,30px)] shrink-0 place-items-center rounded-full bg-gradient-to-br from-lux-gold to-lux-gold font-display text-[clamp(12px,3.3vw,15px)] font-black text-forest-950 shadow-[0_3px_8px_rgba(156,119,41,0.35)]">
                     A
                   </span>
                   <div className="min-w-0 flex-1 pt-[3px]">
@@ -180,7 +180,7 @@ export default function McyClosing() {
           {/* FAQ tail mini CTA (data-cta-section hides the sticky bar while visible) */}
           <div
             data-cta-section
-            className="mx-auto mt-[clamp(16px,4.4vw,24px)] max-w-[460px] rounded-[18px] border border-lux-gold/40 bg-white px-4 py-[clamp(14px,4vw,20px)] shadow-[0_10px_30px_rgba(18,61,40,0.1)]"
+            className="mx-auto mt-[clamp(16px,4.4vw,24px)] max-w-[460px] rounded-[18px] border border-lux-gold/40 bg-white px-4 py-[clamp(14px,4vw,20px)] shadow-[0_10px_30px_rgba(7,49,95,0.1)]"
           >
             <p className="text-center font-display text-[clamp(13px,3.7vw,16px)] font-bold leading-snug text-lux-green-ink [word-break:auto-phrase]">
               ほかにご不安な点は、そのままお尋ねください
@@ -189,9 +189,9 @@ export default function McyClosing() {
               <a
                 href={PHONE_TEL}
                 data-gtm="cta_tel_faq"
-                className="mcy-cta-nudge relative flex min-h-[clamp(56px,15vw,66px)] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/40 bg-gradient-to-b from-lux-green-2 via-lux-green to-[#0c2c1c] px-4 py-[10px] text-white shadow-[0_6px_16px_rgba(18,61,40,0.4)] ring-1 ring-lux-gold/70 transition-[filter] active:brightness-95"
+                className="mcy-cta-nudge relative flex min-h-[clamp(56px,15vw,66px)] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/40 bg-gradient-to-b from-lux-green-2 via-lux-green to-[#07315f] px-4 py-[10px] text-white shadow-[0_6px_16px_rgba(7,49,95,0.4)] ring-1 ring-lux-gold/70 transition-[filter] active:brightness-95"
               >
-                <span aria-hidden="true" className="pointer-events-none absolute inset-x-[6%] top-[3px] h-[42%] rounded-full bg-gradient-to-b from-white/35 to-transparent" />
+                <span aria-hidden="true" className="pointer-events-none absolute inset-x-[6%] top-[3px] h-[42%] rounded-full bg-gradient-to-b from-white/0 to-transparent" />
                 <svg viewBox="0 0 24 24" className="h-[clamp(15px,4vw,18px)] w-[clamp(15px,4vw,18px)] shrink-0" fill="currentColor" aria-hidden="true">
                   <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
                 </svg>
@@ -210,10 +210,10 @@ export default function McyClosing() {
                 rel="noopener noreferrer"
                 data-gtm="cta_line_faq"
                 style={{ animationDelay: "0.5s" }}
-                className="mcy-cta-nudge relative flex min-h-[clamp(56px,15vw,66px)] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-lux-gold/50 bg-gradient-to-b from-[#37d857] to-[#06a32a] px-4 py-[10px] text-white shadow-[0_6px_16px_rgba(6,163,42,0.35)] transition-[filter] active:brightness-90"
+                className="mcy-cta-nudge relative flex min-h-[clamp(56px,15vw,66px)] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-lux-gold/50 bg-[#087f36] px-4 py-[10px] text-white shadow-[0_6px_16px_rgba(6,163,42,0.35)] transition-[filter] active:brightness-90"
               >
-                <span aria-hidden="true" className="pointer-events-none absolute inset-x-[6%] top-[3px] h-[42%] rounded-full bg-gradient-to-b from-white/40 to-transparent" />
-                <span className="grid h-[clamp(24px,6.4vw,30px)] w-[clamp(24px,6.4vw,30px)] shrink-0 place-items-center rounded-full bg-white text-[clamp(6.5px,1.9vw,9px)] font-black text-[#06a32a] shadow-[0_2px_5px_rgba(0,0,0,0.18)]">
+                <span aria-hidden="true" className="pointer-events-none absolute inset-x-[6%] top-[3px] h-[42%] rounded-full bg-gradient-to-b from-white/0 to-transparent" />
+                <span className="grid h-[clamp(24px,6.4vw,30px)] w-[clamp(24px,6.4vw,30px)] shrink-0 place-items-center rounded-full bg-white text-[clamp(6.5px,1.9vw,9px)] font-black text-[#087f36] shadow-[0_2px_5px_rgba(0,0,0,0.18)]">
                   LINE
                 </span>
                 <span className="relative whitespace-nowrap text-[clamp(13px,3.7vw,16px)] font-black">
@@ -228,7 +228,7 @@ export default function McyClosing() {
       {/* ===== flow ===== */}
       <section id="nagare" className="relative w-full overflow-hidden bg-gradient-to-b from-lux-cream-2 to-lux-cream px-4 pb-[clamp(26px,7.5vw,42px)] pt-[clamp(30px,8.5vw,48px)]">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-          <div className="absolute -left-[18%] top-[3%] h-[clamp(170px,50vw,280px)] w-[clamp(170px,50vw,280px)] rounded-full bg-[radial-gradient(circle,rgba(29,90,58,0.14),transparent_65%)]" />
+          <div className="absolute -left-[18%] top-[3%] h-[clamp(170px,50vw,280px)] w-[clamp(170px,50vw,280px)] rounded-full bg-[radial-gradient(circle,rgba(22,104,174,0.14),transparent_65%)]" />
           <div className="absolute -right-[15%] bottom-[5%] h-[clamp(150px,44vw,250px)] w-[clamp(150px,44vw,250px)] rounded-full bg-[radial-gradient(circle,rgba(200,162,78,0.16),transparent_65%)]" />
           <div className="lux-dots absolute inset-0 opacity-45" />
         </div>
@@ -244,12 +244,12 @@ export default function McyClosing() {
             {/* emerald timeline */}
             <span
               aria-hidden="true"
-              className="absolute bottom-[clamp(20px,5.5vw,25px)] left-[clamp(18.5px,5.2vw,23.5px)] top-[clamp(20px,5.5vw,25px)] w-[3px] rounded-full bg-gradient-to-b from-lux-green-2 via-lux-green to-[#0c2c1c] opacity-50"
+              className="absolute bottom-[clamp(20px,5.5vw,25px)] left-[clamp(18.5px,5.2vw,23.5px)] top-[clamp(20px,5.5vw,25px)] w-[3px] rounded-full bg-gradient-to-b from-lux-green-2 via-lux-green to-[#07315f] opacity-50"
             />
             {STEPS.map((s, i) => {
               const card = (
                 <div
-                  className={`flex min-h-[52px] flex-1 items-center gap-3 rounded-2xl border border-lux-gold/30 bg-white px-4 py-3 shadow-[0_10px_24px_rgba(18,61,40,0.12)] ${
+                  className={`flex min-h-[52px] flex-1 items-center gap-3 rounded-2xl border border-lux-border bg-white px-4 py-3 shadow-[0_10px_24px_rgba(7,49,95,0.12)] ${
                     s.tel ? "ring-2 ring-lux-green/40" : ""
                   }`}
                 >
@@ -261,7 +261,7 @@ export default function McyClosing() {
                       {s.desc}
                     </p>
                     {s.tel ? (
-                      <span className="mt-[6px] inline-flex items-center gap-[5px] rounded-full bg-gradient-to-b from-lux-green-2 to-lux-green px-[clamp(9px,2.5vw,12px)] py-[3px] text-[clamp(9px,2.5vw,11px)] font-bold text-white shadow-[0_3px_8px_rgba(18,61,40,0.35)] ring-1 ring-lux-gold/50">
+                      <span className="mt-[6px] inline-flex items-center gap-[5px] rounded-full bg-gradient-to-b from-lux-green-2 to-lux-green px-[clamp(9px,2.5vw,12px)] py-[3px] text-[clamp(9px,2.5vw,11px)] font-bold text-white shadow-[0_3px_8px_rgba(7,49,95,0.35)] ring-1 ring-lux-gold/50">
                         <svg viewBox="0 0 24 24" className="h-[10px] w-[10px]" fill="currentColor" aria-hidden="true">
                           <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
                         </svg>
@@ -281,7 +281,7 @@ export default function McyClosing() {
               return (
                 <li key={s.title} className="relative flex items-start gap-3">
                   {/* emerald STEP block */}
-                  <span className="z-10 flex h-[clamp(40px,11vw,50px)] w-[clamp(40px,11vw,50px)] shrink-0 flex-col items-center justify-center rounded-[12px] bg-gradient-to-br from-lux-green-2 via-lux-green to-[#0c2c1c] text-white shadow-[0_6px_14px_rgba(18,61,40,0.4)] ring-2 ring-lux-gold/60">
+                  <span className="z-10 flex h-[clamp(40px,11vw,50px)] w-[clamp(40px,11vw,50px)] shrink-0 flex-col items-center justify-center rounded-[12px] bg-gradient-to-br from-lux-green-2 via-lux-green to-[#07315f] text-white shadow-[0_6px_14px_rgba(7,49,95,0.4)] ring-2 ring-lux-gold/60">
                     <span className="text-[clamp(6px,1.7vw,8px)] font-bold leading-none tracking-[0.14em] text-lux-gold-light">
                       STEP
                     </span>

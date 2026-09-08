@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 /**
- * Shared luxury (green×gold) primitives for the Serenshia LP body.
+ * Shared luxury (blue×gold) primitives for the Serenshia LP body.
  * These reproduce the visual language of the approved design mockups
  * (deep-emerald shields, gold hairline frames, mincho headings, gold
  * diamond ornaments, foliage + sparkle accents) in accessible, editable
@@ -37,11 +37,11 @@ export function LeafSprig({ className, flip = false }: Readonly<{ className: str
       viewBox="0 0 120 120"
       className={`pointer-events-none absolute select-none ${flip ? "-scale-x-100" : ""} ${className}`}
     >
-      <g fill="none" stroke="#2e6b45" strokeWidth="2.4" strokeLinecap="round" opacity="0.5">
+      <g fill="none" stroke="#4b7da6" strokeWidth="2.4" strokeLinecap="round" opacity="0.5">
         <path d="M18 112C34 78 58 54 96 40" />
-        <path d="M70 46c-2-12 4-24 18-30 3 12-3 24-18 30Z" fill="#3f7d55" stroke="none" opacity="0.55" />
-        <path d="M52 62c-4-11 0-23 12-31 5 11 1 24-12 31Z" fill="#4a8a60" stroke="none" opacity="0.5" />
-        <path d="M36 82c-6-9-5-22 4-32 7 9 6 23-4 32Z" fill="#3f7d55" stroke="none" opacity="0.45" />
+        <path d="M70 46c-2-12 4-24 18-30 3 12-3 24-18 30Z" fill="#3b82bd" stroke="none" opacity="0.55" />
+        <path d="M52 62c-4-11 0-23 12-31 5 11 1 24-12 31Z" fill="#5598cc" stroke="none" opacity="0.5" />
+        <path d="M36 82c-6-9-5-22 4-32 7 9 6 23-4 32Z" fill="#3b82bd" stroke="none" opacity="0.45" />
       </g>
     </svg>
   );
@@ -60,7 +60,7 @@ export function LuxKicker({ children }: Readonly<{ children: ReactNode }>) {
   );
 }
 
-/* full section heading: kicker ribbon + big mincho heading + gold diamond */
+/* full section heading: kicker ribbon + bold gothic heading + gold diamond */
 export function LuxHeading({
   kicker,
   watermark,
@@ -77,7 +77,7 @@ export function LuxHeading({
         </span>
       )}
       {kicker && <LuxKicker>{kicker}</LuxKicker>}
-      <h2 className="relative mt-[clamp(9px,2.6vw,14px)] font-display text-[clamp(23px,6.2vw,32px)] font-black leading-snug tracking-[0.01em] text-lux-green-ink [text-shadow:0_1px_0_rgba(255,255,255,0.85)]">
+      <h2 className="relative mt-[clamp(9px,2.6vw,14px)] font-sans text-[clamp(23px,6.2vw,32px)] font-black leading-snug tracking-[0.01em] text-lux-green-ink [text-shadow:0_1px_0_rgba(255,255,255,0.85)]">
         {children}
       </h2>
       <GoldDiamond />
@@ -106,7 +106,7 @@ export function Shield({ n, className = "" }: Readonly<{ n: number; className?: 
       aria-hidden="true"
       className={`relative grid shrink-0 place-items-center bg-gradient-to-br from-lux-gold-light to-lux-gold-deep p-[2px] [clip-path:polygon(0_0,100%_0,100%_64%,50%_100%,0_64%)] ${className}`}
     >
-      <span className="relative grid h-full w-full place-items-center bg-gradient-to-br from-lux-green-2 via-lux-green to-[#0c2c1c] [clip-path:polygon(0_0,100%_0,100%_64%,50%_100%,0_64%)]">
+      <span className="relative grid h-full w-full place-items-center bg-gradient-to-br from-lux-green-2 via-lux-green to-[#07315f] [clip-path:polygon(0_0,100%_0,100%_64%,50%_100%,0_64%)]">
         <span
           aria-hidden="true"
           className="pointer-events-none absolute inset-x-[10%] top-[8%] h-[34%] bg-gradient-to-b from-white/25 to-transparent [clip-path:polygon(0_0,100%_0,80%_100%,20%_100%)]"
@@ -143,7 +143,7 @@ export function LuxCtaPill({
   const bg = isPhone
     ? "bg-[#c0202a]"
     : "bg-[#087f36]";
-  const arrowStroke = isPhone ? "#123d28" : "#06a32a";
+  const arrowStroke = isPhone ? "#07315f" : "#06a32a";
   return (
     <a
       href={href}
@@ -155,12 +155,12 @@ export function LuxCtaPill({
     >
       {isPhone ? (
         <span className="grid h-[clamp(26px,7vw,36px)] w-[clamp(26px,7vw,36px)] shrink-0 place-items-center rounded-full bg-white shadow-[0_2px_5px_rgba(0,0,0,0.2)]">
-          <svg viewBox="0 0 24 24" className="h-[56%] w-[56%]" fill="#123d28" aria-hidden="true">
+          <svg viewBox="0 0 24 24" className="h-[56%] w-[56%]" fill="#07315f" aria-hidden="true">
             <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
           </svg>
         </span>
       ) : (
-        <span className="grid h-[clamp(26px,7vw,36px)] w-[clamp(26px,7vw,36px)] shrink-0 place-items-center rounded-full bg-white text-[clamp(7px,2vw,10px)] font-black text-[#06a32a] shadow-[0_2px_5px_rgba(0,0,0,0.18)]">
+        <span className="grid h-[clamp(26px,7vw,36px)] w-[clamp(26px,7vw,36px)] shrink-0 place-items-center rounded-full bg-white text-[clamp(7px,2vw,10px)] font-black text-[#087f36] shadow-[0_2px_5px_rgba(0,0,0,0.18)]">
           LINE
         </span>
       )}

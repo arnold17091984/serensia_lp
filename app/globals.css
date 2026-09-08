@@ -9,31 +9,31 @@
   --font-display: "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Yu Mincho",
     "YuMincho", serif;
 
-  /* new FV design (mockup reproduction) */
-  --color-ivory: #f6f1e6;
-  --color-forest-950: #113126;
-  --color-forest-900: #17422f;
-  --color-forest-700: #1d5138;
+  /* blue trust palette sampled from the approved KV artwork */
+  --color-ivory: #f4f9ff;
+  --color-forest-950: #061f3d;
+  --color-forest-900: #07315f;
+  --color-forest-700: #0b4a86;
   --color-crimson: #c0202a;
   --color-crimson-deep: #9d151e;
 
-  /* まーしー式 No.33 ターコイズ不動産土地活用フォト palette */
-  --color-mcy-turq: #12a5ab;
-  --color-mcy-turq-deep: #0b7f85;
-  --color-mcy-turq-light: #e9f7f8;
-  --color-mcy-navy: #1b3a5c;
-  --color-mcy-navy-deep: #12293f;
+  /* まーしー式 No.33 palette, re-keyed to blue */
+  --color-mcy-turq: #1f9de0;
+  --color-mcy-turq-deep: #0f6fae;
+  --color-mcy-turq-light: #e8f6ff;
+  --color-mcy-navy: #123f68;
+  --color-mcy-navy-deep: #072b4f;
   --color-mcy-gold: #c9a24f;
   --color-mcy-gold-deep: #a5813a;
   --color-mcy-gold-light: #f3e8cf;
-  --color-mcy-turq-bright: #2bc7cd;
-  --color-mcy-sky: #f2fafb;
+  --color-mcy-turq-bright: #49b8f2;
+  --color-mcy-sky: #f2f9ff;
 
   /* KV (key-visual reproduction) palette */
-  --color-kv-bg: #0c3b23;
-  --color-kv-bg2: #0a2f1c;
-  --color-kv-green: #08983a;
-  --color-kv-green-deep: #063f25;
+  --color-kv-bg: #07315f;
+  --color-kv-bg2: #052746;
+  --color-kv-green: #1473c7;
+  --color-kv-green-deep: #07315f;
   --color-kv-line: #06c755;
   --color-kv-red: #cf1f1f;
   --color-kv-red-deep: #a80f14;
@@ -41,17 +41,17 @@
   --color-kv-orange: #ef3c14;
   --color-kv-gold: #d8a52e;
   --color-kv-gold-soft: #eBD9a6;
-  --color-kv-cream: #fff8e7;
+  --color-kv-cream: #f7fbff;
   --color-kv-yellow: #ffdc25;
 
-  /* brand green (FV / onayami / nagare) */
-  --color-brand-950: #0a3f2f;
-  --color-brand-900: #0e4d3a;
-  --color-brand-800: #145c45;
-  --color-brand-700: #1a6b50;
-  --color-brand-600: #218a66;
-  --color-brand-500: #2aa77c;
-  --color-brand-100: #e3f2ec;
+  /* brand blue (FV / onayami / nagare) */
+  --color-brand-950: #061f3d;
+  --color-brand-900: #07315f;
+  --color-brand-800: #0b4a86;
+  --color-brand-700: #0f5f9f;
+  --color-brand-600: #1473c7;
+  --color-brand-500: #248ee0;
+  --color-brand-100: #e5f3ff;
 
   /* gold (kuchikomi / shikaku / accents) */
   --color-gold-700: #8a6423;
@@ -70,29 +70,30 @@
   /* LINE green */
   --color-line: #06c755;
 
-  /* teal (jisseki sections) */
-  --color-teal-600: #0f9b8e;
-  --color-teal-500: #17b3a6;
-  --color-teal-100: #e0f5f3;
+  /* blue-teal (jisseki sections) */
+  --color-teal-600: #0f7fb8;
+  --color-teal-500: #1f9de0;
+  --color-teal-100: #e2f4ff;
 
   /* neutrals */
-  --color-cream: #f6f3ec;
-  --color-ink: #23241f;
+  --color-cream: #f3f8fd;
+  --color-ink: #202833;
 
-  /* ===== luxury green×gold (KV-matched body theme) ===== */
-  --color-lux-cream: #fcfaf5;
-  --color-lux-cream-2: #f8f7f2;
-  /* deeper warm band. cream and cream-2 sit ~1.5% apart in luminance, so a page
+  /* ===== luxury blue×gold (KV-matched body theme) ===== */
+  --color-lux-cream: #f8fbff;
+  --color-lux-cream-2: #f2f8ff;
+  /* deeper cool band. cream and cream-2 sit close in luminance, so a page
      built from them alone reads as one flat tone; this is the rhythm break used
      every few sections so adjacent grounds never repeat. */
-  --color-lux-cream-3: #f3efe4;
-  --color-lux-green-soft: #f3f7f3;
-  --color-lux-green: #123d28; /* deep emerald — shields / banners / labels */
-  --color-lux-green-2: #1d5a3a; /* lighter emerald — gradient partner */
-  --color-lux-green-ink: #1a4a33; /* headings / accents on light ground */
+  --color-lux-cream-3: #eaf4ff;
+  --color-lux-green-soft: #eaf5ff;
+  --color-lux-green: #07315f; /* deep navy — shields / banners / labels */
+  --color-lux-green-2: #0f5f9f; /* bright blue — gradient partner */
+  --color-lux-green-ink: #123f68; /* headings / accents on light ground */
   --color-lux-gold: #c8a24e;
-  --color-lux-gold-deep: #9c7729;
+  --color-lux-gold-deep: #785b20;
   --color-lux-gold-light: #ecdba8;
+  --color-lux-border: #c8d9e9;
   --color-lux-amber: #ffce33; /* bright golden-yellow — phone numbers on dark CTAs */
   --color-lux-crimson: #c0202a; /* 参考価格 numbers */
 }
@@ -102,7 +103,7 @@ html {
 }
 
 body {
-  background: #f4f6f3;
+  background: #f3f8fd;
   color: var(--color-ink);
 }
 
@@ -128,4 +129,26 @@ a:focus-visible {
 @keyframes mcySlideUp {
   from { opacity: 0; transform: translateY(18px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* Dark gradient stops keep small CTA labels readable during the light sweep. */
+.mcy-contact-phone {
+  background-image: linear-gradient(to bottom, #c51e29, #a70f1b);
+}
+.mcy-contact-line {
+  background-image: linear-gradient(to bottom, #086d31, #055d27);
+}
+.mcy-shine {
+  pointer-events: none;
+  background-image: linear-gradient(110deg, transparent, rgb(255 255 255 / 12%), transparent);
+  transform: translateX(-120%) skewX(-15deg);
+  animation: mcyShine 4.8s ease-in-out infinite;
+}
+@keyframes mcyShine {
+  0%, 55% { transform: translateX(-120%) skewX(-15deg); }
+  85%, 100% { transform: translateX(320%) skewX(-15deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .mcy-shine { animation: none; opacity: 0; }
 }

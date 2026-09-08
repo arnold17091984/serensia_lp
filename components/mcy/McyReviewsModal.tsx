@@ -104,7 +104,7 @@ export default function McyReviewsModal() {
           {REVIEWS.map((r) => (
             <li
               key={r.name}
-              className="rounded-[14px] border border-lux-gold/25 bg-white px-[clamp(12px,3.4vw,16px)] py-[clamp(11px,3vw,14px)] shadow-[0_2px_8px_rgba(18,61,40,0.06)]"
+              className="rounded-[14px] border border-lux-border bg-white px-[clamp(12px,3.4vw,16px)] py-[clamp(11px,3vw,14px)] shadow-[0_2px_8px_rgba(7,49,95,0.06)]"
             >
               <div className="flex items-center gap-2.5">
                 <span className="grid h-[clamp(30px,8vw,36px)] w-[clamp(30px,8vw,36px)] shrink-0 place-items-center rounded-full bg-lux-green/10 font-display text-[clamp(13px,3.6vw,16px)] font-black text-lux-green">
@@ -112,7 +112,7 @@ export default function McyReviewsModal() {
                 </span>
                 <div className="min-w-0 flex-1">
                   <p className="text-[clamp(12px,3.3vw,14px)] font-bold text-lux-green-ink">{r.name}</p>
-                  <p className="mt-[1px] flex items-center gap-1.5 text-[clamp(9.5px,2.6vw,11px)] text-lux-green-ink/60">
+                  <p className="mt-[1px] flex items-center gap-1.5 text-[clamp(9.5px,2.6vw,11px)] text-lux-green-ink/80">
                     <Stars className="h-[11px] w-[11px]" />
                     <span>{r.date}</span>
                   </p>

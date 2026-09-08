@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <main className="mx-auto min-h-screen w-full max-w-[520px] bg-white px-5 pb-16 pt-10 text-[14px] leading-[1.9] text-ink">
-      <h1 className="border-l-4 border-brand-800 pl-3 font-serif text-[22px] font-bold">
+      <h1 className="border-l-4 border-brand-800 pl-3 font-sans text-[22px] font-bold text-forest-900">
         プライバシーポリシー
       </h1>
 
@@ -17,7 +17,7 @@ export default function PrivacyPage() {
       </p>
 
       <section className="mt-8">
-        <h2 className="border-b border-neutral-200 pb-1.5 font-serif text-[17px] font-bold">
+        <h2 className="border-b border-neutral-200 pb-1.5 font-sans text-[17px] font-bold text-forest-900">
           1. 取得する個人情報
         </h2>
         <p className="mt-3">
@@ -40,7 +40,7 @@ export default function PrivacyPage() {
       </section>
 
       <section className="mt-8">
-        <h2 className="border-b border-neutral-200 pb-1.5 font-serif text-[17px] font-bold">
+        <h2 className="border-b border-neutral-200 pb-1.5 font-sans text-[17px] font-bold text-forest-900">
           2. 利用目的
         </h2>
         <p className="mt-3">取得した個人情報は、次の目的で利用します。</p>
@@ -61,7 +61,7 @@ export default function PrivacyPage() {
       </section>
 
       <section className="mt-8">
-        <h2 className="border-b border-neutral-200 pb-1.5 font-serif text-[17px] font-bold">
+        <h2 className="border-b border-neutral-200 pb-1.5 font-sans text-[17px] font-bold text-forest-900">
           3. 第三者提供
         </h2>
         <p className="mt-3">
@@ -70,7 +70,7 @@ export default function PrivacyPage() {
       </section>
 
       <section className="mt-8">
-        <h2 className="border-b border-neutral-200 pb-1.5 font-serif text-[17px] font-bold">
+        <h2 className="border-b border-neutral-200 pb-1.5 font-sans text-[17px] font-bold text-forest-900">
           4. 業務委託
         </h2>
         <p className="mt-3">
@@ -79,7 +79,7 @@ export default function PrivacyPage() {
       </section>
 
       <section className="mt-8">
-        <h2 className="border-b border-neutral-200 pb-1.5 font-serif text-[17px] font-bold">
+        <h2 className="border-b border-neutral-200 pb-1.5 font-sans text-[17px] font-bold text-forest-900">
           5. 開示等の請求
         </h2>
         <p className="mt-3">
@@ -97,7 +97,7 @@ export default function PrivacyPage() {
       </section>
 
       <section className="mt-8">
-        <h2 className="border-b border-neutral-200 pb-1.5 font-serif text-[17px] font-bold">
+        <h2 className="border-b border-neutral-200 pb-1.5 font-sans text-[17px] font-bold text-forest-900">
           6. Cookie・アクセス解析について
         </h2>
         <p className="mt-3">

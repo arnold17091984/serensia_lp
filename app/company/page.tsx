@@ -38,7 +38,7 @@ const COMPANY_ROWS: { label: string; value: React.ReactNode }[] = [
 export default function CompanyPage() {
   return (
     <main className="mx-auto min-h-screen w-full max-w-[520px] bg-white px-5 pb-16 pt-10">
-      <h1 className="border-l-4 border-brand-800 pl-3 font-serif text-[22px] font-bold text-ink">
+      <h1 className="border-l-4 border-brand-800 pl-3 font-sans text-[22px] font-bold text-forest-900">
         会社概要
       </h1>
 

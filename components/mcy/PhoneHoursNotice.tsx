@@ -35,7 +35,7 @@ export default function PhoneHoursNotice() {
       ただいま電話受付時間外です（受付 9:00〜21:00）
       <span className="mt-[2px] block">
         <span className="text-[#0b7a20]">LINEなら24時間受付中</span>
-        ——下の緑のボタンからどうぞ
+        <span className="inline-block">——下の緑のボタンからどうぞ</span>
       </span>
     </p>
   );

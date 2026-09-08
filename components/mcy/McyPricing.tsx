@@ -23,7 +23,7 @@ function WorkList({ items }: Readonly<{ items: string[] }>) {
         >
           <span
             aria-hidden="true"
-            className="mt-[2px] grid h-[13px] w-[13px] shrink-0 place-items-center rounded-full bg-gradient-to-b from-lux-green-2 to-lux-green text-white shadow-[0_1px_3px_rgba(18,61,40,0.4)]"
+            className="mt-[2px] grid h-[13px] w-[13px] shrink-0 place-items-center rounded-full bg-gradient-to-b from-lux-green-2 to-lux-green text-white shadow-[0_1px_3px_rgba(7,49,95,0.4)]"
           >
             <svg viewBox="0 0 24 24" className="h-[8px] w-[8px]" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 12.5l4.5 4.5L19 7" />
@@ -56,7 +56,7 @@ export default function McyPricing() {
     >
       {/* layered ground: soft gold glows + micro dot texture + foliage */}
       <div aria-hidden="true" className="pointer-events-none absolute -left-[120px] -top-[80px] h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle,rgba(200,162,78,0.16),transparent_65%)]" />
-      <div aria-hidden="true" className="pointer-events-none absolute -right-[140px] top-[34%] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(29,90,58,0.1),transparent_65%)]" />
+      <div aria-hidden="true" className="pointer-events-none absolute -right-[140px] top-[34%] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(22,104,174,0.1),transparent_65%)]" />
       <div aria-hidden="true" className="lux-dots pointer-events-none absolute inset-0 opacity-50" />
       <LeafSprig className="left-[-10px] top-[clamp(60px,16vw,110px)] h-[clamp(56px,15vw,84px)] w-auto opacity-55" />
       <LeafSprig flip className="right-[-10px] top-[8px] h-[clamp(52px,14vw,78px)] w-auto opacity-55" />
@@ -92,14 +92,14 @@ export default function McyPricing() {
                     <span className="ml-[2px] text-[clamp(13px,3.6vw,17px)]">円〜</span>
                   </span>
                 </div>
-                <div className="flex flex-wrap items-center justify-between gap-2 rounded-[12px] border-2 border-lux-green/25 bg-gradient-to-br from-lux-cream to-lux-gold-light/50 px-3 py-[10px] shadow-[0_3px_10px_rgba(18,61,40,0.1)]">
+                <div className="flex flex-wrap items-center justify-between gap-2 rounded-[12px] border-2 border-lux-green/25 bg-gradient-to-br from-lux-cream to-lux-gold-light/50 px-3 py-[10px] shadow-[0_3px_10px_rgba(7,49,95,0.1)]">
                   <span className="text-[15px] font-bold leading-[1.4] text-lux-green-ink [word-break:auto-phrase]">
                     体液除去を伴う
                     <br />
                     特殊清掃
                   </span>
                   <span className="shrink-0 whitespace-nowrap font-display font-black leading-none text-lux-green">
-                    <span className="text-[clamp(38px,10.5vw,52px)] tracking-[-0.01em] [text-shadow:0_2px_0_rgba(255,255,255,0.9),0_5px_14px_rgba(18,61,40,0.16)]">
+                    <span className="text-[clamp(38px,10.5vw,52px)] tracking-[-0.01em] [text-shadow:0_2px_0_rgba(255,255,255,0.9),0_5px_14px_rgba(7,49,95,0.16)]">
                       150,000
                     </span>
                     <span className="ml-[2px] text-[clamp(15px,4.2vw,20px)]">円〜</span>
@@ -121,7 +121,7 @@ export default function McyPricing() {
             </div>
           </div>
           {/* ribbon tab */}
-          <span className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-b from-lux-green-2 to-lux-green px-[clamp(20px,5.5vw,28px)] py-[clamp(5px,1.4vw,7px)] text-[14px] font-black tracking-[0.16em] text-white ring-1 ring-lux-gold/60 [clip-path:polygon(0_0,100%_0,92%_50%,100%_100%,0_100%,8%_50%)] [filter:drop-shadow(0_3px_6px_rgba(18,61,40,0.4))]">
+          <span className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-b from-lux-green-2 to-lux-green px-[clamp(20px,5.5vw,28px)] py-[clamp(5px,1.4vw,7px)] text-[14px] font-black tracking-[0.16em] text-white ring-1 ring-lux-gold/60 [clip-path:polygon(0_0,100%_0,92%_50%,100%_100%,0_100%,8%_50%)] [filter:drop-shadow(0_3px_6px_rgba(7,49,95,0.4))]">
             まずは目安
           </span>
         </div>
@@ -139,15 +139,15 @@ export default function McyPricing() {
                   data-gtm="cta_line_cases_mid"
                   className="mx-auto flex min-h-[44px] w-full max-w-[380px] items-center justify-center gap-2 rounded-full bg-white px-4 text-center text-[15px] font-bold text-lux-green-ink shadow-[0_2px_8px_rgba(6,163,42,0.12)] ring-1 ring-[#06a32a]/40"
                 >
-                  <span className="grid h-[22px] w-[22px] shrink-0 place-items-center rounded-full bg-[#06c755] text-[7px] font-black text-white ring-1 ring-[#06a32a]/30">
+                  <span className="grid h-[22px] w-[22px] shrink-0 place-items-center rounded-full bg-[#087f36] text-[7px] font-black text-white ring-1 ring-[#06a32a]/30">
                     LINE
                   </span>
                   <span className="[word-break:auto-phrase]">似た状況ですか？ 状況を伝えて費用を相談する<span className="whitespace-nowrap">（無料・24時間）</span></span>
                 </a>
               )}
-              <article id={`case-${i + 1}`} className="scroll-mt-5 overflow-hidden rounded-[18px] border border-lux-gold/30 bg-white">
+              <article id={`case-${i + 1}`} className="scroll-mt-[80px] overflow-hidden rounded-[18px] border border-lux-border bg-white">
                 {/* header band: deep emerald gradient + white CASE chip + shine */}
-                <div className="relative flex flex-wrap items-center gap-x-2 gap-y-[5px] overflow-hidden bg-gradient-to-r from-[#0c2c1c] via-lux-green to-lux-green-2 px-4 py-[clamp(9px,2.6vw,13px)]">
+                <div className="relative flex flex-wrap items-center gap-x-2 gap-y-[5px] overflow-hidden bg-gradient-to-r from-[#07315f] via-lux-green to-lux-green-2 px-4 py-[clamp(9px,2.6vw,13px)]">
                   <span aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,transparent_35%,rgba(255,255,255,0.14)_48%,transparent_62%)]" />
                   <span className="relative shrink-0 rounded-[5px] bg-white px-2 py-[3px] font-display text-[14px] font-black tracking-[0.1em] text-lux-green shadow-[0_2px_5px_rgba(0,0,0,0.2)] ring-1 ring-lux-gold/50">
                     CASE {String(i + 1).padStart(2, "0")}
@@ -170,7 +170,7 @@ export default function McyPricing() {
                   {/* before/after — white-framed photos + label chips + green arrow */}
                   <div className="relative grid grid-cols-2 gap-2">
                     {[
-                      { src: c.before, label: "施工前", en: "BEFORE", tone: "bg-gradient-to-b from-[#2a3a30] to-[#0c1a12]" },
+                      { src: c.before, label: "施工前", en: "BEFORE", tone: "bg-gradient-to-b from-[#263a52] to-[#061e38]" },
                       { src: c.after, label: "施工後", en: "AFTER", tone: "bg-gradient-to-b from-lux-green-2 to-lux-green" },
                     ].map((p) => (
                       <figure key={p.en} className="relative">
@@ -181,10 +181,10 @@ export default function McyPricing() {
                           height={400}
                           loading="lazy"
                           decoding="async"
-                          className="aspect-[4/3] w-full rounded-[10px] border-[3px] border-white object-cover shadow-[0_4px_14px_rgba(18,61,40,0.22)]"
+                          className="aspect-[4/3] w-full rounded-[10px] border-[3px] border-white object-cover shadow-[0_4px_14px_rgba(7,49,95,0.22)]"
                         />
                         <figcaption
-                          className={`absolute left-[6px] top-[6px] rounded-[5px] ${p.tone} px-[7px] py-[3px] leading-none text-white shadow-[0_2px_6px_rgba(18,61,40,0.35)] ring-1 ring-white/70`}
+                          className={`absolute left-[6px] top-[6px] rounded-[5px] ${p.tone} px-[7px] py-[3px] leading-none text-white shadow-[0_2px_6px_rgba(7,49,95,0.35)] ring-1 ring-white/70`}
                         >
                           <span className="block text-[clamp(8.5px,2.4vw,10.5px)] font-black">{p.label}</span>
                           <span className="mt-[2px] block text-[clamp(5.5px,1.6vw,7px)] font-bold tracking-[0.14em] opacity-90">{p.en}</span>
@@ -193,7 +193,7 @@ export default function McyPricing() {
                     ))}
                     <span
                       aria-hidden="true"
-                      className="pointer-events-none absolute left-1/2 top-1/2 z-[1] grid h-[26px] w-[26px] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-gradient-to-b from-lux-green-2 to-lux-green shadow-[0_2px_8px_rgba(18,61,40,0.45)] ring-2 ring-white"
+                      className="pointer-events-none absolute left-1/2 top-1/2 z-[1] grid h-[26px] w-[26px] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-gradient-to-b from-lux-green-2 to-lux-green shadow-[0_2px_8px_rgba(7,49,95,0.45)] ring-2 ring-white"
                     >
                       <svg width="12" height="10" viewBox="0 0 12 10" fill="none">
                         <path d="M1.5 1l3.5 4-3.5 4M7 1l3.5 4L7 9" stroke="#fff" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
@@ -287,7 +287,7 @@ export default function McyPricing() {
                 data-gtm="cta_line_pricing"
                 className="relative flex min-h-[clamp(78px,19vw,88px)] items-center gap-2 overflow-hidden rounded-full bg-[#087f36] px-4 py-[clamp(10px,3vw,14px)] text-white transition-[filter] active:brightness-90"
               >
-                <span className="relative grid h-[clamp(26px,7.4vw,38px)] w-[clamp(26px,7.4vw,38px)] shrink-0 place-items-center rounded-full bg-white text-[clamp(6px,1.7vw,8.5px)] font-black text-[#06a32a] shadow-[0_2px_5px_rgba(0,0,0,0.15)]">
+                <span className="relative grid h-[clamp(26px,7.4vw,38px)] w-[clamp(26px,7.4vw,38px)] shrink-0 place-items-center rounded-full bg-white text-[clamp(6px,1.7vw,8.5px)] font-black text-[#087f36] shadow-[0_2px_5px_rgba(0,0,0,0.15)]">
                   LINE
                 </span>
                 <span className="relative min-w-0 flex-1 text-center leading-none">

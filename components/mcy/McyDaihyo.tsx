@@ -19,12 +19,12 @@ export default function McyDaihyo() {
     <div className="mx-auto mt-[clamp(14px,4vw,22px)] max-w-[472px]">
       <h3 className="sr-only">代表 太田より</h3>
 
-      <div className="relative rounded-[22px] bg-gradient-to-br from-lux-gold-light via-lux-gold to-lux-gold-deep p-[2px] shadow-[0_14px_34px_rgba(18,61,40,0.16)]">
+      <div className="relative rounded-[22px] bg-gradient-to-br from-lux-gold-light via-lux-gold to-lux-gold-deep p-[2px] shadow-[0_14px_34px_rgba(7,49,95,0.16)]">
         <div className="relative overflow-hidden rounded-[20px] bg-gradient-to-b from-white to-lux-cream px-[clamp(14px,4vw,20px)] pb-[clamp(16px,4.4vw,22px)] pt-[clamp(14px,3.8vw,20px)]">
 
           {/* header: real 代表 photo + name plate */}
           <div className="flex items-center gap-[clamp(12px,3.4vw,18px)]">
-            <div className="shrink-0 rounded-[16px] bg-gradient-to-br from-lux-gold-light to-lux-gold-deep p-[2px] shadow-[0_8px_20px_rgba(18,61,40,0.22)]">
+            <div className="shrink-0 rounded-[16px] bg-gradient-to-br from-lux-gold-light to-lux-gold-deep p-[2px] shadow-[0_8px_20px_rgba(7,49,95,0.22)]">
               <img
                 src="/img/daihyo_photo.webp"
                 alt="セレンシア 代表 太田 貴也。特殊清掃・遺品整理をご遺族・大家様・管理会社様に寄り添って対応します。"
@@ -37,7 +37,7 @@ export default function McyDaihyo() {
             </div>
 
             <div className="min-w-0">
-              <span className="inline-flex items-center gap-[6px] rounded-full bg-gradient-to-b from-lux-green-2 to-lux-green px-[clamp(11px,3vw,15px)] py-[clamp(4px,1.2vw,6px)] text-[clamp(10px,2.7vw,12px)] font-black tracking-[0.06em] text-white shadow-[0_3px_9px_rgba(18,61,40,0.3)] ring-1 ring-lux-gold/60">
+              <span className="inline-flex items-center gap-[6px] rounded-full bg-gradient-to-b from-lux-green-2 to-lux-green px-[clamp(11px,3vw,15px)] py-[clamp(4px,1.2vw,6px)] text-[clamp(10px,2.7vw,12px)] font-black tracking-[0.06em] text-white shadow-[0_3px_9px_rgba(7,49,95,0.3)] ring-1 ring-lux-gold/60">
                 <span aria-hidden="true" className="text-[clamp(7px,1.9vw,9px)] leading-none text-lux-gold-light">◆</span>
                 <span>代表メッセージ</span>
               </span>
@@ -63,7 +63,7 @@ export default function McyDaihyo() {
             {PROMISES.map((p) => (
               <li
                 key={p.title}
-                className="flex items-start gap-[9px] rounded-[12px] border border-lux-gold/25 bg-white px-3 py-[9px] shadow-[0_2px_8px_rgba(18,61,40,0.06)]"
+                className="flex items-start gap-[9px] rounded-[12px] border border-lux-border bg-white px-3 py-[9px] shadow-[0_2px_8px_rgba(7,49,95,0.06)]"
               >
                 <CheckGreen className="mt-[1px] h-[clamp(18px,5vw,22px)] w-[clamp(18px,5vw,22px)]" />
                 <span className="min-w-0 text-[clamp(10.5px,2.9vw,13px)] leading-[1.6] text-lux-green-ink/85 [word-break:auto-phrase]">

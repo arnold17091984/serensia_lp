@@ -40,7 +40,7 @@ export default function McyGallery() {
           {SHOTS.map((s) => (
             <figure
               key={s.src}
-              className="group relative overflow-hidden rounded-[14px] border-[3px] border-white shadow-[0_8px_22px_rgba(18,61,40,0.18)] ring-1 ring-lux-gold/35"
+              className="group relative overflow-hidden rounded-[14px] border-[3px] border-white shadow-[0_8px_22px_rgba(7,49,95,0.18)] ring-1 ring-lux-gold/35"
             >
               <img
                 src={s.src}
@@ -51,7 +51,7 @@ export default function McyGallery() {
                 decoding="async"
                 className="aspect-[3/4] w-full object-cover object-center"
               />
-              <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-[52%] bg-gradient-to-t from-[#0a2c1b] via-[#0a2c1b]/55 to-transparent" />
+              <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-[52%] bg-gradient-to-t from-[#06284d] via-[#06284d]/55 to-transparent" />
               <figcaption className="absolute inset-x-0 bottom-0 flex items-center gap-[6px] px-[clamp(8px,2.4vw,11px)] pb-[clamp(8px,2.2vw,11px)] pt-6">
                 <span aria-hidden="true" className="h-[13px] w-[3px] shrink-0 rounded-full bg-gradient-to-b from-lux-gold-light to-lux-gold-deep" />
                 <span className="text-[clamp(9.5px,2.7vw,12px)] font-black leading-[1.4] text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.6)] [word-break:auto-phrase]">
@@ -62,7 +62,7 @@ export default function McyGallery() {
           ))}
         </div>
 
-        <p className="mx-auto mt-[clamp(12px,3.2vw,16px)] max-w-[460px] text-center text-[clamp(9px,2.5vw,11px)] font-medium leading-[1.7] text-lux-green-ink/60 [word-break:auto-phrase]">
+        <p className="mx-auto mt-[clamp(12px,3.2vw,16px)] max-w-[460px] text-center text-[clamp(9px,2.5vw,11px)] font-medium leading-[1.7] text-lux-green-ink/80 [word-break:auto-phrase]">
           ※プライバシー保護のため、物件やご依頼者が特定される情報は一切掲載していません。
         </p>
 

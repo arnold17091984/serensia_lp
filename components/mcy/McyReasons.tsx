@@ -68,13 +68,13 @@ export default function McyReasons() {
         <ol className="mx-auto mt-[clamp(16px,4.4vw,24px)] flex max-w-[460px] flex-col gap-[clamp(10px,2.8vw,14px)]">
           {REASONS.map((r, i) => (
             <li key={r.title}>
-              <div className="relative rounded-[16px] border border-lux-gold/30 bg-white px-[clamp(12px,3.4vw,18px)] py-[clamp(13px,3.4vw,17px)] shadow-[0_8px_22px_rgba(18,61,40,0.12)]">
+              <div className="relative rounded-[16px] border border-lux-border bg-white px-[clamp(12px,3.4vw,18px)] py-[clamp(13px,3.4vw,17px)] shadow-[0_8px_22px_rgba(7,49,95,0.12)]">
                 {/* gold number medallion */}
-                <span className="absolute -left-[9px] -top-[9px] grid h-[clamp(26px,7vw,32px)] w-[clamp(26px,7vw,32px)] place-items-center rounded-full bg-gradient-to-b from-lux-gold-light via-lux-gold to-lux-gold-deep font-display text-[clamp(12px,3.2vw,15px)] font-black text-white shadow-[0_3px_9px_rgba(156,119,41,0.5)] ring-2 ring-white">
+                <span className="absolute -left-[9px] -top-[9px] grid h-[clamp(26px,7vw,32px)] w-[clamp(26px,7vw,32px)] place-items-center rounded-full bg-gradient-to-b from-lux-gold-light via-lux-gold to-lux-gold font-display text-[clamp(12px,3.2vw,15px)] font-black text-forest-950 shadow-[0_3px_9px_rgba(156,119,41,0.5)] ring-2 ring-white">
                   {i + 1}
                 </span>
                 <div className="flex items-start gap-[clamp(10px,3vw,14px)]">
-                  <span className="grid h-[clamp(38px,10.5vw,48px)] w-[clamp(38px,10.5vw,48px)] shrink-0 place-items-center rounded-full bg-gradient-to-br from-lux-green-2 to-lux-green shadow-[0_4px_10px_rgba(18,61,40,0.35)] ring-2 ring-lux-gold/45">
+                  <span className="grid h-[clamp(38px,10.5vw,48px)] w-[clamp(38px,10.5vw,48px)] shrink-0 place-items-center rounded-full bg-gradient-to-br from-lux-green-2 to-lux-green shadow-[0_4px_10px_rgba(7,49,95,0.35)] ring-2 ring-lux-gold/45">
                     <svg viewBox="0 0 24 24" className="h-[52%] w-[52%]" fill="none" stroke="white" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                       {r.icon}
                     </svg>

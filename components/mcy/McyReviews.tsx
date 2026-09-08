@@ -43,7 +43,7 @@ export default function McyReviews() {
         </LuxHeading>
 
         {/* rating badge */}
-        <div className="mx-auto mt-[clamp(10px,2.8vw,14px)] flex w-fit items-center gap-[clamp(5px,1.6vw,9px)] rounded-full border border-lux-gold/45 bg-white px-[clamp(12px,3.4vw,18px)] py-[clamp(6px,1.8vw,9px)] shadow-[0_2px_8px_rgba(18,61,40,0.1)]">
+        <div className="mx-auto mt-[clamp(10px,2.8vw,14px)] flex w-fit items-center gap-[clamp(5px,1.6vw,9px)] rounded-full border border-lux-gold/45 bg-white px-[clamp(12px,3.4vw,18px)] py-[clamp(6px,1.8vw,9px)] shadow-[0_2px_8px_rgba(7,49,95,0.1)]">
           <GoogleG className="h-[clamp(16px,4.4vw,20px)] w-[clamp(16px,4.4vw,20px)]" />
           <Stars className="h-[clamp(12px,3.2vw,15px)] w-[clamp(12px,3.2vw,15px)]" />
           <span className="font-display text-[clamp(15px,4vw,19px)] font-black leading-none text-lux-green-ink">{GOOGLE_RATING}</span>
@@ -55,7 +55,7 @@ export default function McyReviews() {
           {featured.map((r) => (
             <li
               key={r.name}
-              className="rounded-[16px] border border-lux-gold/30 bg-white px-[clamp(13px,3.6vw,18px)] py-[clamp(12px,3.2vw,16px)] shadow-[0_6px_18px_rgba(18,61,40,0.1)]"
+              className="rounded-[16px] border border-lux-border bg-white px-[clamp(13px,3.6vw,18px)] py-[clamp(12px,3.2vw,16px)] shadow-[0_6px_18px_rgba(7,49,95,0.1)]"
             >
               <div className="flex items-center gap-[clamp(8px,2.4vw,11px)]">
                 <span className="grid h-[clamp(32px,8.5vw,40px)] w-[clamp(32px,8.5vw,40px)] shrink-0 place-items-center rounded-full bg-lux-green/10 font-display text-[clamp(14px,3.8vw,17px)] font-black text-lux-green">
@@ -63,7 +63,7 @@ export default function McyReviews() {
                 </span>
                 <div className="min-w-0 flex-1">
                   <p className="text-[clamp(12.5px,3.4vw,14.5px)] font-bold text-lux-green-ink">{r.name}</p>
-                  <p className="mt-[1px] flex items-center gap-1.5 text-[clamp(9.5px,2.6vw,11px)] text-lux-green-ink/60">
+                  <p className="mt-[1px] flex items-center gap-1.5 text-[clamp(9.5px,2.6vw,11px)] text-lux-green-ink/80">
                     <Stars className="h-[11px] w-[11px]" />
                     <span>{r.date}</span>
                   </p>
@@ -85,7 +85,7 @@ export default function McyReviews() {
           <OpenReviewsButton
             gtm="reviews_open_section"
             ariaLabel="お客様の声をもっと見る"
-            className="mcy-cta-nudge inline-flex items-center gap-2 rounded-full border-2 border-lux-green/35 bg-white px-[clamp(20px,6vw,30px)] py-[clamp(11px,3vw,14px)] text-[clamp(12.5px,3.4vw,14.5px)] font-black text-lux-green-ink shadow-[0_4px_12px_rgba(18,61,40,0.12)] transition-[background-color,transform] hover:bg-lux-green-soft active:scale-[0.98]"
+            className="mcy-cta-nudge inline-flex items-center gap-2 rounded-full border-2 border-lux-green/35 bg-white px-[clamp(20px,6vw,30px)] py-[clamp(11px,3vw,14px)] text-[clamp(12.5px,3.4vw,14.5px)] font-black text-lux-green-ink shadow-[0_4px_12px_rgba(7,49,95,0.12)] transition-[background-color,transform] hover:bg-lux-green-soft active:scale-[0.98]"
           >
             口コミを読む
             <span aria-hidden="true">→</span>

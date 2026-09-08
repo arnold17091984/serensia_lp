@@ -1,5 +1,6 @@
 "use client";
 
+import McyCtaShine from "./McyCtaShine";
 import { useEffect, useRef, useState } from "react";
 
 /**
@@ -35,7 +36,7 @@ const HEAD_COUNT = 2; // chapters shown before the "続きを読む" reveal
 function ChapterMarker({ no, title }: Readonly<{ no: number; title: string }>) {
   return (
     <div className="flex flex-col items-center text-center">
-      <span className="inline-flex items-center gap-[6px] rounded-full bg-gradient-to-r from-lux-green-2 to-lux-green px-[clamp(12px,3.4vw,18px)] py-[clamp(5px,1.5vw,7px)] text-white shadow-[0_4px_10px_rgba(18,61,40,0.32)] ring-1 ring-lux-gold/60">
+      <span className="inline-flex items-center gap-[6px] rounded-full bg-gradient-to-r from-lux-green-2 to-lux-green px-[clamp(12px,3.4vw,18px)] py-[clamp(5px,1.5vw,7px)] text-white shadow-[0_4px_10px_rgba(7,49,95,0.32)] ring-1 ring-lux-gold/60">
         <span aria-hidden className="h-[6px] w-[6px] shrink-0 animate-pulse rounded-full bg-lux-gold-light" />
         <span className="font-display text-[clamp(11px,3vw,14px)] font-black tracking-[0.08em]">
           第{no}話
@@ -82,7 +83,7 @@ function MangaPanel({ chapter, eager }: Readonly<{ chapter: Chapter; eager?: boo
           shown ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
         }`}
       >
-        <div className="overflow-hidden rounded-[18px] bg-white p-[clamp(4px,1.2vw,7px)] shadow-[0_14px_34px_rgba(18,61,40,0.18)] ring-1 ring-lux-gold/30">
+        <div className="overflow-hidden rounded-[18px] bg-white p-[clamp(4px,1.2vw,7px)] shadow-[0_14px_34px_rgba(7,49,95,0.18)] ring-1 ring-lux-gold/30">
           <img
             src={chapter.src}
             alt={`セレンシア 第${chapter.no}話「${chapter.title}」`}
@@ -134,14 +135,9 @@ export default function McyManga() {
             type="button"
             onClick={() => setExpanded(true)}
             data-gtm="manga_read_more"
-            className="mcy-cta-nudge relative flex w-full max-w-[400px] flex-col items-center overflow-hidden rounded-full border-2 border-lux-gold/70 bg-gradient-to-b from-lux-green-2 via-lux-green to-[#0c2c1c] px-5 py-[clamp(13px,3.6vw,18px)] text-white shadow-[0_14px_30px_rgba(18,61,40,0.48)] ring-1 ring-white/25 transition-[filter] active:brightness-90"
+            className="mcy-cta-nudge relative flex w-full max-w-[400px] flex-col items-center overflow-hidden rounded-full border-2 border-lux-gold/70 bg-gradient-to-b from-lux-green-2 via-lux-green to-[#07315f] px-5 py-[clamp(13px,3.6vw,18px)] text-white shadow-[0_14px_30px_rgba(7,49,95,0.48)] ring-1 ring-white/25 transition-[filter] active:brightness-90"
           >
-            {/* animated shine sweep */}
-            <span aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-              <span className="mcy-shine absolute inset-y-[-30%] left-0 w-[42%] bg-gradient-to-r from-transparent via-white/45 to-transparent" />
-            </span>
-            {/* glossy top highlight */}
-            <span aria-hidden className="pointer-events-none absolute inset-x-[6%] top-[3px] h-[42%] rounded-full bg-gradient-to-b from-white/35 to-transparent" />
+            <McyCtaShine />
 
             <span className="relative flex items-center gap-[8px] text-[clamp(15px,4.4vw,19px)] font-black text-lux-amber [text-shadow:0_1px_3px_rgba(0,0,0,0.45)]">
               <svg viewBox="0 0 24 24" className="h-[clamp(16px,4.4vw,20px)] w-[clamp(16px,4.4vw,20px)]" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -149,7 +145,7 @@ export default function McyManga() {
               </svg>
               続きを読む
             </span>
-            <span className="relative mt-[4px] text-[clamp(9.5px,2.7vw,12px)] font-bold text-white/90">
+            <span className="relative mt-[4px] text-[clamp(9.5px,2.7vw,12px)] font-bold text-white">
               この続きが気になる方へ<span className="whitespace-nowrap">（残り{tail.length}話・解決まで）</span>
             </span>
             <span aria-hidden className="relative mt-[5px] animate-bounce text-[clamp(13px,3.4vw,16px)] font-black leading-none text-lux-amber">
