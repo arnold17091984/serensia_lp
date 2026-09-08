@@ -36,4 +36,12 @@ CPC550円を仮定した条件計算で、業界平均や達成予測ではな�
 2. [現状の強弱・競合5社・隣接業界・出典](02-investigate.md)
 3. [予算シミュレーション・広告構成案・LP改善・90日計画](03-strategy.md)
 
-広告アカウントの最新データや現在の広告文は直接取得していない。広告・本番LPは変更していない。分析の独立レビューはT-87に記録する。
+上記は9/7の分析時点。9/8に料金・LINE・法人導線を改善して本番公開し、独立QAと公開後確認を実施した。広告接続はinvalid_grantで取得不可、広告設定・予算は変更していない。分析レビューはT-87、実装QAはT-88/T-89に記録。
+
+## 改善成果物
+
+- [HTML改善プラン](improvement-plan.html)（単体配布版は `output/marketing/improvement-plan.html`）
+- [実施・検証記録](05-delivery.md)
+- [広告案CSV](ads-draft.csv)
+- [成約管理台帳CSV](contracts-template.csv)
+- [運用手順](operations.md)

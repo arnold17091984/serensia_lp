@@ -110,9 +110,9 @@ export default function McyProblems() {
                   tone="line"
                   href={LINE_URL}
                   gtm="cta_line_worries"
-                  ariaLabel="LINEで写真を送って相談する（写真相談・無料・24時間受付）"
-                  top="写真を送るだけ・無料相談"
-                  main="LINEで写真相談する"
+                  ariaLabel="LINEで特殊清掃を相談する（写真なし可・無料・24時間受付）"
+                  top="写真がなくても・無料相談"
+                  main="LINEで状況を相談する"
                   sub="24時間受付｜写真がなくてもOK"
                   external
                 />

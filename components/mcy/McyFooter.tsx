@@ -83,7 +83,7 @@ export default function McyFooter() {
         <p className="mt-2 text-[clamp(9.5px,2.7vw,12px)] font-medium leading-[1.8] text-white/80 [word-break:auto-phrase]">
           <span className="whitespace-nowrap">お電話受付 9:00〜21:00 年中無休／</span>
           <br className="min-[430px]:hidden" />
-          <span className="whitespace-nowrap">LINE・メールは24時間受付・緊急時は折り返し対応</span>
+          <span className="whitespace-nowrap">LINEは24時間受付・確認次第ご返信</span>
         </p>
         <p className="mt-3 text-[clamp(9.5px,2.7vw,12px)] font-medium text-white/80">
           対応エリア：東京・神奈川を中心に関東一円

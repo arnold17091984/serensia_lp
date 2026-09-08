@@ -343,7 +343,7 @@ export default function McyPricing() {
               <span aria-hidden="true" className="h-px w-[clamp(14px,4.5vw,26px)] shrink-0 bg-gradient-to-l from-transparent to-lux-gold" />
             </p>
             <p className="mx-auto mt-2 max-w-[400px] text-center text-[clamp(10px,2.8vw,12px)] font-medium leading-[1.8] text-lux-green-ink/85 [word-break:auto-phrase]">
-              特殊清掃は50,000円〜。状況により大きく変わるため、写真からまず概算をお出しします。お見積り確定後の追加費用はありません。金額にご納得いただいてから作業を開始します。
+              特殊清掃は50,000円〜。状況により大きく変わるため、まず現場の状況をお聞かせください。写真がなくてもご相談いただけます。お見積り確定後の追加費用はありません。金額にご納得いただいてから作業を開始します。
             </p>
 
             <div className="mcy-cta-nudge mt-3 rounded-full bg-gradient-to-b from-lux-gold-light via-lux-gold to-lux-gold-deep p-[2px] shadow-[0_10px_24px_rgba(6,163,42,0.34)]">
@@ -360,7 +360,7 @@ export default function McyPricing() {
                 </span>
                 <span className="relative min-w-0 flex-1 text-center leading-none">
                   <span className="block whitespace-nowrap text-[clamp(14px,4vw,19px)] font-black [text-shadow:0_1px_2px_rgba(0,90,25,0.3)]">
-                    写真を送るだけで簡単見積り
+                    写真がなくても費用を相談
                   </span>
                   <span className="mt-[5px] block whitespace-nowrap text-[clamp(9px,2.5vw,11.5px)] font-bold opacity-95">
                     LINEで無料相談｜24時間受付
