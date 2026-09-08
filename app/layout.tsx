@@ -1,3 +1,4 @@
+import { FAQ } from "@/components/mcy/faq-data";
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
@@ -25,18 +26,6 @@ const PHONE_DISPLAY_FOR_SWAP = "03-4400-2098";
 
 // JSON-LD: mirrors on-page text (FAQ + business info). Reinforces landing-page
 // relevance/transparency for Google Ads without adding any new claims.
-const FAQ_LD = [
-  ["相談や見積りにお金はかかりますか？", "ご相談・お見積り・出張費用はすべて無料です。お見積り確定後の追加費用もありません。金額にご納得いただいてから作業を開始します。"],
-  ["すぐに来てもらえますか？", "東京・神奈川を中心に、最短即日で現地確認に伺います。お急ぎの場合は、まずはお電話（9:00〜21:00 年中無休）でご相談ください。"],
-  ["夜間に発見した場合はどうすればいいですか？", "LINEは24時間受付しております。写真がなくても、分かる範囲の状況をお送りください。内容を確認次第、折り返しご連絡いたします。"],
-  ["ご近所へ迷惑をかけたくない", "作業時はご近所へのご負担をできる限り抑えられるよう、十分に配慮しております。ロゴや業者名の入った服装は避け、目立たない形で訪問・作業を行います。"],
-  ["遠方に住んでいて立ち会えません。依頼できますか？", "立ち会い不要で対応可能です。鍵のお預かりも承っております。作業前後の状況は写真などでご報告いたします。"],
-  ["クレジットカードで支払いできますか？", "はい、クレジットカードでのお支払いが可能です。各種カードに対応しています。"],
-  ["見積もりの所要時間は？", "見積もりは現場調査後、通常30分〜1時間程度でお伝えしています。"],
-  ["作業の所要時間は？", "作業の内容や規模により異なりますが、一般的には1日〜数日で完了します。"],
-  ["保険や保証はありますか？", "万が一の事故に備え、東京海上日動火災保険の賠償責任保険に加入しております。"],
-] as const;
-
 const JSON_LD = {
   "@context": "https://schema.org",
   "@graph": [
@@ -67,7 +56,7 @@ const JSON_LD = {
     },
     {
       "@type": "FAQPage",
-      mainEntity: FAQ_LD.map(([q, a]) => ({
+      mainEntity: FAQ.map(([q, a]) => ({
         "@type": "Question",
         name: q,
         acceptedAnswer: { "@type": "Answer", text: a },

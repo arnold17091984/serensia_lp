@@ -5,7 +5,7 @@ import { LINE_URL, PHONE_TEL } from "./McyHeader";
 import { isPhoneClosed } from "./PhoneHoursNotice";
 
 /**
- * No.33 — sticky CTA bar (glossy turquoise phone / LINE green on white glass).
+ * Quiet contact bar with the established red phone and green LINE actions.
  * Hidden while a full-width CTA block (data-cta-section) is on screen — the
  * attribute sits on the blocks that actually contain buttons, and rootMargin
  * shrinks the viewport check so the bar only hides once those buttons are
@@ -55,40 +55,18 @@ export default function McyStickyCta() {
   return (
     <div
       aria-hidden={!visible}
-      className={`fixed inset-x-0 bottom-0 z-50 transition-transform duration-300 ease-out ${
-        visible ? "translate-y-0" : "pointer-events-none translate-y-full"
-      }`}
+      className={`fixed inset-x-0 bottom-0 z-50 border-t border-[#d5dfd9] bg-white transition-transform duration-200 motion-reduce:transition-none ${visible ? "translate-y-0" : "pointer-events-none translate-y-full"}`}
     >
-      <div className="relative mx-auto flex max-w-[520px] items-stretch gap-2 bg-white/80 px-3 pb-[max(10px,env(safe-area-inset-bottom))] pt-2.5 shadow-[0_-10px_30px_rgba(18,58,92,0.20)] backdrop-blur-xl">
-        {/* thin gold gradient keyline on top of the glass bar */}
-        <span
-          aria-hidden
-          className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-lux-gold-light via-lux-gold-deep to-lux-gold-light"
-        />
+      <div className="mx-auto grid max-w-[720px] grid-cols-2 gap-3 px-3 pb-[max(12px,env(safe-area-inset-bottom))] pt-3">
         <a
           href={PHONE_TEL}
           tabIndex={visible ? undefined : -1}
           data-gtm="cta_tel_sticky"
-          className={`relative flex min-w-0 flex-1 flex-col items-center justify-center overflow-hidden rounded-full bg-[#c0202a] py-[8px] pl-[10px] pr-[26px] text-white transition-[filter] active:brightness-90 ${
-            phoneClosed ? "order-2 opacity-80 saturate-[0.85]" : "order-1"
-          }`}
+          className={`flex min-h-[62px] flex-col items-center justify-center rounded-[4px] bg-[#b92c32] px-2 py-2 text-center text-white ${phoneClosed ? "order-2" : "order-1"}`}
         >
-          <span className="relative flex items-center gap-1.5 whitespace-nowrap text-[clamp(12px,3.5vw,14px)] font-black leading-tight drop-shadow-[0_1px_1px_rgba(18,61,40,0.55)]">
-            <svg viewBox="0 0 24 24" className="h-[clamp(13px,4vw,16px)] w-[clamp(13px,4vw,16px)] shrink-0 fill-current" aria-hidden="true">
-              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-            </svg>
-            {"電話で相談する"}
-          </span>
-          <span className="relative mt-[3px] text-center text-[clamp(11px,3vw,12px)] font-bold leading-[1.4] opacity-95">
-            {phoneClosed ? "受付時間外（朝9時〜）" : "相談だけOK・営業なし"}
-          </span>
-          <span
-            aria-hidden
-            className="absolute right-[7px] top-1/2 grid h-[18px] w-[18px] -translate-y-1/2 place-items-center rounded-full bg-white shadow-[0_1px_3px_rgba(0,0,0,0.22)]"
-          >
-            <svg viewBox="0 0 12 12" className="h-[8px] w-[8px] fill-lux-green" aria-hidden="true">
-              <path d="M3.5 1.5 9 6l-5.5 4.5z" />
-            </svg>
+          <span className="text-[14px] font-bold">電話で相談する</span>
+          <span className="mt-1 text-[12px]">
+            {phoneClosed ? "受付時間外・朝9時から" : "9:00〜21:00"}
           </span>
         </a>
         <a
@@ -97,35 +75,10 @@ export default function McyStickyCta() {
           rel="noopener noreferrer"
           tabIndex={visible ? undefined : -1}
           data-gtm="cta_line_sticky"
-          className={`relative flex min-w-0 flex-1 flex-col items-center justify-center overflow-hidden rounded-full bg-[#087f36] py-[8px] pl-[10px] pr-[26px] text-white transition-[filter] active:brightness-90 ${
-            phoneClosed ? "order-1" : "order-2"
-          }`}
+          className={`flex min-h-[62px] flex-col items-center justify-center rounded-[4px] border border-[#27804d] bg-white px-2 py-2 text-center text-[#17663b] ${phoneClosed ? "order-1" : "order-2"}`}
         >
-          <span className="relative flex items-center gap-1.5 whitespace-nowrap text-[clamp(12px,3.5vw,14px)] font-black leading-tight drop-shadow-[0_1px_1px_rgba(6,163,42,0.5)]">
-            <span className="grid h-[clamp(17px,4.8vw,20px)] w-[clamp(17px,4.8vw,20px)] shrink-0 place-items-center rounded-[5px] bg-white shadow-[0_1px_2px_rgba(0,0,0,0.18)]">
-              <svg viewBox="0 0 32 32" className="h-[86%] w-[86%]" aria-hidden="true">
-                <path
-                  fill="#06C755"
-                  d="M16 3.2C8.3 3.2 2 8.3 2 14.5c0 5.6 5 10.2 11.7 11.1.46.1 1.08.3 1.24.69.14.35.09.9.05 1.25l-.2 1.2c-.06.35-.28 1.38 1.21.75 1.49-.62 8.03-4.73 10.96-8.1C29.9 20.9 31 18 31 14.5 31 8.3 24.7 3.2 16 3.2Z"
-                />
-                <text x="16" y="15.3" textAnchor="middle" dominantBaseline="central" fontFamily="Arial, Helvetica, sans-serif" fontWeight="800" fontSize="7.2" letterSpacing="-0.2" fill="#fff">
-                  LINE
-                </text>
-              </svg>
-            </span>
-            {"LINEで無料相談"}
-          </span>
-          <span className="relative mt-[3px] text-center text-[clamp(11px,3vw,12px)] font-bold leading-[1.4] opacity-95">
-            写真なしOK｜24時間受付
-          </span>
-          <span
-            aria-hidden
-            className="absolute right-[7px] top-1/2 grid h-[18px] w-[18px] -translate-y-1/2 place-items-center rounded-full bg-white shadow-[0_1px_3px_rgba(0,0,0,0.22)]"
-          >
-            <svg viewBox="0 0 12 12" className="h-[8px] w-[8px] fill-[#06a32a]" aria-hidden="true">
-              <path d="M3.5 1.5 9 6l-5.5 4.5z" />
-            </svg>
-          </span>
+          <span className="text-[14px] font-bold">LINEで相談する</span>
+          <span className="mt-1 text-[12px]">写真なしOK・24時間受付</span>
         </a>
       </div>
     </div>
