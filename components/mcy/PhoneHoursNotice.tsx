@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 /** Phone reception is 9:00–21:00 (JST, the audience's local time). */
 export function isPhoneClosed(date: Date): boolean {
-  const h = date.getHours();
+  const h = (date.getUTCHours() + 9) % 24;
   return h >= 21 || h < 9;
 }
 

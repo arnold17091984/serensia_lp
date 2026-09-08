@@ -1,4 +1,6 @@
 import McyFv from "@/components/mcy/McyFv";
+import McyPriceOverview from "@/components/mcy/McyPriceOverview";
+import McyBusinessSupport from "@/components/mcy/McyBusinessSupport";
 import McyProblems from "@/components/mcy/McyProblems";
 import McyGallery from "@/components/mcy/McyGallery";
 import McyReasons from "@/components/mcy/McyReasons";
@@ -24,9 +26,11 @@ export default function Home() {
     <>
       <main className="relative mx-auto w-full max-w-[520px] bg-white shadow-xl">
         <McyFv />
+        <McyPriceOverview />
         <McyProblems />
         <McyGallery />
         <McyReasons />
+        <McyBusinessSupport />
         <McyReviews />
         <McyPricing />
         <McyCta />
