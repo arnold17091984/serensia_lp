@@ -124,7 +124,7 @@ export default function McyStickyCta() {
             {"LINEで無料相談"}
           </span>
           <span className="relative mt-[3px] whitespace-nowrap text-[clamp(11px,3vw,12px)] font-bold leading-none opacity-95">
-            写真でOK｜24時間受付
+            写真なしOK｜24時間受付
           </span>
           <span
             aria-hidden

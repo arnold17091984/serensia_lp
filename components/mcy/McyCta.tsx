@@ -131,7 +131,7 @@ export default function McyCta({ tone = "dark" }: Readonly<{ tone?: "dark" | "li
                   LINEで無料相談する
                 </span>
                 <span className="mt-[4px] block whitespace-nowrap text-[clamp(11px,2.9vw,12px)] font-bold opacity-95">
-                  写真を送るだけ｜24時間受付中
+                  写真なしでも相談可｜24時間受付
                 </span>
               </span>
               <span aria-hidden="true" className="grid h-[clamp(18px,5vw,24px)] w-[clamp(18px,5vw,24px)] shrink-0 place-items-center rounded-full bg-white shadow-[0_2px_6px_rgba(0,0,0,0.25)]">

@@ -107,7 +107,7 @@ export default function McyFv() {
             target="_blank"
             rel="noopener noreferrer"
             data-gtm="cta_line_fv"
-            aria-label="LINEで写真を送って相談する（写真相談・概算見積り・24時間受付）"
+            aria-label="LINEで特殊清掃を相談する（写真がなくても相談可・24時間受付）"
             className="relative block rounded-[18px] bg-gradient-to-b from-[#fff3ac] via-[#f7d63f] to-[#e3b524] px-[2px] pt-[2px] pb-[4px] shadow-[0_7px_16px_rgba(6,120,20,0.28)] transition-[filter] active:brightness-95"
           >
             <span className="relative flex min-h-[clamp(72px,19vw,86px)] items-center gap-[clamp(7px,2.2vw,12px)] overflow-hidden rounded-[15px] bg-gradient-to-b from-[#63ca1a] via-[#28a414] to-[#017c0e] px-[clamp(10px,3vw,16px)] py-[clamp(8px,2.2vw,12px)] shadow-[inset_0_2px_2px_rgba(255,255,255,0.3),inset_0_-4px_9px_rgba(0,70,5,0.45)]">
@@ -135,9 +135,9 @@ export default function McyFv() {
                 </svg>
               </span>
               <span className="relative min-w-0 flex-1 text-center leading-none text-white [text-shadow:0_1px_2px_rgba(0,70,5,0.5)]">
-                <span className="block text-[clamp(11px,3.1vw,14.5px)] font-bold tracking-[0.02em]">LINEで写真を送るだけ</span>
-                <span className="mt-[3px] block whitespace-nowrap text-[clamp(19px,5.6vw,27px)] font-black tracking-[0.01em]">写真相談・概算見積り</span>
-                <span className="mt-[3px] block whitespace-nowrap text-[clamp(11px,2.8vw,12px)] font-bold opacity-95">友だち追加して送るだけ｜24時間受付</span>
+                <span className="block text-[clamp(11px,3.1vw,14.5px)] font-bold tracking-[0.02em]">写真がなくても相談できます</span>
+                <span className="mt-[3px] block whitespace-nowrap text-[clamp(19px,5.6vw,27px)] font-black tracking-[0.01em]">特殊清掃・費用の相談</span>
+                <span className="mt-[3px] block whitespace-nowrap text-[clamp(11px,2.8vw,12px)] font-bold opacity-95">LINEで状況を送るだけ｜24時間受付</span>
               </span>
               <svg viewBox="0 0 24 24" className="relative h-[clamp(19px,5.2vw,27px)] w-[clamp(19px,5.2vw,27px)] shrink-0" fill="none" stroke="white" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="m9 5 7 7-7 7" />

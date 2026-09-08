@@ -13,7 +13,7 @@
 
 const STEPS = [
   { n: "1", label: "友だち追加", note: "約10秒" },
-  { n: "2", label: "ひとこと送信", note: "写真1〜2枚あれば概算が正確・なくてもOK" },
+  { n: "2", label: "状況をひとこと送信", note: "写真がなくても相談できます" },
   { n: "3", label: "概算見積りをご返信", note: "内容を確認しだい順次" },
 ] as const;
 
@@ -48,9 +48,9 @@ function StepsBody({ dark }: Readonly<{ dark: boolean }>) {
           dark ? "bg-black/20" : "bg-lux-green-soft/60"
         } px-[10px] py-[7px] text-[clamp(11px,3vw,12px)] leading-[1.7] ${sub} [word-break:auto-phrase]`}
       >
-        文例：<span className={`font-bold ${ink}`}>「見積り希望です。1DKの実家の遺品整理です」</span>
-        —— この一言だけで大丈夫です。
+        文例：<span className={`font-bold ${ink}`}>「特殊清掃の相談です。現場は○○市です。現地確認を希望しています」</span>
       </p>
+      <p className={`mt-2 text-[12px] leading-6 ${sub}`}>分かる範囲の状況だけで大丈夫です。写真を撮るために、無理に室内へ入る必要はありません。</p>
     </>
   );
 }

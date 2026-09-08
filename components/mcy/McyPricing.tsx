@@ -22,7 +22,7 @@ interface CaseItem {
   after: string;
 }
 
-const CASES: CaseItem[] = [
+export const CASES: CaseItem[] = [
   {
     title: "トイレ｜孤独死の特殊清掃",
     price: "150,000",
@@ -213,10 +213,10 @@ export default function McyPricing() {
                   <span className="grid h-[22px] w-[22px] shrink-0 place-items-center rounded-full bg-[#06c755] text-[7px] font-black text-white ring-1 ring-[#06a32a]/30">
                     LINE
                   </span>
-                  <span className="[word-break:auto-phrase]">似た状況ですか？ 写真を送って概算を聞く<span className="whitespace-nowrap">（無料・24時間）</span></span>
+                  <span className="[word-break:auto-phrase]">似た状況ですか？ 状況を伝えて費用を相談する<span className="whitespace-nowrap">（無料・24時間）</span></span>
                 </a>
               )}
-              <article className="overflow-hidden rounded-[18px] border border-lux-gold/30 bg-white shadow-[0_10px_30px_rgba(18,61,40,0.14)]">
+              <article id={`case-${i + 1}`} className="scroll-mt-5 overflow-hidden rounded-[18px] border border-lux-gold/30 bg-white shadow-[0_10px_30px_rgba(18,61,40,0.14)]">
                 {/* header band: deep emerald gradient + white CASE chip + shine */}
                 <div className="relative flex flex-wrap items-center gap-x-2 gap-y-[5px] overflow-hidden bg-gradient-to-r from-[#0c2c1c] via-lux-green to-lux-green-2 px-4 py-[clamp(9px,2.6vw,13px)]">
                   <span aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,transparent_35%,rgba(255,255,255,0.14)_48%,transparent_62%)]" />
@@ -343,7 +343,7 @@ export default function McyPricing() {
               <span aria-hidden="true" className="h-px w-[clamp(14px,4.5vw,26px)] shrink-0 bg-gradient-to-l from-transparent to-lux-gold" />
             </p>
             <p className="mx-auto mt-2 max-w-[400px] text-center text-[clamp(10px,2.8vw,12px)] font-medium leading-[1.8] text-lux-green-ink/85 [word-break:auto-phrase]">
-              特殊清掃は50,000円〜。状況により大きく変わるため、写真からまず概算をお出しします。お見積り確定後の追加費用はありません。金額にご納得いただいてから作業を開始します。
+              特殊清掃は50,000円〜。状況により大きく変わるため、まず現場の状況をお聞かせください。写真がなくてもご相談いただけます。お見積り確定後の追加費用はありません。金額にご納得いただいてから作業を開始します。
             </p>
 
             <div className="mcy-cta-nudge mt-3 rounded-full bg-gradient-to-b from-lux-gold-light via-lux-gold to-lux-gold-deep p-[2px] shadow-[0_10px_24px_rgba(6,163,42,0.34)]">
@@ -360,7 +360,7 @@ export default function McyPricing() {
                 </span>
                 <span className="relative min-w-0 flex-1 text-center leading-none">
                   <span className="block whitespace-nowrap text-[clamp(14px,4vw,19px)] font-black [text-shadow:0_1px_2px_rgba(0,90,25,0.3)]">
-                    写真を送るだけで簡単見積り
+                    写真なしでも相談
                   </span>
                   <span className="mt-[5px] block whitespace-nowrap text-[clamp(9px,2.5vw,11.5px)] font-bold opacity-95">
                     LINEで無料相談｜24時間受付
