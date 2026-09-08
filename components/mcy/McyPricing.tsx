@@ -213,7 +213,7 @@ export default function McyPricing() {
                   <span className="grid h-[22px] w-[22px] shrink-0 place-items-center rounded-full bg-[#06c755] text-[7px] font-black text-white ring-1 ring-[#06a32a]/30">
                     LINE
                   </span>
-                  <span className="[word-break:auto-phrase]">似た状況ですか？ 写真を送って概算を聞く<span className="whitespace-nowrap">（無料・24時間）</span></span>
+                  <span className="[word-break:auto-phrase]">似た状況ですか？ 状況を伝えて費用を相談する<span className="whitespace-nowrap">（無料・24時間）</span></span>
                 </a>
               )}
               <article id={`case-${i + 1}`} className="scroll-mt-5 overflow-hidden rounded-[18px] border border-lux-gold/30 bg-white shadow-[0_10px_30px_rgba(18,61,40,0.14)]">
@@ -360,7 +360,7 @@ export default function McyPricing() {
                 </span>
                 <span className="relative min-w-0 flex-1 text-center leading-none">
                   <span className="block whitespace-nowrap text-[clamp(14px,4vw,19px)] font-black [text-shadow:0_1px_2px_rgba(0,90,25,0.3)]">
-                    写真がなくても費用を相談
+                    写真なしでも相談
                   </span>
                   <span className="mt-[5px] block whitespace-nowrap text-[clamp(9px,2.5vw,11.5px)] font-bold opacity-95">
                     LINEで無料相談｜24時間受付

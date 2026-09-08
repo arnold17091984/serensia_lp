@@ -112,7 +112,7 @@ export default function McyProblems() {
                   gtm="cta_line_worries"
                   ariaLabel="LINEで特殊清掃を相談する（写真なし可・無料・24時間受付）"
                   top="写真がなくても・無料相談"
-                  main="LINEで状況を相談する"
+                  main="LINEで無料相談"
                   sub="24時間受付｜写真がなくてもOK"
                   external
                 />
@@ -248,7 +248,7 @@ export default function McyProblems() {
             data-gtm="cta_line_process"
             className="mx-auto mt-[clamp(8px,2.2vw,12px)] block max-w-[460px] py-[12px] text-center text-[clamp(11px,3.1vw,13px)] font-bold text-lux-green-ink underline decoration-lux-gold decoration-2 underline-offset-4 [word-break:auto-phrase]"
           >
-            うちの場合はどの工程が必要？ → LINEで写真を送って確認する<span className="whitespace-nowrap">（24時間受付）</span>
+            うちの場合はどの工程が必要？ → LINEで状況を相談する<span className="whitespace-nowrap">（24時間受付）</span>
           </a>
         </div>
       </section>

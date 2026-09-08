@@ -73,7 +73,7 @@ export default function McyGallery() {
           data-gtm="cta_line_gallery"
           className="mx-auto mt-[clamp(8px,2.2vw,12px)] block max-w-[460px] py-[12px] text-center text-[clamp(11px,3.1vw,13px)] font-bold text-lux-green-ink underline decoration-lux-gold decoration-2 underline-offset-4 [word-break:auto-phrase]"
         >
-          似た状況ですか？ → LINEで写真を送って、いまの状態を相談する<span className="whitespace-nowrap">（無料・24時間）</span>
+          似た状況ですか？ → LINEでいまの状態を相談する<span className="whitespace-nowrap">（無料・24時間）</span>
         </a>
       </div>
     </section>
