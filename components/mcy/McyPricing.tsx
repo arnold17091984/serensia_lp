@@ -89,7 +89,7 @@ function WorkList({ items }: Readonly<{ items: string[] }>) {
       {items.map((w) => (
         <li
           key={w}
-          className="flex items-start gap-[5px] rounded-[8px] border border-lux-gold/25 bg-lux-cream px-[7px] py-[6px] text-[clamp(9.5px,2.7vw,12px)] font-medium leading-[1.55] text-lux-green-ink/90"
+          className="flex items-start gap-[5px] rounded-[8px] border border-lux-gold/25 bg-lux-cream px-[7px] py-[6px] text-[14px] font-medium leading-[1.55] text-lux-green-ink/90"
         >
           <span
             aria-hidden="true"
@@ -135,15 +135,14 @@ export default function McyPricing() {
         <LuxHeading kicker="料金の目安が分かる" watermark="PRICE">
           実績・<span className="text-lux-green">参考料金</span>
         </LuxHeading>
-        <p className="mx-auto mt-3 max-w-[440px] text-center text-[clamp(9.5px,2.7vw,12px)] font-medium leading-[1.8] text-lux-green-ink/70">
+        <p className="mx-auto mt-3 max-w-[440px] text-center text-[14px] font-medium leading-[1.8] text-lux-green-ink">
           ※汚染範囲、臭気の強さ、残置物量、体液付着状況、建物構造により金額は変動します。正式な金額は必ず現地確認後にお見積りします。現地確認後、通常30分〜1時間でお見積りをご提示します。
         </p>
 
         {/* entry price — glass card in gold double frame + gold ribbon tab */}
         <div className="relative mx-auto mt-[clamp(22px,5.8vw,32px)] max-w-[460px]">
-          <div className="rounded-[22px] bg-gradient-to-br from-lux-gold-light via-lux-gold to-lux-gold-deep p-[2px] shadow-[0_12px_30px_rgba(18,61,40,0.16)]">
+          <div className="rounded-[22px] border border-lux-green/15 bg-white p-px">
             <div className="relative rounded-[20px] bg-white px-4 pb-5 pt-[clamp(24px,6.4vw,30px)] text-center">
-              <span aria-hidden="true" className="pointer-events-none absolute inset-[6px] rounded-[15px] border border-lux-gold/40" />
 
               <p className="font-display text-[clamp(13px,3.7vw,17px)] font-bold tracking-[0.14em] text-lux-green-ink">
                 特殊清掃の参考料金
@@ -152,8 +151,8 @@ export default function McyPricing() {
 
               {/* honest two-tier anchor — same-rank labels */}
               <div className="mt-3 flex flex-col gap-[10px] text-left">
-                <div className="flex items-center justify-between gap-2 rounded-[12px] border border-lux-gold/25 bg-lux-cream px-3 py-[8px]">
-                  <span className="text-[clamp(11px,3.1vw,13.5px)] font-bold leading-[1.4] text-lux-green-ink [word-break:auto-phrase]">
+                <div className="flex flex-wrap items-center justify-between gap-2 rounded-[12px] border border-lux-gold/25 bg-lux-cream px-3 py-[8px]">
+                  <span className="text-[15px] font-bold leading-[1.4] text-lux-green-ink [word-break:auto-phrase]">
                     空間除菌・消毒のみ
                   </span>
                   <span className="shrink-0 whitespace-nowrap font-display font-black leading-none text-lux-green">
@@ -163,8 +162,8 @@ export default function McyPricing() {
                     <span className="ml-[2px] text-[clamp(13px,3.6vw,17px)]">円〜</span>
                   </span>
                 </div>
-                <div className="flex items-center justify-between gap-2 rounded-[12px] border-2 border-lux-green/25 bg-gradient-to-br from-lux-cream to-lux-gold-light/50 px-3 py-[10px] shadow-[0_3px_10px_rgba(18,61,40,0.1)]">
-                  <span className="text-[clamp(11px,3.1vw,13.5px)] font-bold leading-[1.4] text-lux-green-ink [word-break:auto-phrase]">
+                <div className="flex flex-wrap items-center justify-between gap-2 rounded-[12px] border-2 border-lux-green/25 bg-gradient-to-br from-lux-cream to-lux-gold-light/50 px-3 py-[10px] shadow-[0_3px_10px_rgba(18,61,40,0.1)]">
+                  <span className="text-[15px] font-bold leading-[1.4] text-lux-green-ink [word-break:auto-phrase]">
                     体液除去を伴う
                     <br />
                     特殊清掃
@@ -179,7 +178,7 @@ export default function McyPricing() {
               </div>
 
               <div className="mx-auto mt-3 max-w-[380px]">
-                <p className="flex items-start justify-center gap-[7px] rounded-[12px] border border-lux-gold/45 bg-gradient-to-b from-white to-lux-gold-light/50 px-3 py-[9px] text-left text-[clamp(10.5px,2.9vw,13px)] font-black leading-[1.7] text-lux-green-ink shadow-[0_2px_8px_rgba(200,162,78,0.18)]">
+                <p className="flex items-start justify-center gap-[7px] rounded-[12px] border border-lux-gold/45 bg-gradient-to-b from-white to-lux-gold-light/50 px-3 py-[9px] text-left text-[14px] font-black leading-[1.7] text-lux-green-ink shadow-[0_2px_8px_rgba(200,162,78,0.18)]">
                   <span
                     aria-hidden="true"
                     className="mt-[3px] grid h-[17px] w-[17px] shrink-0 place-items-center rounded-full bg-gradient-to-b from-lux-gold to-lux-gold-deep text-[9.5px] text-white shadow-[0_1px_3px_rgba(156,119,41,0.5)]"
@@ -192,7 +191,7 @@ export default function McyPricing() {
             </div>
           </div>
           {/* ribbon tab */}
-          <span className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-b from-lux-green-2 to-lux-green px-[clamp(20px,5.5vw,28px)] py-[clamp(5px,1.4vw,7px)] text-[clamp(10px,2.8vw,12.5px)] font-black tracking-[0.16em] text-white ring-1 ring-lux-gold/60 [clip-path:polygon(0_0,100%_0,92%_50%,100%_100%,0_100%,8%_50%)] [filter:drop-shadow(0_3px_6px_rgba(18,61,40,0.4))]">
+          <span className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-b from-lux-green-2 to-lux-green px-[clamp(20px,5.5vw,28px)] py-[clamp(5px,1.4vw,7px)] text-[14px] font-black tracking-[0.16em] text-white ring-1 ring-lux-gold/60 [clip-path:polygon(0_0,100%_0,92%_50%,100%_100%,0_100%,8%_50%)] [filter:drop-shadow(0_3px_6px_rgba(18,61,40,0.4))]">
             まずは目安
           </span>
         </div>
@@ -208,7 +207,7 @@ export default function McyPricing() {
                   target="_blank"
                   rel="noopener noreferrer"
                   data-gtm="cta_line_cases_mid"
-                  className="mx-auto flex min-h-[44px] w-full max-w-[380px] items-center justify-center gap-2 rounded-full bg-white px-4 text-center text-[clamp(10.5px,3vw,13px)] font-bold text-lux-green-ink shadow-[0_2px_8px_rgba(6,163,42,0.12)] ring-1 ring-[#06a32a]/40"
+                  className="mx-auto flex min-h-[44px] w-full max-w-[380px] items-center justify-center gap-2 rounded-full bg-white px-4 text-center text-[15px] font-bold text-lux-green-ink shadow-[0_2px_8px_rgba(6,163,42,0.12)] ring-1 ring-[#06a32a]/40"
                 >
                   <span className="grid h-[22px] w-[22px] shrink-0 place-items-center rounded-full bg-[#06c755] text-[7px] font-black text-white ring-1 ring-[#06a32a]/30">
                     LINE
@@ -216,11 +215,11 @@ export default function McyPricing() {
                   <span className="[word-break:auto-phrase]">似た状況ですか？ 状況を伝えて費用を相談する<span className="whitespace-nowrap">（無料・24時間）</span></span>
                 </a>
               )}
-              <article id={`case-${i + 1}`} className="scroll-mt-5 overflow-hidden rounded-[18px] border border-lux-gold/30 bg-white shadow-[0_10px_30px_rgba(18,61,40,0.14)]">
+              <article id={`case-${i + 1}`} className="scroll-mt-5 overflow-hidden rounded-[18px] border border-lux-gold/30 bg-white">
                 {/* header band: deep emerald gradient + white CASE chip + shine */}
                 <div className="relative flex flex-wrap items-center gap-x-2 gap-y-[5px] overflow-hidden bg-gradient-to-r from-[#0c2c1c] via-lux-green to-lux-green-2 px-4 py-[clamp(9px,2.6vw,13px)]">
                   <span aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,transparent_35%,rgba(255,255,255,0.14)_48%,transparent_62%)]" />
-                  <span className="relative shrink-0 rounded-[5px] bg-white px-2 py-[3px] font-display text-[clamp(9px,2.5vw,11px)] font-black tracking-[0.1em] text-lux-green shadow-[0_2px_5px_rgba(0,0,0,0.2)] ring-1 ring-lux-gold/50">
+                  <span className="relative shrink-0 rounded-[5px] bg-white px-2 py-[3px] font-display text-[14px] font-black tracking-[0.1em] text-lux-green shadow-[0_2px_5px_rgba(0,0,0,0.2)] ring-1 ring-lux-gold/50">
                     CASE {String(i + 1).padStart(2, "0")}
                   </span>
                   {i >= 4 && (
@@ -269,18 +268,18 @@ export default function McyPricing() {
                   </div>
 
                   {c.desc && (
-                    <p className="mt-3 text-[clamp(10.5px,3vw,13px)] font-medium leading-[1.85] text-lux-green-ink/90 [word-break:auto-phrase]">
+                    <p className="mt-3 text-[15px] font-medium leading-[1.85] text-lux-green-ink/90 [word-break:auto-phrase]">
                       {c.desc}
                     </p>
                   )}
                   {c.reasons && (
                     <div className="mt-3 rounded-[12px] border border-lux-gold/30 bg-gradient-to-br from-lux-cream to-lux-gold-light/40 px-3 py-[10px]">
-                      <p className="text-[clamp(10px,2.8vw,12.5px)] font-black text-lux-green">
+                      <p className="text-[14px] font-black text-lux-green">
                         ▼価格に幅が出る場合の主な理由
                       </p>
                       <ul className="mt-1 flex flex-col gap-[3px]">
                         {c.reasons.map((r) => (
-                          <li key={r} className="flex items-start gap-[5px] border-b border-lux-gold/15 pb-[3px] text-[clamp(10px,2.8vw,12.5px)] font-medium leading-[1.7] text-lux-green-ink/85 last:border-b-0 last:pb-0">
+                          <li key={r} className="flex items-start gap-[5px] border-b border-lux-gold/15 pb-[3px] text-[14px] font-medium leading-[1.7] text-lux-green-ink/85 last:border-b-0 last:pb-0">
                             <span className="shrink-0 text-lux-gold-deep">・</span>
                             <span>{r}</span>
                           </li>
@@ -290,7 +289,7 @@ export default function McyPricing() {
                   )}
 
                   <div className="mt-3">
-                    <p className="flex items-center gap-[7px] text-[clamp(11px,3.1vw,13.5px)] font-black text-lux-green-ink">
+                    <p className="flex items-center gap-[7px] text-[15px] font-black text-lux-green-ink">
                       <span aria-hidden="true" className="h-[15px] w-[4px] shrink-0 rounded-full bg-gradient-to-b from-lux-green-2 to-lux-green" />
                       作業内容
                     </p>
@@ -298,7 +297,7 @@ export default function McyPricing() {
                       <div className="mt-[6px] flex flex-col gap-[10px]">
                         {c.workGroups.map((g) => (
                           <div key={g.label}>
-                            <p className="inline-flex items-center gap-[6px] rounded-full bg-lux-cream px-[11px] py-[3px] text-[clamp(10.5px,2.9vw,13px)] font-bold text-lux-green ring-1 ring-lux-gold/40">
+                            <p className="inline-flex items-center gap-[6px] rounded-full bg-lux-cream px-[11px] py-[3px] text-[14px] font-bold text-lux-green ring-1 ring-lux-gold/40">
                               <span aria-hidden="true" className="h-[5px] w-[5px] shrink-0 rotate-45 bg-lux-gold-deep" />
                               <span>{g.label}</span>
                             </p>
@@ -315,13 +314,13 @@ export default function McyPricing() {
                   <div className="mt-3 flex flex-wrap items-end justify-between gap-x-3 gap-y-1 border-t border-lux-gold/40 pt-3">
                     <div className="min-w-0">
                       {c.priceNotes.map((n) => (
-                        <p key={n} className="text-[clamp(9px,2.5vw,11px)] font-medium leading-[1.7] text-lux-green-ink/70">
+                        <p key={n} className="text-[14px] font-medium leading-[1.7] text-lux-green-ink">
                           {n}
                         </p>
                       ))}
                     </div>
                     <p className="ml-auto whitespace-nowrap border-b-[3px] border-lux-gold pb-[3px] leading-none">
-                      <span className="mr-1 text-[clamp(10px,2.8vw,12.5px)] font-black text-lux-green-ink">参考価格</span>
+                      <span className="mr-1 text-[14px] font-black text-lux-green-ink">参考価格</span>
                       <span className="font-display text-[clamp(26px,7.2vw,35px)] font-black tracking-[-0.01em] text-lux-crimson">
                         {c.price}
                       </span>
@@ -335,34 +334,33 @@ export default function McyPricing() {
         </div>
 
         {/* closing concept CTA — gold-framed cream panel + LINE pill + phone pill */}
-        <div data-cta-section className="mx-auto mt-[clamp(20px,5.4vw,30px)] max-w-[460px] rounded-[20px] bg-gradient-to-br from-lux-gold-light via-lux-gold to-lux-gold-deep p-[2px] shadow-[0_12px_30px_rgba(18,61,40,0.14)]">
+        <div data-cta-section className="mx-auto mt-[clamp(20px,5.4vw,30px)] max-w-[460px] rounded-[20px] border border-lux-green/15 bg-white p-px">
           <div className="rounded-[18px] bg-white px-4 py-[clamp(15px,4.2vw,22px)]">
             <p className="flex items-center justify-center gap-[10px] text-center font-display text-[clamp(13px,3.7vw,16px)] font-bold text-lux-green-ink">
               <span aria-hidden="true" className="h-px w-[clamp(14px,4.5vw,26px)] shrink-0 bg-gradient-to-r from-transparent to-lux-gold" />
               <span>あなたのケースの概算が知りたい方へ</span>
               <span aria-hidden="true" className="h-px w-[clamp(14px,4.5vw,26px)] shrink-0 bg-gradient-to-l from-transparent to-lux-gold" />
             </p>
-            <p className="mx-auto mt-2 max-w-[400px] text-center text-[clamp(10px,2.8vw,12px)] font-medium leading-[1.8] text-lux-green-ink/85 [word-break:auto-phrase]">
+            <p className="mx-auto mt-2 max-w-[400px] text-center text-[14px] font-medium leading-[1.8] text-lux-green-ink/85 [word-break:auto-phrase]">
               特殊清掃は50,000円〜。状況により大きく変わるため、まず現場の状況をお聞かせください。写真がなくてもご相談いただけます。お見積り確定後の追加費用はありません。金額にご納得いただいてから作業を開始します。
             </p>
 
-            <div className="mcy-cta-nudge mt-3 rounded-full bg-gradient-to-b from-lux-gold-light via-lux-gold to-lux-gold-deep p-[2px] shadow-[0_10px_24px_rgba(6,163,42,0.34)]">
+            <div className="mcy-cta-nudge mt-3 rounded-full bg-[#087f36] p-px">
               <a
                 href={LINE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 data-gtm="cta_line_pricing"
-                className="relative flex min-h-[clamp(78px,19vw,88px)] items-center gap-2 overflow-hidden rounded-full bg-gradient-to-b from-[#37d857] via-[#12bb38] to-[#06a32a] px-4 py-[clamp(10px,3vw,14px)] text-white ring-2 ring-inset ring-white/50 transition-[filter] active:brightness-90"
+                className="relative flex min-h-[clamp(78px,19vw,88px)] items-center gap-2 overflow-hidden rounded-full bg-[#087f36] px-4 py-[clamp(10px,3vw,14px)] text-white transition-[filter] active:brightness-90"
               >
-                <span aria-hidden="true" className="pointer-events-none absolute inset-x-[8%] top-[3px] h-[36%] rounded-full bg-gradient-to-b from-white/55 to-white/0" />
                 <span className="relative grid h-[clamp(26px,7.4vw,38px)] w-[clamp(26px,7.4vw,38px)] shrink-0 place-items-center rounded-full bg-white text-[clamp(6px,1.7vw,8.5px)] font-black text-[#06a32a] shadow-[0_2px_5px_rgba(0,0,0,0.15)]">
                   LINE
                 </span>
                 <span className="relative min-w-0 flex-1 text-center leading-none">
-                  <span className="block whitespace-nowrap text-[clamp(14px,4vw,19px)] font-black [text-shadow:0_1px_2px_rgba(0,90,25,0.3)]">
+                  <span className="block text-[clamp(14px,4vw,19px)] leading-6 font-black [text-shadow:0_1px_2px_rgba(0,90,25,0.3)]">
                     写真なしでも相談
                   </span>
-                  <span className="mt-[5px] block whitespace-nowrap text-[clamp(9px,2.5vw,11.5px)] font-bold opacity-95">
+                  <span className="mt-[5px] block text-[12px] leading-5 font-bold opacity-95">
                     LINEで無料相談｜24時間受付
                   </span>
                 </span>
@@ -374,33 +372,30 @@ export default function McyPricing() {
               </a>
             </div>
 
-            <p className="mt-[10px] text-center text-[clamp(9.5px,2.7vw,11.5px)] font-medium leading-[1.8] text-lux-green-ink/75 [word-break:auto-phrase]">
-              送るのは3つだけ ① 現場の写真<span className="whitespace-nowrap">（撮れる範囲で大丈夫です）</span> ② おおよその間取り ③ 気になっていること
-              <br />
-              ※お部屋に入れない場合は、状況を文章でお送りいただくだけで構いません
+            <p className="mt-[10px] text-center text-[14px] font-medium leading-[1.8] text-lux-green-ink [word-break:auto-phrase]">
+              まずは現場の市区町村と、いまお困りのことをお知らせください。写真や間取りは、分かる範囲で大丈夫です。写真を撮るために室内へ入る必要はありません。
             </p>
 
             {/* phone pill — same gold-framed pill + equal height as the LINE CTA */}
             <div
               style={{ animationDelay: "0.5s" }}
-              className="mcy-cta-nudge mt-3 rounded-full bg-gradient-to-b from-lux-gold-light via-lux-gold to-lux-gold-deep p-[2px] shadow-[0_10px_24px_rgba(18,61,40,0.34)]"
+              className="mcy-cta-nudge mt-3 rounded-full bg-[#c0202a] p-px"
             >
               <a
                 href={PHONE_TEL}
                 data-gtm="cta_tel_pricing"
-                className="relative flex min-h-[clamp(78px,19vw,88px)] items-center gap-2 overflow-hidden rounded-full bg-gradient-to-b from-lux-green-2 via-lux-green to-[#0c2c1c] px-4 py-[clamp(10px,3vw,14px)] text-white ring-2 ring-inset ring-white/40 transition-[filter] active:brightness-95"
+                className="relative flex min-h-[clamp(78px,19vw,88px)] items-center gap-2 overflow-hidden rounded-full bg-[#c0202a] px-4 py-[clamp(10px,3vw,14px)] text-white transition-[filter] active:brightness-95"
               >
-                <span aria-hidden="true" className="pointer-events-none absolute inset-x-[8%] top-[3px] h-[36%] rounded-full bg-gradient-to-b from-white/35 to-white/0" />
                 <span className="relative grid h-[clamp(26px,7.4vw,38px)] w-[clamp(26px,7.4vw,38px)] shrink-0 place-items-center rounded-full bg-white shadow-[0_2px_5px_rgba(0,0,0,0.15)]">
                   <svg viewBox="0 0 24 24" className="h-[56%] w-[56%]" fill="#123d28" aria-hidden="true">
                     <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
                   </svg>
                 </span>
                 <span className="relative min-w-0 flex-1 text-center leading-none">
-                  <span className="block whitespace-nowrap text-[clamp(14px,4vw,19px)] font-black tracking-[-0.01em] [text-shadow:0_1px_2px_rgba(0,0,0,0.2)]">
+                  <span className="block text-[clamp(14px,4vw,19px)] leading-6 font-black tracking-[-0.01em] [text-shadow:0_1px_2px_rgba(0,0,0,0.2)]">
                     お電話で相談 <span className="text-lux-amber">{PHONE_DISPLAY}</span>
                   </span>
-                  <span className="mt-[5px] block whitespace-nowrap text-[clamp(9px,2.5vw,11.5px)] font-bold opacity-95">
+                  <span className="mt-[5px] block text-[12px] leading-5 font-bold opacity-95">
                     9:00〜21:00 年中無休｜最短即日で現地確認
                   </span>
                 </span>

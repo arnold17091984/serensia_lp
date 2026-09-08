@@ -80,8 +80,9 @@
   --color-ink: #23241f;
 
   /* ===== luxury green×gold (KV-matched body theme) ===== */
-  --color-lux-cream: #faf7ef;
-  --color-lux-cream-2: #f5efe0;
+  --color-lux-cream: #fcfaf5;
+  --color-lux-cream-2: #f8f7f2;
+  --color-lux-green-soft: #f3f7f3;
   --color-lux-green: #123d28; /* deep emerald — shields / banners / labels */
   --color-lux-green-2: #1d5a3a; /* lighter emerald — gradient partner */
   --color-lux-green-ink: #1a4a33; /* headings / accents on light ground */
@@ -97,81 +98,22 @@ html {
 }
 
 body {
-  background: #f0eee9;
+  background: #f4f6f3;
   color: var(--color-ink);
 }
 
-/* diagonal light sweep for the FV buttons (frequent, clearly-visible glint) */
-@keyframes mcyShine {
-  0% {
-    transform: translateX(-130%) skewX(-20deg);
-  }
-  62%,
-  100% {
-    transform: translateX(320%) skewX(-20deg);
-  }
-}
-.mcy-shine {
-  animation: mcyShine 2.4s cubic-bezier(0.33, 0, 0.15, 1) infinite;
-}
-@media (prefers-reduced-motion: reduce) {
-  .mcy-shine {
-    animation: none;
-  }
-}
-
-/* CTA attention "nudge" — a periodic horizontal sway that invites a tap */
-@keyframes mcyNudge {
-  0%,
-  70%,
-  100% {
-    transform: translate3d(0, 0, 0) rotate(0);
-  }
-  76% {
-    transform: translate3d(-3px, 0, 0) rotate(-0.5deg) scale(1.015);
-  }
-  82% {
-    transform: translate3d(3px, 0, 0) rotate(0.5deg) scale(1.015);
-  }
-  88% {
-    transform: translate3d(-2px, 0, 0) rotate(-0.3deg) scale(1.008);
-  }
-  94% {
-    transform: translate3d(1px, 0, 0) rotate(0) scale(1);
-  }
-}
-.mcy-cta-nudge {
-  animation: mcyNudge 3s ease-in-out infinite;
-  will-change: transform;
-}
-@media (prefers-reduced-motion: reduce) {
-  .mcy-cta-nudge {
-    animation: none;
-  }
+/* Calm contact actions retain their color without continuous movement. */
+a:focus-visible {
+  outline: 3px solid var(--color-lux-green-2);
+  outline-offset: 4px;
 }
 
 /* luxury theme — soft radial "window light" glow behind section headers */
 .lux-rays {
-  background:
-    radial-gradient(
-      120% 80% at 50% -8%,
-      rgba(255, 255, 255, 0.95),
-      rgba(255, 255, 255, 0) 60%
-    ),
-    radial-gradient(
-      90% 60% at 88% 4%,
-      rgba(200, 162, 78, 0.14),
-      rgba(200, 162, 78, 0) 55%
-    ),
-    linear-gradient(180deg, var(--color-lux-cream), var(--color-lux-cream-2));
+  background: var(--color-lux-cream);
 }
-/* faint gold pin-dot grid for texture on cream grounds */
 .lux-dots {
-  background-image: radial-gradient(
-    rgba(200, 162, 78, 0.16) 1px,
-    transparent 1.5px
-  );
-  background-size: 18px 18px;
+  background-image: none;
 }
 
 /* reviews modal enter animations (respect prefers-reduced-motion via motion-safe:) */

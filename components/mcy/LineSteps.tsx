@@ -29,7 +29,7 @@ function StepsBody({ dark }: Readonly<{ dark: boolean }>) {
     <>
       <ol className="mt-[clamp(6px,1.8vw,9px)] space-y-[clamp(4px,1.2vw,6px)]">
         {STEPS.map((s) => (
-          <li key={s.n} className={`flex items-start gap-[7px] text-[clamp(11px,3vw,12.5px)] leading-[1.6] ${ink}`}>
+          <li key={s.n} className={`flex items-start gap-[7px] text-[14px] leading-[1.6] ${ink}`}>
             <span
               aria-hidden="true"
               className="mt-[1px] grid h-[17px] w-[17px] shrink-0 place-items-center rounded-full bg-[#06a32a] text-[10.5px] font-black text-white"
@@ -46,11 +46,11 @@ function StepsBody({ dark }: Readonly<{ dark: boolean }>) {
       <p
         className={`mt-[clamp(6px,1.8vw,9px)] rounded-[8px] ${
           dark ? "bg-black/20" : "bg-lux-green-soft/60"
-        } px-[10px] py-[7px] text-[clamp(11px,3vw,12px)] leading-[1.7] ${sub} [word-break:auto-phrase]`}
+        } px-[10px] py-[7px] text-[14px] leading-[1.7] ${sub} [word-break:auto-phrase]`}
       >
         文例：<span className={`font-bold ${ink}`}>「特殊清掃の相談です。現場は○○市です。現地確認を希望しています」</span>
       </p>
-      <p className={`mt-2 text-[12px] leading-6 ${sub}`}>分かる範囲の状況だけで大丈夫です。写真を撮るために、無理に室内へ入る必要はありません。</p>
+      <p className={`mt-2 text-[14px] leading-6 ${sub}`}>分かる範囲の状況だけで大丈夫です。写真を撮るために、無理に室内へ入る必要はありません。</p>
     </>
   );
 }
@@ -87,7 +87,7 @@ export default function LineSteps({ dark = false, collapsible = false }: Readonl
         dark ? "" : "shadow-[0_2px_8px_rgba(18,61,40,0.08)]"
       }`}
     >
-      <p className={`text-center text-[clamp(11px,3vw,12.5px)] font-black ${ink}`}>
+      <p className={`text-center text-[14px] font-black ${ink}`}>
         LINE相談は かんたん3ステップ
       </p>
       <StepsBody dark={dark} />

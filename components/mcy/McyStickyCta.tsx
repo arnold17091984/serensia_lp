@@ -69,21 +69,17 @@ export default function McyStickyCta() {
           href={PHONE_TEL}
           tabIndex={visible ? undefined : -1}
           data-gtm="cta_tel_sticky"
-          className={`relative flex flex-1 flex-col items-center justify-center overflow-hidden rounded-full bg-gradient-to-b from-lux-green-2 via-lux-green to-[#0c2c1c] py-[8px] pl-[10px] pr-[26px] text-white shadow-[0_0_0_3.5px_rgba(200,162,78,0.5),0_10px_24px_rgba(18,61,40,0.45)] ring-2 ring-white/60 transition-[filter] active:brightness-90 ${
+          className={`relative flex min-w-0 flex-1 flex-col items-center justify-center overflow-hidden rounded-full bg-[#c0202a] py-[8px] pl-[10px] pr-[26px] text-white transition-[filter] active:brightness-90 ${
             phoneClosed ? "order-2 opacity-80 saturate-[0.85]" : "order-1"
           }`}
         >
-          <span
-            aria-hidden
-            className="pointer-events-none absolute inset-x-[8px] top-[2px] h-[46%] rounded-full bg-gradient-to-b from-white/45 via-white/15 to-white/0"
-          />
-          <span className="relative flex items-center gap-1.5 whitespace-nowrap text-[clamp(12px,3.9vw,15px)] font-black leading-tight drop-shadow-[0_1px_1px_rgba(18,61,40,0.55)]">
+          <span className="relative flex items-center gap-1.5 whitespace-nowrap text-[clamp(12px,3.5vw,14px)] font-black leading-tight drop-shadow-[0_1px_1px_rgba(18,61,40,0.55)]">
             <svg viewBox="0 0 24 24" className="h-[clamp(13px,4vw,16px)] w-[clamp(13px,4vw,16px)] shrink-0 fill-current" aria-hidden="true">
               <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
             </svg>
             {"電話で相談する"}
           </span>
-          <span className="relative mt-[3px] whitespace-nowrap text-[clamp(11px,3vw,12px)] font-bold leading-none opacity-95">
+          <span className="relative mt-[3px] text-center text-[clamp(11px,3vw,12px)] font-bold leading-[1.4] opacity-95">
             {phoneClosed ? "受付時間外（朝9時〜）" : "相談だけOK・営業なし"}
           </span>
           <span
@@ -101,15 +97,11 @@ export default function McyStickyCta() {
           rel="noopener noreferrer"
           tabIndex={visible ? undefined : -1}
           data-gtm="cta_line_sticky"
-          className={`relative flex flex-1 flex-col items-center justify-center overflow-hidden rounded-full bg-gradient-to-b from-[#4be06a] via-[#25d94e] to-[#06a32a] py-[8px] pl-[10px] pr-[26px] text-white shadow-[0_0_0_3.5px_rgba(201,162,79,0.45),0_10px_24px_rgba(6,163,42,0.4)] ring-2 ring-white/70 transition-[filter] active:brightness-90 ${
+          className={`relative flex min-w-0 flex-1 flex-col items-center justify-center overflow-hidden rounded-full bg-[#087f36] py-[8px] pl-[10px] pr-[26px] text-white transition-[filter] active:brightness-90 ${
             phoneClosed ? "order-1" : "order-2"
           }`}
         >
-          <span
-            aria-hidden
-            className="pointer-events-none absolute inset-x-[8px] top-[2px] h-[46%] rounded-full bg-gradient-to-b from-white/50 via-white/15 to-white/0"
-          />
-          <span className="relative flex items-center gap-1.5 whitespace-nowrap text-[clamp(12px,3.9vw,15px)] font-black leading-tight drop-shadow-[0_1px_1px_rgba(6,163,42,0.5)]">
+          <span className="relative flex items-center gap-1.5 whitespace-nowrap text-[clamp(12px,3.5vw,14px)] font-black leading-tight drop-shadow-[0_1px_1px_rgba(6,163,42,0.5)]">
             <span className="grid h-[clamp(17px,4.8vw,20px)] w-[clamp(17px,4.8vw,20px)] shrink-0 place-items-center rounded-[5px] bg-white shadow-[0_1px_2px_rgba(0,0,0,0.18)]">
               <svg viewBox="0 0 32 32" className="h-[86%] w-[86%]" aria-hidden="true">
                 <path
@@ -123,7 +115,7 @@ export default function McyStickyCta() {
             </span>
             {"LINEで無料相談"}
           </span>
-          <span className="relative mt-[3px] whitespace-nowrap text-[clamp(11px,3vw,12px)] font-bold leading-none opacity-95">
+          <span className="relative mt-[3px] text-center text-[clamp(11px,3vw,12px)] font-bold leading-[1.4] opacity-95">
             写真なしOK｜24時間受付
           </span>
           <span

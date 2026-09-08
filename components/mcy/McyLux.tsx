@@ -14,7 +14,7 @@ export function GoldDiamond() {
   return (
     <span aria-hidden="true" className="mt-[clamp(9px,2.4vw,13px)] flex items-center justify-center gap-[7px]">
       <span className="h-px w-[clamp(34px,9.5vw,54px)] bg-gradient-to-r from-transparent to-lux-gold" />
-      <span className="h-[8px] w-[8px] rotate-45 bg-gradient-to-br from-lux-gold-light to-lux-gold-deep shadow-[0_0_5px_rgba(200,162,78,0.7)]" />
+      <span className="h-[8px] w-[8px] rotate-45 bg-lux-gold" />
       <span className="h-px w-[clamp(34px,9.5vw,54px)] bg-gradient-to-l from-transparent to-lux-gold" />
     </span>
   );
@@ -50,7 +50,7 @@ export function LeafSprig({ className, flip = false }: Readonly<{ className: str
 /* deep-emerald hexagon ribbon kicker with gold diamonds on each side */
 export function LuxKicker({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <span className="relative inline-flex items-center gap-[clamp(6px,2vw,10px)] bg-gradient-to-b from-lux-green-2 to-lux-green px-[clamp(20px,5.4vw,32px)] py-[clamp(6px,1.7vw,9px)] text-white shadow-[0_5px_14px_rgba(18,61,40,0.32)] ring-1 ring-lux-gold/60 [clip-path:polygon(6%_0,94%_0,100%_50%,94%_100%,6%_100%,0_50%)]">
+    <span className="relative inline-flex items-center gap-[clamp(6px,2vw,10px)] bg-lux-green px-[clamp(20px,5.4vw,32px)] py-[clamp(6px,1.7vw,9px)] text-white [clip-path:polygon(6%_0,94%_0,100%_50%,94%_100%,6%_100%,0_50%)]">
       <span aria-hidden className="text-[clamp(7px,1.9vw,10px)] leading-none text-lux-gold-light">◆</span>
       <span className="text-[clamp(11px,3vw,15px)] font-black tracking-[0.08em] [text-shadow:0_1px_2px_rgba(0,0,0,0.3)]">
         {children}
@@ -92,9 +92,9 @@ export function GoldCard({
 }: Readonly<{ children: ReactNode; className?: string }>) {
   return (
     <div
-      className={`rounded-[20px] bg-gradient-to-br from-lux-gold-light via-lux-gold to-lux-gold-deep p-[2px] shadow-[0_14px_34px_rgba(18,61,40,0.16)] ${className}`}
+      className={`rounded-[16px] border border-lux-green/15 bg-white p-px ${className}`}
     >
-      <div className="h-full rounded-[18px] bg-white">{children}</div>
+      <div className="h-full rounded-[15px] bg-white">{children}</div>
     </div>
   );
 }
@@ -141,8 +141,8 @@ export function LuxCtaPill({
 }>) {
   const isPhone = tone === "phone";
   const bg = isPhone
-    ? "from-lux-green-2 via-lux-green to-[#0c2c1c]"
-    : "from-[#37d857] via-[#12bb38] to-[#06a32a]";
+    ? "bg-[#c0202a]"
+    : "bg-[#087f36]";
   const arrowStroke = isPhone ? "#123d28" : "#06a32a";
   return (
     <a
@@ -151,9 +151,8 @@ export function LuxCtaPill({
       aria-label={ariaLabel}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       style={{ animationDelay: isPhone ? "0s" : "0.5s" }}
-      className={`mcy-cta-nudge relative flex min-h-[clamp(74px,21vw,92px)] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/40 bg-gradient-to-b ${bg} px-4 py-[clamp(8px,2.4vw,12px)] text-white shadow-[0_9px_22px_rgba(18,61,40,0.34)] ring-1 ring-lux-gold/70 transition-[filter] active:brightness-95`}
+      className={`mcy-cta-nudge relative flex min-h-[clamp(74px,21vw,92px)] items-center justify-center gap-2 overflow-hidden rounded-full ${bg} px-4 py-[clamp(8px,2.4vw,12px)] text-white transition-[filter] active:brightness-95`}
     >
-      <span aria-hidden className="pointer-events-none absolute inset-x-[6%] top-[3px] h-[46%] rounded-full bg-gradient-to-b from-white/35 to-transparent" />
       {isPhone ? (
         <span className="grid h-[clamp(26px,7vw,36px)] w-[clamp(26px,7vw,36px)] shrink-0 place-items-center rounded-full bg-white shadow-[0_2px_5px_rgba(0,0,0,0.2)]">
           <svg viewBox="0 0 24 24" className="h-[56%] w-[56%]" fill="#123d28" aria-hidden="true">
@@ -166,11 +165,11 @@ export function LuxCtaPill({
         </span>
       )}
       <span className="relative min-w-0 text-center leading-none">
-        <span className="block whitespace-nowrap text-[clamp(11px,2.9vw,12.5px)] font-black">{top}</span>
+        <span className="block text-[12px] leading-5 font-black">{top}</span>
         <span className={`mt-[4px] block whitespace-nowrap text-[clamp(18px,5.2vw,25px)] font-black tracking-[-0.01em] ${isPhone ? "text-lux-amber [text-shadow:0_1px_2px_rgba(0,0,0,0.35)]" : ""}`}>
           {main}
         </span>
-        <span className="mt-[4px] block whitespace-nowrap text-[clamp(11px,2.9vw,12px)] font-bold opacity-95">{sub}</span>
+        <span className="mt-[4px] block text-[12px] leading-5 font-bold opacity-95">{sub}</span>
       </span>
       <span className="grid h-[clamp(20px,5.6vw,26px)] w-[clamp(20px,5.6vw,26px)] shrink-0 place-items-center rounded-full bg-white shadow-[0_2px_5px_rgba(0,0,0,0.2)]">
         <svg viewBox="0 0 24 24" className="h-[58%] w-[58%]" aria-hidden="true">
@@ -186,7 +185,7 @@ export function CheckGreen({ className = "" }: Readonly<{ className?: string }>)
   return (
     <span
       aria-hidden="true"
-      className={`grid shrink-0 place-items-center rounded-full bg-gradient-to-br from-lux-green-2 to-lux-green text-white shadow-[0_2px_6px_rgba(18,61,40,0.3)] ring-1 ring-lux-gold/60 ${className}`}
+      className={`grid shrink-0 place-items-center rounded-full bg-lux-green text-white ${className}`}
     >
       <svg viewBox="0 0 24 24" className="h-[58%] w-[58%]" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M5 12.5l4.5 4.5L19 7" />

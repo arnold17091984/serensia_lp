@@ -42,7 +42,7 @@ export default function McyDaihyo() {
                 <span>代表メッセージ</span>
               </span>
               <p className="mt-[clamp(7px,2vw,10px)] text-[clamp(9.5px,2.6vw,11.5px)] font-bold tracking-[0.04em] text-lux-green-ink/70 [word-break:auto-phrase]">
-                <span className="whitespace-nowrap">株式会社TAKAKU（セレンシア）代表</span>
+                <span>株式会社TAKAKU（セレンシア）代表</span>
               </p>
               <p className="font-display text-[clamp(20px,5.6vw,26px)] font-black leading-tight text-lux-green-ink [text-shadow:0_1px_0_rgba(255,255,255,0.8)]">
                 太田 貴也

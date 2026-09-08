@@ -21,33 +21,7 @@ const WORRIES = [
   "費用がどれくらいか不安",
 ] as const;
 
-/**
- * First view — the approved KV design (Downloads/kv.png) rendered as clean
- * sliced pieces stacked with a little breathing room. The red phone button and
- * green LINE button stay as the artwork; each is wrapped in a live, GTM-tracked
- * link (cta_tel_fv / cta_line_fv) with an animated diagonal shine (.mcy-shine).
- * The KV carries its own header, so the sticky McyHeader stays hidden at the top
- * and slides in on scroll. The design's "マンガでわかる" heading is left off the
- * slice and rendered by McyProblems instead (editable, theme-consistent).
- * Baked copy kept crawlable via sr-only h1 + alt. data-cta-section lets the
- * bottom sticky bar auto-hide while the FV is visible.
- */
-
-/**
- * A bright diagonal band that sweeps across the whole button (`.mcy-shine`).
- * Covers the full slice so the glint clearly crosses the button artwork.
- */
-function Shine({ delay = "0s" }: Readonly<{ delay?: string }>) {
-  return (
-    <span aria-hidden="true" className="pointer-events-none absolute inset-0 z-10 overflow-hidden">
-      <span
-        className="mcy-shine absolute inset-y-[-40%] left-0 w-[55%] bg-[linear-gradient(90deg,transparent_0%,rgba(255,255,255,0.12)_38%,rgba(255,255,255,0.98)_50%,rgba(255,255,255,0.12)_62%,transparent_100%)]"
-        style={{ animationDelay: delay }}
-      />
-    </span>
-  );
-}
-
+/** Approved hero artwork with immediate, tracked contact actions. */
 export default function McyFv() {
   return (
     <section className="relative w-full overflow-hidden bg-[#fdfbf7]">
@@ -75,16 +49,14 @@ export default function McyFv() {
         <div data-cta-section className="flex flex-col gap-[clamp(6px,1.8vw,10px)] bg-gradient-to-b from-[#fcf9f1] to-[#fefefe] px-[clamp(6px,1.8vw,12px)] py-[clamp(6px,1.8vw,10px)]">
           {/* out-of-hours strip (21:00–9:00 only): keeps the night tap from dead-ending */}
           <PhoneHoursNotice />
-          {/* phone — red glossy button (gold frame, thicker gold base) */}
+          {/* Phone action keeps the established red color. */}
           <a
             href={PHONE_TEL}
             data-gtm="cta_tel_fv"
             aria-label="電話で今すぐ相談する 03-4400-2098（受付 9:00〜21:00 年中無休）"
-            className="relative block rounded-[18px] bg-gradient-to-b from-[#fff3ac] via-[#f7d63f] to-[#e3b524] px-[2px] pt-[2px] pb-[4px] shadow-[0_7px_16px_rgba(150,20,10,0.3)] transition-[filter] active:brightness-95"
+            className="relative block rounded-[18px] bg-[#c0202a] p-px transition-[filter] active:brightness-95"
           >
-            <span className="relative flex min-h-[clamp(72px,19vw,86px)] items-center gap-[clamp(7px,2.2vw,12px)] overflow-hidden rounded-[15px] bg-gradient-to-b from-[#fe4415] via-[#ee2b0a] to-[#d10405] px-[clamp(10px,3vw,16px)] py-[clamp(8px,2.2vw,12px)] shadow-[inset_0_2px_2px_rgba(255,255,255,0.3),inset_0_-4px_9px_rgba(120,0,0,0.45)]">
-              <span aria-hidden="true" className="pointer-events-none absolute inset-x-[2.5%] top-[2px] h-[38%] rounded-full bg-gradient-to-b from-white/45 to-transparent" />
-              <Shine />
+            <span className="relative flex min-h-[clamp(72px,19vw,86px)] items-center gap-[clamp(7px,2.2vw,12px)] overflow-hidden rounded-[15px] bg-[#c0202a] px-[clamp(10px,3vw,16px)] py-[clamp(8px,2.2vw,12px)]">
               <span className="relative grid h-[clamp(44px,11.6vw,54px)] w-[clamp(44px,11.6vw,54px)] shrink-0 place-items-center rounded-full bg-white shadow-[0_2px_6px_rgba(0,0,0,0.28)]">
                 <svg viewBox="0 0 24 24" className="h-[56%] w-[56%]" fill="#e21606" aria-hidden="true">
                   <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
@@ -93,7 +65,7 @@ export default function McyFv() {
               <span className="relative min-w-0 flex-1 text-center leading-none text-white [text-shadow:0_1px_2px_rgba(120,0,0,0.5)]">
                 <span className="block text-[clamp(11px,3.1vw,14.5px)] font-bold tracking-[0.02em]">電話で今すぐ相談する</span>
                 <span className="mt-[3px] block text-[clamp(23px,6.7vw,33px)] font-black tracking-[-0.01em]">03-4400-2098</span>
-                <span className="mt-[3px] block text-[clamp(11px,2.8vw,12px)] font-bold opacity-95">受付 9:00〜21:00 年中無休｜相談だけでもOK</span>
+                <span className="mt-[3px] block text-[12px] leading-[1.5] font-bold opacity-95">受付 9:00〜21:00 年中無休｜相談だけでもOK</span>
               </span>
               <svg viewBox="0 0 24 24" className="relative h-[clamp(19px,5.2vw,27px)] w-[clamp(19px,5.2vw,27px)] shrink-0" fill="none" stroke="white" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="m9 5 7 7-7 7" />
@@ -101,18 +73,16 @@ export default function McyFv() {
             </span>
           </a>
 
-          {/* LINE — green glossy button (gold frame, thicker gold base) */}
+          {/* LINE action keeps the established green color. */}
           <a
             href={LINE_URL}
             target="_blank"
             rel="noopener noreferrer"
             data-gtm="cta_line_fv"
             aria-label="LINEで特殊清掃を相談する（写真がなくても相談可・24時間受付）"
-            className="relative block rounded-[18px] bg-gradient-to-b from-[#fff3ac] via-[#f7d63f] to-[#e3b524] px-[2px] pt-[2px] pb-[4px] shadow-[0_7px_16px_rgba(6,120,20,0.28)] transition-[filter] active:brightness-95"
+            className="relative block rounded-[18px] bg-[#087f36] p-px transition-[filter] active:brightness-95"
           >
-            <span className="relative flex min-h-[clamp(72px,19vw,86px)] items-center gap-[clamp(7px,2.2vw,12px)] overflow-hidden rounded-[15px] bg-gradient-to-b from-[#63ca1a] via-[#28a414] to-[#017c0e] px-[clamp(10px,3vw,16px)] py-[clamp(8px,2.2vw,12px)] shadow-[inset_0_2px_2px_rgba(255,255,255,0.3),inset_0_-4px_9px_rgba(0,70,5,0.45)]">
-              <span aria-hidden="true" className="pointer-events-none absolute inset-x-[2.5%] top-[2px] h-[38%] rounded-full bg-gradient-to-b from-white/40 to-transparent" />
-              <Shine delay="1.8s" />
+            <span className="relative flex min-h-[clamp(72px,19vw,86px)] items-center gap-[clamp(7px,2.2vw,12px)] overflow-hidden rounded-[15px] bg-[#087f36] px-[clamp(10px,3vw,16px)] py-[clamp(8px,2.2vw,12px)]">
               <span className="relative grid h-[clamp(44px,11.6vw,54px)] w-[clamp(44px,11.6vw,54px)] shrink-0 place-items-center rounded-[13px] bg-white shadow-[0_2px_6px_rgba(0,0,0,0.24)]">
                 <svg viewBox="0 0 32 32" className="h-[84%] w-[84%]" aria-hidden="true">
                   <path
@@ -136,8 +106,8 @@ export default function McyFv() {
               </span>
               <span className="relative min-w-0 flex-1 text-center leading-none text-white [text-shadow:0_1px_2px_rgba(0,70,5,0.5)]">
                 <span className="block text-[clamp(11px,3.1vw,14.5px)] font-bold tracking-[0.02em]">写真がなくても相談できます</span>
-                <span className="mt-[3px] block whitespace-nowrap text-[clamp(19px,5.6vw,27px)] font-black tracking-[0.01em]">特殊清掃・費用の相談</span>
-                <span className="mt-[3px] block whitespace-nowrap text-[clamp(11px,2.8vw,12px)] font-bold opacity-95">LINEで状況を送るだけ｜24時間受付</span>
+                <span className="mt-[3px] block text-[clamp(18px,5.3vw,25px)] leading-tight font-black tracking-[0.01em]">特殊清掃・費用の相談</span>
+                <span className="mt-[3px] block text-[12px] leading-[1.5] font-bold opacity-95">LINEで状況を送るだけ｜24時間受付</span>
               </span>
               <svg viewBox="0 0 24 24" className="relative h-[clamp(19px,5.2vw,27px)] w-[clamp(19px,5.2vw,27px)] shrink-0" fill="none" stroke="white" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="m9 5 7 7-7 7" />
@@ -148,6 +118,17 @@ export default function McyFv() {
           {/* what happens after the LINE tap — collapsed to one line so the
               button→social-proof flow stays tight (opens on tap, no JS) */}
           <LineSteps collapsible />
+        </div>
+
+        <div data-section="consultation_guide" className="mx-4 mb-5 mt-3 border-y border-lux-green/15 py-4 text-lux-green-ink tracking-normal">
+          <p className="text-[15px] leading-7">何から始めればよいか分からない方も、まずは状況をお聞かせください。</p>
+          <ol aria-label="相談からご契約まで" className="mt-3 grid grid-cols-3 gap-2 text-center text-[14px] font-bold leading-6">
+            <li><span className="block text-lux-gold-deep">1</span>ご相談</li>
+            <li><span className="block text-lux-gold-deep">2</span>現地確認<br />お見積り</li>
+            <li><span className="block text-lux-gold-deep">3</span>納得して<br />ご契約</li>
+          </ol>
+          <p className="mt-3 text-[14px] leading-6">最初は市区町村と、お困りのことから。写真がなくてもご相談いただけます。</p>
+          <a href="#nagare" data-gtm="consultation_guide_flow" className="mt-2 inline-flex min-h-11 items-center text-[14px] font-bold underline underline-offset-4">ご依頼の流れを詳しく見る</a>
         </div>
 
         {/* Google reviews + ご相談実績 — coded (real, crawlable 5.0 / 167件) */}
@@ -220,20 +201,20 @@ export default function McyFv() {
           </a>
         </div>
 
-        {/* こんなお悩みをすべて解決します！ — coded checklist (8 items, both
+        {/* こんなお悩みをご相談いただけます — coded checklist (8 items, both
             personas) + the reassure slice (専門スタッフが丁寧に対応します) */}
         <div className="bg-[#fdfbf7] px-[clamp(6px,1.8vw,12px)] pb-[clamp(8px,2.2vw,12px)]">
-          <div className="rounded-[14px] bg-gradient-to-b from-lux-green to-[#0e3322] p-[clamp(7px,2vw,11px)] shadow-[0_6px_18px_rgba(18,61,40,0.28)]">
-            <p className="pb-[clamp(6px,1.8vw,9px)] pt-[2px] text-center text-[clamp(15px,4.3vw,20px)] font-black tracking-[0.02em] text-white">
+          <div className="rounded-[14px] border border-lux-green/15 bg-lux-green-soft p-[clamp(7px,2vw,11px)]">
+            <p className="pb-[clamp(6px,1.8vw,9px)] pt-[2px] text-center text-[clamp(15px,4.3vw,20px)] font-black tracking-[0.02em] text-lux-green-ink">
               <span aria-hidden="true" className="mr-[6px] text-lux-gold-light">＼</span>
-              こんなお悩みをすべて解決します！
+              こんなお悩みをご相談いただけます
               <span aria-hidden="true" className="ml-[6px] text-lux-gold-light">／</span>
             </p>
             <ul className="grid grid-cols-2 gap-x-[clamp(8px,2.4vw,14px)] gap-y-[clamp(9px,2.6vw,13px)] rounded-[10px] bg-white px-[clamp(10px,2.8vw,16px)] py-[clamp(12px,3.4vw,18px)]">
               {WORRIES.map((w) => (
                 <li key={w} className="flex items-start gap-[clamp(5px,1.5vw,8px)]">
                   <CheckGreen className="mt-[1px] h-[clamp(16px,4.4vw,20px)] w-[clamp(16px,4.4vw,20px)]" />
-                  <span className="min-w-0 text-[clamp(11px,3vw,13.5px)] font-bold leading-[1.5] text-lux-green-ink [word-break:auto-phrase]">
+                  <span className="min-w-0 text-[14px] font-bold leading-[1.5] text-lux-green-ink [word-break:auto-phrase]">
                     {w}
                   </span>
                 </li>
