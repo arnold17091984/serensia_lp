@@ -1,4 +1,5 @@
-import { LINE_URL, PHONE_DISPLAY, PHONE_TEL } from "./McyHeader";
+import { PHONE_DISPLAY } from "./contact";
+import { LineCta, PhoneCta } from "./CtaButton";
 
 /**
  * Trust block: owners / support / license & insurance / ihin.
@@ -110,37 +111,6 @@ function LineIcon({ name, className }: Readonly<{ name: IconName; className?: st
   );
 }
 
-function ArrowBubble({ className }: Readonly<{ className: string }>) {
-  return (
-    <span
-      aria-hidden="true"
-      className={`relative grid h-[clamp(20px,5.6vw,26px)] w-[clamp(20px,5.6vw,26px)] shrink-0 place-items-center rounded-full bg-white shadow-[0_1px_3px_rgba(7,49,95,0.35)] ${className}`}
-    >
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth={3}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="h-[55%] w-[55%]"
-      >
-        <path d="m9 5 7 7-7 7" />
-      </svg>
-    </span>
-  );
-}
-
-/** Glossy top highlight for pill CTAs (needs relative + overflow-hidden parent). */
-function PillGloss() {
-  return (
-    <span
-      aria-hidden="true"
-      className="pointer-events-none absolute inset-x-[8%] top-[3px] h-[42%] rounded-full bg-gradient-to-b from-white/0 to-transparent"
-    />
-  );
-}
-
 function SectionHeading({
   kicker,
   watermark,
@@ -232,25 +202,14 @@ export default function McyTrust() {
           </div>
 
           {/* dedicated phone CTA for owners / property managers */}
-          <a
-            href={PHONE_TEL}
-            data-gtm="cta_tel_owners"
-            className="mcy-cta-nudge relative mx-auto mt-[clamp(12px,3.4vw,18px)] flex min-h-[clamp(82px,20vw,96px)] max-w-[460px] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/40 bg-gradient-to-b from-lux-green-2 via-lux-green to-[#07315f] px-4 py-[clamp(9px,2.7vw,13px)] text-white shadow-[0_10px_24px_rgba(7,49,95,0.45)] ring-1 ring-lux-gold/70 transition-[filter] active:brightness-95"
-          >
-            <PillGloss />
-            <span className="relative min-w-0 text-center leading-none">
-              <span className="block whitespace-nowrap text-[clamp(9.5px,2.7vw,12px)] font-black">
-                大家様・管理会社様の緊急対応窓口
-              </span>
-              <span className="mt-[4px] block whitespace-nowrap text-[clamp(19px,5.5vw,26px)] font-black tracking-[-0.01em] text-lux-amber [text-shadow:0_1px_2px_rgba(0,0,0,0.3)]">
-                {PHONE_DISPLAY}
-              </span>
-              <span className="mt-[4px] block whitespace-nowrap text-[clamp(11px,2.9vw,12px)] font-bold opacity-95">
-                最短即日で現地確認｜原状回復まで一括対応
-              </span>
-            </span>
-            <ArrowBubble className="text-lux-green" />
-          </a>
+          <div className="mx-auto mt-[clamp(12px,3.4vw,18px)] max-w-[460px]">
+            <PhoneCta
+              gtm="cta_tel_owners"
+              top="大家様・管理会社様の緊急対応窓口"
+              sub="最短即日で現地確認｜原状回復まで一括対応"
+              ariaLabel={`大家様・管理会社様の緊急対応窓口 ${PHONE_DISPLAY} に電話する（受付 9:00〜21:00）`}
+            />
+          </div>
         </div>
       </section>
 
@@ -296,52 +255,9 @@ export default function McyTrust() {
               <span>まずは相談事をお聞かせください</span>
               <span aria-hidden="true" className="h-[6px] w-[6px] shrink-0 rotate-45 bg-lux-gold-deep" />
             </p>
-            <a
-              href={PHONE_TEL}
-              data-gtm="cta_tel_support"
-              className="mcy-cta-nudge relative mt-3 flex min-h-[clamp(82px,20vw,96px)] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/40 bg-gradient-to-b from-lux-green-2 via-lux-green to-[#07315f] px-4 py-[clamp(9px,2.7vw,13px)] text-white shadow-[0_10px_24px_rgba(7,49,95,0.45)] ring-1 ring-lux-gold/70 transition-[filter] active:brightness-95"
-            >
-              <PillGloss />
-              <span className="relative min-w-0 text-center leading-none">
-                <span className="block whitespace-nowrap text-[clamp(9.5px,2.7vw,12px)] font-black">
-                  緊急時も対応｜タップで発信
-                </span>
-                <span className="mt-[4px] block whitespace-nowrap text-[clamp(19px,5.5vw,26px)] font-black tracking-[-0.01em]">
-                  {PHONE_DISPLAY}
-                </span>
-                <span className="mt-[4px] block whitespace-nowrap text-[clamp(11px,2.9vw,12px)] font-bold opacity-95">
-                  9:00〜21:00 年中無休
-                </span>
-              </span>
-              <ArrowBubble className="text-lux-green" />
-            </a>
-            {/* gold-framed like the pricing LINE CTA so it reads co-equal with
-                the phone pill above (design-team review 2026-08-17) */}
-            <div
-              style={{ animationDelay: "0.5s" }}
-              className="mcy-cta-nudge mt-3 rounded-full bg-gradient-to-b from-lux-gold-light via-lux-gold to-lux-gold-deep p-[2px] shadow-[0_8px_20px_rgba(6,163,42,0.4)]"
-            >
-            <a
-              href={LINE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-gtm="cta_line_support"
-              className="relative flex min-h-[clamp(82px,20vw,96px)] items-center justify-center gap-2 overflow-hidden rounded-full bg-[#087f36] px-4 py-[clamp(8px,2.4vw,12px)] text-white ring-2 ring-inset ring-white/50 transition-[filter] active:brightness-90"
-            >
-              <PillGloss />
-              <span className="relative grid h-[clamp(22px,6.2vw,30px)] w-[clamp(22px,6.2vw,30px)] shrink-0 place-items-center rounded-full bg-white text-[clamp(5px,1.4vw,7px)] font-black text-[#087f36]">
-                LINE
-              </span>
-              <span className="relative min-w-0 text-center leading-none">
-                <span className="block whitespace-nowrap text-[clamp(12px,3.4vw,16px)] font-black">
-                  まずはLINEで相談する
-                </span>
-                <span className="mt-[3px] block whitespace-nowrap text-[clamp(11px,2.9vw,12px)] font-bold opacity-95">
-                  見積無料｜24時間受付
-                </span>
-              </span>
-              <ArrowBubble className="text-[#087f36]" />
-            </a>
+            <div className="mt-3 flex flex-col gap-[10px]">
+              <PhoneCta gtm="cta_tel_support" top="緊急時も対応｜タップで発信" sub="受付 9:00〜21:00 年中無休" />
+              <LineCta gtm="cta_line_support" top="まずはLINEで相談する" main="LINEで相談する" sub="見積無料｜24時間受付" />
             </div>
           </div>
         </div>

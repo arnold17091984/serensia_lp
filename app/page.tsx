@@ -1,4 +1,3 @@
-import McyHeader from "@/components/mcy/McyHeader";
 import McyFv from "@/components/mcy/McyFv";
 import McyKvGuide from "@/components/mcy/McyKvGuide";
 import McyMangaSection from "@/components/mcy/McyMangaSection";
@@ -15,7 +14,11 @@ import McyFooter from "@/components/mcy/McyFooter";
 import McyStickyCta from "@/components/mcy/McyStickyCta";
 import McyReviewsModal from "@/components/mcy/McyReviewsModal";
 
-/** KV artwork leads; duplicated HTML worry/price overview blocks stay out of flow. */
+/**
+ * KV artwork leads; duplicated HTML worry/price overview blocks stay out of flow.
+ * No fixed top header (T-99): the logo lives in KV01 and the sticky bottom bar
+ * carries the contact actions once the FV buttons scroll away.
+ */
 export default function Home() {
   return (
     <>
@@ -35,7 +38,6 @@ export default function Home() {
         <McyCta tone="light" />
         <McyFooter />
       </main>
-      <McyHeader />
       <McyStickyCta />
       <McyReviewsModal />
     </>

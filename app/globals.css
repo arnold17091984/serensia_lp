@@ -131,16 +131,73 @@ a:focus-visible {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Dark gradient stops keep small CTA labels readable during the light sweep. */
-.mcy-contact-phone {
-  background-image: linear-gradient(to bottom, #c51e29, #a70f1b);
+/* Shared T-96 CTA finish: light gold frame, bright face and glass highlight. */
+.cta {
+  --cta-edge: linear-gradient(180deg, #f1d891, #b99342);
+  --cta-shadow: 0 3px 8px rgb(7 49 95 / 16%);
+  position: relative;
+  container-type: inline-size;
+  border-radius: 18px;
+  padding: 2px 2px 4px;
+  background-image: var(--cta-edge);
+  box-shadow: var(--cta-shadow);
+  color: #fff;
+  -webkit-tap-highlight-color: transparent;
+  transition: filter 0.15s ease;
 }
-.mcy-contact-line {
-  background-image: linear-gradient(to bottom, #086d31, #055d27);
+.cta-face {
+  border-radius: 15px;
+  text-shadow: 0 1px 2px rgb(0 0 0 / 35%);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 35%);
 }
+.cta-face::before {
+  content: "";
+  position: absolute;
+  inset: 2px 3px auto;
+  height: 46%;
+  border-radius: 13px 13px 0 0;
+  background: linear-gradient(180deg, rgb(255 255 255 / 32%), transparent);
+  pointer-events: none;
+}
+.cta-disc {
+  box-shadow: 0 2px 6px rgb(0 0 0 / 24%);
+}
+.cta-phone { --cta-shadow: 0 3px 8px rgb(120 35 15 / 18%); }
+.cta-phone .cta-face { background-image: linear-gradient(180deg, #e83c25, #bd1820); }
+.cta-line { --cta-shadow: 0 3px 8px rgb(18 61 40 / 16%); }
+.cta-line .cta-face { background-image: linear-gradient(180deg, #26a840, #087f36); }
+.cta-primary .cta-face { background-image: linear-gradient(180deg, #17579a, #07315f); }
+.cta-primary .cta-text { color: var(--color-lux-amber); }
+.cta-primary .cta-text > span:not(:first-child) { color: #fff; }
+.cta-secondary { color: var(--color-lux-green-ink); }
+.cta-secondary .cta-face {
+  background: linear-gradient(180deg, #fff, #f4f9ff);
+  text-shadow: none;
+}
+.cta-sticky, .cta-sticky .cta-face { border-radius: 999px; }
+.cta-sticky .cta-disc { width: 20px; height: 20px; }
+.cta-sticky.cta-phone .cta-disc { color: #fff; background: transparent; box-shadow: none; }
+.cta-sticky.cta-phone .cta-disc svg { width: 100%; height: 100%; }
+.cta-sticky.cta-line .cta-disc { border-radius: 5px; }
+/* Nested cards at 320px keep the T-96 type scale without clipping labels. */
+@container (max-width: 280px) {
+  .cta-lg .cta-face { padding-inline: 6px; column-gap: 4px; }
+  .cta-lg .cta-disc { width: 30px; height: 30px; }
+}
+@media (hover: hover) {
+  .cta:hover { filter: brightness(1.05); }
+  .cta-secondary:hover .cta-face { background: var(--color-lux-green-soft); }
+}
+.cta:active { filter: brightness(.95); }
+.cta:focus-visible {
+  outline: 3px solid var(--color-lux-green-2);
+  outline-offset: 3px;
+}
+
+/* light sweep shared by all coloured buttons */
 .mcy-shine {
   pointer-events: none;
-  background-image: linear-gradient(110deg, transparent, rgb(255 255 255 / 12%), transparent);
+  background-image: linear-gradient(110deg, transparent, rgb(255 255 255 / 45%), transparent);
   transform: translateX(-120%) skewX(-15deg);
   animation: mcyShine 4.8s ease-in-out infinite;
 }
@@ -151,4 +208,7 @@ a:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .mcy-shine { animation: none; opacity: 0; }
+  .cta, .cta-face { transition: none; }
+  /* utility animations elsewhere on the page (chapter markers, "つづく" cues) */
+  .animate-pulse, .animate-bounce { animation: none; }
 }

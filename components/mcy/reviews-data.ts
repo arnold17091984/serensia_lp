@@ -1,6 +1,6 @@
 /**
  * Real Google reviews (verbatim from the business's Google Business Profile,
- * 遺品整理セレンシア — 5.0 / 167件). Used by both the on-page お客様の声 section
+ * 遺品整理セレンシア — 5.0 / 191件). Used by both the on-page お客様の声 section
  * and the reviews modal, so proof is read WITHOUT leaving the LP. Only real,
  * verifiable reviews are used (景表法 safe). Names shortened where the source
  * shows a handle. `date` is an absolute year-month (converted from Google's
@@ -19,7 +19,7 @@ export interface Review {
 
 export const GOOGLE_REVIEWS_URL = "https://share.google/PsIN6ZnlzieZp6LIk";
 export const GOOGLE_RATING = "5.0";
-export const GOOGLE_REVIEW_COUNT = 167;
+export const GOOGLE_REVIEW_COUNT = 191;
 
 export const REVIEWS: readonly Review[] = [
   {

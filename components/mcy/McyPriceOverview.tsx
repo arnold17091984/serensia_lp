@@ -1,5 +1,5 @@
 import { CASES } from "./McyPricing";
-import { LINE_URL } from "./McyHeader";
+import { LINE_URL } from "./contact";
 
 const FEATURED_CASES = [0, 1, 3] as const;
 

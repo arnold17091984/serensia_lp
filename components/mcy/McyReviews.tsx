@@ -1,5 +1,5 @@
 import { LeafSprig, LuxHeading } from "./McyLux";
-import OpenReviewsButton from "./OpenReviewsButton";
+import { OpenReviewsCta } from "./OpenReviewsButton";
 import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, REVIEWS } from "./reviews-data";
 
 /**
@@ -82,14 +82,9 @@ export default function McyReviews() {
 
         {/* open modal (all reviews, still on-page) */}
         <div className="mt-[clamp(14px,4vw,20px)] text-center">
-          <OpenReviewsButton
-            gtm="reviews_open_section"
-            ariaLabel="お客様の声をもっと見る"
-            className="mcy-cta-nudge inline-flex items-center gap-2 rounded-full border-2 border-lux-green/35 bg-white px-[clamp(20px,6vw,30px)] py-[clamp(11px,3vw,14px)] text-[clamp(12.5px,3.4vw,14.5px)] font-black text-lux-green-ink shadow-[0_4px_12px_rgba(7,49,95,0.12)] transition-[background-color,transform] hover:bg-lux-green-soft active:scale-[0.98]"
-          >
-            口コミを読む
-            <span aria-hidden="true">→</span>
-          </OpenReviewsButton>
+          <div className="mx-auto max-w-[300px]">
+            <OpenReviewsCta gtm="reviews_open_section" main="口コミをもっと見る" ariaLabel="お客様の声をもっと見る" />
+          </div>
           <p className="mt-[7px] text-[clamp(11px,3vw,12px)] font-medium text-lux-green-ink/75">
             ※実際のGoogleクチコミ{GOOGLE_REVIEW_COUNT}件から抜粋（このページ内で開きます）
           </p>

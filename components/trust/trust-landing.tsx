@@ -1,7 +1,6 @@
-import { LINE_URL, PHONE_DISPLAY, PHONE_TEL } from "../mcy/McyHeader";
+import { LINE_URL, PHONE_DISPLAY, PHONE_TEL } from "../mcy/contact";
 import { CASES } from "../mcy/pricing-data";
 import { FAQ } from "../mcy/faq-data";
-import PhoneHoursNotice from "../mcy/PhoneHoursNotice";
 import McyStickyCta from "../mcy/McyStickyCta";
 import styles from "./trust-landing.module.css";
 
@@ -126,7 +125,6 @@ export default function TrustLanding() {
                 <span>近隣への配慮</span>
               </div>
               <div className={styles.heroContact}>
-                <PhoneHoursNotice />
                 <ContactActions location="fv" />
                 <p className={styles.contactNote}>
                   現地確認は最短即日。対応日程はご相談時にご案内します。
@@ -507,7 +505,6 @@ export default function TrustLanding() {
               <br />
               分かる範囲から、代表の太田がお話を伺います。
             </p>
-            <PhoneHoursNotice />
             <ContactActions location="section" />
             <p className={styles.lineHint}>
               LINEは「特殊清掃について相談したい」と一言からでも。

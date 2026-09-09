@@ -1,5 +1,4 @@
-import McyCtaShine from "./McyCtaShine";
-import { LINE_URL, PHONE_DISPLAY, PHONE_TEL } from "./McyHeader";
+import { LineCta, PhoneCta } from "./CtaButton";
 import LineSteps from "./LineSteps";
 
 /**
@@ -43,7 +42,7 @@ export default function McyCta({ tone = "dark" }: Readonly<{ tone?: "dark" | "li
 
             {/* social-proof recap at the decision point (verified figures) */}
             <p className="mt-2 text-center text-[clamp(10px,2.8vw,12.5px)] font-bold leading-[1.7] text-lux-green-ink">
-              <span className="whitespace-nowrap">Googleクチコミ <span className="text-lux-gold-deep">★</span>5.0／167件</span>
+              <span className="whitespace-nowrap">Googleクチコミ <span className="text-lux-gold-deep">★</span>5.0／191件</span>
               <span aria-hidden="true" className="mx-[3px] text-lux-gold-deep">｜</span>
               <span className="whitespace-nowrap">ご相談実績2,000件以上</span>
             </p>
@@ -63,66 +62,10 @@ export default function McyCta({ tone = "dark" }: Readonly<{ tone?: "dark" | "li
               <span className="mt-[2px] block font-bold text-lux-green-ink">無理な営業は一切いたしません。ご相談だけでも歓迎です。</span>
             </p>
 
-            <a
-              href={PHONE_TEL}
-              data-gtm="cta_tel_section"
-              className="mcy-cta-nudge relative mt-4 flex min-h-[clamp(82px,20vw,96px)] items-center justify-center gap-2 overflow-hidden rounded-full mcy-contact-phone px-3 py-[clamp(9px,2.7vw,13px)] text-white transition-[filter] active:brightness-95"
-            >
-              <McyCtaShine />
-              <span className="relative grid h-[clamp(28px,7.8vw,40px)] w-[clamp(28px,7.8vw,40px)] shrink-0 place-items-center rounded-full bg-white shadow-[0_2px_6px_rgba(0,0,0,0.25)]">
-                <svg viewBox="0 0 24 24" className="h-[58%] w-[58%]" fill="#07315f" aria-hidden="true">
-                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-                </svg>
-              </span>
-              <span className="relative min-w-0 text-center leading-none">
-                <span className="block whitespace-nowrap text-[clamp(11px,2.9vw,13px)] font-black">
-                  お電話で今すぐ相談する
-                </span>
-                <span className="mt-[4px] block whitespace-nowrap text-[clamp(19px,5.5vw,27px)] font-black tracking-[-0.01em] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.3)]">
-                  {PHONE_DISPLAY}
-                </span>
-                <span className="mt-[4px] block text-[12px] leading-5 font-bold">
-                  9:00〜21:00 年中無休｜タップで電話
-                </span>
-              </span>
-              <span aria-hidden="true" className="grid h-[clamp(18px,5vw,24px)] w-[clamp(18px,5vw,24px)] shrink-0 place-items-center rounded-full bg-white shadow-[0_2px_6px_rgba(0,0,0,0.25)]">
-                <svg viewBox="0 0 24 24" className="h-[60%] w-[60%]" fill="none" stroke="#07315f" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M9 5l7 7-7 7" />
-                </svg>
-              </span>
-            </a>
-
-            {/* gold-framed like the pricing LINE CTA so it reads co-equal with
-                the phone pill (design-team review: LINE was sinking next to it) */}
-            <div
-              style={{ animationDelay: "0.5s" }}
-              className="mcy-cta-nudge mt-3 rounded-full mcy-contact-line p-px"
-            >
-            <a
-              href={LINE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-gtm="cta_line_section"
-              className="relative flex min-h-[clamp(82px,20vw,96px)] items-center justify-center gap-2 overflow-hidden rounded-full mcy-contact-line px-3 py-[clamp(9px,2.7vw,13px)] text-white transition-[filter] active:brightness-90"
-            >
-              <McyCtaShine />
-              <span className="relative grid h-[clamp(26px,7.4vw,38px)] w-[clamp(26px,7.4vw,38px)] shrink-0 place-items-center rounded-full bg-white text-[clamp(6px,1.7vw,8.5px)] font-black text-[#087f36] shadow-[0_2px_6px_rgba(0,0,0,0.25)]">
-                LINE
-              </span>
-              <span className="relative min-w-0 text-center leading-none">
-                <span className="block whitespace-nowrap text-[clamp(14px,4vw,19px)] font-black [text-shadow:0_1px_2px_rgba(0,0,0,0.2)]">
-                  LINEで無料相談する
-                </span>
-                <span className="mt-[4px] block text-[12px] leading-5 font-bold">
-                  写真なしでも相談可｜24時間受付
-                </span>
-              </span>
-              <span aria-hidden="true" className="grid h-[clamp(18px,5vw,24px)] w-[clamp(18px,5vw,24px)] shrink-0 place-items-center rounded-full bg-white shadow-[0_2px_6px_rgba(0,0,0,0.25)]">
-                <svg viewBox="0 0 24 24" className="h-[60%] w-[60%]" fill="none" stroke="#06a32a" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M9 5l7 7-7 7" />
-                </svg>
-              </span>
-            </a>
+            {/* the same two buttons as the FV (one design language, T-99) */}
+            <div className="mt-4 flex flex-col gap-[10px]">
+              <PhoneCta gtm="cta_tel_section" top="お電話で今すぐ相談する" sub="受付 9:00〜21:00 年中無休" />
+              <LineCta gtm="cta_line_section" top="写真だけでも相談できる" main="LINEで無料相談する" sub="写真なしでも相談可｜24時間受付" />
             </div>
 
             {/* what happens after the LINE tap */}

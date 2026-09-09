@@ -1,7 +1,7 @@
 "use client";
 
-import McyCtaShine from "./McyCtaShine";
 import { useEffect, useRef, useState } from "react";
+import CtaButton from "./CtaButton";
 
 /**
  * Manga storytelling block (client) — replaces the worry list under the
@@ -79,7 +79,7 @@ function MangaPanel({ chapter, eager }: Readonly<{ chapter: Chapter; eager?: boo
     <div ref={ref} className="flex flex-col items-center">
       <ChapterMarker no={chapter.no} title={chapter.title} />
       <div
-        className={`mt-[clamp(10px,2.8vw,16px)] w-full transition-all duration-700 ease-out ${
+        className={`mt-[clamp(10px,2.8vw,16px)] w-full transition-all duration-700 ease-out motion-reduce:transition-none ${
           shown ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
         }`}
       >
@@ -131,27 +131,18 @@ export default function McyManga() {
       {!expanded ? (
         <div className="flex flex-col items-center">
           <ChapterConnector />
-          <button
-            type="button"
-            onClick={() => setExpanded(true)}
-            data-gtm="manga_read_more"
-            className="mcy-cta-nudge relative flex w-full max-w-[400px] flex-col items-center overflow-hidden rounded-full border-2 border-lux-gold/70 bg-gradient-to-b from-lux-green-2 via-lux-green to-[#07315f] px-5 py-[clamp(13px,3.6vw,18px)] text-white shadow-[0_14px_30px_rgba(7,49,95,0.48)] ring-1 ring-white/25 transition-[filter] active:brightness-90"
-          >
-            <McyCtaShine />
-
-            <span className="relative flex items-center gap-[8px] text-[clamp(15px,4.4vw,19px)] font-black text-lux-amber [text-shadow:0_1px_3px_rgba(0,0,0,0.45)]">
-              <svg viewBox="0 0 24 24" className="h-[clamp(16px,4.4vw,20px)] w-[clamp(16px,4.4vw,20px)]" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M12 6.5C10.5 5 8.5 4.5 4.5 4.5v13C8.5 17.5 10.5 18 12 19.5M12 6.5c1.5-1.5 3.5-2 7.5-2v13c-4 0-6 .5-7.5 2M12 6.5v13" />
-              </svg>
-              続きを読む
-            </span>
-            <span className="relative mt-[4px] text-[clamp(9.5px,2.7vw,12px)] font-bold text-white">
-              この続きが気になる方へ<span className="whitespace-nowrap">（残り{tail.length}話・解決まで）</span>
-            </span>
-            <span aria-hidden className="relative mt-[5px] animate-bounce text-[clamp(13px,3.4vw,16px)] font-black leading-none text-lux-amber">
-              ▼▼
-            </span>
-          </button>
+          <div className="w-full max-w-[400px]">
+            <CtaButton
+              variant="primary"
+              icon="book"
+              chevron="down"
+              gtm="manga_read_more"
+              onClick={() => setExpanded(true)}
+              main="続きを読む"
+              sub={`この続きが気になる方へ（残り${tail.length}話・解決まで）`}
+              ariaLabel={`続きを読む（残り${tail.length}話）`}
+            />
+          </div>
         </div>
       ) : (
         <>
@@ -165,14 +156,8 @@ export default function McyManga() {
       )}
 
       {/* quick path to pricing (preserved from the old worry-list) */}
-      <div className="mt-[clamp(14px,4vw,22px)] flex justify-center">
-        <a
-          href="#ryokin"
-          data-gtm="manga_to_pricing"
-          className="inline-flex items-center gap-[6px] whitespace-nowrap rounded-full bg-lux-cream px-[14px] py-[8px] text-[clamp(10.5px,3vw,13px)] font-bold text-lux-green ring-1 ring-lux-gold/40"
-        >
-          料金の目安を見る →
-        </a>
+      <div className="mx-auto mt-[clamp(14px,4vw,22px)] max-w-[300px]">
+        <CtaButton variant="secondary" size="md" href="#ryokin" gtm="manga_to_pricing" main="料金の目安を見る" chevron="down" />
       </div>
     </div>
   );

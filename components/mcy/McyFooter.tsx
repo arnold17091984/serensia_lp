@@ -1,4 +1,4 @@
-import { PHONE_DISPLAY, PHONE_TEL } from "./McyHeader";
+import { PHONE_DISPLAY, PHONE_TEL } from "./contact";
 
 /**
  * No.33 — navy-gradient footer: gold double rule on top, laurel-flanked brand,

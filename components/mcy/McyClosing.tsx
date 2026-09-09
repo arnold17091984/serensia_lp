@@ -1,4 +1,5 @@
-import { LINE_URL, PHONE_DISPLAY, PHONE_TEL } from "./McyHeader";
+import { LINE_URL, PHONE_TEL } from "./contact";
+import { LineCta, PhoneCta } from "./CtaButton";
 
 /**
  * FAQ + request flow (mockups 9-bottom & 10), green×gold luxury theme.
@@ -186,40 +187,8 @@ export default function McyClosing() {
               ほかにご不安な点は、そのままお尋ねください
             </p>
             <div className="mt-3 flex flex-col gap-[10px]">
-              <a
-                href={PHONE_TEL}
-                data-gtm="cta_tel_faq"
-                className="mcy-cta-nudge relative flex min-h-[clamp(56px,15vw,66px)] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-white/40 bg-gradient-to-b from-lux-green-2 via-lux-green to-[#07315f] px-4 py-[10px] text-white shadow-[0_6px_16px_rgba(7,49,95,0.4)] ring-1 ring-lux-gold/70 transition-[filter] active:brightness-95"
-              >
-                <span aria-hidden="true" className="pointer-events-none absolute inset-x-[6%] top-[3px] h-[42%] rounded-full bg-gradient-to-b from-white/0 to-transparent" />
-                <svg viewBox="0 0 24 24" className="h-[clamp(15px,4vw,18px)] w-[clamp(15px,4vw,18px)] shrink-0" fill="currentColor" aria-hidden="true">
-                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-                </svg>
-                <span className="relative min-w-0 text-center leading-none">
-                  <span className="block whitespace-nowrap text-[clamp(14px,4vw,18px)] font-black tracking-[-0.01em]">
-                    <span className="text-lux-amber [text-shadow:0_1px_2px_rgba(0,0,0,0.3)]">{PHONE_DISPLAY}</span>｜相談無料
-                  </span>
-                  <span className="mt-[4px] block whitespace-nowrap text-[clamp(8.5px,2.4vw,10.5px)] font-bold opacity-95">
-                    9:00〜21:00 年中無休
-                  </span>
-                </span>
-              </a>
-              <a
-                href={LINE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-gtm="cta_line_faq"
-                style={{ animationDelay: "0.5s" }}
-                className="mcy-cta-nudge relative flex min-h-[clamp(56px,15vw,66px)] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-lux-gold/50 bg-[#087f36] px-4 py-[10px] text-white shadow-[0_6px_16px_rgba(6,163,42,0.35)] transition-[filter] active:brightness-90"
-              >
-                <span aria-hidden="true" className="pointer-events-none absolute inset-x-[6%] top-[3px] h-[42%] rounded-full bg-gradient-to-b from-white/0 to-transparent" />
-                <span className="grid h-[clamp(24px,6.4vw,30px)] w-[clamp(24px,6.4vw,30px)] shrink-0 place-items-center rounded-full bg-white text-[clamp(6.5px,1.9vw,9px)] font-black text-[#087f36] shadow-[0_2px_5px_rgba(0,0,0,0.18)]">
-                  LINE
-                </span>
-                <span className="relative whitespace-nowrap text-[clamp(13px,3.7vw,16px)] font-black">
-                  LINEで質問する｜24時間受付
-                </span>
-              </a>
+              <PhoneCta size="md" gtm="cta_tel_faq" sub="相談無料｜9:00〜21:00 年中無休" />
+              <LineCta size="md" gtm="cta_line_faq" main="LINEで質問する" sub="24時間受付" ariaLabel="LINEで質問する（24時間受付）" />
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import McyKvContact from "./McyKvContact";
+import { LineCta } from "./CtaButton";
 
 const overlayLinkBase = "absolute z-10 block rounded-[10px] focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-lux-green";
 
@@ -24,8 +24,8 @@ export default function McyKvGuide() {
           style={{ left: "68.35%", top: "88.81%", width: "28.84%", height: "9.91%" }} />
       </div>
       {/* strip colours sampled from the adjoining slice edges so the seam reads as one sheet */}
-      <div className="bg-gradient-to-b from-[#e7f4fd] to-[#e0f1fc] px-[2.7%] py-1">
-        <McyKvContact tone="line" gtm="cta_line_kv02" />
+      <div data-cta-section className="bg-gradient-to-b from-[#e7f4fd] to-[#e0f1fc] px-3 py-2">
+        <LineCta dense gtm="cta_line_kv02" top="写真だけでも相談できる" main="LINEで写真相談・概算見積り" sub="24時間受付・写真でのご相談もOK" ariaLabel="LINEで写真相談・概算見積り（24時間受付・写真でのご相談もOK）" />
       </div>
       <div className="relative w-full">
         <img

@@ -1,4 +1,4 @@
-import { LINE_URL } from "./McyHeader";
+import { LINE_URL } from "./contact";
 import { LeafSprig, LuxHeading } from "./McyLux";
 
 /**

@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { LINE_URL } from "./McyHeader";
+import { LINE_URL } from "./contact";
 import {
   CheckGreen,
   GoldCard,

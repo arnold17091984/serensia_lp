@@ -1,4 +1,4 @@
-import { LINE_URL, PHONE_DISPLAY, PHONE_TEL } from "./McyHeader";
+import { LineCta, PhoneCta } from "./CtaButton";
 
 export default function McyBusinessSupport() {
   return (
@@ -18,10 +18,11 @@ export default function McyBusinessSupport() {
         <h3 className="text-[15px] font-bold">現地に行けない方もご相談ください</h3>
         <p className="mt-2 text-[15px] leading-7">立ち会い不要・鍵のお預かりに対応。作業前後の状況を写真などでご報告します。</p>
       </div>
-      <a href={LINE_URL} target="_blank" rel="noopener noreferrer" data-gtm="cta_line_business_support" className="mt-4 flex min-h-12 items-center justify-center rounded-[12px] bg-[#087f36] px-3 py-3 text-center text-[15px] font-bold leading-6 text-white hover:bg-[#06682c] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lux-green">現場の対応をLINEで相談</a>
-      <p className="mt-2 text-center text-[14px]">LINEは24時間受付</p>
-      <a href={PHONE_TEL} data-gtm="cta_tel_business_support" className="mt-3 flex min-h-11 flex-wrap items-center justify-center gap-x-2 rounded-[12px] border border-[#b32921]/30 bg-white px-3 py-2 text-center text-[14px] font-bold text-[#a52c25] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lux-green"><span>電話で相談</span><span className="tabular-nums">{PHONE_DISPLAY}</span></a>
-      <p className="mt-2 text-center text-[14px]">電話受付 9:00〜21:00</p>
+      {/* compact (md) pair — the section is a text block, not a decision point */}
+      <div className="mt-4 flex flex-col gap-[10px]">
+        <LineCta size="md" gtm="cta_line_business_support" main="現場の対応をLINEで相談" sub="24時間受付" ariaLabel="現場の対応をLINEで相談する（24時間受付）" />
+        <PhoneCta size="md" gtm="cta_tel_business_support" sub="電話受付 9:00〜21:00" />
+      </div>
     </section>
   );
 }
