@@ -54,7 +54,7 @@ export default function McyStickyCta() {
       aria-hidden={!visible}
       className={`fixed inset-x-0 bottom-0 z-50 border-t border-lux-gold/50 bg-white/95 shadow-[0_-2px_10px_rgba(7,49,95,0.08)] backdrop-blur-sm transition-transform duration-200 motion-reduce:transition-none ${visible ? "translate-y-0" : "pointer-events-none translate-y-full"}`}
     >
-      <div className="mx-auto grid max-w-[520px] grid-cols-2 gap-[10px] px-3 pb-[max(10px,env(safe-area-inset-bottom))] pt-[10px]">
+      <div className="mx-auto grid max-w-[520px] grid-cols-2 gap-[10px] px-3 pb-[max(8px,env(safe-area-inset-bottom))] pt-[8px]">
         <PhoneCta
           size="md"
           gtm="cta_tel_sticky"
