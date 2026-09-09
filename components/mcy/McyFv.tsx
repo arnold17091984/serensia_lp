@@ -1,4 +1,5 @@
 import { LineCta, PhoneCta } from "./CtaButton";
+import { mcyKvAssets } from "./kv-assets";
 
 /**
  * KV01 (2026-09-09 版, 984×1599, no burned-in margins): rows 0..1032 and
@@ -14,7 +15,7 @@ export default function McyFv() {
       </h1>
       <div className="relative w-full">
         <img
-          src="/img/kv-serenshia-01-top.webp"
+          src={mcyKvAssets.kv01Top}
           alt="特殊清掃専門のセレンシア。東京・神奈川全域対応。相談・見積無料、追加料金なし、立ち会い不要、近隣配慮。料金目安50,000円〜。"
           width={984}
           height={1033}
@@ -32,7 +33,7 @@ export default function McyFv() {
         <LineCta gtm="cta_line_fv" top="写真だけでも相談できる" sub="写真なしでもOK｜24時間受付" />
       </div>
       <img
-        src="/img/kv-serenshia-01-bottom.webp"
+        src={mcyKvAssets.kv01Bottom}
         alt="Googleクチコミ5.0（191件）、ご相談実績2,000件以上。どんなお悩みでも、まずはご相談ください。"
         width={984}
         height={270}

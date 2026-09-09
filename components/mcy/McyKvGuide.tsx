@@ -1,4 +1,5 @@
 import { LineCta } from "./CtaButton";
+import { mcyKvAssets } from "./kv-assets";
 
 const overlayLinkBase = "absolute z-10 block rounded-[10px] focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-lux-green";
 
@@ -8,7 +9,7 @@ export default function McyKvGuide() {
     <section className="relative w-full overflow-hidden bg-kv-cream" aria-label="お悩みと料金事例">
       <div className="relative w-full">
         <img
-          src="/img/kv-serenshia-02-top.webp"
+          src={mcyKvAssets.kv02Top}
           alt="特殊清掃のお悩み一覧。ご相談だけでも大丈夫です。料金事例はトイレ150,000円、浴室200,000円、畳330,000円。"
           width={853}
           height={1403}
@@ -29,7 +30,7 @@ export default function McyKvGuide() {
       </div>
       <div className="relative w-full">
         <img
-          src="/img/kv-serenshia-02-bottom.webp"
+          src={mcyKvAssets.kv02Bottom}
           alt="写真がなくても相談できます。24時間受付。マンガでわかるご相談から解決の流れ。"
           width={853}
           height={290}
