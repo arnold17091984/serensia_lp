@@ -41,6 +41,7 @@ CPC550円を仮定した条件計算で、業界平均や達成予測ではな�
 ## 改善成果物
 
 - [HTML改善プラン](improvement-plan.html)（単体配布版は `output/marketing/improvement-plan.html`）
+- [現状と今後の課題HTML](current-status-and-next-issues.html)（単体配布版は `output/marketing/current-status-and-next-issues.html`）
 - [実施・検証記録](05-delivery.md)
 - [広告案CSV](ads-draft.csv)
 - [成約管理台帳CSV](contracts-template.csv)

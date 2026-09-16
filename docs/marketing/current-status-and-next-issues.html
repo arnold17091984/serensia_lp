@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" href="data:,">
+  <title>セレンシア | 現状と今後の課題</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f8fb;
+      --paper: #ffffff;
+      --ink: #17262f;
+      --muted: #5f6f78;
+      --line: #dbe6ec;
+      --blue: #0f5f8f;
+      --blue-2: #e6f2f8;
+      --green: #14784c;
+      --green-2: #e8f6ef;
+      --red: #b7332b;
+      --red-2: #fff0ed;
+      --gold: #a77b20;
+      --gold-2: #fff6df;
+      --shadow: 0 18px 42px rgba(20, 45, 62, .10);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 15% -10%, rgba(15, 95, 143, .20), transparent 30%),
+        linear-gradient(180deg, #eef7fc 0%, var(--bg) 280px, #fbfcfd 100%);
+      color: var(--ink);
+      font: 15px/1.8 -apple-system, BlinkMacSystemFont, "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+      letter-spacing: .01em;
+    }
+    a { color: var(--blue); text-underline-offset: 4px; }
+    h1, h2, h3, p { margin: 0; }
+    h1 { font-size: clamp(30px, 5vw, 56px); line-height: 1.18; letter-spacing: -.04em; }
+    .nowrap { white-space: nowrap; }
+    h2 { font-size: clamp(23px, 3vw, 34px); line-height: 1.35; letter-spacing: -.02em; }
+    h3 { font-size: 18px; line-height: 1.5; }
+    p + p { margin-top: 12px; }
+    ul, ol { margin: 10px 0 0; padding-left: 1.3em; }
+    li + li { margin-top: 6px; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border-bottom: 1px solid var(--line); padding: 14px 12px; vertical-align: top; text-align: left; }
+    th { color: #41505a; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; background: #f7fafc; }
+    .skip { position: absolute; left: 8px; top: 8px; transform: translateY(-130%); background: var(--ink); color: #fff; padding: 8px 12px; border-radius: 8px; z-index: 100; }
+    .skip:focus { transform: translateY(0); }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 26px;
+      background: rgba(255,255,255,.92);
+      border-bottom: 1px solid rgba(219,230,236,.85);
+      backdrop-filter: blur(14px);
+    }
+    .brand { font-weight: 800; letter-spacing: -.02em; }
+    .brand small { display: inline-block; margin-left: 10px; color: var(--muted); font-weight: 500; }
+    .top-actions { display: flex; gap: 8px; align-items: center; }
+    .print {
+      border: 1px solid #b8c8d2;
+      background: #fff;
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 8px 16px;
+      cursor: pointer;
+      font: inherit;
+      white-space: nowrap;
+    }
+    .shell { display: grid; grid-template-columns: 230px minmax(0, 1fr); max-width: 1440px; margin: 0 auto; }
+    .nav {
+      position: sticky;
+      top: 62px;
+      height: calc(100vh - 62px);
+      padding: 34px 18px;
+      border-right: 1px solid rgba(219,230,236,.9);
+    }
+    .nav b { display: block; margin: 0 10px 12px; color: #768691; font-size: 11px; letter-spacing: .14em; }
+    .nav a { display: block; padding: 9px 10px; border-radius: 10px; color: #4b5d67; text-decoration: none; font-size: 13px; }
+    .nav a:hover, .nav a:focus { background: var(--blue-2); color: var(--blue); }
+    .nav .note { margin: 18px 10px 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+    .main { min-width: 0; padding: 34px clamp(18px, 4vw, 58px) 80px; }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 310px;
+      gap: 28px;
+      align-items: end;
+      padding: clamp(28px, 5vw, 58px);
+      border: 1px solid rgba(184, 202, 214, .75);
+      border-radius: 28px;
+      background: linear-gradient(135deg, #fff 0%, #edf7fc 62%, #e8f6ef 100%);
+      box-shadow: var(--shadow);
+    }
+    .eyebrow { color: var(--blue); font-weight: 800; letter-spacing: .12em; font-size: 12px; text-transform: uppercase; }
+    .lead { margin-top: 18px; color: #314450; font-size: 18px; max-width: 780px; }
+    .hero-card { background: rgba(255,255,255,.82); border: 1px solid rgba(219,230,236,.95); border-radius: 20px; padding: 18px; }
+    .hero-card strong { display: block; font-size: 40px; line-height: 1; color: var(--blue); }
+    .hero-card span { color: var(--muted); font-size: 13px; }
+    .status-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 18px; }
+    .metric { background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: 16px; box-shadow: 0 8px 24px rgba(20,45,62,.05); }
+    .metric .label { color: var(--muted); font-size: 12px; }
+    .metric .value { margin-top: 4px; font-size: 25px; font-weight: 850; letter-spacing: -.03em; }
+    .metric small { color: var(--muted); font-size: 12px; }
+    .section { margin-top: 26px; padding: clamp(22px, 4vw, 40px); background: var(--paper); border: 1px solid var(--line); border-radius: 24px; box-shadow: 0 12px 30px rgba(20,45,62,.06); }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 20px; }
+    .section-head p { max-width: 620px; color: var(--muted); }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .card { border: 1px solid var(--line); border-radius: 18px; padding: 18px; background: #fff; }
+    .card h3 { margin-bottom: 8px; }
+    .card p, .card li { color: #43545f; }
+    .badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 800; }
+    .done { background: var(--green-2); color: var(--green); }
+    .warn { background: var(--gold-2); color: var(--gold); }
+    .risk { background: var(--red-2); color: var(--red); }
+    .info { background: var(--blue-2); color: var(--blue); }
+    .callout { border-left: 4px solid var(--blue); background: #f4f9fc; border-radius: 14px; padding: 16px 18px; color: #30434e; }
+    .callout strong { color: var(--ink); }
+    .flow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+    .step { position: relative; border: 1px solid var(--line); border-radius: 18px; background: #fff; padding: 16px; min-height: 130px; }
+    .step .num { color: var(--blue); font-weight: 900; font-size: 12px; letter-spacing: .12em; }
+    .step strong { display: block; margin-top: 8px; font-size: 18px; }
+    .step small { display: block; margin-top: 8px; color: var(--muted); }
+    .priority-row { display: grid; grid-template-columns: 96px minmax(0, 1fr) minmax(0, 1.1fr); gap: 0; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+    .priority-row + .priority-row { margin-top: 12px; }
+    .priority-row > div { padding: 16px; background: #fff; border-right: 1px solid var(--line); }
+    .priority-row > div:last-child { border-right: 0; }
+    .rank { display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 900; }
+    .p0 { color: var(--red); background: var(--red-2) !important; }
+    .p1 { color: var(--gold); background: var(--gold-2) !important; }
+    .p2 { color: var(--blue); background: var(--blue-2) !important; }
+    .fine { color: var(--muted); font-size: 12px; line-height: 1.7; }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 18px; }
+    .table-wrap table { min-width: 780px; }
+    .timeline { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    .phase { border: 1px solid var(--line); border-radius: 18px; padding: 18px; background: linear-gradient(180deg, #fff, #fbfdff); }
+    .phase .days { color: var(--blue); font-weight: 900; font-size: 13px; letter-spacing: .08em; }
+    .footer { margin-top: 24px; color: var(--muted); font-size: 12px; }
+    @media (max-width: 1080px) {
+      .shell { grid-template-columns: 190px minmax(0,1fr); }
+      .hero { grid-template-columns: 1fr; }
+      .status-strip, .grid-3, .timeline { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .flow { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    }
+    @media (max-width: 760px) {
+      html { scroll-padding-top: 74px; }
+      .topbar { padding: 10px 14px; }
+      .brand small { display: none; }
+      .shell { display: block; }
+      .nav { position: static; height: auto; display: flex; overflow-x: auto; gap: 6px; padding: 10px 12px; border-right: 0; border-bottom: 1px solid var(--line); white-space: nowrap; }
+      .nav b, .nav .note { display: none; }
+      .nav a { flex: 0 0 auto; }
+      .main { padding: 20px 14px 54px; }
+      .hero, .section { border-radius: 20px; padding: 22px 18px; }
+      .status-strip, .grid-2, .grid-3, .timeline, .flow { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 8px; }
+      .priority-row { grid-template-columns: 1fr; }
+      .priority-row > div { border-right: 0; border-bottom: 1px solid var(--line); }
+      .priority-row > div:last-child { border-bottom: 0; }
+      .rank { justify-content: flex-start; }
+    }
+    @media print {
+      @page { size: A4; margin: 13mm; }
+      html { scroll-behavior: auto; }
+      body { background: #fff; font-size: 10pt; }
+      .topbar, .nav, .skip { display: none; }
+      .shell { display: block; }
+      .main { padding: 0; }
+      .hero, .section, .card, .phase, .step { box-shadow: none; break-inside: avoid; }
+      .status-strip, .grid-2, .grid-3, .timeline { grid-template-columns: repeat(2, 1fr); }
+      .flow { grid-template-columns: repeat(5, 1fr); }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">本文へ</a>
+  <header class="topbar">
+    <div class="brand">SERENSHIA <small>現状と今後の課題 / 内部確認用</small></div>
+    <div class="top-actions"><button class="print" type="button" id="print-button">印刷 / PDF</button></div>
+  </header>
+  <div class="shell">
+    <nav class="nav" aria-label="目次">
+      <b>STATUS REPORT</b>
+      <a href="#summary">01 結論</a>
+      <a href="#done">02 実施済み</a>
+      <a href="#gap">03 現在地と差分</a>
+      <a href="#issues">04 今後の課題</a>
+      <a href="#plan">05 次の実行順</a>
+      <a href="#evidence">06 根拠</a>
+      <p class="note">広告LPとは別の内部資料。数値は既存資料・タスクノートの再整理。</p>
+    </nav>
+    <main class="main" id="main">
+      <section class="hero" id="summary">
+        <div>
+          <p class="eyebrow">P-9 / SERENSHI</p>
+          <h1>現状は「<span class="nowrap">LP改善済み</span>」。<br>次の壁は、成約計測・広告復旧・施工余力。</h1>
+          <p class="lead">特殊清掃LPは、料金・相談・法人導線、KV画像、CTA品質、キャッシュ無効化まで本番反映済み。だが月30成約の可否は、タップではなく実成約・利益・施工能力で判断する段階に移った。</p>
+        </div>
+        <aside class="hero-card" aria-label="最重要判定">
+          <span>現在の判定</span>
+          <strong>運用検証待ち</strong>
+          <p class="fine">サイト制作フェーズは完了。広告・成約・現場運用の実データが不足している。</p>
+        </aside>
+      </section>
+
+      <div class="status-strip" aria-label="主要ステータス">
+        <div class="metric"><div class="label">本番LP</div><div class="value">反映済み</div><small>PR #1〜#11 の改善が順次マージ・公開済み</small></div>
+        <div class="metric"><div class="label">広告アカウント</div><div class="value">未復旧</div><small>Google Ads 接続は invalid_grant を再現</small></div>
+        <div class="metric"><div class="label">成約実績</div><div class="value">未確認</div><small>タップ数を成約数として扱わない</small></div>
+        <div class="metric"><div class="label">月30成約</div><div class="value">未達判定不可</div><small>必要データ未取得。達成予測ではない</small></div>
+      </div>
+
+      <section class="section" id="done">
+        <div class="section-head">
+          <div><p class="eyebrow">DONE</p><h2>完了していること</h2></div>
+          <p>制作・公開・QAの完了範囲。ここは「次に悩む対象」ではなく、運用データで効果を見る対象。</p>
+        </div>
+        <div class="grid-3">
+          <article class="card"><span class="badge done">完了</span><h3>LP上部の相談導線</h3><p>料金事例、写真なし相談、大家・管理会社向け案内を追加。料金詳細・電話・LINEへの導線を維持。</p></article>
+          <article class="card"><span class="badge done">完了</span><h3>KV・CTAの再構成</h3><p>KV画像2枚を組み込み、誤番号帯は配信素材から除外。電話は 03-4400-2098 に統一。ボタンは本番採用済みの光沢・金縁トーンに調整。</p></article>
+          <article class="card"><span class="badge done">完了</span><h3>スマホ表示の改善</h3><p>上部固定ヘッダー撤去、底部固定バー小型化、320/390/1440pxで横はみ出しなしをQAで確認。</p></article>
+          <article class="card"><span class="badge done">完了</span><h3>画像キャッシュ対策</h3><p>KV画像4件をMD5先頭8桁付きファイル名へリネームし、参照を定数化。旧ファイル名参照0を確認。</p></article>
+          <article class="card"><span class="badge done">完了</span><h3>改善プランHTML</h3><p>月30成約に必要な広告費・成約率・90日ロードマップを既存の <a href="improvement-plan.html">improvement-plan.html</a> に整理済み。</p></article>
+          <article class="card"><span class="badge done">完了</span><h3>PR/QAフロー</h3><p>各変更はレビュー・QA・CIを通過し、Forgejo PR経由でmainへ反映。最終公開後のヘルスチェックも記録済み。</p></article>
+        </div>
+      </section>
+
+      <section class="section" id="gap">
+        <div class="section-head">
+          <div><p class="eyebrow">GAP</p><h2>月30成約との距離</h2></div>
+          <p>今ある数字は「広告クリックとタップ」。必要なのは「有効問い合わせ・見積・成約・利益」。</p>
+        </div>
+        <div class="flow" aria-label="成約ファネル">
+          <div class="step"><div class="num">01</div><strong>広告クリック</strong><small>8月: 574クリック / CPC 476.64円</small></div>
+          <div class="step"><div class="num">02</div><strong>電話・LINEタップ</strong><small>8月: 6タップ。タップCPA 45,599円</small></div>
+          <div class="step"><div class="num">03</div><strong>有効問い合わせ</strong><small>未確認。地域・案件種別・相談成立で判定</small></div>
+          <div class="step"><div class="num">04</div><strong>見積提示</strong><small>未確認。現地確認・見積金額・辞退理由が必要</small></div>
+          <div class="step"><div class="num">05</div><strong>成約・利益</strong><small>未確認。月30件の最終KPI</small></div>
+        </div>
+        <div class="callout" style="margin-top:18px"><strong>重要:</strong> 月25万円で30成約なら広告費ベースの受注CPAは8,333円以下が必要。CPC550円・有効CVR4%・有効問い合わせから成約40%の仮定では、月30成約に約1,031,250円が必要。月25万円では約7.3成約の計算で、30成約には有効CVR16.5%が必要になる。</div>
+        <div class="table-wrap" style="margin-top:18px">
+          <table>
+            <thead><tr><th>前提</th><th>現状で分かること</th><th>まだ分からないこと</th><th>判断への影響</th></tr></thead>
+            <tbody>
+              <tr><td>広告実績</td><td>8月 273,594円 / 574クリック / 6タップ</td><td>9月以降の最新実績、検索語句、CV別成果、変更履歴</td><td>広告を止める・増やす・組み替える判断ができない</td></tr>
+              <tr><td>LP</td><td>料金・相談導線・CTA・KVは公開済み</td><td>改善後の有効問い合わせ率、料金到達、CTA後の相談成立</td><td>LP改善の成果は運用ログで判定する必要がある</td></tr>
+              <tr><td>営業</td><td>見積・成約率を測る必要性は明確</td><td>初回応答率、見積化率、失注理由、成約までの日数</td><td>広告CPAだけ見ても利益判断できない</td></tr>
+              <tr><td>施工能力</td><td>月30件には班日と稼働率の確認が必要</td><td>平均班日、稼働可能日、現地見積担当時間、外注余力</td><td>広告で取れても現場が詰まれば機会損失になる</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" id="issues">
+        <div class="section-head">
+          <div><p class="eyebrow">ISSUES</p><h2>今後の課題</h2></div>
+          <p>P0は次の意思決定に必須。P1は効果を伸ばす施策。P2は勝ち筋が見えてから広げる。</p>
+        </div>
+        <div class="priority-row">
+          <div class="rank p0">P0</div>
+          <div><h3>Google Ads再認証と最新データ回収</h3><p>invalid_grant を解消し、9月以降の日別・検索語句・端末・地域・CV別・広告文・変更履歴を取得する。</p></div>
+          <div><strong>完了条件</strong><ul><li>欠測を0件扱いしない。</li><li>月予算と日予算15,000円相当の整合を説明。</li><li>現状広告と改善案の差分を明示。</li></ul></div>
+        </div>
+        <div class="priority-row">
+          <div class="rank p0">P0</div>
+          <div><h3>成約台帳と計測の接続</h3><p>電話・LINE・広告タップ・有効問い合わせ・見積・成約を別列で管理し、二重計上を避ける。</p></div>
+          <div><strong>完了条件</strong><ul><li>タップ、実通話、LINE初回、成約を分離。</li><li>問い合わせ発生月別の成約率を確認。</li><li>個人情報をGA4/広告へ送らない運用にする。</li></ul></div>
+        </div>
+        <div class="priority-row">
+          <div class="rank p0">P0</div>
+          <div><h3>採算・施工能力の基準化</h3><p>平均受注額、限界利益、営業費、平均班日、稼働班数を確認し、許容受注CPAを決める。</p></div>
+          <div><strong>完了条件</strong><ul><li>30成約時の広告費だけでなく利益を試算。</li><li>月30件を処理できる班数・見積担当時間を確認。</li><li>増額可否の基準を数値で置く。</li></ul></div>
+        </div>
+        <div class="priority-row">
+          <div class="rank p1">P1</div>
+          <div><h3>検索意図別の広告改善</h3><p>緊急・料金比較・大家/管理会社の意図に合わせて広告文とLP導線を合わせる。未確認の約束は入れない。</p></div>
+          <div><strong>完了条件</strong><ul><li>Paused入稿案を現状広告との差分としてレビュー。</li><li>地域、時間、除外語、停止条件を明記。</li><li>承認後にだけ入稿。</li></ul></div>
+        </div>
+        <div class="priority-row">
+          <div class="rank p1">P1</div>
+          <div><h3>特殊清掃の証拠強化</h3><p>掲載口コミが遺品整理中心のため、特殊清掃の消臭結果・総額・期間・完了確認の証拠を増やす。</p></div>
+          <div><strong>完了条件</strong><ul><li>許諾済み事例だけ掲載。</li><li>遺品整理の声を特殊清掃の声として書き換えない。</li><li>料金・税区分・作業範囲を一致させる。</li></ul></div>
+        </div>
+        <div class="priority-row">
+          <div class="rank p2">P2</div>
+          <div><h3>法人・紹介チャネルの準備</h3><p>大家・管理会社、不動産管理、原状回復の紹介ルートを広告とは別チャネルとして育てる。</p></div>
+          <div><strong>完了条件</strong><ul><li>候補20社、提案資料、報告書見本を整理。</li><li>未承認の営業連絡をしない。</li><li>広告起点30成約とは別で管理。</li></ul></div>
+        </div>
+      </section>
+
+      <section class="section" id="plan">
+        <div class="section-head">
+          <div><p class="eyebrow">NEXT</p><h2>次の実行順</h2></div>
+          <p>これ以上LPだけを磨く前に、成約までの数字を取りに行く。</p>
+        </div>
+        <div class="timeline">
+          <article class="phase"><div class="days">DAY 0–3</div><h3>広告復旧</h3><p>Google Ads再認証。最新データと現状設定を回収。CV欠測の範囲を確定。</p></article>
+          <article class="phase"><div class="days">DAY 0–7</div><h3>台帳運用開始</h3><p>電話/LINE/有効相談/見積/成約/利益を1件単位で記録。テスト案件は除外。</p></article>
+          <article class="phase"><div class="days">DAY 8–30</div><h3>小さく広告検証</h3><p>検索意図別に広告文・除外語・LP到達を調整。100クリック未満で勝敗断定しない。</p></article>
+          <article class="phase"><div class="days">DAY 31–90</div><h3>条件付き拡大</h3><p>受注CPA、成約利益、応答、施工余力、追加検索需要が成立した範囲で増額。</p></article>
+        </div>
+        <div class="callout" style="margin-top:18px"><strong>判断基準:</strong> 増額は「有効問い合わせCVRが上がった」だけでは不可。成約率・受注CPA・利益・施工能力が許容内で、未決案件の時間差を考慮した後に判断する。</div>
+      </section>
+
+      <section class="section" id="evidence">
+        <div class="section-head">
+          <div><p class="eyebrow">EVIDENCE</p><h2>根拠ファイル</h2></div>
+          <p>このHTMLは新しい成果を主張する資料ではなく、既存の分析・実装・QA記録を「現在地と課題」に再整理したもの。</p>
+        </div>
+        <div class="grid-2">
+          <article class="card"><h3>一次資料</h3><ul><li><a href="README.md">docs/marketing/README.md</a></li><li><a href="03-strategy.md">docs/marketing/03-strategy.md</a></li><li><a href="05-delivery.md">docs/marketing/05-delivery.md</a></li><li><a href="improvement-plan.html">docs/marketing/improvement-plan.html</a></li></ul></article>
+          <article class="card"><h3>タスク記録</h3><ul><li>T-87: 月30成約の分析・レビュー</li><li>T-88/T-89: LP改善・HTML計画・広告案・成約台帳</li><li>T-98〜T-103: KV、CTA、底部固定バー、画像差し替え、キャッシュ無効化</li></ul></article>
+        </div>
+        <p class="footer">作成: CMD-39 / ag-702。内部検討用。広告入稿・予算変更・営業連絡の承認ではない。</p>
+      </section>
+    </main>
+  </div>
+  <script>
+    document.getElementById('print-button').addEventListener('click', () => window.print());
+  </script>
+</body>
+</html>
