@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CLARITY_ENABLED } from "@/components/mcy/analytics-config";
 
 export const metadata: Metadata = {
   title: "プライバシーポリシー｜セレンシア（株式会社TAKAKU）",
@@ -101,7 +102,7 @@ export default function PrivacyPage() {
           6. Cookie・アクセス解析について
         </h2>
         <p className="mt-3">
-          当サイトでは、サービス改善および広告効果測定のため、Cookie等を利用した以下のツールを使用しています。これらのツールにより、閲覧ページ・ボタンのタップ等の情報（個人を特定しない形式）がGoogle社に送信されることがあります。
+          当サイトでは、サービス改善および広告効果測定のため、Cookie等を利用した以下のツールを使用しています。これらのツールにより、閲覧ページ・ボタンのタップ等の情報（個人を特定しない形式）がGoogle社{CLARITY_ENABLED ? "およびMicrosoft社" : ""}に送信されることがあります。
         </p>
         <ul className="mt-2 space-y-1">
           <li className="flex">
@@ -112,6 +113,12 @@ export default function PrivacyPage() {
             <span className="shrink-0">・</span>
             <span>Google 広告（広告の効果測定・コンバージョン計測）</span>
           </li>
+          {CLARITY_ENABLED && (
+            <li className="flex">
+              <span className="shrink-0">・</span>
+              <span>Microsoft Clarity（ページ内の操作の分析。入力内容は記録しない設定で利用しています）</span>
+            </li>
+          )}
         </ul>
         <p className="mt-3">
           Cookieの利用を望まれない場合は、ブラウザの設定により無効化できます。Google
