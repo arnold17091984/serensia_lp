@@ -107,8 +107,9 @@ export default function RootLayout({
         <Script id="ga4" strategy="afterInteractive">
           {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','${GA4_ID}');gtag('config','${AW_ID}');gtag('config','${AW_PHONE_CONVERSION_LABEL}',{'phone_conversion_number':'${PHONE_DISPLAY_FOR_SWAP}'});`}
         </Script>
+        {/* id must not be "clarity": element ids become window globals and shadow window.clarity */}
         {CLARITY_ENABLED && (
-          <Script id="clarity" strategy="lazyOnload">
+          <Script id="ms-clarity-init" strategy="lazyOnload">
             {`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${CLARITY_PROJECT_ID}");`}
           </Script>
         )}
