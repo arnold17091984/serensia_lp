@@ -8,10 +8,10 @@ week, one hypothesis at a time, and only after owner approval.
 
 | # | Agent | Cadence | Output | Status |
 |---|---|---|---|---|
-| 1 | Data analysis | daily 09:15 | `~/automation/lp-ops/reports/daily-YYYY-MM-DD.md`, hypothesis cards in `~/automation/lp-ops/backlog.md`, Telegram digest | phase 1 (live) |
-| 2 | Strategy (4P / 12-type matrix) | monthly | `docs/lp-ops/strategy.md` (changes via PR) | phase 1 (v1 draft) |
-| 3 | Competitor research | weekly | competitor diff notes | phase 2 |
-| 4 | Copy / UX proposals | weekly (Mon) | top-3 proposals sent for approval | phase 2 |
+| 1 | Data analysis | daily 09:15 | `~/automation/lp-ops/reports/daily-YYYY-MM-DD.md`, hypothesis cards in `~/automation/lp-ops/backlog.md`, Telegram digest | live |
+| 2 | Strategy (4P / 12-type matrix) | monthly | `docs/lp-ops/strategy.md` (changes via PR) | v1 draft (this PR) |
+| 3 | Competitor research | weekly (Mon 09:45) | `~/automation/lp-ops/competitors.md` | live |
+| 4 | Copy / UX proposals | weekly (Mon 09:45, same run as #3) | `~/automation/lp-ops/proposals/weekly-YYYY-MM-DD.md`, Telegram approval request | live |
 | 5 | Implementation (AUTODEV seat) | after approval | PR with before/after screenshots | phase 2 |
 | 6 | QA and cross-model review | per PR | pass/fail with findings | phase 2 |
 | 7 | Experiment evaluation | end of each window | adopt / revert verdict | phase 2 |
@@ -27,4 +27,12 @@ week, one hypothesis at a time, and only after owner approval.
 
 - `~/automation/scripts/lp-collect.py` — deterministic data collection (Google Ads via MCP stdio, LP health, PageSpeed)
 - `~/automation/scripts/lp-daily-analysis.sh` — daily agent run (launchd `com.claude.lp-daily-analysis`)
+- `~/automation/scripts/lp-weekly-plan.sh` — weekly competitor watch + proposals (launchd `com.claude.lp-weekly-plan`)
+
+## Approval flow
+
+1. Monday digest lists up to 3 proposals; the owner picks one by telling Claude `H-0XX 承認`.
+2. Claude opens (or updates) a PR with before/after screenshots at 390/320px; QA and review run on the PR.
+3. The owner checks the screenshots; Claude deploys and records the evaluation start date on the card.
+4. After the window, the daily agent reports the metrics and the owner decides adopt / revert.
 - `~/automation/lp-ops/` — config, backlog, reports, raw data, read-only repo clone
