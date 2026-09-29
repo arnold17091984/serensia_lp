@@ -137,7 +137,7 @@ export default function PrivacyPage() {
 
       <div className="mt-10 text-right text-[13px] text-neutral-600">
         <p>制定日：2026年7月8日</p>
-        <p className="mt-1">改定日：2026年8月2日</p>
+        <p className="mt-1">改定日：2026年9月29日</p>
         <p className="mt-1">株式会社TAKAKU</p>
       </div>
 
