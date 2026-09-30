@@ -183,10 +183,10 @@ export default function CtaButton({
       {variant !== "secondary" && <McyCtaShine />}
       <IconDisc icon={iconKind} variant={variant} size={size} />
       <span className={`cta-text relative min-w-0 flex-1 text-center leading-none ${variant === "secondary" ? "flex-none" : ""}`}>
-        {lg && topText ? <span className="block text-[13px] font-bold leading-[1.3]">{topText}</span> : null}
+        {lg && topText ? <span className="block text-[14px] font-bold leading-[1.3]">{topText}</span> : null}
         <span className={`${mainClass} ${lg && topText ? "mt-[3px]" : ""}`}>{mainText}</span>
         {subText ? (
-          <span className={`block font-bold leading-[1.4] ${lg ? "mt-[4px] text-[clamp(10.5px,3.1vw,12px)]" : "mt-[3px] text-[clamp(10px,3vw,11.5px)]"}`}>{subText}</span>
+          <span className={`block font-bold leading-[1.4] ${lg ? "mt-[4px] text-[clamp(12.5px,3.5vw,14px)]" : "mt-[3px] text-[clamp(10px,3vw,11.5px)]"}`}>{subText}</span>
         ) : null}
       </span>
       <Chevron dir={chevron} size={size} />
