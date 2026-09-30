@@ -22,7 +22,7 @@ interface FaqItem {
 const FAQ: readonly FaqItem[] = [
   { q: "相談や見積りにお金はかかりますか？", a: "ご相談・お見積り・出張費用はすべて無料です。お見積り確定後の追加費用もありません。金額にご納得いただいてから作業を開始します。", open: true },
   { q: "費用は誰が負担するのですか？", a: "ご遺族（相続人）、連帯保証人、物件のオーナー様など、契約内容や状況によって異なります。当社では法的な判断はできませんが、作業内容と金額の内訳を記載したお見積書をご用意しますので、ご家族や管理会社様とのお話し合いにお使いください。相続放棄をお考えの場合は、ご依頼の前に弁護士・司法書士などの専門家へご相談いただくことをおすすめします。" },
-  { q: "特殊清掃は、ふつうのハウスクリーニングと何が違いますか？", a: "特殊清掃は、孤独死・事故現場などで生じる強い腐敗臭・体液汚染・害虫の発生に対応する作業です。一般的なハウスクリーニングは日常の汚れが対象のため、臭いの原因が床や壁の内部まで及んでいる場合は、表面を清掃するだけでは解決しないことがあります。当社は原因を特定し、根本から解決します。まずは現場の状況をお聞かせください。" },
+  { q: "特殊清掃は、ふつうのハウスクリーニングと何が違いますか？", a: "特殊清掃は、孤独死・事故現場などで生じる強い腐敗臭・体液汚染・害虫の発生に対応する作業です。一般的なハウスクリーニングは日常の汚れが対象のため、臭いの原因が床や壁の内部まで及んでいる場合は、表面を清掃するだけでは解決しないことがあります。当社は現場の状況を確認し、臭いや汚染の原因に応じた作業をご提案します。まずは状況をお聞かせください。" },
   { q: "すぐに来てもらえますか？", a: "東京・神奈川を中心に、最短即日で現地確認に伺います。お急ぎの場合は、まずはお電話（9:00〜21:00 年中無休）でご相談ください。", open: true },
   {
     q: "夜間に発見した場合はどうすればいいですか？",
@@ -143,7 +143,7 @@ export default function McyClosing() {
                   <span className="grid h-[clamp(24px,6.6vw,30px)] w-[clamp(24px,6.6vw,30px)] shrink-0 place-items-center rounded-[9px] bg-gradient-to-br from-lux-green-2 to-lux-green font-display text-[clamp(12px,3.3vw,15px)] font-black text-white shadow-[0_3px_8px_rgba(7,49,95,0.35)] ring-1 ring-lux-gold/40">
                     Q
                   </span>
-                  <p className="min-w-0 flex-1 pt-[3px] text-[clamp(12px,3.4vw,14.5px)] font-black leading-[1.65] text-lux-green-ink [word-break:auto-phrase]">
+                  <p className="min-w-0 flex-1 pt-[3px] text-[clamp(15.5px,4.3vw,18px)] font-black leading-[1.55] text-lux-green-ink [word-break:auto-phrase]">
                     {f.q}
                   </p>
                   <span
