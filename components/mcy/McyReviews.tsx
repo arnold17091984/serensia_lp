@@ -73,7 +73,7 @@ export default function McyReviews() {
               <p className="mt-[clamp(5px,1.6vw,8px)] text-[clamp(10px,2.8vw,12px)] font-bold text-lux-green-ink/75 [word-break:auto-phrase]">
                 {r.area}
               </p>
-              <p className="mt-[3px] line-clamp-5 text-[clamp(11.5px,3.1vw,13.5px)] leading-[1.85] text-lux-green-ink/85 [word-break:auto-phrase]">
+              <p className="mt-[3px] line-clamp-5 text-[clamp(15px,4.1vw,17px)] leading-[1.85] text-lux-green-ink/90 [text-wrap:pretty]">
                 {r.text}
               </p>
             </li>

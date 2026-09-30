@@ -80,10 +80,10 @@ export default function McyReasons() {
                     </svg>
                   </span>
                   <div className="min-w-0 flex-1">
-                    <p className="text-[clamp(13px,3.6vw,16px)] font-black leading-snug text-lux-green-ink [word-break:auto-phrase]">
+                    <p className="text-[clamp(15px,4.1vw,17px)] font-black leading-snug text-lux-green-ink [word-break:auto-phrase]">
                       {r.title}
                     </p>
-                    <p className="mt-[4px] text-[clamp(10.5px,2.9vw,12.5px)] font-medium leading-[1.75] text-lux-green-ink/75 [word-break:auto-phrase]">
+                    <p className="mt-[4px] text-[clamp(14.5px,3.9vw,16px)] font-medium leading-[1.75] text-lux-green-ink/90 [text-wrap:pretty]">
                       {r.desc}
                     </p>
                   </div>
@@ -93,7 +93,7 @@ export default function McyReasons() {
           ))}
         </ol>
 
-        <p className="mx-auto mt-[clamp(14px,3.8vw,20px)] max-w-[460px] text-center text-[clamp(11.5px,3.2vw,14px)] font-bold leading-[1.8] text-lux-green-ink [word-break:auto-phrase]">
+        <p className="mx-auto mt-[clamp(14px,3.8vw,20px)] max-w-[460px] text-center text-[clamp(14.5px,3.9vw,16px)] font-bold leading-[1.8] text-lux-green-ink [text-wrap:pretty]">
           だから、
           <span className="text-lux-green">はじめての方や、他社で迷われた方</span>
           にも安心してお任せいただけます。

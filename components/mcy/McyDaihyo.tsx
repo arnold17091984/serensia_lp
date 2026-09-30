@@ -47,14 +47,14 @@ export default function McyDaihyo() {
               <p className="font-display text-[clamp(20px,5.6vw,26px)] font-black leading-tight text-lux-green-ink [text-shadow:0_1px_0_rgba(255,255,255,0.8)]">
                 太田 貴也
               </p>
-              <p className="mt-[3px] text-[clamp(9px,2.5vw,11px)] font-bold leading-[1.5] text-lux-green-ink/65 [word-break:auto-phrase]">
+              <p className="mt-[3px] text-[clamp(13.5px,3.6vw,15px)] font-bold leading-[1.5] text-lux-green-ink/90 [text-wrap:pretty]">
                 事件現場特殊清掃士／認定遺品整理士
               </p>
             </div>
           </div>
 
           {/* message */}
-          <p className="mt-[clamp(12px,3.4vw,16px)] text-[clamp(11.5px,3.2vw,14px)] font-medium leading-[1.95] text-lux-green-ink/90 [word-break:auto-phrase]">
+          <p className="mt-[clamp(12px,3.4vw,16px)] text-[clamp(15px,4.1vw,17px)] font-medium leading-[1.95] text-lux-green-ink/90 [text-wrap:pretty]">
             ご遺族・大家様・管理会社様の不安に寄り添い、最後まで丁寧に対応します。どんな状況でも、まずはご相談ください。まずは代表・太田が直接お話を伺います。
           </p>
 
@@ -66,7 +66,7 @@ export default function McyDaihyo() {
                 className="flex items-start gap-[9px] rounded-[12px] border border-lux-border bg-white px-3 py-[9px] shadow-[0_2px_8px_rgba(7,49,95,0.06)]"
               >
                 <CheckGreen className="mt-[1px] h-[clamp(18px,5vw,22px)] w-[clamp(18px,5vw,22px)]" />
-                <span className="min-w-0 text-[clamp(10.5px,2.9vw,13px)] leading-[1.6] text-lux-green-ink/85 [word-break:auto-phrase]">
+                <span className="min-w-0 text-[clamp(14.5px,3.9vw,16px)] leading-[1.6] text-lux-green-ink/90 [text-wrap:pretty]">
                   <span className="whitespace-nowrap"><span className="font-black text-lux-green">{p.title}</span><span className="mx-[5px] text-lux-gold-deep">｜</span></span>
                   {p.desc}
                 </span>

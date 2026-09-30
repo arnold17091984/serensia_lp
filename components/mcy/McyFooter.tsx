@@ -56,7 +56,7 @@ export default function McyFooter() {
           </div>
           <Laurel flip />
         </div>
-        <p className="mt-2 text-[clamp(10px,2.8vw,12.5px)] font-medium text-white/80">
+        <p className="mt-2 text-[clamp(13.5px,3.6vw,15px)] font-medium text-white/90">
           運営会社：株式会社TAKAKU
         </p>
         <p className="mt-1 text-[clamp(10px,2.8vw,12px)] font-medium text-white/75">
@@ -80,12 +80,12 @@ export default function McyFooter() {
             {PHONE_DISPLAY}
           </span>
         </a>
-        <p className="mt-2 text-[clamp(9.5px,2.7vw,12px)] font-medium leading-[1.8] text-white/80 [word-break:auto-phrase]">
+        <p className="mt-2 text-[clamp(13.5px,3.6vw,15px)] font-medium leading-[1.8] text-white/90 [text-wrap:pretty]">
           <span className="whitespace-nowrap">お電話受付 9:00〜21:00 年中無休／</span>
           <br className="min-[430px]:hidden" />
           <span className="whitespace-nowrap">LINEは24時間受付・確認次第ご返信</span>
         </p>
-        <p className="mt-3 text-[clamp(9.5px,2.7vw,12px)] font-medium text-white/80">
+        <p className="mt-3 text-[clamp(13.5px,3.6vw,15px)] font-medium text-white/90">
           対応エリア：東京・神奈川を中心に関東一円
         </p>
 
@@ -109,7 +109,7 @@ export default function McyFooter() {
           <span className="h-px flex-1 bg-gradient-to-l from-transparent to-mcy-gold/50" />
         </div>
 
-        <p className="mt-[clamp(10px,3vw,14px)] pb-2 text-[clamp(9px,2.5vw,11px)] tracking-[0.08em] text-white/80">
+        <p className="mt-[clamp(10px,3vw,14px)] pb-2 text-[clamp(13.5px,3.6vw,15px)] tracking-[0.08em] text-white/90">
           © 株式会社TAKAKU
         </p>
       </div>

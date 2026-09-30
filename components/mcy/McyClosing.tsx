@@ -159,7 +159,7 @@ export default function McyClosing() {
                     A
                   </span>
                   <div className="min-w-0 flex-1 pt-[3px]">
-                    <p className="text-[clamp(11px,3.1vw,13px)] font-medium leading-[1.9] text-lux-green-ink/85 [word-break:auto-phrase]">
+                    <p className="text-[clamp(15px,4.1vw,17px)] font-medium leading-[1.9] text-lux-green-ink/90 [text-wrap:pretty]">
                       {f.a}
                     </p>
                     {f.link && (
@@ -168,7 +168,7 @@ export default function McyClosing() {
                         target="_blank"
                         rel="noopener noreferrer"
                         data-gtm={f.link.gtm}
-                        className="mt-2 inline-block text-[clamp(11px,3.1vw,13px)] font-bold text-lux-green underline decoration-lux-gold decoration-2 underline-offset-4 [word-break:auto-phrase]"
+                        className="mt-2 inline-block text-[clamp(14.5px,3.9vw,16px)] font-bold text-lux-green underline decoration-lux-gold decoration-2 underline-offset-4 [text-wrap:pretty]"
                       >
                         {f.link.label}
                       </a>
@@ -227,7 +227,7 @@ export default function McyClosing() {
                     <h3 className="text-[clamp(12.5px,3.5vw,15px)] font-black leading-snug text-lux-green-ink">
                       {s.title}
                     </h3>
-                    <p className="mt-[3px] text-[clamp(10px,2.8vw,12.5px)] font-medium leading-[1.75] text-lux-green-ink/75">
+                    <p className="mt-[3px] text-[clamp(14.5px,3.9vw,16px)] font-medium leading-[1.75] text-lux-green-ink/90">
                       {s.desc}
                     </p>
                     {s.tel ? (
@@ -276,7 +276,7 @@ export default function McyClosing() {
             <p className="font-display text-[clamp(15px,4.2vw,19px)] font-black leading-snug text-lux-green-ink [word-break:auto-phrase]">
               一人で抱え込まず、まずはご相談ください。
             </p>
-            <p className="mt-[6px] text-[clamp(11px,3vw,13px)] font-medium leading-[1.8] text-lux-green-ink/80 [word-break:auto-phrase]">
+            <p className="mt-[6px] text-[clamp(15px,4.1vw,17px)] font-medium leading-[1.8] text-lux-green-ink/90 [text-wrap:pretty]">
               どんな小さなことでも、専門スタッフが丁寧にお答えします。
             </p>
           </div>
