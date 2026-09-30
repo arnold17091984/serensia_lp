@@ -179,7 +179,7 @@ export default function McyTrust() {
             <br />
             <span className="text-lux-green">SOS</span>も緊急対応
           </SectionHeading>
-          <p className="mx-auto mt-[clamp(10px,3vw,16px)] max-w-[460px] text-[clamp(11.5px,3.2vw,14px)] font-medium leading-[2] text-lux-green-ink/90 [word-break:auto-phrase]">
+          <p className="mx-auto mt-[clamp(10px,3vw,16px)] max-w-[460px] text-[clamp(15px,4.1vw,17px)] font-medium leading-[2] text-lux-green-ink/90 [text-wrap:pretty]">
             孤独死が発生した物件は、放置すれば異臭や汚染が広がり、資産価値や入居率の低下につながります。セレンシアは、迅速・丁寧な特殊清掃と原状回復で、次の入居者を安心して迎えられる環境を整えます。万が一に備え、東京海上日動火災保険の賠償責任保険にも加入しています。
           </p>
           <div className="mx-auto mt-[clamp(14px,4vw,20px)] grid max-w-[460px] grid-cols-3 gap-[clamp(6px,1.8vw,10px)]">
@@ -191,10 +191,10 @@ export default function McyTrust() {
                 <span className="grid h-[clamp(38px,10.5vw,48px)] w-[clamp(38px,10.5vw,48px)] place-items-center rounded-full bg-lux-cream text-lux-gold-deep ring-1 ring-lux-gold/45">
                   <LineIcon name={b.icon} className="h-[54%] w-[54%]" />
                 </span>
-                <span className="mt-2 text-[clamp(10.5px,3vw,13px)] font-black leading-[1.4] text-lux-green-ink [word-break:auto-phrase]">
+                <span className="mt-2 text-[clamp(14.5px,3.9vw,16px)] font-black leading-[1.4] text-lux-green-ink [word-break:auto-phrase]">
                   {b.label}
                 </span>
-                <span className="mt-[4px] text-[clamp(8.5px,2.4vw,10.5px)] font-medium leading-[1.55] text-lux-green-ink/70 [word-break:auto-phrase]">
+                <span className="mt-[4px] text-[clamp(13.5px,3.6vw,15px)] font-medium leading-[1.55] text-lux-green-ink/90 [text-wrap:pretty]">
                   {b.desc}
                 </span>
               </div>
@@ -236,11 +236,11 @@ export default function McyTrust() {
                 <span className="mx-auto grid h-[clamp(38px,10.5vw,48px)] w-[clamp(38px,10.5vw,48px)] place-items-center rounded-xl bg-gradient-to-b from-lux-cream to-white text-lux-green ring-1 ring-lux-gold/30">
                   <LineIcon name={s.icon} className="h-[58%] w-[58%]" />
                 </span>
-                <p className="mt-2 text-[clamp(11.5px,3.2vw,14px)] font-black leading-[1.6] text-lux-green-ink [word-break:auto-phrase]">
+                <p className="mt-2 text-[clamp(14.5px,3.9vw,16px)] font-black leading-[1.6] text-lux-green-ink [word-break:auto-phrase]">
                   {s.title}
                 </p>
                 {s.sub ? (
-                  <p className="mt-1 text-[clamp(9.5px,2.7vw,11.5px)] font-medium leading-[1.6] text-lux-green-ink/75 [word-break:auto-phrase]">
+                  <p className="mt-1 text-[clamp(13.5px,3.6vw,15px)] font-medium leading-[1.6] text-lux-green-ink/90 [text-wrap:pretty]">
                     {s.sub}
                   </p>
                 ) : null}
@@ -275,7 +275,7 @@ export default function McyTrust() {
           <SectionHeading kicker="技術を磨き、住まいを磨く。">
             保有許可・<span className="text-lux-green">資格</span>
           </SectionHeading>
-          <p className="mx-auto mt-[clamp(10px,3vw,16px)] max-w-[460px] text-[clamp(11.5px,3.2vw,14px)] font-medium leading-[2] text-lux-green-ink/90 [word-break:auto-phrase]">
+          <p className="mx-auto mt-[clamp(10px,3vw,16px)] max-w-[460px] text-[clamp(15px,4.1vw,17px)] font-medium leading-[2] text-lux-green-ink/90 [text-wrap:pretty]">
             セレンシアでは、安心してお任せいただけるよう、多くの資格を持ったプロフェッショナルが特殊清掃や遺品整理に対応します。
           </p>
 
@@ -290,7 +290,7 @@ export default function McyTrust() {
               decoding="async"
               className="h-auto w-[clamp(112px,31vw,150px)] shrink-0 rounded-2xl object-cover shadow-[0_10px_22px_rgba(7,49,95,0.22)] ring-1 ring-lux-gold/40"
             />
-            <p className="text-[clamp(11px,3vw,13.5px)] font-bold leading-[1.95] text-lux-green-ink [word-break:auto-phrase]">
+            <p className="text-[clamp(14.5px,3.9vw,16px)] font-bold leading-[1.95] text-lux-green-ink [text-wrap:pretty]">
               有資格の専門スタッフが、
               <span className="text-lux-green">責任をもって最後まで</span>
               対応します。まずは代表・太田がお話を伺います。
@@ -307,7 +307,7 @@ export default function McyTrust() {
                   <span className="grid h-[clamp(22px,6vw,28px)] w-[clamp(22px,6vw,28px)] shrink-0 place-items-center rounded-full bg-gradient-to-b from-lux-gold-light via-lux-gold to-lux-gold font-display text-[clamp(10px,2.8vw,13px)] font-black text-forest-950 shadow-[0_2px_6px_rgba(156,119,41,0.4)] ring-1 ring-white/70">
                     {i + 1}
                   </span>
-                  <span className="text-[clamp(11px,3.1vw,13.5px)] font-bold leading-[1.6] text-lux-green-ink [word-break:auto-phrase]">
+                  <span className="text-[clamp(14.5px,3.9vw,16px)] font-bold leading-[1.6] text-lux-green-ink [text-wrap:pretty]">
                     {l}
                   </span>
                 </li>

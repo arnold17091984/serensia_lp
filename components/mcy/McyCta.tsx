@@ -41,7 +41,7 @@ export default function McyCta({ tone = "dark" }: Readonly<{ tone?: "dark" | "li
             </p>
 
             {/* social-proof recap at the decision point (verified figures) */}
-            <p className="mt-2 text-center text-[clamp(10px,2.8vw,12.5px)] font-bold leading-[1.7] text-lux-green-ink">
+            <p className="mt-2 text-center text-[clamp(14.5px,3.9vw,16px)] font-bold leading-[1.7] text-lux-green-ink">
               <span className="whitespace-nowrap">Googleクチコミ <span className="text-lux-gold-deep">★</span>5.0／191件</span>
               <span aria-hidden="true" className="mx-[3px] text-lux-gold-deep">｜</span>
               <span className="whitespace-nowrap">ご相談実績2,000件以上</span>

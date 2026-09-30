@@ -83,7 +83,7 @@ export default function McyProblems() {
               <span className="ml-1 whitespace-nowrap text-[clamp(25px,7vw,36px)] text-lux-green-ink">で解決！</span>
             </p>
             <GoldDiamond />
-            <p className="relative mt-[clamp(8px,2.2vw,12px)] text-[clamp(11.5px,3.2vw,14px)] font-bold text-lux-green-ink/85">
+            <p className="relative mt-[clamp(8px,2.2vw,12px)] text-[clamp(14.5px,3.9vw,16px)] font-bold text-lux-green-ink/90">
               セレンシアだからできる、特殊清掃の強みをチェック！
             </p>
           </div>
@@ -129,7 +129,7 @@ export default function McyProblems() {
                       className="flex items-center gap-2 rounded-[10px] border border-lux-gold/25 bg-lux-cream px-3 py-2 shadow-[0_2px_6px_rgba(7,49,95,0.06)]"
                     >
                       <CheckGreen className="mt-[2px] h-[clamp(17px,4.8vw,22px)] w-[clamp(17px,4.8vw,22px)]" />
-                      <span className="text-[clamp(10.5px,3vw,13px)] font-bold text-lux-green-ink">{c}</span>
+                      <span className="text-[clamp(14.5px,3.9vw,16px)] font-bold text-lux-green-ink">{c}</span>
                     </li>
                   ))}
                 </ul>
@@ -159,8 +159,8 @@ export default function McyProblems() {
                   <div className="flex items-center gap-3 px-[clamp(10px,3vw,15px)] py-[clamp(10px,2.8vw,14px)]">
                     <Shield n={i + 1} className="h-[clamp(40px,10.8vw,52px)] w-[clamp(36px,9.6vw,46px)]" />
                     <div className="min-w-0 flex-1">
-                      <p className="text-[clamp(13px,3.6vw,16px)] font-black leading-snug text-lux-green-ink">{s.name}</p>
-                      <p className="mt-[2px] text-[clamp(10px,2.8vw,12.5px)] font-medium leading-[1.6] text-lux-green-ink/70">
+                      <p className="text-[clamp(15px,4.1vw,17px)] font-black leading-snug text-lux-green-ink">{s.name}</p>
+                      <p className="mt-[2px] text-[clamp(14px,3.8vw,15.5px)] font-medium leading-[1.6] text-lux-green-ink/90 [text-wrap:pretty]">
                         {s.desc}
                       </p>
                     </div>
@@ -172,7 +172,7 @@ export default function McyProblems() {
               </li>
             ))}
           </ol>
-          <p className="mx-auto mt-3 max-w-[460px] text-center text-[clamp(9px,2.5vw,11px)] font-medium text-lux-green-ink/80">
+          <p className="mx-auto mt-3 max-w-[460px] text-center text-[clamp(13.5px,3.6vw,15px)] font-medium text-lux-green-ink/90">
             ※現場の状況により一部工程を実施しない場合がございます。
           </p>
           <a
@@ -180,7 +180,7 @@ export default function McyProblems() {
             target="_blank"
             rel="noopener noreferrer"
             data-gtm="cta_line_process"
-            className="mx-auto mt-[clamp(8px,2.2vw,12px)] block max-w-[460px] py-[12px] text-center text-[clamp(11px,3.1vw,13px)] font-bold text-lux-green-ink underline decoration-lux-gold decoration-2 underline-offset-4 [word-break:auto-phrase]"
+            className="mx-auto mt-[clamp(8px,2.2vw,12px)] block max-w-[460px] py-[12px] text-center text-[clamp(14.5px,3.9vw,16px)] font-bold text-lux-green-ink underline decoration-lux-gold decoration-2 underline-offset-4 [text-wrap:pretty]"
           >
             うちの場合はどの工程が必要？ → LINEで状況を相談する<span className="whitespace-nowrap">（24時間受付）</span>
           </a>
@@ -193,7 +193,7 @@ export default function McyProblems() {
 
         <div className="relative">
           <div className="relative text-center">
-            <p className="relative text-[clamp(11px,3.1vw,14px)] font-bold text-lux-green-ink/75">
+            <p className="relative text-[clamp(14.5px,3.9vw,16px)] font-bold text-lux-green-ink/90">
               悲惨な状況の影も見えなくなるような
             </p>
             <h2 className="relative mt-[clamp(5px,1.6vw,9px)] font-display text-[clamp(22px,6.2vw,31px)] font-black leading-snug text-lux-green-ink [text-shadow:0_1px_0_rgba(255,255,255,0.8)]">
@@ -207,7 +207,7 @@ export default function McyProblems() {
           <div className="relative mx-auto mt-[clamp(14px,3.8vw,20px)] max-w-[460px] px-[clamp(14px,4vw,20px)] py-[clamp(12px,3.4vw,18px)]">
             <span aria-hidden="true" className="pointer-events-none absolute left-0 top-0 h-6 w-9 border-l-2 border-t-2 border-lux-gold/80" />
             <span aria-hidden="true" className="pointer-events-none absolute bottom-0 right-0 h-6 w-9 border-b-2 border-r-2 border-lux-gold/80" />
-            <p className="text-[clamp(11.5px,3.2vw,14px)] font-medium leading-[2] text-lux-green-ink/90 [word-break:auto-phrase]">
+            <p className="text-[clamp(15px,4.1vw,17px)] font-medium leading-[2] text-lux-green-ink/90 [text-wrap:pretty]">
               清掃だけでなく、汚染箇所の建材撤去も行い、再利用できる素材を適切に処理します。作業後には、建材の補修や清掃を行い、元の状態に戻します。さらに、防臭・特殊コーティングで臭いの再発を長期的に防止します。原状回復まで一括で作業をすることで、皆様に安心いただける、徹底した特殊清掃ができることがセレンシアの強みです。
             </p>
           </div>
@@ -238,7 +238,7 @@ export default function McyProblems() {
                 専用コーティング剤で
                 <span className="text-lux-gold-light">封じ込め“密閉”</span>
               </p>
-              <p className="mt-[5px] text-[clamp(10px,2.8vw,12.5px)] font-bold leading-[1.7] text-white/85 [word-break:auto-phrase]">
+              <p className="mt-[5px] text-[clamp(14.5px,3.9vw,16px)] font-bold leading-[1.7] text-white/90 [text-wrap:pretty]">
                 臭いの再発を長期的に防ぐ、仕上げの一手間。
               </p>
             </div>

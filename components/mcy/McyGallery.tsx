@@ -32,7 +32,7 @@ export default function McyGallery() {
         <LuxHeading kicker="実際の現場記録">
           本物の<span className="text-lux-green">作業実績</span>
         </LuxHeading>
-        <p className="mx-auto mt-[clamp(10px,3vw,16px)] max-w-[460px] text-center text-[clamp(11px,3.1vw,13.5px)] font-medium leading-[1.9] text-lux-green-ink/85 [word-break:auto-phrase]">
+        <p className="mx-auto mt-[clamp(10px,3vw,16px)] max-w-[460px] text-center text-[clamp(15px,4.1vw,17px)] font-medium leading-[1.9] text-lux-green-ink/90 [text-wrap:pretty]">
           実際に対応した特殊清掃の現場です。防護服・専用機材で、汚染の除去から除菌・消臭・原状回復まで一貫して対応します。
         </p>
 
@@ -54,7 +54,7 @@ export default function McyGallery() {
               <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-[52%] bg-gradient-to-t from-[#06284d] via-[#06284d]/55 to-transparent" />
               <figcaption className="absolute inset-x-0 bottom-0 flex items-center gap-[6px] px-[clamp(8px,2.4vw,11px)] pb-[clamp(8px,2.2vw,11px)] pt-6">
                 <span aria-hidden="true" className="h-[13px] w-[3px] shrink-0 rounded-full bg-gradient-to-b from-lux-gold-light to-lux-gold-deep" />
-                <span className="text-[clamp(9.5px,2.7vw,12px)] font-black leading-[1.4] text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.6)] [word-break:auto-phrase]">
+                <span className="text-[clamp(13.5px,3.6vw,15px)] font-black leading-[1.4] text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.6)] [word-break:auto-phrase]">
                   {s.caption}
                 </span>
               </figcaption>
@@ -62,7 +62,7 @@ export default function McyGallery() {
           ))}
         </div>
 
-        <p className="mx-auto mt-[clamp(12px,3.2vw,16px)] max-w-[460px] text-center text-[clamp(9px,2.5vw,11px)] font-medium leading-[1.7] text-lux-green-ink/80 [word-break:auto-phrase]">
+        <p className="mx-auto mt-[clamp(12px,3.2vw,16px)] max-w-[460px] text-center text-[clamp(13.5px,3.6vw,15px)] font-medium leading-[1.7] text-lux-green-ink/90 [text-wrap:pretty]">
           ※プライバシー保護のため、物件やご依頼者が特定される情報は一切掲載していません。
         </p>
 
@@ -71,7 +71,7 @@ export default function McyGallery() {
           target="_blank"
           rel="noopener noreferrer"
           data-gtm="cta_line_gallery"
-          className="mx-auto mt-[clamp(8px,2.2vw,12px)] block max-w-[460px] py-[12px] text-center text-[clamp(11px,3.1vw,13px)] font-bold text-lux-green-ink underline decoration-lux-gold decoration-2 underline-offset-4 [word-break:auto-phrase]"
+          className="mx-auto mt-[clamp(8px,2.2vw,12px)] block max-w-[460px] py-[12px] text-center text-[clamp(14.5px,3.9vw,16px)] font-bold text-lux-green-ink underline decoration-lux-gold decoration-2 underline-offset-4 [text-wrap:pretty]"
         >
           似た状況ですか？ → LINEでいまの状態を相談する<span className="whitespace-nowrap">（無料・24時間）</span>
         </a>
