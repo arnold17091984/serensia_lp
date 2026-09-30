@@ -1,38 +1,35 @@
 # LP improvement loop (lp-ops)
 
-Agent-driven, human-approved improvement loop for https://tokuso-serenshia.com/.
-Agents analyze and propose every day; production changes ship at most once a
-week, one hypothesis at a time, and only after owner approval.
+Agents do the daily work on https://tokuso-serenshia.com/ and its Google Ads
+campaign; the Telegram message only lists what was done. Production LP deploys
+stay owner-approved, at most one hypothesis per week, so each change can be
+measured.
 
-## Roles
+## Daily routine (09:15, launchd `com.claude.lp-daily-routine`)
 
-| # | Agent | Cadence | Output | Status |
-|---|---|---|---|---|
-| 1 | Data analysis | daily 09:15 | `~/automation/lp-ops/reports/daily-YYYY-MM-DD.md`, hypothesis cards in `~/automation/lp-ops/backlog.md`, Telegram digest | live |
-| 2 | Strategy (4P / 12-type matrix) | monthly | `docs/lp-ops/strategy.md` (changes via PR) | v1 draft (this PR) |
-| 3 | Competitor research | weekly (Mon 09:45) | `~/automation/lp-ops/competitors.md` | live |
-| 4 | Copy / UX proposals | weekly (Mon 09:45, same run as #3) | `~/automation/lp-ops/proposals/weekly-YYYY-MM-DD.md`, Telegram approval request | live |
-| 5 | Implementation (AUTODEV seat) | after approval | PR with before/after screenshots | phase 2 |
-| 6 | QA and cross-model review | per PR | pass/fail with findings | phase 2 |
-| 7 | Experiment evaluation | end of each window | adopt / revert verdict | phase 2 |
+| Step | Worker | What it does | Guard |
+|---|---|---|---|
+| 1 | `lp-collect.py` | Pulls Google Ads, LP health and PageSpeed numbers | deterministic |
+| 2 | `qa/qa.mjs` | Production QA at 390/320/1440px: HTTP/JS errors, overflow, images, tel/LINE links, GA4 + Clarity beacons | deterministic; beacons are aborted so QA never pollutes analytics |
+| 3 | `lp-daily-analysis.sh` | Writes the daily report and adds at most one hypothesis card | writes only backlog / report |
+| 4 | `ads-daily-hygiene.sh` | Proposes negative keywords; `ads-negatives-apply.py` **applies** the ones that pass | phrase match, max 5/day, never blocks converting, protected or own keywords; every change logged with a rollback id |
+| 5 | `lp-daily-work.sh` | Implements the best candidate card (or creates one from evidence) and opens a PR with before/after screenshots and a Codex review | allowed paths only, diff <= 150 lines, build + fact checks (phone, tags) + QA must pass, max 3 open agent PRs |
+| 6 | `lp-digest.py` | One Telegram message: work done, QA status, cards, approvals waiting | — |
+
+Agent runs fall back from `sonnet` to `opus` when a usage limit is hit (`lp-common.sh`).
+
+## Weekly (Mon 09:45, launchd `com.claude.lp-weekly-plan`)
+
+Competitor watch for five specialists (`~/automation/lp-ops/competitors.md`) and up to three proposals, pointing at the ready PRs.
 
 ## Guardrails
 
-- Agents never deploy, never change Google Ads settings, and never edit this repo unattended.
-- One hypothesis per production change; evaluation window >= 2 weeks and >= 300 ad clicks.
-- Numbers in reports come only from `~/automation/scripts/lp-collect.py` output; missing sources are reported as missing.
-- Facts shown on the LP (phone, hours, counts, prices) must be client-confirmed.
+- LP: agents never deploy. The owner approves one PR per week (`H-0XX 承認`); evaluation window >= 2 weeks and >= 300 ad clicks.
+- Ads: the only automatic change is adding phrase-match negatives that pass `ads-negatives-apply.py`. Budgets, bids and ads are never touched. Roll back with `ads-negatives-apply.py rollback <resource_name>` (see `~/automation/lp-ops/ads-changes.jsonl`).
+- Numbers come from the collectors; missing sources are reported as missing.
+- Facts on the LP (phone, hours, counts, prices) must already exist in the source or be client-confirmed.
 
 ## Files outside this repo
 
-- `~/automation/scripts/lp-collect.py` — deterministic data collection (Google Ads via MCP stdio, LP health, PageSpeed)
-- `~/automation/scripts/lp-daily-analysis.sh` — daily agent run (launchd `com.claude.lp-daily-analysis`)
-- `~/automation/scripts/lp-weekly-plan.sh` — weekly competitor watch + proposals (launchd `com.claude.lp-weekly-plan`)
-
-## Approval flow
-
-1. Monday digest lists up to 3 proposals; the owner picks one by telling Claude `H-0XX 承認`.
-2. Claude opens (or updates) a PR with before/after screenshots at 390/320px; QA and review run on the PR.
-3. The owner checks the screenshots; Claude deploys and records the evaluation start date on the card.
-4. After the window, the daily agent reports the metrics and the owner decides adopt / revert.
-- `~/automation/lp-ops/` — config, backlog, reports, raw data, read-only repo clone
+- `~/automation/scripts/` — the workers listed above, `lp-backlog.py`, `lp-common.sh`
+- `~/automation/lp-ops/` — config, backlog, reports, raw data, QA runner, read-only clone (`repo/`), work clone (`work/`)
