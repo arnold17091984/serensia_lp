@@ -1,6 +1,7 @@
 import McyFv from "@/components/mcy/McyFv";
 import McyKvGuide from "@/components/mcy/McyKvGuide";
 import McyMangaSection from "@/components/mcy/McyMangaSection";
+import McyCaseFinder from "@/components/mcy/McyCaseFinder";
 import McyBusinessSupport from "@/components/mcy/McyBusinessSupport";
 import McyProblems from "@/components/mcy/McyProblems";
 import McyGallery from "@/components/mcy/McyGallery";
@@ -26,6 +27,7 @@ export default function Home() {
         <McyFv />
         <McyKvGuide />
         <McyMangaSection />
+        <McyCaseFinder />
         <McyBusinessSupport />
         <McyProblems />
         <McyGallery />
