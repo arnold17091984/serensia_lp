@@ -22,6 +22,7 @@ const STRENGTH_CHECKS = [
   "血痕の除去",
   "夏場の強い腐敗臭",
   "長年蓄積したタバコ臭",
+  "害虫の発生",
 ];
 
 const PROCESS: readonly { name: string; desc: string; icon: ReactNode }[] = [
@@ -84,7 +85,8 @@ export default function McyProblems() {
             </p>
             <GoldDiamond />
             <p className="relative mt-[clamp(8px,2.2vw,12px)] text-[clamp(14.5px,3.9vw,16px)] font-bold text-lux-green-ink/90">
-              セレンシアだからできる、特殊清掃の強みをチェック！
+              <span className="inline-block">セレンシアだからできる、</span>
+              <span className="inline-block">特殊清掃の強みをチェック！</span>
             </p>
           </div>
 
@@ -122,7 +124,7 @@ export default function McyProblems() {
                   どんなケースにも対応
                 </h3>
                 <span aria-hidden="true" className="mx-auto mt-2 block h-[3px] w-[clamp(44px,12vw,64px)] rounded-full bg-gradient-to-r from-lux-gold-light to-lux-gold-deep" />
-                <ul className="mt-3 grid grid-cols-1 gap-[7px] min-[420px]:grid-cols-2">
+                <ul className="mt-3 grid grid-cols-1 gap-[7px]">
                   {STRENGTH_CHECKS.map((c) => (
                     <li
                       key={c}
