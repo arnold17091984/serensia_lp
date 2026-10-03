@@ -22,6 +22,7 @@ const STRENGTH_CHECKS = [
   "血痕の除去",
   "夏場の強い腐敗臭",
   "長年蓄積したタバコ臭",
+  "害虫の発生",
 ];
 
 const PROCESS: readonly { name: string; desc: string; icon: ReactNode }[] = [
