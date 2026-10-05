@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, GOOGLE_REVIEWS_URL, REVIEWS } from "./reviews-data";
+import { GOOGLE_REVIEWS_URL, REVIEWS } from "./reviews-data";
+import { ReviewCount, ReviewRating } from "./live-review-meta";
 
 function GoogleG({ className }: Readonly<{ className?: string }>) {
   return (
@@ -82,8 +83,8 @@ export default function McyReviewsModal() {
             </p>
             <p className="mt-[1px] flex items-center gap-1.5 text-[clamp(10.5px,2.9vw,12px)] font-bold text-lux-green-ink/75">
               <Stars />
-              <span className="font-display text-[clamp(14px,3.8vw,16px)] font-black text-lux-green-ink">{GOOGLE_RATING}</span>
-              <span>／{GOOGLE_REVIEW_COUNT}件から抜粋</span>
+              <span className="font-display text-[clamp(14px,3.8vw,16px)] font-black text-lux-green-ink"><ReviewRating /></span>
+              <span>／<ReviewCount />件から抜粋</span>
             </p>
           </div>
           <button
@@ -137,7 +138,7 @@ export default function McyReviewsModal() {
             className="inline-flex items-center gap-1.5 text-[clamp(11.5px,3.1vw,13px)] font-bold text-lux-green underline decoration-lux-gold decoration-2 underline-offset-2"
           >
             <GoogleG className="h-4 w-4" />
-            Googleで全ての口コミを見る（{GOOGLE_REVIEW_COUNT}件）
+            Googleで全ての口コミを見る（<ReviewCount />件）
             <span aria-hidden="true">→</span>
           </a>
         </div>

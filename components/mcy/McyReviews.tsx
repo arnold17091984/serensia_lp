@@ -1,6 +1,7 @@
 import { LeafSprig, LuxHeading } from "./McyLux";
 import { OpenReviewsCta } from "./OpenReviewsButton";
-import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, REVIEWS } from "./reviews-data";
+import { REVIEWS } from "./reviews-data";
+import { ReviewCount, ReviewRating } from "./live-review-meta";
 
 /**
  * お客様の声 — real Google reviews read INLINE (no navigation), so the social
@@ -39,15 +40,15 @@ export default function McyReviews() {
 
       <div className="relative">
         <LuxHeading kicker="お客様の声" watermark="VOICE">
-          Googleクチコミ <span className="text-lux-green">★{GOOGLE_RATING}</span>
+          Googleクチコミ <span className="text-lux-green">★<ReviewRating /></span>
         </LuxHeading>
 
         {/* rating badge */}
         <div className="mx-auto mt-[clamp(10px,2.8vw,14px)] flex w-fit items-center gap-[clamp(5px,1.6vw,9px)] rounded-full border border-lux-gold/45 bg-white px-[clamp(12px,3.4vw,18px)] py-[clamp(6px,1.8vw,9px)] shadow-[0_2px_8px_rgba(7,49,95,0.1)]">
           <GoogleG className="h-[clamp(16px,4.4vw,20px)] w-[clamp(16px,4.4vw,20px)]" />
           <Stars className="h-[clamp(12px,3.2vw,15px)] w-[clamp(12px,3.2vw,15px)]" />
-          <span className="font-display text-[clamp(15px,4vw,19px)] font-black leading-none text-lux-green-ink">{GOOGLE_RATING}</span>
-          <span className="text-[clamp(10px,2.8vw,12px)] font-bold text-lux-green-ink/70">／{GOOGLE_REVIEW_COUNT}件</span>
+          <span className="font-display text-[clamp(15px,4vw,19px)] font-black leading-none text-lux-green-ink"><ReviewRating /></span>
+          <span className="text-[clamp(10px,2.8vw,12px)] font-bold text-lux-green-ink/70">／<ReviewCount />件</span>
         </div>
 
         {/* featured reviews (read inline — no navigation) */}
@@ -86,7 +87,7 @@ export default function McyReviews() {
             <OpenReviewsCta gtm="reviews_open_section" main="口コミをもっと見る" ariaLabel="お客様の声をもっと見る" />
           </div>
           <p className="mt-[7px] text-[clamp(11px,3vw,12px)] font-medium text-lux-green-ink/75">
-            ※実際のGoogleクチコミ{GOOGLE_REVIEW_COUNT}件から抜粋（このページ内で開きます）
+            ※実際のGoogleクチコミ<ReviewCount />件から抜粋（このページ内で開きます）
           </p>
         </div>
       </div>
