@@ -1,3 +1,4 @@
+import { preload } from "react-dom";
 import { LineCta, PhoneCta } from "./CtaButton";
 import { mcyKvAssets } from "./kv-assets";
 
@@ -8,6 +9,9 @@ import { mcyKvAssets } from "./kv-assets";
  * CSS buttons stand in for them.
  */
 export default function McyFv() {
+  // LCP image: put it in <head> as a high-priority preload so the browser starts
+  // fetching it before parsing the body (Lighthouse: ~3s of LCP was load delay).
+  preload(mcyKvAssets.kv01Top, { as: "image", fetchPriority: "high" });
   return (
     <section className="relative w-full overflow-hidden bg-white">
       <h1 className="sr-only">
