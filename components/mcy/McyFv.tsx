@@ -1,6 +1,7 @@
 import { preload } from "react-dom";
 import { LineCta, PhoneCta } from "./CtaButton";
 import { mcyKvAssets } from "./kv-assets";
+import { CASES } from "./pricing-data";
 
 /**
  * KV01 (2026-09-09 版, 984×1599, no burned-in margins): rows 0..1032 and
@@ -8,6 +9,13 @@ import { mcyKvAssets } from "./kv-assets";
  * band, which carries a WRONG number (03-4400-2106) — are never shipped; the
  * CSS buttons stand in for them.
  */
+// H-012: the artwork only shows the entry price (50,000円〜); state the range of
+// the published case totals so the first screen matches the case reports.
+const caseTotals = CASES.map((c) => Number(c.price.replace(/,/g, "")));
+const yen = (n: number) => n.toLocaleString("ja-JP");
+const CASE_MIN = yen(Math.min(...caseTotals));
+const CASE_MAX = yen(Math.max(...caseTotals));
+
 export default function McyFv() {
   // LCP image: put it in <head> as a high-priority preload so the browser starts
   // fetching it before parsing the body (Lighthouse: ~3s of LCP was load delay).
@@ -33,6 +41,21 @@ export default function McyFv() {
           10px gap match the artwork; data-cta-section hides the sticky bar while
           these are on screen. Out-of-hours copy lives inside the phone button. */}
       <div data-cta-section className="flex flex-col gap-[10px] bg-gradient-to-b from-[#e5f3f1] to-[#f7fcfc] px-3 pb-3 pt-2">
+        <a
+          href="#ryokin"
+          data-gtm="fv_case_total_range"
+          className="flex items-center justify-center gap-x-2 rounded-[12px] border border-lux-border bg-white px-3 py-[9px] text-lux-green-ink shadow-[0_2px_8px_rgba(7,49,95,0.08)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lux-green"
+        >
+          <span className="flex flex-wrap items-baseline justify-center gap-x-[6px] text-center">
+            <span className="text-[clamp(14px,3.8vw,15.5px)] font-bold">掲載事例の総額</span>
+            <span className="whitespace-nowrap text-[clamp(16px,4.4vw,18px)] font-black text-lux-crimson">
+              {CASE_MIN}円〜{CASE_MAX}円
+            </span>
+          </span>
+          <span className="shrink-0 whitespace-nowrap text-[clamp(13.5px,3.6vw,15px)] font-bold text-lux-green underline decoration-lux-gold underline-offset-4">
+            事例を見る
+          </span>
+        </a>
         <PhoneCta gtm="cta_tel_fv" />
         <LineCta gtm="cta_line_fv" top="写真だけでも相談できる" sub="写真なしでもOK｜24時間受付" />
       </div>
