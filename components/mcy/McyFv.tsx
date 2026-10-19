@@ -41,8 +41,8 @@ export default function McyFv() {
           data-gtm="fv_price_tiers"
           className="flex items-center justify-center gap-x-2 rounded-[12px] border border-lux-border bg-white px-3 py-[9px] text-lux-green-ink shadow-[0_2px_8px_rgba(7,49,95,0.08)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lux-green"
         >
-          <span className="flex flex-wrap items-baseline justify-center gap-x-[6px] text-center">
-            <span className="text-[clamp(14px,3.8vw,15.5px)] font-bold">除菌・消毒のみは</span>
+          <span className="flex items-baseline justify-center gap-x-[6px] whitespace-nowrap text-center">
+            <span className="text-[clamp(14px,3.8vw,15.5px)] font-bold">除菌・消毒のみ</span>
             <span className="whitespace-nowrap text-[clamp(16px,4.4vw,18px)] font-black text-lux-crimson">
               50,000円〜
             </span>
