@@ -31,6 +31,6 @@ export interface PhoneHoursCopy {
  */
 export function phoneHoursCopy(closed: boolean): PhoneHoursCopy {
   return closed
-    ? { top: "ただいま受付時間外", sub: `受付 ${PHONE_HOURS}・LINEは24時間` }
+    ? { top: "ただいま受付時間外", sub: "受付9〜21時・LINEは24時間" }
     : { top: "電話で相談する", sub: `受付 ${PHONE_HOURS} 年中無休` };
 }

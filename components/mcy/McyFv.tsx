@@ -15,6 +15,8 @@ const caseTotals = CASES.map((c) => Number(c.price.replace(/,/g, "")));
 const yen = (n: number) => n.toLocaleString("ja-JP");
 const CASE_MIN = yen(Math.min(...caseTotals));
 const CASE_MAX = yen(Math.max(...caseTotals));
+const CASE_MIN_MAN = `${Math.min(...caseTotals) / 10000}万`;
+const CASE_MAX_MAN = `${Math.max(...caseTotals) / 10000}万`;
 
 export default function McyFv() {
   // LCP image: put it in <head> as a high-priority preload so the browser starts
@@ -28,7 +30,7 @@ export default function McyFv() {
       <div className="relative w-full">
         <img
           src={mcyKvAssets.kv01Top}
-          alt="特殊清掃専門のセレンシア。東京・神奈川全域対応。相談・見積無料、追加料金なし、立ち会い不要、近隣配慮。料金目安50,000円〜。"
+          alt="特殊清掃専門のセレンシア。東京・神奈川全域対応。相談・見積無料、追加料金なし、立ち会い不要、近隣配慮。体液除去を伴う特殊清掃の目安150,000円〜。"
           width={984}
           height={1033}
           loading="eager"
@@ -36,6 +38,23 @@ export default function McyFv() {
           fetchPriority="high"
           className="block h-auto w-full"
         />
+        {/* H-017: covers the artwork's baked 「料金目安 50,000円〜」 band (rows 718-848 of
+            984x1033) with one price that matches the case reports. Percent geometry keeps
+            it aligned at every width. 50,000円〜 (空間除菌・消毒のみ) moves to the strip below. */}
+        <a
+          href="#ryokin"
+          data-gtm="fv_price_main"
+          className="absolute left-[4.2%] top-[69.2%] flex h-[13.1%] w-[91.6%] items-center justify-center gap-x-[3%] rounded-[clamp(8px,2.4vw,14px)] border-[clamp(2px,0.5vw,3px)] border-[#2a63c9] bg-white px-[3%] text-lux-green-ink shadow-[0_2px_8px_rgba(7,49,95,0.12)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lux-green"
+        >
+          <span className="flex flex-col text-left text-[clamp(13px,3.7vw,17px)] font-black leading-[1.25]">
+            <span>体液除去を伴う</span>
+            <span>特殊清掃の目安</span>
+          </span>
+          <span className="whitespace-nowrap font-display text-[clamp(24px,7.4vw,38px)] font-black leading-none tracking-[-0.02em] text-lux-crimson">
+            {CASE_MIN}
+            <span className="ml-[2px] text-[0.55em]">円〜</span>
+          </span>
+        </a>
       </div>
       {/* the KV mock's two actions, rebuilt in HTML (T-99). 12px side gutters and a
           10px gap match the artwork; data-cta-section hides the sticky bar while
@@ -46,14 +65,12 @@ export default function McyFv() {
           data-gtm="fv_case_total_range"
           className="flex items-center justify-center gap-x-2 rounded-[12px] border border-lux-border bg-white px-3 py-[9px] text-lux-green-ink shadow-[0_2px_8px_rgba(7,49,95,0.08)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lux-green"
         >
-          <span className="flex flex-wrap items-baseline justify-center gap-x-[6px] text-center">
-            <span className="text-[clamp(14px,3.8vw,15.5px)] font-bold">掲載事例の総額</span>
-            <span className="whitespace-nowrap text-[clamp(16px,4.4vw,18px)] font-black text-lux-crimson">
-              {CASE_MIN}円〜{CASE_MAX}円
-            </span>
+          <span className="flex flex-col items-start text-left text-[clamp(14px,3.8vw,15.5px)] font-bold leading-[1.5]">
+            <span className="whitespace-nowrap">除菌・消毒のみ <span className="text-lux-crimson">50,000円〜</span></span>
+            <span className="whitespace-nowrap">事例の総額 <span className="font-black text-lux-crimson">{CASE_MIN_MAN}〜{CASE_MAX_MAN}円</span></span>
           </span>
           <span className="shrink-0 whitespace-nowrap text-[clamp(13.5px,3.6vw,15px)] font-bold text-lux-green underline decoration-lux-gold underline-offset-4">
-            事例を見る
+            事例を見る ›
           </span>
         </a>
         <PhoneCta gtm="cta_tel_fv" />

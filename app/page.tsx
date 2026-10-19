@@ -37,7 +37,6 @@ export default function Home() {
         <McyCta tone="light" />
         <McyTrust />
         <McyClosing />
-        <McyCta tone="light" />
         <McyFooter />
       </main>
       <McyStickyCta />
