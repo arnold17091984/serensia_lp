@@ -1,7 +1,6 @@
 import { preload } from "react-dom";
 import { LineCta, PhoneCta } from "./CtaButton";
 import { mcyKvAssets } from "./kv-assets";
-import { CASES } from "./pricing-data";
 
 /**
  * KV01 (2026-09-09 版, 984×1599, no burned-in margins): rows 0..1032 and
@@ -9,12 +8,8 @@ import { CASES } from "./pricing-data";
  * band, which carries a WRONG number (03-4400-2106) — are never shipped; the
  * CSS buttons stand in for them.
  */
-// H-012: the artwork only shows the entry price (50,000円〜); state the range of
-// the published case totals so the first screen matches the case reports.
-const caseTotals = CASES.map((c) => Number(c.price.replace(/,/g, "")));
-const yen = (n: number) => n.toLocaleString("ja-JP");
-const CASE_MIN = yen(Math.min(...caseTotals));
-const CASE_MAX = yen(Math.max(...caseTotals));
+// H-017: the artwork's price band now reads 150,000円〜 (body-fluid cleaning, the
+// lowest published case); the strip below states the 50,000円〜 disinfection-only tier.
 
 export default function McyFv() {
   // LCP image: put it in <head> as a high-priority preload so the browser starts
@@ -28,7 +23,7 @@ export default function McyFv() {
       <div className="relative w-full">
         <img
           src={mcyKvAssets.kv01Top}
-          alt="特殊清掃専門のセレンシア。東京・神奈川全域対応。相談・見積無料、追加料金なし、立ち会い不要、近隣配慮。料金目安50,000円〜。"
+          alt="特殊清掃専門のセレンシア。東京・神奈川全域対応。相談・見積無料、追加料金なし、立ち会い不要、近隣配慮。料金目安150,000円〜（除菌・消毒のみは50,000円〜）。"
           width={984}
           height={1033}
           loading="eager"
@@ -43,13 +38,13 @@ export default function McyFv() {
       <div data-cta-section className="flex flex-col gap-[10px] bg-gradient-to-b from-[#e5f3f1] to-[#f7fcfc] px-3 pb-3 pt-2">
         <a
           href="#ryokin"
-          data-gtm="fv_case_total_range"
+          data-gtm="fv_price_tiers"
           className="flex items-center justify-center gap-x-2 rounded-[12px] border border-lux-border bg-white px-3 py-[9px] text-lux-green-ink shadow-[0_2px_8px_rgba(7,49,95,0.08)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lux-green"
         >
-          <span className="flex flex-wrap items-baseline justify-center gap-x-[6px] text-center">
-            <span className="text-[clamp(14px,3.8vw,15.5px)] font-bold">掲載事例の総額</span>
+          <span className="flex items-baseline justify-center gap-x-[6px] whitespace-nowrap text-center">
+            <span className="text-[clamp(14px,3.8vw,15.5px)] font-bold">除菌・消毒のみ</span>
             <span className="whitespace-nowrap text-[clamp(16px,4.4vw,18px)] font-black text-lux-crimson">
-              {CASE_MIN}円〜{CASE_MAX}円
+              50,000円〜
             </span>
           </span>
           <span className="shrink-0 whitespace-nowrap text-[clamp(13.5px,3.6vw,15px)] font-bold text-lux-green underline decoration-lux-gold underline-offset-4">
