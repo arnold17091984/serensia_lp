@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { LineCta } from "./CtaButton";
 import { LINE_URL } from "./contact";
 import {
   CheckGreen,
@@ -138,6 +139,10 @@ export default function McyProblems() {
               </div>
             </div>
           </GoldCard>
+
+          <div data-cta-section className="mx-auto mt-[clamp(16px,4.4vw,24px)] max-w-[460px]">
+            <LineCta size="md" gtm="cta_line_solution" main="LINEで状況を相談する" sub="写真なしでもOK｜24時間受付" ariaLabel="LINEで状況を相談する（写真なしでもOK・24時間受付）" />
+          </div>
         </div>
       </section>
 
@@ -244,6 +249,10 @@ export default function McyProblems() {
                 臭いの再発を長期的に防ぐ、仕上げの一手間。
               </p>
             </div>
+          </div>
+
+          <div data-cta-section className="mx-auto mt-[clamp(16px,4.4vw,24px)] max-w-[460px]">
+            <LineCta size="md" gtm="cta_line_restore" main="LINEで原状回復まで相談する" sub="写真なしでもOK｜24時間受付" ariaLabel="LINEで原状回復まで相談する（写真なしでもOK・24時間受付）" />
           </div>
         </div>
       </section>
