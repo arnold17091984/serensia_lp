@@ -105,6 +105,15 @@ export default function McyCaseFinder() {
         ))}
       </ul>
 
+      {/* H-021: let out-of-scope visitors self-qualify before calling */}
+      <p data-gtm="case_finder_out_of_scope" className="mx-auto mt-5 max-w-[460px] text-center text-[clamp(14px,3.8vw,15.5px)] font-medium leading-[1.7] text-lux-green-ink/80">
+        ※特殊清掃を伴わない、通常の
+        <br />
+        ハウスクリーニングのみのご相談は、
+        <br />
+        対応が難しい場合があります。
+      </p>
+
       <div className="mx-auto mt-6 max-w-[460px]">
         <p className="text-center text-[clamp(15px,4.1vw,17px)] font-bold text-lux-green-ink">どれにも当てはまらない・分からない方へ</p>
         <div className="mt-3">
