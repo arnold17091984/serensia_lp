@@ -56,7 +56,7 @@ export default function McyFv() {
       </div>
       <img
         src={mcyKvAssets.kv01Bottom}
-        alt="Googleクチコミ5.0（191件）、ご相談実績2,000件以上。どんなお悩みでも、まずはご相談ください。"
+        alt="Googleクチコミ5.0（219件）、ご相談実績2,000件以上。どんなお悩みでも、まずはご相談ください。"
         width={984}
         height={270}
         loading="lazy"
