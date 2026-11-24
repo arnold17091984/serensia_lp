@@ -1,5 +1,6 @@
 import { LINE_URL } from "./contact";
 import { LeafSprig, LuxHeading } from "./McyLux";
+import McyBeforeAfter from "./McyBeforeAfter";
 
 /**
  * 現場ギャラリー — real special-cleaning site photos (防護服の専門スタッフによる
@@ -35,6 +36,8 @@ export default function McyGallery() {
         <p className="mx-auto mt-[clamp(10px,3vw,16px)] max-w-[460px] text-center text-[clamp(15px,4.1vw,17px)] font-medium leading-[1.9] text-lux-green-ink/90 [text-wrap:pretty]">
           実際に対応した特殊清掃の現場です。防護服・専用機材で、汚染の除去から除菌・消臭・原状回復まで一貫して対応します。
         </p>
+
+        <McyBeforeAfter />
 
         <div className="mx-auto mt-[clamp(16px,4.4vw,24px)] grid max-w-[460px] grid-cols-2 gap-[clamp(8px,2.4vw,12px)]">
           {SHOTS.map((s) => (
